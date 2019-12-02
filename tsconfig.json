@@ -1,0 +1,19 @@
+{
+  "compilerOptions": {
+    "declaration": true,
+    "declarationDir": "./dist",
+    "module": "commonjs",
+    "noImplicitAny": true,
+    "lib": ["es2017", "es7", "es6", "dom"],
+    "outDir": "./dist",
+    "target": "es2015",
+    "moduleResolution": "node",
+    "jsx": "react",
+    "resolveJsonModule": true,
+    "esModuleInterop": true,
+    "skipLibCheck": false,
+    "sourceMap": true
+  },
+  "include": ["src/**/*", "test/jest-dom.d.ts"],
+  "exclude": ["node_modules", "dist"]
+}

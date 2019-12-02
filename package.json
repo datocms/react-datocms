@@ -46,6 +46,7 @@
       "html",
       "text"
     ],
+    "roots": ["src"],
     "testRegex": "/__tests__/.*\\.(ts|tsx|js)$",
     "setupFilesAfterEnv": [
       "./src/setupTests.ts"

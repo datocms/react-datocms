@@ -12,7 +12,7 @@ A set of components and utilities to work faster with DatoCMS in React environme
   - [Out-of-the-box features](#out-of-the-box-features)
   - [Usage](#usage)
   - [Example](#example)
-- [SEO and favicons](#seo-and-favicons)
+- [SEO and favicon meta tags](#seo-and-favicon-meta-tags)
   - [Example](#example-1)
 
 <!-- END doctoc generated TOC please keep comment here to allow auto update -->
@@ -49,18 +49,20 @@ The GraphQL query returns multiple thumbnails with optimized compression. The `I
 
 ### Example
 
+For a complete example take a look at our [examples directory](https://github.com/datocms/react-datocms/tree/master/examples).
+
 ```js
 import React from "react"
 import { Image } from "react-datocms"
 
-export default ({ data }) => (
+const Page = ({ data }) => (
   <div>
     <h1>{data.blogPost.title}</h1>
     <Image data={data.blogPost.cover.responsiveImage} />
   </div>
 )
 
-export const query = graphql`
+const query = gql`
   query {
     blogPost {
       title
@@ -80,21 +82,23 @@ export const query = graphql`
     }
   }
 `
+
+export default withQuery(query)(Page);
 ```
 
-For a complete example take a look at our [examples directory](https://github.com/datocms/react-datocms/tree/master/examples).
+## SEO and favicon meta tags
 
-## SEO and favicons
-
-Just like the image component, `renderMetaTags()` is a helper specially designed to work seamlessly with DatoCMS’s [`_seoMetaTags` and `_faviconMetaTags` GraphQL queries](https://www.datocms.com/docs/content-delivery-api/seo) so that you can handle proper SEO in your pages with a simple one-liner.
+Just like the image component, `renderMetaTags()` is a helper specially designed to work seamlessly with DatoCMS’s [`_seoMetaTags` and `faviconMetaTags` GraphQL queries](https://www.datocms.com/docs/content-delivery-api/seo) so that you can handle proper SEO in your pages with a simple one-liner.
 
 ### Example
+
+For a complete example take a look at our [examples directory](https://github.com/datocms/react-datocms/tree/master/examples).
 
 ```js
 import React from "react"
 import { renderMetaTags } from "react-datocms"
 
-export default ({ data }) => (
+const Page = ({ data }) => (
   <div>
     <Helmet>
       {renderMetaTags(data.page.seo.concat(data.site.favicon))}
@@ -103,7 +107,7 @@ export default ({ data }) => (
   </div>
 )
 
-export const query = graphql`
+const query = gql`
   query {
     page: homepage {
       title
@@ -123,4 +127,6 @@ export const query = graphql`
     }
   }
 `
+
+export default withQuery(query)(Page);
 ```

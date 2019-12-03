@@ -3,10 +3,10 @@ import "./App.css";
 import { useQuery } from "graphql-hooks";
 import { Helmet } from "react-helmet";
 import { Image, renderMetaTags, renderMetaTagsToString } from "react-datocms";
-import { query, QueryResponseType, QueryVariables } from "./query";
+import { query } from "./query";
 
-const App: React.FC = () => {
-  const { loading, error, data } = useQuery<QueryResponseType, QueryVariables>(
+const App = () => {
+  const { loading, error, data } = useQuery(
     query,
     { variables: { first: 10 } }
   );

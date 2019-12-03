@@ -1,0 +1,42 @@
+{
+  "name": "using-typescript",
+  "version": "0.1.0",
+  "private": true,
+  "dependencies": {
+    "graphql-hooks": "^4.2.0",
+    "react": "file:../../node_modules/react",
+    "react-datocms": "file:../..",
+    "react-dom": "file:../../node_modules/react-dom",
+    "react-helmet": "5.2.1"
+  },
+  "scripts": {
+    "start": "react-scripts start",
+    "build": "react-scripts build",
+    "test": "react-scripts test",
+    "eject": "react-scripts eject"
+  },
+  "eslintConfig": {
+    "extends": "react-app"
+  },
+  "browserslist": {
+    "production": [
+      ">0.2%",
+      "not dead",
+      "not op_mini all"
+    ],
+    "development": [
+      "last 1 chrome version",
+      "last 1 firefox version",
+      "last 1 safari version"
+    ]
+  },
+  "devDependencies": {
+    "@types/jest": "24.0.23",
+    "@types/node": "12.12.14",
+    "@types/react": "16.9.13",
+    "@types/react-dom": "16.9.4",
+    "@types/react-helmet": "^5.0.14",
+    "react-scripts": "3.2.0",
+    "typescript": "3.7.2"
+  }
+}

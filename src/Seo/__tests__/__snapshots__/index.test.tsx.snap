@@ -1,0 +1,21 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`renderMetaTags generates an array of meta tags 1`] = `
+<head>
+  <title
+    key="title"
+  >
+    A new Media Area is online! - DatoCMS
+  </title>
+  <meta
+    content="A new Media Area is online!"
+    key="meta-og:title"
+    property="og:title"
+  />
+  <meta
+    content="A new Media Area is online!"
+    key="meta-twitter:title"
+    name="twitter:title"
+  />
+</head>
+`;

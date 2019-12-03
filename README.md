@@ -13,6 +13,7 @@ A set of components and utilities to work faster with DatoCMS in React environme
   - [Usage](#usage)
   - [Example](#example)
 - [SEO and favicons](#seo-and-favicons)
+  - [Example](#example-1)
 
 <!-- END doctoc generated TOC please keep comment here to allow auto update -->
 
@@ -28,7 +29,7 @@ npm install react-datocms
 
 ## Progressive/responsive image loading
 
-`<Image />` is a React component specially designed to work seamlessly with DatoCMS’s GraphQL queries that completely optimizes image loading for your sites.
+`<Image />` is a React component specially designed to work seamlessly with DatoCMS’s [`responsiveImage` GraphQL query](https://www.datocms.com/docs/qualcosa) that completely optimizes image loading for your sites.
 
 ### Out-of-the-box features
 
@@ -85,4 +86,41 @@ For a complete example take a look at our [examples directory](https://github.co
 
 ## SEO and favicons
 
+Just like the image component, `renderMetaTags()` is a helper specially designed to work seamlessly with DatoCMS’s [`_seoMetaTags` and `_faviconMetaTags` GraphQL queries](https://www.datocms.com/docs/content-delivery-api/seo) so that you can handle proper SEO in your pages with a simple one-liner.
 
+### Example
+
+```js
+import React from "react"
+import { renderMetaTags } from "react-datocms"
+
+export default ({ data }) => (
+  <div>
+    <Helmet>
+      {renderMetaTags(data.page.seo.concat(data.site.favicon))}
+    </Helmet>
+    <h1>{data.page.title}</h1>
+  </div>
+)
+
+export const query = graphql`
+  query {
+    page: homepage {
+      title
+      seo: _seoMetaTags {
+        attributes
+        content
+        tag
+      }
+    }
+
+    site: _site {
+      favicon: faviconMetaTags {
+        attributes
+        content
+        tag
+      }
+    }
+  }
+`
+```

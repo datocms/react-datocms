@@ -15,7 +15,7 @@ const RESPONSIVE_IMAGE_FRAGMENT = `
   title
 `;
 
-const SEO_FRAGMENT = `
+const META_TAGS_FRAGMENT = `
   attributes
   content
   tag
@@ -25,13 +25,13 @@ export const query = `
   query AppQuery($first: IntType) {
     page: blog {
       seo: _seoMetaTags {
-        ${SEO_FRAGMENT}
+        ${META_TAGS_FRAGMENT}
       }
     }
 
     site: _site {
       favicon: faviconMetaTags {
-        ${SEO_FRAGMENT}
+        ${META_TAGS_FRAGMENT}
       }
     }
 

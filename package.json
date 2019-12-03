@@ -30,7 +30,8 @@
     "build": "rimraf dist && tsc",
     "watch": "rimraf dist && tsc --watch",
     "prepare": "yarn test && yarn build",
-    "test": "jest --coverage"
+    "test": "jest --coverage",
+    "toc": "doctoc README.md"
   },
   "peerDependencies": {
     "react": "^16.12.0"

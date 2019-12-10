@@ -1,30 +1,10 @@
 import React from "react";
 
-type TwitterTag = {
-  attributes: {
-    content: string;
-    name: string;
-  };
+export type SeoMetaTagType = {
   tag: string;
-  content: null;
+  content: string | null;
+  attributes: Record<string, string> | null;
 };
-
-type OgTag = {
-  attributes: {
-    content: string;
-    property: string;
-  };
-  tag: string;
-  content: null;
-};
-
-type TitleTag = {
-  attributes: null;
-  tag: string;
-  content: string;
-};
-
-export type SeoMetaTagType = TitleTag | OgTag | TwitterTag;
 
 export type ToMetaTagsType = SeoMetaTagType[];
 

@@ -30,6 +30,7 @@
     "@types/graphql": "^14.5.0",
     "@types/node": "^12.12.12",
     "@types/react": "^16.9.13",
+    "@types/styled-jsx": "^2.2.8",
     "apollo": "^2.21.1",
     "now": "^16.6.3",
     "typescript": "^3.7.2"

@@ -5,13 +5,14 @@ import {
 
 const RESPONSIVE_IMAGE_FRAGMENT = `
   aspectRatio
-  base64
   height
   sizes
   src
+  webpSrcSet
   srcSet
   width
   alt
+  base64
   title
 `;
 
@@ -41,7 +42,7 @@ export const query = `
       slug
       excerpt(markdown: true)
       coverImage {
-        responsiveImage(imgixParams: { fit: crop, ar: "16:9", w: 750 }) {
+        responsiveImage(imgixParams: { fit: crop, ar: "16:9", w: 750, fm: jpg }) {
           ${RESPONSIVE_IMAGE_FRAGMENT}
         }
       }

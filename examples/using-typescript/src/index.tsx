@@ -4,7 +4,7 @@ import { GraphQLClient, ClientContext } from "graphql-hooks";
 import App from "./App";
 
 const client = new GraphQLClient({
-  url: "https://graphql-staging.datocms.com/",
+  url: "https://graphql.datocms.com/",
   headers: {
     Authorization: "Bearer faeb9172e232a75339242faafb9e56de8c8f13b735f7090964"
   }

@@ -5,7 +5,7 @@ type TwitterTag = {
     content: string;
     name: string;
   };
-  tag: "meta";
+  tag: string;
   content: null;
 };
 
@@ -14,13 +14,13 @@ type OgTag = {
     content: string;
     property: string;
   };
-  tag: "meta";
+  tag: string;
   content: null;
 };
 
 type TitleTag = {
   attributes: null;
-  tag: "title";
+  tag: string;
   content: string;
 };
 
@@ -29,8 +29,8 @@ export type SeoMetaTagType = TitleTag | OgTag | TwitterTag;
 export type ToMetaTagsType = SeoMetaTagType[];
 
 export const renderMetaTags = function(data: SeoMetaTagType[]): JSX.Element[] {
-  return data.map(({ tag: Tag, attributes, content }) => {
-    let key: string[] = [Tag];
+  return data.map(({ tag, attributes, content }) => {
+    let key: string[] = [tag];
 
     if (attributes && "property" in attributes) {
       key.push(attributes.property);
@@ -39,6 +39,8 @@ export const renderMetaTags = function(data: SeoMetaTagType[]): JSX.Element[] {
     if (attributes && "name" in attributes) {
       key.push(attributes.name);
     }
+
+    const Tag = (tag as 'meta' | 'title');
 
     return (
       <Tag key={key.join("-")} {...attributes}>

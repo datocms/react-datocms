@@ -1,0 +1,36 @@
+{
+  "name": "hello-next",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "dev": "next",
+    "build": "next build",
+    "start": "next start",
+    "codegen": "apollo codegen:generate types --target=typescript '--includes={components,pages}/*.tsx' --addTypename --globalTypesFile=types/graphql-global-types.ts --passthroughCustomScalars --customScalarsPrefix=GQL"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "apollo-cache-inmemory": "^1.6.3",
+    "apollo-client": "^2.6.4",
+    "apollo-link-http": "^1.5.16",
+    "gatsby-image": "^2.2.36",
+    "graphql-request": "^1.8.2",
+    "graphql-tag": "^2.10.1",
+    "isomorphic-unfetch": "^3.0.0",
+    "next": "^9.1.5",
+    "react": "file:../../node_modules/react",
+    "react-apollo": "^3.1.3",
+    "react-datocms": "file:../..",
+    "react-dom": "file:../../node_modules/react-dom"
+  },
+  "devDependencies": {
+    "@types/graphql": "^14.5.0",
+    "@types/node": "^12.12.12",
+    "@types/react": "^16.9.13",
+    "apollo": "^2.21.1",
+    "typescript": "^3.7.2"
+  }
+}

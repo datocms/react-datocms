@@ -25,6 +25,46 @@ type ImagePropTypes = {
   lazyLoad?: boolean;
 };
 
+type State = {
+  lazyLoad: boolean,
+  isSsr: boolean,
+  isIntersectionObserverAvailable: boolean,
+  inView: boolean,
+  loaded: boolean,
+};
+
+const imageAddStrategy = ({ lazyLoad, isSsr, isIntersectionObserverAvailable, inView, loaded }: State) => {
+  if (!lazyLoad) {
+    return true;
+  }
+
+  if (isSsr) {
+    return false;
+  }
+
+  if (isIntersectionObserverAvailable) {
+    return inView || loaded;
+  }
+
+  return true;
+}
+
+const imageShowStrategy = ({ lazyLoad, isSsr, isIntersectionObserverAvailable, loaded }: State) => {
+  if (!lazyLoad) {
+    return true;
+  }
+
+  if (isSsr) {
+    return false;
+  }
+
+  if (isIntersectionObserverAvailable) {
+    return loaded;
+  }
+
+  return true;
+}
+
 export const Image: React.FC<ImagePropTypes> = function({
   className,
   fadeInDuration,
@@ -46,15 +86,12 @@ export const Image: React.FC<ImagePropTypes> = function({
     triggerOnce: true
   });
 
-  const isSsr = typeof window !== "undefined";
+  const isSsr = typeof window === "undefined";
 
   const isIntersectionObserverAvailable =
-    typeof window !== "undefined"
+    isSsr
       ? false
       : !!(window as any).IntersectionObserver;
-
-  const addImage = !lazyLoad || (isSsr || isIntersectionObserverAvailable ? inView || loaded : true);
-  const showImage = !lazyLoad || (isSsr || isIntersectionObserverAvailable ? loaded : true);
 
   const absolutePositioning: React.CSSProperties = {
     position: "absolute",
@@ -62,6 +99,9 @@ export const Image: React.FC<ImagePropTypes> = function({
     top: 0,
     width: "100%"
   };
+
+  const addImage = imageAddStrategy({ lazyLoad, isSsr, isIntersectionObserverAvailable, inView, loaded });
+  const showImage = imageShowStrategy({ lazyLoad, isSsr, isIntersectionObserverAvailable, inView, loaded });
 
   const webpSource = data.webpSrcSet && (
     <source srcSet={data.webpSrcSet} sizes={data.sizes} type="image/webp" />
@@ -87,6 +127,7 @@ export const Image: React.FC<ImagePropTypes> = function({
       style={{
         position: "relative",
         display: "block",
+        overflow: "hidden",
         maxWidth: `${data.width}px`,
       }}
     >

@@ -21,6 +21,7 @@ exports[`Image not visible renders the blur-up thumb 1`] = `
       Object {
         "display": "block",
         "maxWidth": "750px",
+        "overflow": "hidden",
         "position": "relative",
       }
     }
@@ -72,6 +73,7 @@ exports[`Image visible image loaded shows the image 1`] = `
       Object {
         "display": "block",
         "maxWidth": "750px",
+        "overflow": "hidden",
         "position": "relative",
       }
     }
@@ -146,6 +148,7 @@ exports[`Image visible renders the image 1`] = `
       Object {
         "display": "block",
         "maxWidth": "750px",
+        "overflow": "hidden",
         "position": "relative",
       }
     }

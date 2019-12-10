@@ -1,25 +1,29 @@
 # react-datocms [![Build Status](https://travis-ci.org/datocms/react-datocms.svg?branch=master)](https://travis-ci.org/datocms/react-datocms)
 
-A set of components and utilities to work faster with DatoCMS in React environments. Compatible with any GraphQL library (Apollo, graphql-hooks, graphql-request, etc.)
+A set of components and utilities to work faster with [DatoCMS](https://www.datocms.com/) in React environments. Integrates seamlessy with [DatoCMS's GraphQL Content Delivery API](https://www.datocms.com/docs/content-delivery-api).
+
+Compatible with any GraphQL library (Apollo, graphql-hooks, graphql-request, etc.)
 
 <!-- START doctoc generated TOC please keep comment here to allow auto update -->
 <!-- DON'T EDIT THIS SECTION, INSTEAD RE-RUN doctoc TO UPDATE -->
 
 
-- [Demo](#demo)
-- [Installation](#installation)
-- [Progressive/responsive image loading](#progressiveresponsive-image-loading)
-  - [Out-of-the-box features](#out-of-the-box-features)
-  - [Usage](#usage)
-  - [Example](#example)
-- [SEO and favicon meta tags](#seo-and-favicon-meta-tags)
-  - [Example](#example-1)
+- [react-datocms <img src="https://travis-ci.org/datocms/react-datocms.svg?branch=master" alt="Build Status">](#react-datocms-img-src%22httpstravis-ciorgdatocmsreact-datocmssvgbranchmaster%22-alt%22build-status%22)
+  - [Demos](#demos)
+  - [Installation](#installation)
+  - [Progressive/responsive images](#progressiveresponsive-images)
+    - [Out-of-the-box features](#out-of-the-box-features)
+    - [Usage](#usage)
+    - [Example](#example)
+  - [SEO and favicon meta tags](#seo-and-favicon-meta-tags)
+    - [Example](#example-1)
 
 <!-- END doctoc generated TOC please keep comment here to allow auto update -->
 
-## Demo
+## Demos
 
-[https://react-datocms-example.netlify.com/](https://react-datocms-example.netlify.com/)
+* Pure React: [https://react-datocms-example.netlify.com/](https://react-datocms-example.netlify.com/)
+* Server side rendering with Next.js: [https://with-next-typescript.stefanoverna.now.sh/](https://with-next-typescript.stefanoverna.now.sh/)
 
 ## Installation
 
@@ -27,9 +31,9 @@ A set of components and utilities to work faster with DatoCMS in React environme
 npm install react-datocms
 ```
 
-## Progressive/responsive image loading
+## Progressive/responsive images
 
-`<Image />` is a React component specially designed to work seamlessly with DatoCMS’s [`responsiveImage` GraphQL query](https://www.datocms.com/docs/qualcosa) that completely optimizes image loading for your sites.
+`<Image />` is a React component specially designed to work seamlessly with DatoCMS’s [`responsiveImage` GraphQL query](https://www.datocms.com/docs/qualcosa) that optimizes image loading for your sites.
 
 ### Out-of-the-box features
 

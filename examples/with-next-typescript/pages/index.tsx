@@ -11,7 +11,7 @@ import ErrorMessage from "../components/ErrorMessage";
 import {
   BlogPostsQuery,
   BlogPostsQueryVariables
-} from "./types/BlogPostsQuery";
+} from "../types/BlogPostsQuery";
 
 const seoMetaTagsFragment = gql`
   fragment seoMetaTagsFragment on Tag {

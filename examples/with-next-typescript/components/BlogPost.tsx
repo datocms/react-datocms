@@ -3,7 +3,7 @@ import { Image } from "react-datocms";
 import css from "styled-jsx/css";
 
 import SFC from "../lib/SFC";
-import { BlogPost as BlogPostInterface } from "./types/BlogPost";
+import { BlogPost as BlogPostInterface } from "../types/BlogPost";
 
 const image = css.resolve`
   margin-bottom: 2em;

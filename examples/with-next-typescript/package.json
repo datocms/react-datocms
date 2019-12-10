@@ -31,6 +31,7 @@
     "@types/node": "^12.12.12",
     "@types/react": "^16.9.13",
     "apollo": "^2.21.1",
+    "now": "^16.6.3",
     "typescript": "^3.7.2"
   }
 }

@@ -22,6 +22,7 @@ const BlogPost: SFC<BlogPostInterface> = blogPost => {
       {blogPost.coverImage && blogPost.coverImage.responsiveImage && (
         <Image
           className={image.className}
+          fadeInDuration={1000}
           data={blogPost.coverImage.responsiveImage}
         />
       )}
@@ -45,6 +46,7 @@ const BlogPost: SFC<BlogPostInterface> = blogPost => {
           {blogPost.author.avatar && blogPost.author.avatar.responsiveImage && (
             <Image
               className={authorImage.className}
+              fadeInDuration={1000}
               data={blogPost.author.avatar.responsiveImage}
             />
           )}

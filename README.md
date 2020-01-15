@@ -43,7 +43,7 @@ npm install react-datocms
 
 ## Progressive/responsive image
 
-`<Image />` is a React component specially designed to work seamlessly with DatoCMS’s [`responsiveImage` GraphQL query](https://www.datocms.com/docs/qualcosa) that optimizes image loading for your sites.
+`<Image />` is a React component specially designed to work seamlessly with DatoCMS’s [`responsiveImage` GraphQL query](https://www.datocms.com/docs/content-delivery-api/uploads#responsive-images) that optimizes image loading for your sites.
 
 ![](docs/image-component.gif?raw=true)
 

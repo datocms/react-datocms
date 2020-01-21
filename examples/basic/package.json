@@ -4,9 +4,9 @@
   "private": true,
   "dependencies": {
     "graphql-hooks": "^4.2.0",
-    "react": "file:../../node_modules/react",
-    "react-datocms": "file:../..",
-    "react-dom": "file:../../node_modules/react-dom",
+    "react": "^16.12.0",
+    "react-dom": "^16.12.0",
+    "react-datocms": "^1.0.5",
     "react-helmet": "^5.2.1",
     "react-scripts": "3.2.0"
   },

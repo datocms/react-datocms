@@ -1,0 +1,4 @@
+[build]
+  base = "examples/basic"
+  publish = "build"
+  command = "npm run build"

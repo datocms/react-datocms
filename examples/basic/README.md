@@ -1,6 +1,6 @@
 # Basic usage example
 
-A basic example created with [RCA](https://github.com/facebook/create-react-app).
+A basic example created with [CRA](https://github.com/facebook/create-react-app).
 
 ## Available Scripts
 

@@ -30,7 +30,7 @@
   "scripts": {
     "build": "rimraf dist && tsc",
     "watch": "rimraf dist && tsc --watch",
-    "prepare": "yarn test && yarn build",
+    "prepare": "npm run test && npm run build",
     "test": "jest --coverage",
     "toc": "doctoc README.md"
   },

@@ -19,7 +19,7 @@ exports[`Image not visible renders the blur-up thumb 1`] = `
   <div
     style={
       Object {
-        "display": "block",
+        "display": "inline-block",
         "maxWidth": "750px",
         "overflow": "hidden",
         "position": "relative",
@@ -71,7 +71,7 @@ exports[`Image visible image loaded shows the image 1`] = `
   <div
     style={
       Object {
-        "display": "block",
+        "display": "inline-block",
         "maxWidth": "750px",
         "overflow": "hidden",
         "position": "relative",
@@ -108,6 +108,11 @@ exports[`Image visible image loaded shows the image 1`] = `
         alt="DatoCMS swag"
         onLoad={[Function]}
         src="https://www.datocms-assets.com/205/image.png?ar=16%3A9&fit=crop&w=750"
+        style={
+          Object {
+            "maxWidth": "100%",
+          }
+        }
         title="These are awesome, we know that."
       />
     </picture>
@@ -146,7 +151,7 @@ exports[`Image visible renders the image 1`] = `
   <div
     style={
       Object {
-        "display": "block",
+        "display": "inline-block",
         "maxWidth": "750px",
         "overflow": "hidden",
         "position": "relative",
@@ -183,6 +188,11 @@ exports[`Image visible renders the image 1`] = `
         alt="DatoCMS swag"
         onLoad={[Function]}
         src="https://www.datocms-assets.com/205/image.png?ar=16%3A9&fit=crop&w=750"
+        style={
+          Object {
+            "maxWidth": "100%",
+          }
+        }
         title="These are awesome, we know that."
       />
     </picture>

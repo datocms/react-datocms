@@ -23,6 +23,8 @@ type ImagePropTypes = {
   intersectionTreshold?: number;
   intersectionMargin?: string;
   lazyLoad?: boolean;
+  style?: React.CSSProperties;
+  pictureStyle?: React.CSSProperties;
 };
 
 type State = {
@@ -72,6 +74,8 @@ export const Image: React.FC<ImagePropTypes> = function({
   intersectionMargin,
   pictureClassName,
   lazyLoad = true,
+  style,
+  pictureStyle,
   data
 }) {
   const [loaded, setLoaded] = useState<boolean>(false);
@@ -125,10 +129,11 @@ export const Image: React.FC<ImagePropTypes> = function({
       ref={ref}
       className={className}
       style={{
-        position: "relative",
-        display: "block",
+        display: "inline-block",
+        ...style,
         overflow: "hidden",
         maxWidth: `${data.width}px`,
+        position: "relative",
       }}
     >
       {placeholder}
@@ -136,6 +141,7 @@ export const Image: React.FC<ImagePropTypes> = function({
         <picture
           className={pictureClassName}
           style={{
+            ...pictureStyle,
             ...absolutePositioning,
             opacity: showImage ? 1 : 0,
             transition:
@@ -152,12 +158,13 @@ export const Image: React.FC<ImagePropTypes> = function({
               alt={data.alt}
               title={data.title}
               onLoad={handleLoad}
+              style={{ maxWidth: '100%' }}
             />
           )}
         </picture>
       )}
       <noscript>
-        <picture className={pictureClassName} style={absolutePositioning}>
+        <picture className={pictureClassName} style={{ ...pictureStyle, ...absolutePositioning }}>
           {webpSource}
           {regularSource}
           {data.src && <img src={data.src} alt={data.alt} title={data.title} />}

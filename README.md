@@ -82,7 +82,7 @@ const query = gql`
     blogPost {
       title
       cover {
-        responsiveImage(imgixParams: { fit: crop, w: 300, h: 300 }) {
+        responsiveImage(imgixParams: { fit: crop, w: 300, h: 300, auto: format }) {
 
           # HTML5 src/srcset/sizes attributes
           srcSet
@@ -119,7 +119,9 @@ export default withQuery(query)(Page);
 | -------------------- | ------------------------ | ----------------- | ------------------ | --------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
 | data                 | `ResponsiveImage` object |                   | :white_check_mark: | The actual response you get from a DatoCMS `responsiveImage` GraphQL query.                                                                                                                                                                                                                   |
 | className            | string                   | null              | :x:                | Additional CSS class of root node                                                                                                                                                                                                                                                             |
+| style                | CSS properties           | null              | :x:                | Additional CSS rules to add to the root node                                                                                                                                                                                                                                                             |
 | pictureClassName     | string                   | null              | :x:                | Additional CSS class for the inner `<picture />` tag                                                                                                                                                                                                                                          |
+| pictureStyle         | CSS properties           | null              | :x:                | Additional CSS rules to add to the inner `<picture />` tag                                                                                                                                                                                                                                       |
 | fadeInDuration       | integer                  | 500               | :x:                | Duration (in ms) of the fade-in transition effect upoad image loading                                                                                                                                                                                                                         |
 | intersectionTreshold | float                    | 0                 | :x:                | Indicate at what percentage of the placeholder visibility the loading of the image should be triggered. A value of 0 means that as soon as even one pixel is visible, the callback will be run. A value of 1.0 means that the threshold isn't considered passed until every pixel is visible. |
 | intersectionMargin   | string                   | "0px 0px 0px 0px" | :x:                | Margin around the placeholder. Can have values similar to the CSS margin property (top, right, bottom, left). The values can be percentages. This set of values serves to grow or shrink each side of the placeholder element's bounding box before computing intersections.                  |
@@ -130,7 +132,8 @@ export default withQuery(query)(Page);
 The `data` prop expects an object with the same shape as the one returned by `responsiveImage` GraphQL call. It's up to you to make a GraphQL query that will return the properties you need for a specific use of the `<Image>` component.
 
 * The mimumum required properties for `data` are: `aspectRatio`, `width`, `sizes`, `srcSet` and `src`;
-* `webpSrcSet`, `alt` and `title`, while not mandatory, are all highly suggested, so remember to use them!
+* `alt` and `title`, while not mandatory, are all highly suggested, so remember to use them!
+* You either want to add the `webpSrcSet` field or specify `{ auto: format }` in your `imgixParams`, to automatically use WebP images in browsers that support the format;
 * If you provide both the `bgColor` and `base64` property, the latter will take precedence, so just avoiding querying both fields at the same time, it will only make the response bigger :wink:
 
 Here's a complete recap of what `responsiveImage` offers:

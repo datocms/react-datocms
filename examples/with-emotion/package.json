@@ -3,14 +3,14 @@
   "version": "0.1.0",
   "private": true,
   "dependencies": {
-    "@emotion/core": "^10.0.22",
-    "@emotion/styled": "^10.0.23",
-    "graphql-hooks": "^4.2.0",
+    "@emotion/core": "^10.0.28",
+    "@emotion/styled": "^10.0.27",
+    "graphql-hooks": "^4.4.3",
     "react": "file:../../node_modules/react",
     "react-datocms": "file:../..",
     "react-dom": "file:../../node_modules/react-dom",
     "react-helmet": "^5.2.1",
-    "react-scripts": "3.2.0"
+    "react-scripts": "3.4.0"
   },
   "scripts": {
     "start": "react-scripts start",

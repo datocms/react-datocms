@@ -20,9 +20,10 @@ exports[`Image not visible renders the blur-up thumb 1`] = `
     style={
       Object {
         "display": "inline-block",
-        "maxWidth": "750px",
+        "maxWidth": "100%",
         "overflow": "hidden",
         "position": "relative",
+        "width": "750px",
       }
     }
   >
@@ -32,7 +33,7 @@ exports[`Image not visible renders the blur-up thumb 1`] = `
           "backgroundColor": undefined,
           "backgroundImage": "url(data:image/jpeg;base64,/9j/4AAQSkZJRgABAQAAAQABAAD/2wCEAAoHBwgHBgoICAgLFQoLDhgQDg0NDh0eHREYIx8lJCIrHB0dLSs7GikyKSEuKjUlKDk1MjIyHyo4PTc+PDcxPjUBCgsLDg0OHBAQHDsoIig7Ozs7Ozs7OzsvOzs7Ozs7Ozs7Lzs7Ozs7Ozs7OzsvOzs7NTsvLy87NTU1Ly8vLzsvL//AABEIAA0AGAMBIgACEQEDEQH/xAAYAAACAwAAAAAAAAAAAAAAAAAGBwABBP/EACEQAAEEAAYDAAAAAAAAAAAAAAEAAgMEBQYHESEiFWFx/8QAFQEBAQAAAAAAAAAAAAAAAAAAAwL/xAAZEQADAAMAAAAAAAAAAAAAAAAAAQIRITH/2gAMAwEAAhEDEQA/AFxLgDWTsAd1J5TGy7hEYqNAaNgECX7sjLMQAHJTEy1Zcarfia4lJMauAxqBhLY6ZlaOzDurWvUOd3jZPfCiEh4xs//Z)",
           "backgroundSize": "cover",
-          "paddingTop": "56.25%",
+          "paddingTop": "56.13333333333333%",
         }
       }
     />
@@ -72,9 +73,10 @@ exports[`Image visible image loaded shows the image 1`] = `
     style={
       Object {
         "display": "inline-block",
-        "maxWidth": "750px",
+        "maxWidth": "100%",
         "overflow": "hidden",
         "position": "relative",
+        "width": "750px",
       }
     }
   >
@@ -84,7 +86,7 @@ exports[`Image visible image loaded shows the image 1`] = `
           "backgroundColor": undefined,
           "backgroundImage": "url(data:image/jpeg;base64,/9j/4AAQSkZJRgABAQAAAQABAAD/2wCEAAoHBwgHBgoICAgLFQoLDhgQDg0NDh0eHREYIx8lJCIrHB0dLSs7GikyKSEuKjUlKDk1MjIyHyo4PTc+PDcxPjUBCgsLDg0OHBAQHDsoIig7Ozs7Ozs7OzsvOzs7Ozs7Ozs7Lzs7Ozs7Ozs7OzsvOzs7NTsvLy87NTU1Ly8vLzsvL//AABEIAA0AGAMBIgACEQEDEQH/xAAYAAACAwAAAAAAAAAAAAAAAAAGBwABBP/EACEQAAEEAAYDAAAAAAAAAAAAAAEAAgMEBQYHESEiFWFx/8QAFQEBAQAAAAAAAAAAAAAAAAAAAwL/xAAZEQADAAMAAAAAAAAAAAAAAAAAAQIRITH/2gAMAwEAAhEDEQA/AFxLgDWTsAd1J5TGy7hEYqNAaNgECX7sjLMQAHJTEy1Zcarfia4lJMauAxqBhLY6ZlaOzDurWvUOd3jZPfCiEh4xs//Z)",
           "backgroundSize": "cover",
-          "paddingTop": "56.25%",
+          "paddingTop": "56.13333333333333%",
         }
       }
     />
@@ -152,9 +154,10 @@ exports[`Image visible renders the image 1`] = `
     style={
       Object {
         "display": "inline-block",
-        "maxWidth": "750px",
+        "maxWidth": "100%",
         "overflow": "hidden",
         "position": "relative",
+        "width": "750px",
       }
     }
   >
@@ -164,7 +167,7 @@ exports[`Image visible renders the image 1`] = `
           "backgroundColor": undefined,
           "backgroundImage": "url(data:image/jpeg;base64,/9j/4AAQSkZJRgABAQAAAQABAAD/2wCEAAoHBwgHBgoICAgLFQoLDhgQDg0NDh0eHREYIx8lJCIrHB0dLSs7GikyKSEuKjUlKDk1MjIyHyo4PTc+PDcxPjUBCgsLDg0OHBAQHDsoIig7Ozs7Ozs7OzsvOzs7Ozs7Ozs7Lzs7Ozs7Ozs7OzsvOzs7NTsvLy87NTU1Ly8vLzsvL//AABEIAA0AGAMBIgACEQEDEQH/xAAYAAACAwAAAAAAAAAAAAAAAAAGBwABBP/EACEQAAEEAAYDAAAAAAAAAAAAAAEAAgMEBQYHESEiFWFx/8QAFQEBAQAAAAAAAAAAAAAAAAAAAwL/xAAZEQADAAMAAAAAAAAAAAAAAAAAAQIRITH/2gAMAwEAAhEDEQA/AFxLgDWTsAd1J5TGy7hEYqNAaNgECX7sjLMQAHJTEy1Zcarfia4lJMauAxqBhLY6ZlaOzDurWvUOd3jZPfCiEh4xs//Z)",
           "backgroundSize": "cover",
-          "paddingTop": "56.25%",
+          "paddingTop": "56.13333333333333%",
         }
       }
     />

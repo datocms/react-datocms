@@ -117,7 +117,7 @@ export const Image: React.FC<ImagePropTypes> = function({
 
   const placeholder = <div
     style={{
-      paddingTop: `${100.0 / data.aspectRatio}%`,
+      paddingTop: data.width && data.height ? `${data.height / data.width * 100.0}%` : `${100.0 / data.aspectRatio}%`,
       backgroundImage: data.base64 ? `url(${data.base64})` : null,
       backgroundColor: data.bgColor,
       backgroundSize: "cover"
@@ -130,9 +130,10 @@ export const Image: React.FC<ImagePropTypes> = function({
       className={className}
       style={{
         display: "inline-block",
+        maxWidth: "100%",
+        width: `${data.width}px`,
         ...style,
         overflow: "hidden",
-        maxWidth: `${data.width}px`,
         position: "relative",
       }}
     >

@@ -13,26 +13,25 @@
   "author": "",
   "license": "ISC",
   "dependencies": {
-    "apollo-cache-inmemory": "^1.6.3",
-    "apollo-client": "^2.6.4",
+    "apollo-cache-inmemory": "^1.6.5",
+    "apollo-client": "^2.6.8",
     "apollo-link-http": "^1.5.16",
-    "gatsby-image": "^2.2.36",
     "graphql-request": "^1.8.2",
-    "graphql-tag": "^2.10.1",
+    "graphql-tag": "^2.10.3",
     "isomorphic-unfetch": "^3.0.0",
-    "next": "^9.1.5",
-    "react": "^16.12.0",
+    "next": "^9.2.2",
+    "react": "^16.13.0",
     "react-apollo": "^3.1.3",
     "react-datocms": "^1.0.5",
-    "react-dom": "^16.12.0"
+    "react-dom": "^16.13.0"
   },
   "devDependencies": {
     "@types/graphql": "^14.5.0",
-    "@types/node": "^12.12.12",
-    "@types/react": "^16.9.13",
+    "@types/node": "^13.7.7",
+    "@types/react": "^16.9.23",
     "@types/styled-jsx": "^2.2.8",
-    "apollo": "^2.21.1",
-    "now": "^16.6.3",
-    "typescript": "^3.7.2"
+    "apollo": "^2.25.0",
+    "now": "^17.0.4",
+    "typescript": "^3.8.3"
   }
 }

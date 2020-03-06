@@ -3,12 +3,12 @@
   "version": "0.1.0",
   "private": true,
   "dependencies": {
-    "graphql-hooks": "^4.2.0",
+    "graphql-hooks": "^4.4.3",
     "react": "file:../../node_modules/react",
     "react-datocms": "file:../..",
     "react-dom": "file:../../node_modules/react-dom",
     "react-helmet": "^5.2.1",
-    "react-scripts": "3.2.0"
+    "react-scripts": "3.4.0"
   },
   "scripts": {
     "start": "react-scripts start",

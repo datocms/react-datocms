@@ -1,13 +1,14 @@
 {
   "name": "react-datocms",
   "version": "1.1.0",
-  "main": "dist/index.js",
   "types": "dist/index.d.ts",
+  "main": "dist/index.js",
   "files": [
     "dist"
   ],
   "license": "MIT",
   "author": "Stefano Verna <s.verna@datocms.com>",
+  "homepage": "https://github.com/datocms/react-datocms",
   "devDependencies": {
     "@types/enzyme": "^3.10.5",
     "@types/enzyme-adapter-react-16": "^1.0.6",

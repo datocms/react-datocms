@@ -130,8 +130,8 @@ export const Image: React.FC<ImagePropTypes> = function({
       className={className}
       style={{
         display: "inline-block",
-        maxWidth: "100%",
-        width: `${data.width}px`,
+        width: "100%",
+        maxWidth: `${data.width}px`,
         ...style,
         overflow: "hidden",
         position: "relative",

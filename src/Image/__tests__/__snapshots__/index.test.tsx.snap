@@ -20,10 +20,10 @@ exports[`Image not visible renders the blur-up thumb 1`] = `
     style={
       Object {
         "display": "inline-block",
-        "maxWidth": "100%",
+        "maxWidth": "750px",
         "overflow": "hidden",
         "position": "relative",
-        "width": "750px",
+        "width": "100%",
       }
     }
   >
@@ -73,10 +73,10 @@ exports[`Image visible image loaded shows the image 1`] = `
     style={
       Object {
         "display": "inline-block",
-        "maxWidth": "100%",
+        "maxWidth": "750px",
         "overflow": "hidden",
         "position": "relative",
-        "width": "750px",
+        "width": "100%",
       }
     }
   >
@@ -154,10 +154,10 @@ exports[`Image visible renders the image 1`] = `
     style={
       Object {
         "display": "inline-block",
-        "maxWidth": "100%",
+        "maxWidth": "750px",
         "overflow": "hidden",
         "position": "relative",
-        "width": "750px",
+        "width": "100%",
       }
     }
   >

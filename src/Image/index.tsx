@@ -25,17 +25,24 @@ type ImagePropTypes = {
   lazyLoad?: boolean;
   style?: React.CSSProperties;
   pictureStyle?: React.CSSProperties;
+  explicitWidth?: boolean;
 };
 
 type State = {
-  lazyLoad: boolean,
-  isSsr: boolean,
-  isIntersectionObserverAvailable: boolean,
-  inView: boolean,
-  loaded: boolean,
+  lazyLoad: boolean;
+  isSsr: boolean;
+  isIntersectionObserverAvailable: boolean;
+  inView: boolean;
+  loaded: boolean;
 };
 
-const imageAddStrategy = ({ lazyLoad, isSsr, isIntersectionObserverAvailable, inView, loaded }: State) => {
+const imageAddStrategy = ({
+  lazyLoad,
+  isSsr,
+  isIntersectionObserverAvailable,
+  inView,
+  loaded
+}: State) => {
   if (!lazyLoad) {
     return true;
   }
@@ -49,9 +56,14 @@ const imageAddStrategy = ({ lazyLoad, isSsr, isIntersectionObserverAvailable, in
   }
 
   return true;
-}
+};
 
-const imageShowStrategy = ({ lazyLoad, isSsr, isIntersectionObserverAvailable, loaded }: State) => {
+const imageShowStrategy = ({
+  lazyLoad,
+  isSsr,
+  isIntersectionObserverAvailable,
+  loaded
+}: State) => {
   if (!lazyLoad) {
     return true;
   }
@@ -65,7 +77,7 @@ const imageShowStrategy = ({ lazyLoad, isSsr, isIntersectionObserverAvailable, l
   }
 
   return true;
-}
+};
 
 export const Image: React.FC<ImagePropTypes> = function({
   className,
@@ -76,6 +88,7 @@ export const Image: React.FC<ImagePropTypes> = function({
   lazyLoad = true,
   style,
   pictureStyle,
+  explicitWidth,
   data
 }) {
   const [loaded, setLoaded] = useState<boolean>(false);
@@ -92,10 +105,9 @@ export const Image: React.FC<ImagePropTypes> = function({
 
   const isSsr = typeof window === "undefined";
 
-  const isIntersectionObserverAvailable =
-    isSsr
-      ? false
-      : !!(window as any).IntersectionObserver;
+  const isIntersectionObserverAvailable = isSsr
+    ? false
+    : !!(window as any).IntersectionObserver;
 
   const absolutePositioning: React.CSSProperties = {
     position: "absolute",
@@ -104,8 +116,20 @@ export const Image: React.FC<ImagePropTypes> = function({
     width: "100%"
   };
 
-  const addImage = imageAddStrategy({ lazyLoad, isSsr, isIntersectionObserverAvailable, inView, loaded });
-  const showImage = imageShowStrategy({ lazyLoad, isSsr, isIntersectionObserverAvailable, inView, loaded });
+  const addImage = imageAddStrategy({
+    lazyLoad,
+    isSsr,
+    isIntersectionObserverAvailable,
+    inView,
+    loaded
+  });
+  const showImage = imageShowStrategy({
+    lazyLoad,
+    isSsr,
+    isIntersectionObserverAvailable,
+    inView,
+    loaded
+  });
 
   const webpSource = data.webpSrcSet && (
     <source srcSet={data.webpSrcSet} sizes={data.sizes} type="image/webp" />
@@ -115,14 +139,29 @@ export const Image: React.FC<ImagePropTypes> = function({
     <source srcSet={data.srcSet} sizes={data.sizes} />
   );
 
-  const placeholder = <div
-    style={{
-      paddingTop: data.width && data.height ? `${data.height / data.width * 100.0}%` : `${100.0 / data.aspectRatio}%`,
-      backgroundImage: data.base64 ? `url(${data.base64})` : null,
-      backgroundColor: data.bgColor,
-      backgroundSize: "cover"
-    }}
-  />;
+  const placeholder = (
+    <div
+      style={{
+        paddingTop:
+          data.width && data.height
+            ? `${(data.height / data.width) * 100.0}%`
+            : `${100.0 / data.aspectRatio}%`,
+        backgroundImage: data.base64 ? `url(${data.base64})` : null,
+        backgroundColor: data.bgColor,
+        backgroundSize: "cover"
+      }}
+    />
+  );
+
+  const width = explicitWidth
+    ? {
+        maxWidth: "100%",
+        width: `${data.width}px`
+      }
+    : {
+        width: "100%",
+        maxWidth: `${data.width}px`
+      };
 
   return (
     <div
@@ -130,11 +169,10 @@ export const Image: React.FC<ImagePropTypes> = function({
       className={className}
       style={{
         display: "inline-block",
-        width: "100%",
-        maxWidth: `${data.width}px`,
+        ...width,
         ...style,
         overflow: "hidden",
-        position: "relative",
+        position: "relative"
       }}
     >
       {placeholder}
@@ -159,13 +197,16 @@ export const Image: React.FC<ImagePropTypes> = function({
               alt={data.alt}
               title={data.title}
               onLoad={handleLoad}
-              style={{ maxWidth: '100%' }}
+              style={{ maxWidth: "100%" }}
             />
           )}
         </picture>
       )}
       <noscript>
-        <picture className={pictureClassName} style={{ ...pictureStyle, ...absolutePositioning }}>
+        <picture
+          className={pictureClassName}
+          style={{ ...pictureStyle, ...absolutePositioning }}
+        >
           {webpSource}
           {regularSource}
           {data.src && <img src={data.src} alt={data.alt} title={data.title} />}

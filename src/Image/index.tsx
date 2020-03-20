@@ -197,7 +197,7 @@ export const Image: React.FC<ImagePropTypes> = function({
               alt={data.alt}
               title={data.title}
               onLoad={handleLoad}
-              style={{ maxWidth: "100%" }}
+              style={{ width: "100%" }}
             />
           )}
         </picture>

@@ -112,7 +112,7 @@ exports[`Image visible image loaded shows the image 1`] = `
         src="https://www.datocms-assets.com/205/image.png?ar=16%3A9&fit=crop&w=750"
         style={
           Object {
-            "maxWidth": "100%",
+            "width": "100%",
           }
         }
         title="These are awesome, we know that."
@@ -193,7 +193,7 @@ exports[`Image visible renders the image 1`] = `
         src="https://www.datocms-assets.com/205/image.png?ar=16%3A9&fit=crop&w=750"
         style={
           Object {
-            "maxWidth": "100%",
+            "width": "100%",
           }
         }
         title="These are awesome, we know that."

@@ -113,7 +113,8 @@ export const Image: React.FC<ImagePropTypes> = function({
     position: "absolute",
     left: 0,
     top: 0,
-    width: "100%"
+    bottom: 0,
+    right: 0
   };
 
   const addImage = imageAddStrategy({
@@ -142,26 +143,30 @@ export const Image: React.FC<ImagePropTypes> = function({
   const placeholder = (
     <div
       style={{
-        paddingTop:
-          data.width && data.height
-            ? `${(data.height / data.width) * 100.0}%`
-            : `${100.0 / data.aspectRatio}%`,
         backgroundImage: data.base64 ? `url(${data.base64})` : null,
         backgroundColor: data.bgColor,
-        backgroundSize: "cover"
+        backgroundSize: "cover",
+        ...absolutePositioning
       }}
     />
   );
 
-  const width = explicitWidth
-    ? {
-        maxWidth: "100%",
-        width: `${data.width}px`
-      }
-    : {
-        width: "100%",
-        maxWidth: `${data.width}px`
-      };
+  const { width, aspectRatio } = data;
+  const height = data.height || width / aspectRatio;
+
+  const sizer = (
+    <svg
+      className={pictureClassName}
+      style={{
+        width: explicitWidth ? `${width}px` : "100%",
+        height: "auto",
+        display: "block",
+        ...pictureStyle
+      }}
+      height={height}
+      width={width}
+    />
+  );
 
   return (
     <div
@@ -169,18 +174,16 @@ export const Image: React.FC<ImagePropTypes> = function({
       className={className}
       style={{
         display: "inline-block",
-        ...width,
-        ...style,
         overflow: "hidden",
+        ...style,
         position: "relative"
       }}
     >
+      {sizer}
       {placeholder}
       {addImage && (
         <picture
-          className={pictureClassName}
           style={{
-            ...pictureStyle,
             ...absolutePositioning,
             opacity: showImage ? 1 : 0,
             transition:
@@ -203,10 +206,7 @@ export const Image: React.FC<ImagePropTypes> = function({
         </picture>
       )}
       <noscript>
-        <picture
-          className={pictureClassName}
-          style={{ ...pictureStyle, ...absolutePositioning }}
-        >
+        <picture className={pictureClassName} style={{ ...pictureStyle }}>
           {webpSource}
           {regularSource}
           {data.src && <img src={data.src} alt={data.alt} title={data.title} />}

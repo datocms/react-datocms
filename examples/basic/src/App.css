@@ -55,6 +55,7 @@ body {
 .blogPost-image {
   margin-bottom: 2em;
   border-radius: 3px;
+  overflow: hidden;
 }
 
 .blogPost-author {

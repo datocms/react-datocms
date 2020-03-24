@@ -146,6 +146,11 @@ export const Image: React.FC<ImagePropTypes> = function({
         backgroundImage: data.base64 ? `url(${data.base64})` : null,
         backgroundColor: data.bgColor,
         backgroundSize: "cover",
+        opacity: showImage ? 0 : 1,
+        transition:
+          !fadeInDuration || fadeInDuration > 0
+            ? `opacity ${fadeInDuration || 500}ms ${fadeInDuration || 500}ms`
+            : null,
         ...absolutePositioning
       }}
     />

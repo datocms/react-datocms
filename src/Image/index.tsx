@@ -140,7 +140,7 @@ export const Image: React.FC<ImagePropTypes> = function({
     <source srcSet={data.srcSet} sizes={data.sizes} />
   );
 
-  const placeholder = (
+  const placeholder = !loaded && (
     <div
       style={{
         backgroundImage: data.base64 ? `url(${data.base64})` : null,

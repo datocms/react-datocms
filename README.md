@@ -132,7 +132,7 @@ export default withQuery(query)(Page);
 
 The `data` prop expects an object with the same shape as the one returned by `responsiveImage` GraphQL call. It's up to you to make a GraphQL query that will return the properties you need for a specific use of the `<Image>` component.
 
-- The mimumum required properties for `data` are: `aspectRatio`, `width`, `sizes`, `srcSet` and `src`;
+- The minimum required properties for `data` are: `aspectRatio`, `width`, `sizes`, `srcSet` and `src`;
 - `alt` and `title`, while not mandatory, are all highly suggested, so remember to use them!
 - You either want to add the `webpSrcSet` field or specify `{ auto: format }` in your `imgixParams`, to automatically use WebP images in browsers that support the format;
 - If you provide both the `bgColor` and `base64` property, the latter will take precedence, so just avoiding querying both fields at the same time, it will only make the response bigger :wink:

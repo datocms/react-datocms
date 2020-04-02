@@ -13,7 +13,7 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ## [1.1.2] - 2020-03-18
 
-### Addedd
+### Added
 
 - `explicitWidth` prop to specify wheter the image wrapper should explicitely declare the width of the image or keep it fluid
 

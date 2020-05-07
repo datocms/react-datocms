@@ -5,6 +5,7 @@
 A set of components and utilities to work faster with [DatoCMS](https://www.datocms.com/) in React environments. Integrates seamlessy with [DatoCMS's GraphQL Content Delivery API](https://www.datocms.com/docs/content-delivery-api).
 
 - TypeScript ready;
+- Compatible with IE11;
 - CSS-in-JS ready;
 - Compatible with any GraphQL library (Apollo, graphql-hooks, graphql-request, etc.);
 - Usable both client and server side;

@@ -8,7 +8,7 @@ export type SeoMetaTagType = {
 
 export type ToMetaTagsType = SeoMetaTagType[];
 
-export const renderMetaTags = function(data: SeoMetaTagType[]): JSX.Element[] {
+export const renderMetaTags = function (data: SeoMetaTagType[]): JSX.Element[] {
   return data.map(({ tag, attributes, content }) => {
     let key: string[] = [tag];
 
@@ -20,7 +20,7 @@ export const renderMetaTags = function(data: SeoMetaTagType[]): JSX.Element[] {
       key.push(attributes.name);
     }
 
-    const Tag = (tag as 'meta' | 'title');
+    const Tag = tag as "meta" | "title";
 
     return (
       <Tag key={key.join("-")} {...attributes}>
@@ -35,17 +35,25 @@ const serializeAttributes = (attributes: Record<string, string> | null) => {
     return "";
   }
 
-  return " " + Object.entries(attributes).map(([key, value]) => (
-    `${key}="${value}"`
-  )).join(" ")
-}
+  const serializedAttrs = [];
 
-export const renderMetaTagsToString = function(data: SeoMetaTagType[]) {
-  return data.map(({ tag, attributes, content }) => {
-    if (content) {
-      return `<${tag}${serializeAttributes(attributes)}>${content}</${tag}>`;
+  for (const key in attributes) {
+    if (Object.prototype.hasOwnProperty.call(attributes, key)) {
+      serializedAttrs.push(`${key}="${attributes[key]}"`);
     }
+  }
 
-    return `<${tag}${serializeAttributes(attributes)} />`;
-  }).join("\n");
+  return " " + serializedAttrs.join(" ");
+};
+
+export const renderMetaTagsToString = function (data: SeoMetaTagType[]) {
+  return data
+    .map(({ tag, attributes, content }) => {
+      if (content) {
+        return `<${tag}${serializeAttributes(attributes)}>${content}</${tag}>`;
+      }
+
+      return `<${tag}${serializeAttributes(attributes)} />`;
+    })
+    .join("\n");
 };

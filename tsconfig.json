@@ -6,7 +6,7 @@
     "noImplicitAny": true,
     "lib": ["es2017", "es7", "es6", "dom"],
     "outDir": "./dist",
-    "target": "es2015",
+    "target": "es3",
     "moduleResolution": "node",
     "jsx": "react",
     "resolveJsonModule": true,

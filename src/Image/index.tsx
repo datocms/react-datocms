@@ -3,6 +3,7 @@ import "intersection-observer";
 import { useInView } from "react-intersection-observer";
 
 const isSsr = typeof window === "undefined";
+const universalBtoa = isSsr ? (str: string) => Buffer.from(str.toString(), 'binary').toString('base64') : window.btoa;
 
 const isIntersectionObserverAvailable = isSsr
   ? false
@@ -153,7 +154,7 @@ export const Image: React.FC<ImagePropTypes> = function ({
         width: explicitWidth ? `${width}px` : "100%",
         ...pictureStyle,
       }}
-      src={`data:image/svg+xml;base64,${btoa(svg)}`}
+      src={`data:image/svg+xml;base64,${universalBtoa(svg)}`}
     />
   );
 

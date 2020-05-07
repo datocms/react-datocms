@@ -1,7 +1,24 @@
-os: "linux"
-language: "node_js"
+os: linux
+language: node_js
+
 cache:
   directories:
-    - "node_modules"
+  - node_modules
+
 node_js:
-    - "12"
+- '12'
+
+script:
+  - npm test
+  - cd examples/basic
+  - npm install
+  - npm run build
+
+deploy:
+  provider: netlify
+  site: c3b381e5-b4b5-46b1-9dd1-628d598bb695
+  edge: true
+  dir: build
+  prod: true
+  auth:
+    secure: fM43a8uWtwpqrKWYNr9updT6iE/JcxVONAMaMdIetV7OO6eoXjAfnS1bC9sXqYD3Zv6MwP9zJuI6oxgpLnz0yJfVJRyBk/NHXrL4kuod8Kpw3K1StU3icCmR9e4YJoeIZmjUVSBy7J3XrTNLIpkSx28KVlFLBAYPXuRbLEpYCgcn3VM8IvMypNhkdvH2E4vymrXjDb89YA0ffC48avSlgl3bh/rj5MQLp7WJ5dN3t52jF/Sg8xgh2qq0gThsZOCfqigf06qVoRkO6aBBvTwCZ6TM0/6cOiznPtDtsQzZfMcegXtcLf30BK3zFgJPptdY9twZu92DxfOfDGYGoTHnZAYArrKXnPbQ/AtZFwHhy7SfCJC3ybvqUALGEVfhb6n0k2uDgduw/8PoBlEqRWufJ5/b+f153HWwjrZ160WBhxQl5gCx0/HP4O+VDori/ubHlKkuDGLcXFsxFTUVGKoipXDw4HJdlvhUp938OdDH8VEFnd0v9qTxOVKQWK7375fB6XmXxBm+hmn5GGnAkAEPVIGlDTZTrnvTcTOadKWNdvch5mhErQPStITzDWzip9Yq6RH4pUsWzrdX3jM0Rhh0DpoqdUm541IwsRABqwX07ww03UyHxPZhb/xS/MQmf2NqClmaQSML57H0i02BV3BHacDyNH+eM57EgLmJWWbho+E=

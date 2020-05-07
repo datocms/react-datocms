@@ -1,13 +1,15 @@
-import React from 'react';
-import ReactDOM from 'react-dom';
-import App from './App';
+import React from "react";
+import ReactDOM from "react-dom";
+import App from "./App";
 import { GraphQLClient, ClientContext } from "graphql-hooks";
+import "unfetch/polyfill";
+import "promise-polyfill/src/polyfill";
 
 const client = new GraphQLClient({
   url: "https://graphql.datocms.com/",
   headers: {
-    Authorization: "Bearer faeb9172e232a75339242faafb9e56de8c8f13b735f7090964"
-  }
+    Authorization: "Bearer faeb9172e232a75339242faafb9e56de8c8f13b735f7090964",
+  },
 });
 
 ReactDOM.render(

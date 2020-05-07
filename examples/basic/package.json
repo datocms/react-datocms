@@ -8,7 +8,9 @@
     "react-datocms": "file:../..",
     "react-dom": "file:../../node_modules/react-dom",
     "react-helmet": "^5.2.1",
-    "react-scripts": "3.4.0"
+    "react-scripts": "3.4.0",
+    "promise-polyfill": "^8.1.3",
+    "unfetch": "^4.1.0"
   },
   "scripts": {
     "start": "react-scripts start",

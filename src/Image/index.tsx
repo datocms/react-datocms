@@ -143,16 +143,17 @@ export const Image: React.FC<ImagePropTypes> = function ({
   const { width, aspectRatio } = data;
   const height = data.height || width / aspectRatio;
 
+  const svg = `<svg xmlns="http://www.w3.org/2000/svg" width="${width}" height="${height}"></svg>`;
+
   const sizer = (
-    <svg
+    <img
       className={pictureClassName}
       style={{
-        width: explicitWidth ? `${width}px` : "100%",
         display: "block",
+        width: explicitWidth ? `${width}px` : "100%",
         ...pictureStyle,
       }}
-      height={height}
-      width={width}
+      src={`data:image/svg+xml;base64,${btoa(svg)}`}
     />
   );
 

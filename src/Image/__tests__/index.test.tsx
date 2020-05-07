@@ -39,7 +39,7 @@ describe("Image", () => {
         const wrapper = mount(<Image data={data} />);
         mockAllIsIntersecting(true);
         wrapper.update();
-        wrapper.find('img').simulate('load');
+        wrapper.find('img').last().simulate('load');
         wrapper.update();
         expect(wrapper).toMatchSnapshot();
       });

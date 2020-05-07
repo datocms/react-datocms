@@ -25,15 +25,14 @@ exports[`Image not visible renders the blur-up thumb 1`] = `
       }
     }
   >
-    <svg
-      height={421}
+    <img
+      src="data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHdpZHRoPSI3NTAiIGhlaWdodD0iNDIxIj48L3N2Zz4="
       style={
         Object {
           "display": "block",
           "width": "100%",
         }
       }
-      width={750}
     />
     <div
       style={
@@ -85,15 +84,14 @@ exports[`Image visible image loaded shows the image 1`] = `
       }
     }
   >
-    <svg
-      height={421}
+    <img
+      src="data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHdpZHRoPSI3NTAiIGhlaWdodD0iNDIxIj48L3N2Zz4="
       style={
         Object {
           "display": "block",
           "width": "100%",
         }
       }
-      width={750}
     />
     <div
       style={
@@ -174,15 +172,14 @@ exports[`Image visible renders the image 1`] = `
       }
     }
   >
-    <svg
-      height={421}
+    <img
+      src="data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHdpZHRoPSI3NTAiIGhlaWdodD0iNDIxIj48L3N2Zz4="
       style={
         Object {
           "display": "block",
           "width": "100%",
         }
       }
-      width={750}
     />
     <div
       style={

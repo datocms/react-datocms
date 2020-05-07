@@ -32,8 +32,9 @@ A set of components and utilities to work faster with [DatoCMS](https://www.dato
 
 ## Demos
 
-- Pure React: [https://react-datocms-example.netlify.com/](https://react-datocms-example.netlify.com/)
-- Server side rendering with Next.js: [https://with-next-typescript.datocms.now.sh/](https://with-next-typescript.datocms.now.sh/)
+For fully working examples take a look at our [examples directory](https://github.com/datocms/react-datocms/tree/master/examples).
+
+Live demo: [https://react-datocms-example.netlify.com/](https://react-datocms-example.netlify.com/)
 
 ## Installation
 

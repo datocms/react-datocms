@@ -19,7 +19,7 @@ exports[`Image not visible renders the blur-up thumb 1`] = `
   <div
     style={
       Object {
-        "display": "inline-block",
+        "display": "block",
         "overflow": "hidden",
         "position": "relative",
       }
@@ -30,7 +30,6 @@ exports[`Image not visible renders the blur-up thumb 1`] = `
       style={
         Object {
           "display": "block",
-          "height": "auto",
           "width": "100%",
         }
       }
@@ -80,7 +79,7 @@ exports[`Image visible image loaded shows the image 1`] = `
   <div
     style={
       Object {
-        "display": "inline-block",
+        "display": "block",
         "overflow": "hidden",
         "position": "relative",
       }
@@ -91,7 +90,6 @@ exports[`Image visible image loaded shows the image 1`] = `
       style={
         Object {
           "display": "block",
-          "height": "auto",
           "width": "100%",
         }
       }
@@ -170,7 +168,7 @@ exports[`Image visible renders the image 1`] = `
   <div
     style={
       Object {
-        "display": "inline-block",
+        "display": "block",
         "overflow": "hidden",
         "position": "relative",
       }
@@ -181,7 +179,6 @@ exports[`Image visible renders the image 1`] = `
       style={
         Object {
           "display": "block",
-          "height": "auto",
           "width": "100%",
         }
       }

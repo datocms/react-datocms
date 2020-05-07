@@ -1,5 +1,12 @@
 import React, { useCallback, useState } from "react";
+import "intersection-observer";
 import { useInView } from "react-intersection-observer";
+
+const isSsr = typeof window === "undefined";
+
+const isIntersectionObserverAvailable = isSsr
+  ? false
+  : !!(window as any).IntersectionObserver;
 
 export type ResponsiveImageType = {
   aspectRatio: number;
@@ -30,19 +37,11 @@ type ImagePropTypes = {
 
 type State = {
   lazyLoad: boolean;
-  isSsr: boolean;
-  isIntersectionObserverAvailable: boolean;
   inView: boolean;
   loaded: boolean;
 };
 
-const imageAddStrategy = ({
-  lazyLoad,
-  isSsr,
-  isIntersectionObserverAvailable,
-  inView,
-  loaded
-}: State) => {
+const imageAddStrategy = ({ lazyLoad, inView, loaded }: State) => {
   if (!lazyLoad) {
     return true;
   }
@@ -58,12 +57,7 @@ const imageAddStrategy = ({
   return true;
 };
 
-const imageShowStrategy = ({
-  lazyLoad,
-  isSsr,
-  isIntersectionObserverAvailable,
-  loaded
-}: State) => {
+const imageShowStrategy = ({ lazyLoad, loaded }: State) => {
   if (!lazyLoad) {
     return true;
   }
@@ -79,7 +73,7 @@ const imageShowStrategy = ({
   return true;
 };
 
-export const Image: React.FC<ImagePropTypes> = function({
+export const Image: React.FC<ImagePropTypes> = function ({
   className,
   fadeInDuration,
   intersectionTreshold,
@@ -89,7 +83,7 @@ export const Image: React.FC<ImagePropTypes> = function({
   style,
   pictureStyle,
   explicitWidth,
-  data
+  data,
 }) {
   const [loaded, setLoaded] = useState<boolean>(false);
 
@@ -100,36 +94,26 @@ export const Image: React.FC<ImagePropTypes> = function({
   const [ref, inView, _entry] = useInView({
     threshold: intersectionTreshold || 0,
     rootMargin: intersectionMargin || "0px 0px 0px 0px",
-    triggerOnce: true
+    triggerOnce: true,
   });
-
-  const isSsr = typeof window === "undefined";
-
-  const isIntersectionObserverAvailable = isSsr
-    ? false
-    : !!(window as any).IntersectionObserver;
 
   const absolutePositioning: React.CSSProperties = {
     position: "absolute",
     left: 0,
     top: 0,
     bottom: 0,
-    right: 0
+    right: 0,
   };
 
   const addImage = imageAddStrategy({
     lazyLoad,
-    isSsr,
-    isIntersectionObserverAvailable,
     inView,
-    loaded
+    loaded,
   });
   const showImage = imageShowStrategy({
     lazyLoad,
-    isSsr,
-    isIntersectionObserverAvailable,
     inView,
-    loaded
+    loaded,
   });
 
   const webpSource = data.webpSrcSet && (
@@ -151,7 +135,7 @@ export const Image: React.FC<ImagePropTypes> = function({
           !fadeInDuration || fadeInDuration > 0
             ? `opacity ${fadeInDuration || 500}ms ${fadeInDuration || 500}ms`
             : null,
-        ...absolutePositioning
+        ...absolutePositioning,
       }}
     />
   );
@@ -164,9 +148,8 @@ export const Image: React.FC<ImagePropTypes> = function({
       className={pictureClassName}
       style={{
         width: explicitWidth ? `${width}px` : "100%",
-        height: "auto",
         display: "block",
-        ...pictureStyle
+        ...pictureStyle,
       }}
       height={height}
       width={width}
@@ -178,10 +161,10 @@ export const Image: React.FC<ImagePropTypes> = function({
       ref={ref}
       className={className}
       style={{
-        display: "inline-block",
+        display: explicitWidth ? "inline-block" : "block",
         overflow: "hidden",
         ...style,
-        position: "relative"
+        position: "relative",
       }}
     >
       {sizer}
@@ -194,7 +177,7 @@ export const Image: React.FC<ImagePropTypes> = function({
             transition:
               !fadeInDuration || fadeInDuration > 0
                 ? `opacity ${fadeInDuration || 500}ms`
-                : null
+                : null,
           }}
         >
           {webpSource}

@@ -12,9 +12,12 @@
   "devDependencies": {
     "@types/enzyme": "^3.10.5",
     "@types/enzyme-adapter-react-16": "^1.0.6",
+    "@types/enzyme-to-json": "^1.5.3",
     "@types/jest": "^25.1.4",
+    "@types/raf": "^3.4.0",
     "@types/react": "^16.9.23",
-    "@types/styled-jsx": "^2.2.8",
+    "@types/react-dom": "^16.9.7",
+    "@types/rimraf": "^3.0.0",
     "doctoc": "^1.4.0",
     "enzyme": "^3.11.0",
     "enzyme-adapter-react-16": "^1.15.2",
@@ -66,6 +69,7 @@
     ]
   },
   "dependencies": {
+    "intersection-observer": "^0.10.0",
     "react-intersection-observer": "^8.26.1"
   }
 }

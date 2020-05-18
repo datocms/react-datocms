@@ -155,6 +155,7 @@ export const Image: React.FC<ImagePropTypes> = function ({
         ...pictureStyle,
       }}
       src={`data:image/svg+xml;base64,${universalBtoa(svg)}`}
+      alt=""
     />
   );
 

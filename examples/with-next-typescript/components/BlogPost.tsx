@@ -118,14 +118,14 @@ BlogPost.fragment = gql`
     title
     excerpt(markdown: true)
     coverImage {
-      responsiveImage(imgixParams: { fit: crop, ar: "16:9", w: 750, fm: jpg }) {
+      responsiveImage(imgixParams: { fit: crop, ar: "16:9", w: 750, auto: format }) {
         ...responsiveImageFragment
       }
     }
     author {
       name
       avatar {
-        responsiveImage(imgixParams: { fit: crop, ar: "1:1", w: 40 }) {
+        responsiveImage(imgixParams: { fit: crop, ar: "1:1", w: 40, auto: format }) {
           ...responsiveImageFragment
         }
       }

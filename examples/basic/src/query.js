@@ -36,14 +36,14 @@ export const query = `
       slug
       excerpt(markdown: true)
       coverImage {
-        responsiveImage(imgixParams: { fit: crop, ar: "16:9", w: 750 }) {
+        responsiveImage(imgixParams: { fit: crop, ar: "16:9", w: 750, auto: format }) {
           ${RESPONSIVE_IMAGE_FRAGMENT}
         }
       }
       author {
         name
         avatar {
-          responsiveImage(imgixParams: { fit: crop, ar: "1:1", w: 40 }) {
+          responsiveImage(imgixParams: { fit: crop, ar: "1:1", w: 40, auto: format }) {
             ${RESPONSIVE_IMAGE_FRAGMENT}
           }
         }

@@ -20,6 +20,14 @@ export const renderMetaTags = function (data: SeoMetaTagType[]): JSX.Element[] {
       key.push(attributes.name);
     }
 
+    if (attributes && "rel" in attributes) {
+      key.push(attributes.rel);
+    }
+
+    if (attributes && "sizes" in attributes) {
+      key.push(attributes.sizes);
+    }
+
     const Tag = tag as "meta" | "title";
 
     return (

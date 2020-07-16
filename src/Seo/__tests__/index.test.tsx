@@ -23,6 +23,26 @@ const metaTags: ToMetaTagsType = [
     },
     content: null,
     tag: "meta"
+  },
+  {
+    attributes: {
+      sizes: "16x16",
+      type: "image/png",
+      rel: "icon",
+      href: "https://example.org/favicon.png?h=16&w=16"
+    },
+    content: null,
+    tag: "link"
+  },
+  {
+    attributes: {
+      sizes: "32x32",
+      type: "image/png",
+      rel: "icon",
+      href: "https://example.org/favicon.png?h=32&w=32"
+    },
+    content: null,
+    tag: "link"
   }
 ];
 
@@ -45,6 +65,8 @@ describe("renderMetaTagsToString", () => {
       '<title>A new Media Area is online! - DatoCMS</title>',
       '<meta property="og:title" content="A new Media Area is online!" />',
       '<meta name="twitter:title" content="A new Media Area is online!" />',
+      '<link sizes="16x16" type="image/png" rel="icon" href="https://example.org/favicon.png?h=16&w=16" />',
+      '<link sizes="32x32" type="image/png" rel="icon" href="https://example.org/favicon.png?h=32&w=32" />'
     ].join("\n"));
   });
 });

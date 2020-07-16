@@ -17,5 +17,19 @@ exports[`renderMetaTags generates an array of meta tags 1`] = `
     key="meta-twitter:title"
     name="twitter:title"
   />
+  <link
+    href="https://example.org/favicon.png?h=16&w=16"
+    key="link-icon-16x16"
+    rel="icon"
+    sizes="16x16"
+    type="image/png"
+  />
+  <link
+    href="https://example.org/favicon.png?h=32&w=32"
+    key="link-icon-32x32"
+    rel="icon"
+    sizes="32x32"
+    type="image/png"
+  />
 </head>
 `;

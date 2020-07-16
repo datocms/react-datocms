@@ -28,7 +28,7 @@ export const renderMetaTags = function (data: SeoMetaTagType[]): JSX.Element[] {
       key.push(attributes.sizes);
     }
 
-    const Tag = tag as "meta" | "title";
+    const Tag = tag as "meta" | "title" | "link";
 
     return (
       <Tag key={key.join("-")} {...attributes}>

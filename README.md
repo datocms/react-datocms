@@ -58,6 +58,8 @@ Live updates are great both to get instant previews of your content while editin
 
 ## Reference
 
+Import `useQuerySubscription` from `react-datocms` and use it inside your components like this:
+
 ```js
 const {
   data: QueryResult | undefined,
@@ -65,11 +67,6 @@ const {
   status: ConnectionStatus,
 } = useQuerySubscription(options: Options);
 ```
-
-## Usage
-
-1. Import `useQuerySubscription` from `react-datocms` and use it inside your components
-2. **Important:** Remember to set the `enabled` property, or the hook will simply return the `initialData` you pass!
 
 ## Initialization options
 

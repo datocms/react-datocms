@@ -25,7 +25,7 @@ type QueryListenerOptions<QueryResult, QueryVariables> = {
   /** In case of network errors, the period to wait to reconnect */
   reconnectionPeriod?: number;
   /** The fetch function to use to perform the registration query */
-  fetch?: (input: RequestInfo, init?: RequestInit) => Promise<Response>;
+  fetcher?: (input: RequestInfo, init?: RequestInit) => Promise<Response>;
   /** The base URL to use to perform the query (defaults to `https://graphql-listen.datocms.com`) */
   baseUrl?: string;
 };
@@ -42,7 +42,7 @@ export function useQuerySubscription<
     token,
     variables,
     environment,
-    fetch,
+    fetcher,
     reconnectionPeriod,
   } = options;
 
@@ -51,7 +51,7 @@ export function useQuerySubscription<
   const [status, setStatus] = useState<ConnectionStatus>("connecting");
 
   useDeepCompareEffect(() => {
-    if (!enabled) {
+    if (enabled === false) {
       return () => {
         // we don't have to perform any uninstall
       };
@@ -66,7 +66,7 @@ export function useQuerySubscription<
         token,
         variables,
         environment,
-        fetch,
+        fetcher,
         reconnectionPeriod: reconnectionPeriod,
         onStatusChange: (status) => {
           setStatus(status);

@@ -75,7 +75,7 @@ const {
 
 | prop               | type                                                                                | required           | description                                                       | default                              |
 | ------------------ | ----------------------------------------------------------------------------------- | ------------------ | ----------------------------------------------------------------- | ------------------------------------ |
-| enabled            | boolean                                                                             | :x:                | Whether the subscription has to be performed or not               | false                                |
+| enabled            | boolean                                                                             | :x:                | Whether the subscription has to be performed or not               | true                                 |
 | query              | string                                                                              | :white_check_mark: | The GraphQL query to subscribe                                    |                                      |
 | token              | string                                                                              | :white_check_mark: | DatoCMS API token to use                                          |                                      |
 | variables          | Object                                                                              | :x:                | GraphQL variables for the query                                   |                                      |

@@ -61,7 +61,7 @@ export type Options<QueryResult, QueryVariables> = {
   /** In case of network errors, the period to wait to reconnect */
   reconnectionPeriod?: number;
   /** The fetch function to use to perform the registration query */
-  fetch?: (input: RequestInfo, init?: RequestInit) => Promise<Response>;
+  fetcher?: (input: RequestInfo, init?: RequestInit) => Promise<Response>;
   /** The base URL to use to perform the query (defaults to `https://graphql-listen.datocms.com`) */
   baseUrl?: string;
   /** Callback function to call on status change */
@@ -84,7 +84,7 @@ export async function subscribeToQuery<
     variables,
     preview,
     environment,
-    fetch: customFetch,
+    fetcher: customFetcher,
     onStatusChange,
     onUpdate,
     onChannelError,
@@ -92,7 +92,7 @@ export async function subscribeToQuery<
     baseUrl: customBaseUrl,
   } = options;
 
-  const fetch = customFetch || window.fetch;
+  const fetcher = customFetcher || window.fetch;
   const reconnectionPeriod = customReconnectionPeriod || 1000;
   const baseUrl = customBaseUrl || "https://graphql-listen.datocms.com";
 
@@ -110,7 +110,7 @@ export async function subscribeToQuery<
   onStatusChange("connecting");
 
   try {
-    const req = await fetch(
+    const req = await fetcher(
       endpointFactory({ baseUrl, preview, environment }),
       {
         headers: {

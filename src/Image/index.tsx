@@ -3,36 +3,59 @@ import "intersection-observer";
 import { useInView } from "react-intersection-observer";
 
 const isSsr = typeof window === "undefined";
-const universalBtoa = isSsr ? (str: string) => Buffer.from(str.toString(), 'binary').toString('base64') : window.btoa;
+const universalBtoa = isSsr
+  ? (str: string) => Buffer.from(str.toString(), "binary").toString("base64")
+  : window.btoa;
 
 const isIntersectionObserverAvailable = isSsr
   ? false
   : !!(window as any).IntersectionObserver;
 
 export type ResponsiveImageType = {
+  /** The aspect ratio (width/height) of the image */
   aspectRatio: number;
-  base64?: string | null;
-  height?: number | null;
+  /** A base64-encoded thumbnail to offer during image loading */
+  base64?: string;
+  /** The height of the image */
+  height?: number;
+  /** The width of the image */
   width: number;
-  sizes?: string | null;
-  src?: string | null;
-  srcSet?: string | null;
-  webpSrcSet?: string | null;
-  bgColor?: string | null;
-  alt?: string | null;
-  title?: string | null;
+  /** The HTML5 `sizes` attribute for the image */
+  sizes?: string;
+  /** The fallback `src` attribute for the image */
+  src?: string;
+  /** The HTML5 `srcSet` attribute for the image */
+  srcSet?: string;
+  /** The HTML5 `srcSet` attribute for the image in WebP format, for browsers that support the format */
+  webpSrcSet?: string;
+  /** The background color for the image placeholder */
+  bgColor?: string;
+  /** Alternate text (`alt`) for the image */
+  alt?: string;
+  /** Title attribute (`title`) for the image */
+  title?: string;
 };
 
 type ImagePropTypes = {
+  /** The actual response you get from a DatoCMS `responsiveImage` GraphQL query */
   data: ResponsiveImageType;
+  /** Additional CSS className for root node */
   className?: string;
+  /** Additional CSS class for the inner `<picture />` tag */
   pictureClassName?: string;
+  /** Duration (in ms) of the fade-in transition effect upoad image loading */
   fadeInDuration?: number;
+  /** Indicate at what percentage of the placeholder visibility the loading of the image should be triggered. A value of 0 means that as soon as even one pixel is visible, the callback will be run. A value of 1.0 means that the threshold isn't considered passed until every pixel is visible */
   intersectionTreshold?: number;
+  /** Margin around the placeholder. Can have values similar to the CSS margin property (top, right, bottom, left). The values can be percentages. This set of values serves to grow or shrink each side of the placeholder element's bounding box before computing intersections */
   intersectionMargin?: string;
+  /** Wheter enable lazy loading or not */
   lazyLoad?: boolean;
+  /** Additional CSS rules to add to the root node */
   style?: React.CSSProperties;
+  /** Additional CSS rules to add to the inner `<picture />` tag */
   pictureStyle?: React.CSSProperties;
+  /** Wheter the image wrapper should explicitely declare the width of the image or keep it fluid */
   explicitWidth?: boolean;
 };
 
@@ -128,14 +151,14 @@ export const Image: React.FC<ImagePropTypes> = function ({
   const placeholder = (
     <div
       style={{
-        backgroundImage: data.base64 ? `url(${data.base64})` : null,
+        backgroundImage: data.base64 ? `url(${data.base64})` : undefined,
         backgroundColor: data.bgColor,
         backgroundSize: "cover",
         opacity: showImage ? 0 : 1,
         transition:
           !fadeInDuration || fadeInDuration > 0
             ? `opacity ${fadeInDuration || 500}ms ${fadeInDuration || 500}ms`
-            : null,
+            : undefined,
         ...absolutePositioning,
       }}
     />
@@ -180,7 +203,7 @@ export const Image: React.FC<ImagePropTypes> = function ({
             transition:
               !fadeInDuration || fadeInDuration > 0
                 ? `opacity ${fadeInDuration || 500}ms`
-                : null,
+                : undefined,
           }}
         >
           {webpSource}

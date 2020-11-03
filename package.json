@@ -70,6 +70,7 @@
   },
   "dependencies": {
     "intersection-observer": "^0.10.0",
-    "react-intersection-observer": "^8.26.1"
+    "react-intersection-observer": "^8.26.1",
+    "use-deep-compare-effect": "^1.4.0"
   }
 }

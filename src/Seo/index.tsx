@@ -1,8 +1,11 @@
 import React from "react";
 
 export type SeoMetaTagType = {
+  /** the tag for the meta information */
   tag: string;
+  /** the inner content of the meta tag */
   content: string | null;
+  /** the HTML attributes to attach to the meta tag */
   attributes: Record<string, string> | null;
 };
 

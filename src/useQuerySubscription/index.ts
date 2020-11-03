@@ -3,7 +3,7 @@ import {
   subscribeToQuery,
   UnsubscribeFn,
   ChannelErrorData,
-  Status,
+  ConnectionStatus,
 } from "../subscribeToQuery";
 import { useDeepCompareEffectNoCheck as useDeepCompareEffect } from "use-deep-compare-effect";
 
@@ -34,7 +34,6 @@ export function useQuerySubscription<
   QueryResult = any,
   QueryVariables = Record<string, any>
 >(options: QueryListenerOptions<QueryResult, QueryVariables>) {
-
   const {
     initialData,
     enabled,
@@ -49,7 +48,7 @@ export function useQuerySubscription<
 
   const [error, setError] = useState<ChannelErrorData | null>(null);
   const [data, setData] = useState<QueryResult | null>(null);
-  const [status, setStatus] = useState<Status>('connecting');
+  const [status, setStatus] = useState<ConnectionStatus>("connecting");
 
   useDeepCompareEffect(() => {
     if (!enabled) {
@@ -79,7 +78,7 @@ export function useQuerySubscription<
         onChannelError: (errorData) => {
           setData(null);
           setError(errorData);
-        }
+        },
       });
     }
 

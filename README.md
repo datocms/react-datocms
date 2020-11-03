@@ -90,7 +90,7 @@ const {
 
 The `status` property represents the state of the server-sent events connection. It can be one of the following:
 
-- `connecting`: the subscription channel in trying to connect
+- `connecting`: the subscription channel is trying to connect
 - `connected`: the channel is open, we're receiving live updates
 - `closed`: the channel has been permanently closed due to a fatal error (ie. an invalid query)
 

@@ -41,7 +41,7 @@ function endpointFactory({
   return result;
 }
 
-export type Status = "connecting" | "connected" | "closed";
+export type ConnectionStatus = "connecting" | "connected" | "closed";
 
 export type Options<QueryResult, QueryVariables> = {
   /** The GraphQL query to subscribe */
@@ -65,7 +65,7 @@ export type Options<QueryResult, QueryVariables> = {
   /** The base URL to use to perform the query (defaults to `https://graphql-listen.datocms.com`) */
   baseUrl?: string;
   /** Callback function to call on status change */
-  onStatusChange: (status: Status) => void;
+  onStatusChange: (status: ConnectionStatus) => void;
   /** Callback function to call on query result updates */
   onUpdate: (updateData: UpdateData<QueryResult>) => void;
   /** Callback function to call on errors */

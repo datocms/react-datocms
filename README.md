@@ -42,6 +42,108 @@ Live demo: [https://react-datocms-example.netlify.com/](https://react-datocms-ex
 npm install react-datocms
 ```
 
+## Live real-time updates
+
+`useQuerySubscription` is a React hook that you can use to implement client-side updates of the page as soon as the content changes. It uses DatoCMS's [GraphQL server-sent events (SSE)](#) protocol to receive the updated query results in real-time, and is able to reconnect in case of network failures.
+
+Live updates are great both to get instant previews of your content while editing it inside DatoCMS, or to offer real-time updates of content to your visitors (ie. news site).
+
+### Reference
+
+```js
+const {
+  data: QueryResult | undefined,
+  error: ChannelErrorData | null,
+  status: ConnectionStatus,
+} = useQuerySubscription(options: Options);
+```
+
+### Usage
+
+1. Import `useQuerySubscription` from `react-datocms` and use it inside your components
+2. **Important:** Remember to set the `enabled` property, or the hook will simply return the `initialData` you pass!
+
+### Initialization options
+
+| prop               | type                                                          | required           | description                                                       | default                              |
+| ------------------ | ------------------------------------------------------------- | ------------------ | ----------------------------------------------------------------- | ------------------------------------ |
+| enabled            | boolean                                                       | :x:                | Whether the subscription has to be performed or not               | false                                |
+| query              | string                                                        | :white_check_mark: | The GraphQL query to subscribe                                    |                                      |
+| token              | string                                                        | :white_check_mark: | DatoCMS API token to use                                          |                                      |
+| variables          | Object                                                        | :x:                | GraphQL variables for the query                                   |                                      |
+| preview            | boolean                                                       | :x:                | If true, the Content Delivery API with draft content will be used | false                                |
+| environment        | string                                                        | :x:                | The name of the DatoCMS environment where to perform the query    | defaults to primary environment      |
+| initialData        | Object                                                        | :x:                | The initial data to use on the first render                       |                                      |
+| reconnectionPeriod | number                                                        | :x:                | In case of network errors, the period to wait to reconnect        |                                      |
+| fetch              | (input: RequestInfo, init?: RequestInit) => Promise<Response> | :x:                | The fetch function to use to perform the registration query       | window.fetch                         |
+| baseUrl            | string                                                        | :x:                | The base URL to use to perform the query                          | `https://graphql-listen.datocms.com` |
+
+### Connection status
+
+The `status` property represents the state of the server-sent events connection. It can be one of the following:
+
+- `connecting`: the subscription channel in trying to connect
+- `connected`: the channel is open, we're receiving live updates
+- `closed`: the channel has been permanently closed due to a fatal error (ie. an invalid query)
+
+### Error object
+
+| prop     | type   | description                                             |
+| -------- | ------ | ------------------------------------------------------- |
+| code     | string | The code of the error (ie. `INVALID_QUERY`)             |
+| message  | string | An human friendly message explaining the error          |
+| response | Object | The raw response returned by the endpoint, if available |
+
+### Example
+
+```js
+import React from "react";
+import { useQuerySubscription } from "react-datocms";
+
+const App: React.FC = () => {
+  const { status, error, data } = useQuerySubscription({
+    enabled: true,
+    query: `
+      query AppQuery($first: IntType) {
+        allBlogPosts {
+          slug
+          title
+        }
+      }`,
+    variables: { first: 10 },
+    token: "YOUR_API_TOKEN",
+  });
+
+  const statusMessage = {
+    connecting: 'Connecting to DatoCMS...',
+    connected: 'Connected to DatoCMS, receiving live updates!',
+    closed: 'Connection closed',
+  };
+
+  return (
+    <div>
+      <p>Connection status: {statusMessage[status]}</p>
+      {error && (
+        <div>
+          <h1>Error: {error.code}</h1>
+          <div>{error.message}</div>
+          {error.response && (
+            <pre>{JSON.stringify(error.response, null, 2)}</pre>
+          )}
+        </div>
+      )}
+      {data && (
+        <ul>
+          {data.allBlogPosts.map(blogPost => (
+            <li key={blogPost.slug}>{blogPost.title}</li>
+          ))}
+        </ul>
+      )}
+    </div>
+  );
+}
+```
+
 ## Progressive/responsive image
 
 `<Image />` is a React component specially designed to work seamlessly with DatoCMS’s [`responsiveImage` GraphQL query](https://www.datocms.com/docs/content-delivery-api/uploads#responsive-images) that optimizes image loading for your sites.
@@ -117,18 +219,18 @@ export default withQuery(query)(Page);
 
 ### Props
 
-| prop                 | type                     | default           | required           | description                                                                                                                                                                                                                                                                                   |
-| -------------------- | ------------------------ | ----------------- | ------------------ | --------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| data                 | `ResponsiveImage` object |                   | :white_check_mark: | The actual response you get from a DatoCMS `responsiveImage` GraphQL query.                                                                                                                                                                                                                   |
-| className            | string                   | null              | :x:                | Additional CSS className for root node                                                                                                                                                                                                                                                             |
-| style                | CSS properties           | null              | :x:                | Additional CSS rules to add to the root node                                                                                                                                                                                                                                                  |
-| pictureClassName     | string                   | null              | :x:                | Additional CSS class for the inner `<picture />` tag                                                                                                                                                                                                                                          |
-| pictureStyle         | CSS properties           | null              | :x:                | Additional CSS rules to add to the inner `<picture />` tag                                                                                                                                                                                                                                    |
-| fadeInDuration       | integer                  | 500               | :x:                | Duration (in ms) of the fade-in transition effect upoad image loading                                                                                                                                                                                                                         |
-| intersectionTreshold | float                    | 0                 | :x:                | Indicate at what percentage of the placeholder visibility the loading of the image should be triggered. A value of 0 means that as soon as even one pixel is visible, the callback will be run. A value of 1.0 means that the threshold isn't considered passed until every pixel is visible. |
-| intersectionMargin   | string                   | "0px 0px 0px 0px" | :x:                | Margin around the placeholder. Can have values similar to the CSS margin property (top, right, bottom, left). The values can be percentages. This set of values serves to grow or shrink each side of the placeholder element's bounding box before computing intersections.                  |
-| lazyLoad             | Boolean                  | true              | :x:                | Wheter enable lazy loading or not                                                                                                                                                                                                                                                             |
-| explicitWidth        | Boolean                  | false             | :x:                | Wheter the image wrapper should explicitely declare the width of the image or keep it fluid                                                                                                                                                                                                   |
+| prop                 | type                     | required           | description                                                                                                                                                                                                                                                                                   | default           |
+| -------------------- | ------------------------ | ------------------ | --------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | ----------------- |
+| data                 | `ResponsiveImage` object | :white_check_mark: | The actual response you get from a DatoCMS `responsiveImage` GraphQL query.                                                                                                                                                                                                                   |                   |
+| className            | string                   | :x:                | Additional CSS className for root node                                                                                                                                                                                                                                                        | null              |
+| style                | CSS properties           | :x:                | Additional CSS rules to add to the root node                                                                                                                                                                                                                                                  | null              |
+| pictureClassName     | string                   | :x:                | Additional CSS class for the inner `<picture />` tag                                                                                                                                                                                                                                          | null              |
+| pictureStyle         | CSS properties           | :x:                | Additional CSS rules to add to the inner `<picture />` tag                                                                                                                                                                                                                                    | null              |
+| fadeInDuration       | integer                  | :x:                | Duration (in ms) of the fade-in transition effect upoad image loading                                                                                                                                                                                                                         | 500               |
+| intersectionTreshold | float                    | :x:                | Indicate at what percentage of the placeholder visibility the loading of the image should be triggered. A value of 0 means that as soon as even one pixel is visible, the callback will be run. A value of 1.0 means that the threshold isn't considered passed until every pixel is visible. | 0                 |
+| intersectionMargin   | string                   | :x:                | Margin around the placeholder. Can have values similar to the CSS margin property (top, right, bottom, left). The values can be percentages. This set of values serves to grow or shrink each side of the placeholder element's bounding box before computing intersections.                  | "0px 0px 0px 0px" |
+| lazyLoad             | Boolean                  | :x:                | Wheter enable lazy loading or not                                                                                                                                                                                                                                                             | true              |
+| explicitWidth        | Boolean                  | :x:                | Wheter the image wrapper should explicitely declare the width of the image or keep it fluid                                                                                                                                                                                                   | false             |
 
 #### The `ResponsiveImage` object
 

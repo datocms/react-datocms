@@ -48,10 +48,12 @@ export function useQuerySubscription<
 
   const [error, setError] = useState<ChannelErrorData | null>(null);
   const [data, setData] = useState<QueryResult | null>(null);
-  const [status, setStatus] = useState<ConnectionStatus>("connecting");
+  const [status, setStatus] = useState<ConnectionStatus>(enabled ? "connecting" : "closed");
 
   useDeepCompareEffect(() => {
     if (enabled === false) {
+      setStatus('closed');
+
       return () => {
         // we don't have to perform any uninstall
       };

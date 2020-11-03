@@ -42,7 +42,7 @@ Live demo: [https://react-datocms-example.netlify.com/](https://react-datocms-ex
 npm install react-datocms
 ```
 
-## Live real-time updates
+# Live real-time updates
 
 `useQuerySubscription` is a React hook that you can use to implement client-side updates of the page as soon as the content changes. It uses DatoCMS's [GraphQL server-sent events (SSE)](#) protocol to receive the updated query results in real-time, and is able to reconnect in case of network failures.
 
@@ -65,18 +65,18 @@ const {
 
 ### Initialization options
 
-| prop               | type                                                          | required           | description                                                       | default                              |
-| ------------------ | ------------------------------------------------------------- | ------------------ | ----------------------------------------------------------------- | ------------------------------------ |
-| enabled            | boolean                                                       | :x:                | Whether the subscription has to be performed or not               | false                                |
-| query              | string                                                        | :white_check_mark: | The GraphQL query to subscribe                                    |                                      |
-| token              | string                                                        | :white_check_mark: | DatoCMS API token to use                                          |                                      |
-| variables          | Object                                                        | :x:                | GraphQL variables for the query                                   |                                      |
-| preview            | boolean                                                       | :x:                | If true, the Content Delivery API with draft content will be used | false                                |
-| environment        | string                                                        | :x:                | The name of the DatoCMS environment where to perform the query    | defaults to primary environment      |
-| initialData        | Object                                                        | :x:                | The initial data to use on the first render                       |                                      |
-| reconnectionPeriod | number                                                        | :x:                | In case of network errors, the period to wait to reconnect        |                                      |
-| fetch              | (input: RequestInfo, init?: RequestInit) => Promise<Response> | :x:                | The fetch function to use to perform the registration query       | window.fetch                         |
-| baseUrl            | string                                                        | :x:                | The base URL to use to perform the query                          | `https://graphql-listen.datocms.com` |
+| prop               | type                                                                                | required           | description                                                       | default                              |
+| ------------------ | ----------------------------------------------------------------------------------- | ------------------ | ----------------------------------------------------------------- | ------------------------------------ |
+| enabled            | boolean                                                                             | :x:                | Whether the subscription has to be performed or not               | false                                |
+| query              | string                                                                              | :white_check_mark: | The GraphQL query to subscribe                                    |                                      |
+| token              | string                                                                              | :white_check_mark: | DatoCMS API token to use                                          |                                      |
+| variables          | Object                                                                              | :x:                | GraphQL variables for the query                                   |                                      |
+| preview            | boolean                                                                             | :x:                | If true, the Content Delivery API with draft content will be used | false                                |
+| environment        | string                                                                              | :x:                | The name of the DatoCMS environment where to perform the query    | defaults to primary environment      |
+| initialData        | Object                                                                              | :x:                | The initial data to use on the first render                       |                                      |
+| reconnectionPeriod | number                                                                              | :x:                | In case of network errors, the period to wait to reconnect        |                                      |
+| fetch              | a [fetch-like function](https://developer.mozilla.org/en-US/docs/Web/API/Fetch_API) | :x:                | The fetch function to use to perform the registration query       | window.fetch                         |
+| baseUrl            | string                                                                              | :x:                | The base URL to use to perform the query                          | `https://graphql-listen.datocms.com` |
 
 ### Connection status
 
@@ -115,9 +115,9 @@ const App: React.FC = () => {
   });
 
   const statusMessage = {
-    connecting: 'Connecting to DatoCMS...',
-    connected: 'Connected to DatoCMS, receiving live updates!',
-    closed: 'Connection closed',
+    connecting: "Connecting to DatoCMS...",
+    connected: "Connected to DatoCMS, receiving live updates!",
+    closed: "Connection closed",
   };
 
   return (
@@ -134,17 +134,17 @@ const App: React.FC = () => {
       )}
       {data && (
         <ul>
-          {data.allBlogPosts.map(blogPost => (
+          {data.allBlogPosts.map((blogPost) => (
             <li key={blogPost.slug}>{blogPost.title}</li>
           ))}
         </ul>
       )}
     </div>
   );
-}
+};
 ```
 
-## Progressive/responsive image
+# Progressive/responsive image
 
 `<Image />` is a React component specially designed to work seamlessly with DatoCMS’s [`responsiveImage` GraphQL query](https://www.datocms.com/docs/content-delivery-api/uploads#responsive-images) that optimizes image loading for your sites.
 
@@ -257,7 +257,7 @@ Here's a complete recap of what `responsiveImage` offers:
 | bgColor     | string  | :x:                | The background color for the image placeholder                                                  |
 | base64      | string  | :x:                | A base64-encoded thumbnail to offer during image loading                                        |
 
-## Social share, SEO and Favicon meta tags
+# Social share, SEO and Favicon meta tags
 
 Just like the image component, `renderMetaTags()` is a helper specially designed to work seamlessly with DatoCMS’s [`_seoMetaTags` and `faviconMetaTags` GraphQL queries](https://www.datocms.com/docs/content-delivery-api/seo) so that you can handle proper SEO in your pages with a simple one-liner.
 

@@ -2,19 +2,20 @@
   margin: 0;
   padding: 0;
   font-size: 100%;
-	font: inherit;
-	vertical-align: baseline;
+  font: inherit;
+  vertical-align: baseline;
 }
 
 body {
-  font-family: -apple-system,BlinkMacSystemFont,Segoe UI,Helvetica,Arial,sans-serif,Apple Color Emoji,Segoe UI Emoji;
+  font-family: -apple-system, BlinkMacSystemFont, Segoe UI, Helvetica, Arial,
+    sans-serif, Apple Color Emoji, Segoe UI Emoji;
   line-height: 1.5;
   color: #333;
 }
 
 .app {
   max-width: 750px;
-  margin: 0 auto 3em;
+  margin: 3em auto;
 }
 
 .app-title {
@@ -24,6 +25,46 @@ body {
 
 .app-subtitle {
   margin-bottom: 4em;
+}
+
+.status {
+  margin: 3em 0;
+  border-radius: 5px;
+}
+
+.connected-badge {
+  display: inline-block;
+  position: relative;
+  width: 10px;
+  height: 10px;
+  margin-right: 10px;
+}
+
+.connected-badge:after {
+  width: 100%;
+  height: 100%;
+  position: absolute;
+  content: "";
+  border-radius: 999px;
+  background-color: rgba(246, 135, 179, 255);
+}
+
+.connected-badge:before {
+  width: 100%;
+  height: 100%;
+  position: absolute;
+  content: "";
+  animation: ping 1s cubic-bezier(0, 0, 0.2, 1) infinite;
+  border-radius: 999px;
+  background-color: rgba(246, 135, 179, 255);
+}
+
+@keyframes ping {
+  75%,
+  100% {
+    transform: scale(2);
+    opacity: 0;
+  }
 }
 
 .blogPost {
@@ -78,5 +119,6 @@ body {
   overflow: auto;
   font-size: 11px;
   margin-bottom: 8em;
-  font-family: "SFMono-Regular", Consolas, "Liberation Mono", Menlo, Courier, monospace;
+  font-family: "SFMono-Regular", Consolas, "Liberation Mono", Menlo, Courier,
+    monospace;
 }

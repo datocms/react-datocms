@@ -16,17 +16,25 @@ A set of components and utilities to work faster with [DatoCMS](https://www.dato
 <!-- START doctoc generated TOC please keep comment here to allow auto update -->
 <!-- DON'T EDIT THIS SECTION, INSTEAD RE-RUN doctoc TO UPDATE -->
 
-- [Demos](#demos)
-- [Installation](#installation)
+
+  - [Demos](#demos)
+  - [Installation](#installation)
+- [Live real-time updates](#live-real-time-updates)
+  - [Reference](#reference)
+  - [Usage](#usage)
+  - [Initialization options](#initialization-options)
+  - [Connection status](#connection-status)
+  - [Error object](#error-object)
+  - [Example](#example)
 - [Progressive/responsive image](#progressiveresponsive-image)
   - [Out-of-the-box features](#out-of-the-box-features)
-  - [Usage](#usage)
-  - [Example](#example)
+  - [Usage](#usage-1)
+  - [Example](#example-1)
   - [Props](#props)
     - [The `ResponsiveImage` object](#the-responsiveimage-object)
 - [Social share, SEO and Favicon meta tags](#social-share-seo-and-favicon-meta-tags)
-  - [Usage](#usage-1)
-  - [Example](#example-1)
+  - [Usage](#usage-2)
+  - [Example](#example-2)
 
 <!-- END doctoc generated TOC please keep comment here to allow auto update -->
 
@@ -48,7 +56,7 @@ npm install react-datocms
 
 Live updates are great both to get instant previews of your content while editing it inside DatoCMS, or to offer real-time updates of content to your visitors (ie. news site).
 
-### Reference
+## Reference
 
 ```js
 const {
@@ -58,12 +66,12 @@ const {
 } = useQuerySubscription(options: Options);
 ```
 
-### Usage
+## Usage
 
 1. Import `useQuerySubscription` from `react-datocms` and use it inside your components
 2. **Important:** Remember to set the `enabled` property, or the hook will simply return the `initialData` you pass!
 
-### Initialization options
+## Initialization options
 
 | prop               | type                                                                                | required           | description                                                       | default                              |
 | ------------------ | ----------------------------------------------------------------------------------- | ------------------ | ----------------------------------------------------------------- | ------------------------------------ |
@@ -78,7 +86,7 @@ const {
 | fetch              | a [fetch-like function](https://developer.mozilla.org/en-US/docs/Web/API/Fetch_API) | :x:                | The fetch function to use to perform the registration query       | window.fetch                         |
 | baseUrl            | string                                                                              | :x:                | The base URL to use to perform the query                          | `https://graphql-listen.datocms.com` |
 
-### Connection status
+## Connection status
 
 The `status` property represents the state of the server-sent events connection. It can be one of the following:
 
@@ -86,7 +94,7 @@ The `status` property represents the state of the server-sent events connection.
 - `connected`: the channel is open, we're receiving live updates
 - `closed`: the channel has been permanently closed due to a fatal error (ie. an invalid query)
 
-### Error object
+## Error object
 
 | prop     | type   | description                                             |
 | -------- | ------ | ------------------------------------------------------- |
@@ -94,7 +102,7 @@ The `status` property represents the state of the server-sent events connection.
 | message  | string | An human friendly message explaining the error          |
 | response | Object | The raw response returned by the endpoint, if available |
 
-### Example
+## Example
 
 ```js
 import React from "react";
@@ -150,7 +158,7 @@ const App: React.FC = () => {
 
 ![](docs/image-component.gif?raw=true)
 
-### Out-of-the-box features
+## Out-of-the-box features
 
 - Offer WebP version of images for browsers that support the format
 - Generate multiple smaller images so smartphones and tablets don’t download desktop-sized images
@@ -158,14 +166,14 @@ const App: React.FC = () => {
 - Use either blur-up or background color techniques to show a preview of the image while it loads
 - Hold the image position so your page doesn’t jump while images load
 
-### Usage
+## Usage
 
 1. Import `Image` from `react-datocms` and use it in place of the regular `<img />` tag
 2. Write a GraphQL query to your DatoCMS project using the [`responsiveImage` query](https://www.datocms.com/docs/qualcosa)
 
 The GraphQL query returns multiple thumbnails with optimized compression. The `Image` component automatically sets up the “blur-up” effect as well as lazy loading of images further down the screen.
 
-### Example
+## Example
 
 For a fully working example take a look at our [examples directory](https://github.com/datocms/react-datocms/tree/master/examples).
 
@@ -217,7 +225,7 @@ const query = gql`
 export default withQuery(query)(Page);
 ```
 
-### Props
+## Props
 
 | prop                 | type                     | required           | description                                                                                                                                                                                                                                                                                   | default           |
 | -------------------- | ------------------------ | ------------------ | --------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | ----------------- |
@@ -232,7 +240,7 @@ export default withQuery(query)(Page);
 | lazyLoad             | Boolean                  | :x:                | Wheter enable lazy loading or not                                                                                                                                                                                                                                                             | true              |
 | explicitWidth        | Boolean                  | :x:                | Wheter the image wrapper should explicitely declare the width of the image or keep it fluid                                                                                                                                                                                                   | false             |
 
-#### The `ResponsiveImage` object
+### The `ResponsiveImage` object
 
 The `data` prop expects an object with the same shape as the one returned by `responsiveImage` GraphQL call. It's up to you to make a GraphQL query that will return the properties you need for a specific use of the `<Image>` component.
 
@@ -261,7 +269,7 @@ Here's a complete recap of what `responsiveImage` offers:
 
 Just like the image component, `renderMetaTags()` is a helper specially designed to work seamlessly with DatoCMS’s [`_seoMetaTags` and `faviconMetaTags` GraphQL queries](https://www.datocms.com/docs/content-delivery-api/seo) so that you can handle proper SEO in your pages with a simple one-liner.
 
-### Usage
+## Usage
 
 `renderMetaTags()` takes an array of `Tag`s in the exact form they're returned by the following [DatoCMS GraphQL API](https://www.datocms.com/docs/content-delivery-api/seo) queries:
 
@@ -270,7 +278,7 @@ Just like the image component, `renderMetaTags()` is a helper specially designed
 
 You can `concat` multiple array of `Tag`s together and pass them to a single `renderMetaTags()` call.
 
-### Example
+## Example
 
 For a working example take a look at our [examples directory](https://github.com/datocms/react-datocms/tree/master/examples).
 

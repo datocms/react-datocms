@@ -6,6 +6,10 @@
   "files": [
     "dist"
   ],
+  "repository": {
+    "type": "git",
+    "url": "git://github.com/datocms/react-datocms.git"
+  },
   "license": "MIT",
   "author": "Stefano Verna <s.verna@datocms.com>",
   "homepage": "https://github.com/datocms/react-datocms",

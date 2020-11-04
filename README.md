@@ -4,13 +4,6 @@
 
 A set of components and utilities to work faster with [DatoCMS](https://www.datocms.com/) in React environments. Integrates seamlessy with DatoCMS's [GraphQL Content Delivery API](https://www.datocms.com/docs/content-delivery-api) and [Real-time Updates API](https://www.datocms.com/docs/real-time-updates-api).
 
-- TypeScript ready;
-- Compatible with IE11;
-- CSS-in-JS ready;
-- Compatible with any GraphQL library (Apollo, graphql-hooks, graphql-request, etc.);
-- Usable both client and server side;
-- Compatible with vanilla React, Next.js and pretty much any other React-based solution;
-
 ## Table of Contents
 
 <!-- START doctoc generated TOC please keep comment here to allow auto update -->
@@ -55,6 +48,9 @@ npm install react-datocms
 `useQuerySubscription` is a React hook that you can use to implement client-side updates of the page as soon as the content changes. It uses DatoCMS's [Real-time Updates API](https://www.datocms.com/docs/real-time-updates-api/api-reference) to receive the updated query results in real-time, and is able to reconnect in case of network failures.
 
 Live updates are great both to get instant previews of your content while editing it inside DatoCMS, or to offer real-time updates of content to your visitors (ie. news site).
+
+- TypeScript ready;
+- Compatible with vanilla React, Next.js and pretty much any other React-based solution;
 
 ## Reference
 
@@ -152,6 +148,13 @@ const App: React.FC = () => {
 # Progressive/responsive image
 
 `<Image />` is a React component specially designed to work seamlessly with DatoCMS’s [`responsiveImage` GraphQL query](https://www.datocms.com/docs/content-delivery-api/uploads#responsive-images) that optimizes image loading for your sites.
+
+- TypeScript ready;
+- Compatible with IE11;
+- CSS-in-JS ready;
+- Compatible with any GraphQL library (Apollo, graphql-hooks, graphql-request, etc.);
+- Usable both client and server side;
+- Compatible with vanilla React, Next.js and pretty much any other React-based solution;
 
 ![](docs/image-component.gif?raw=true)
 
@@ -265,6 +268,11 @@ Here's a complete recap of what `responsiveImage` offers:
 # Social share, SEO and Favicon meta tags
 
 Just like the image component, `renderMetaTags()` is a helper specially designed to work seamlessly with DatoCMS’s [`_seoMetaTags` and `faviconMetaTags` GraphQL queries](https://www.datocms.com/docs/content-delivery-api/seo) so that you can handle proper SEO in your pages with a simple one-liner.
+
+- TypeScript ready;
+- Compatible with any GraphQL library (Apollo, graphql-hooks, graphql-request, etc.);
+- Usable both client and server side;
+- Compatible with vanilla React, Next.js and pretty much any other React-based solution;
 
 ## Usage
 

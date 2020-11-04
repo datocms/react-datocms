@@ -103,7 +103,7 @@ export async function subscribeToQuery<
     });
   };
 
-  let registrationId: string;
+  let channelUrl: string;
 
   onStatusChange("connecting");
 
@@ -130,13 +130,13 @@ export async function subscribeToQuery<
 
     const registration = await req.json();
 
-    registrationId = registration.id;
+    channelUrl = registration.url;
   } catch (e) {
     return waitAndReconnect();
   }
 
   return new Promise((resolve) => {
-    const eventSource = new EventSource(`${baseUrl}/events/${registrationId}`);
+    const eventSource = new EventSource(channelUrl);
     let stopReconnecting = false;
 
     const unsubscribe = () => {

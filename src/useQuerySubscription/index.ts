@@ -4,7 +4,7 @@ import {
   UnsubscribeFn,
   ChannelErrorData,
   ConnectionStatus,
-} from "../subscribeToQuery";
+} from "datocms-listen";
 import { useDeepCompareEffectNoCheck as useDeepCompareEffect } from "use-deep-compare-effect";
 
 type OptionalConfigurations<QueryResult, QueryVariables> = {

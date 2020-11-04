@@ -56,8 +56,6 @@ export type Options<QueryResult, QueryVariables> = {
   environment?: string;
   /** The initial data to use on the first render  */
   initialData?: QueryResult | null;
-  /** Whether the subscription has to be performed or not */
-  enabled?: boolean;
   /** In case of network errors, the period to wait to reconnect */
   reconnectionPeriod?: number;
   /** The fetch function to use to perform the registration query */

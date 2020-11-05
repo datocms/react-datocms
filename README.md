@@ -76,7 +76,7 @@ const {
 | environment        | string                                                                              | :x:                | The name of the DatoCMS environment where to perform the query    | defaults to primary environment      |
 | initialData        | Object                                                                              | :x:                | The initial data to use on the first render                       |                                      |
 | reconnectionPeriod | number                                                                              | :x:                | In case of network errors, the period to wait to reconnect        |                                      |
-| fetch              | a [fetch-like function](https://developer.mozilla.org/en-US/docs/Web/API/Fetch_API) | :x:                | The fetch function to use to perform the registration query       | window.fetch                         |
+| fetcher              | a [fetch-like function](https://developer.mozilla.org/en-US/docs/Web/API/Fetch_API) | :x:                | The fetch function to use to perform the registration query       | window.fetch                         |
 | baseUrl            | string                                                                              | :x:                | The base URL to use to perform the query                          | `https://graphql-listen.datocms.com` |
 
 ## Connection status

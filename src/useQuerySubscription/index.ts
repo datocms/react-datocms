@@ -4,43 +4,24 @@ import {
   UnsubscribeFn,
   ChannelErrorData,
   ConnectionStatus,
+  Options,
 } from "datocms-listen";
 import { useDeepCompareEffectNoCheck as useDeepCompareEffect } from "use-deep-compare-effect";
 
-type OptionalConfigurations<QueryResult, QueryVariables> = {
-  /** GraphQL variables for the query */
-  variables?: QueryVariables;
-  /** If true, the Content Delivery API with draft content will be used */
-  preview?: boolean;
-  /** The name of the DatoCMS environment where to perform the query (defaults to primary environment) */
-  environment?: string;
-  /** The initial data to use on the first render  */
-  initialData?: QueryResult | null;
-  /** In case of network errors, the period to wait to reconnect */
-  reconnectionPeriod?: number;
-  /** The fetch function to use to perform the registration query */
-  fetcher?: (input: RequestInfo, init?: RequestInit) => Promise<Response>;
-  /** The base URL to use to perform the query (defaults to `https://graphql-listen.datocms.com`) */
-  baseUrl?: string;
-};
+type SubscribeToQueryOptions<QueryResult, QueryVariables> = Omit<
+  Options<QueryResult, QueryVariables>,
+  "onStatusChange" | "onUpdate" | "onChannelError"
+>;
 
 type EnabledQueryListenerOptions<QueryResult, QueryVariables> = {
   /** Whether the subscription has to be performed or not */
   enabled?: true;
-  /** The GraphQL query to subscribe */
-  query: string;
-  /** DatoCMS API token to use */
-  token: string;
-} & OptionalConfigurations<QueryResult, QueryVariables>;
+} & SubscribeToQueryOptions<QueryResult, QueryVariables>;
 
 type DisabledQueryListenerOptions<QueryResult, QueryVariables> = {
   /** Whether the subscription has to be performed or not */
   enabled: false;
-  /** The GraphQL query to subscribe */
-  query?: string;
-  /** DatoCMS API token to use */
-  token?: string;
-} & OptionalConfigurations<QueryResult, QueryVariables>;
+} & Partial<SubscribeToQueryOptions<QueryResult, QueryVariables>>;
 
 type QueryListenerOptions<QueryResult, QueryVariables> =
   | EnabledQueryListenerOptions<QueryResult, QueryVariables>
@@ -50,7 +31,7 @@ export function useQuerySubscription<
   QueryResult = any,
   QueryVariables = Record<string, any>
 >(options: QueryListenerOptions<QueryResult, QueryVariables>) {
-  const { enabled, initialData } = options;
+  const { enabled, initialData, ...other } = options;
 
   const [error, setError] = useState<ChannelErrorData | null>(null);
   const [data, setData] = useState<QueryResult | null>(null);
@@ -58,15 +39,10 @@ export function useQuerySubscription<
     enabled ? "connecting" : "closed"
   );
 
-  const {
-    preview,
-    query,
-    token,
-    variables,
-    environment,
-    fetcher,
-    reconnectionPeriod,
-  } = options as EnabledQueryListenerOptions<QueryResult, QueryVariables>;
+  const subscribeToQueryOptions = other as EnabledQueryListenerOptions<
+    QueryResult,
+    QueryVariables
+  >;
 
   useDeepCompareEffect(() => {
     if (enabled === false) {
@@ -81,13 +57,7 @@ export function useQuerySubscription<
 
     async function subscribe() {
       unsubscribe = await subscribeToQuery<QueryResult, QueryVariables>({
-        preview,
-        query,
-        token,
-        variables,
-        environment,
-        fetcher,
-        reconnectionPeriod: reconnectionPeriod,
+        ...subscribeToQueryOptions,
         onStatusChange: (status) => {
           setStatus(status);
         },
@@ -109,15 +79,7 @@ export function useQuerySubscription<
         unsubscribe();
       }
     };
-  }, [
-    preview,
-    query,
-    token,
-    variables,
-    environment,
-    fetcher,
-    reconnectionPeriod,
-  ]);
+  }, Object.values(subscribeToQueryOptions));
 
   return { error, status, data: data || initialData };
 }

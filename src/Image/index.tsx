@@ -197,6 +197,7 @@ export const Image: React.FC<ImagePropTypes> = function ({
       {placeholder}
       {addImage && (
         <picture
+          className={pictureClassName}
           style={{
             ...absolutePositioning,
             opacity: showImage ? 1 : 0,
@@ -204,6 +205,7 @@ export const Image: React.FC<ImagePropTypes> = function ({
               !fadeInDuration || fadeInDuration > 0
                 ? `opacity ${fadeInDuration || 500}ms`
                 : undefined,
+            ...pictureStyle
           }}
         >
           {webpSource}

@@ -41,8 +41,8 @@ type ImagePropTypes = {
   data: ResponsiveImageType;
   /** Additional CSS className for root node */
   className?: string;
-  /** Additional CSS class for the inner `<picture />` tag */
-  pictureClassName?: string;
+  /** Additional CSS class for the inner `<img />` tag */
+  imgClassName?: string;
   /** Duration (in ms) of the fade-in transition effect upoad image loading */
   fadeInDuration?: number;
   /** Indicate at what percentage of the placeholder visibility the loading of the image should be triggered. A value of 0 means that as soon as even one pixel is visible, the callback will be run. A value of 1.0 means that the threshold isn't considered passed until every pixel is visible */
@@ -53,8 +53,8 @@ type ImagePropTypes = {
   lazyLoad?: boolean;
   /** Additional CSS rules to add to the root node */
   style?: React.CSSProperties;
-  /** Additional CSS rules to add to the inner `<picture />` tag */
-  pictureStyle?: React.CSSProperties;
+  /** Additional CSS rules to add to the inner `<img />` tag */
+  imgStyle?: React.CSSProperties;
   /** Wheter the image wrapper should explicitely declare the width of the image or keep it fluid */
   explicitWidth?: boolean;
 };
@@ -102,10 +102,10 @@ export const Image: React.FC<ImagePropTypes> = function ({
   fadeInDuration,
   intersectionTreshold,
   intersectionMargin,
-  pictureClassName,
+  imgClassName,
   lazyLoad = true,
   style,
-  pictureStyle,
+  imgStyle,
   explicitWidth,
   data,
 }) {
@@ -115,7 +115,7 @@ export const Image: React.FC<ImagePropTypes> = function ({
     setLoaded(true);
   }, []);
 
-  const [ref, inView, _entry] = useInView({
+  const [ref, inView] = useInView({
     threshold: intersectionTreshold || 0,
     rootMargin: intersectionMargin || "0px 0px 0px 0px",
     triggerOnce: true,
@@ -171,11 +171,11 @@ export const Image: React.FC<ImagePropTypes> = function ({
 
   const sizer = (
     <img
-      className={pictureClassName}
+      className={imgClassName}
       style={{
         display: "block",
         width: explicitWidth ? `${width}px` : "100%",
-        ...pictureStyle,
+        ...imgStyle,
       }}
       src={`data:image/svg+xml;base64,${universalBtoa(svg)}`}
       role="presentation"
@@ -197,7 +197,6 @@ export const Image: React.FC<ImagePropTypes> = function ({
       {placeholder}
       {addImage && (
         <picture
-          className={pictureClassName}
           style={{
             ...absolutePositioning,
             opacity: showImage ? 1 : 0,
@@ -205,27 +204,27 @@ export const Image: React.FC<ImagePropTypes> = function ({
               !fadeInDuration || fadeInDuration > 0
                 ? `opacity ${fadeInDuration || 500}ms`
                 : undefined,
-            ...pictureStyle
           }}
         >
           {webpSource}
           {regularSource}
           {data.src && (
             <img
+              className={imgClassName}
               src={data.src}
               alt={data.alt}
               title={data.title}
               onLoad={handleLoad}
-              style={{ width: "100%" }}
+              style={{ width: "100%", ...imgStyle }}
             />
           )}
         </picture>
       )}
       <noscript>
-        <picture className={pictureClassName} style={{ ...pictureStyle }}>
+        <picture>
           {webpSource}
           {regularSource}
-          {data.src && <img src={data.src} alt={data.alt} title={data.title} />}
+          {data.src && <img className={imgClassName} style={{ ...imgStyle }} src={data.src} alt={data.alt} title={data.title} />}
         </picture>
       </noscript>
     </div>

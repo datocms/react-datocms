@@ -156,7 +156,7 @@ export const Image: React.FC<ImagePropTypes> = function ({
         backgroundSize: "cover",
         opacity: showImage ? 0 : 1,
         transition:
-          !fadeInDuration || fadeInDuration > 0
+          typeof fadeInDuration === 'undefined' || fadeInDuration > 0
             ? `opacity ${fadeInDuration || 500}ms ${fadeInDuration || 500}ms`
             : undefined,
         ...absolutePositioning,

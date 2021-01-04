@@ -41,7 +41,7 @@ type ImagePropTypes = {
   data: ResponsiveImageType;
   /** Additional CSS className for root node */
   className?: string;
-  /** Additional CSS class for the inner `<picture />` tag */
+  /** Additional CSS class for the image inside the `<picture />` tag */
   pictureClassName?: string;
   /** Duration (in ms) of the fade-in transition effect upoad image loading */
   fadeInDuration?: number;
@@ -53,7 +53,7 @@ type ImagePropTypes = {
   lazyLoad?: boolean;
   /** Additional CSS rules to add to the root node */
   style?: React.CSSProperties;
-  /** Additional CSS rules to add to the inner `<picture />` tag */
+  /** Additional CSS rules to add to the image inside the `<picture />` tag */
   pictureStyle?: React.CSSProperties;
   /** Wheter the image wrapper should explicitely declare the width of the image or keep it fluid */
   explicitWidth?: boolean;
@@ -148,6 +148,11 @@ export const Image: React.FC<ImagePropTypes> = function ({
     <source srcSet={data.srcSet} sizes={data.sizes} />
   );
 
+  const transition =
+    typeof fadeInDuration === "undefined" || fadeInDuration > 0
+      ? `opacity ${fadeInDuration || 500}ms ${fadeInDuration || 500}ms`
+      : undefined;
+
   const placeholder = (
     <div
       style={{
@@ -155,10 +160,7 @@ export const Image: React.FC<ImagePropTypes> = function ({
         backgroundColor: data.bgColor,
         backgroundSize: "cover",
         opacity: showImage ? 0 : 1,
-        transition:
-          typeof fadeInDuration === 'undefined' || fadeInDuration > 0
-            ? `opacity ${fadeInDuration || 500}ms ${fadeInDuration || 500}ms`
-            : undefined,
+        transition,
         ...absolutePositioning,
       }}
     />
@@ -196,16 +198,7 @@ export const Image: React.FC<ImagePropTypes> = function ({
       {sizer}
       {placeholder}
       {addImage && (
-        <picture
-          style={{
-            ...absolutePositioning,
-            opacity: showImage ? 1 : 0,
-            transition:
-              !fadeInDuration || fadeInDuration > 0
-                ? `opacity ${fadeInDuration || 500}ms`
-                : undefined,
-          }}
-        >
+        <picture>
           {webpSource}
           {regularSource}
           {data.src && (
@@ -214,16 +207,31 @@ export const Image: React.FC<ImagePropTypes> = function ({
               alt={data.alt}
               title={data.title}
               onLoad={handleLoad}
-              style={{ width: "100%" }}
+              className={pictureClassName}
+              style={{
+                ...absolutePositioning,
+                ...pictureStyle,
+                opacity: showImage ? 1 : 0,
+                transition,
+              }}
             />
           )}
         </picture>
       )}
       <noscript>
-        <picture className={pictureClassName} style={{ ...pictureStyle }}>
+        <picture>
           {webpSource}
           {regularSource}
-          {data.src && <img src={data.src} alt={data.alt} title={data.title} />}
+          {data.src && (
+            <img
+              src={data.src}
+              alt={data.alt}
+              title={data.title}
+              className={pictureClassName}
+              style={{ ...pictureStyle }}
+              loading="lazy"
+            />
+          )}
         </picture>
       </noscript>
     </div>

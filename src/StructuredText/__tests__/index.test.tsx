@@ -8,7 +8,7 @@ import {
 } from "../index";
 import { isHeading } from "datocms-structured-text-utils";
 
-describe.only("StructuredText", () => {
+describe("StructuredText", () => {
   describe("with no value", () => {
     it("renders null", () => {
       const wrapper = mount(<StructuredText structuredText={null} />);
@@ -29,7 +29,7 @@ describe.only("StructuredText", () => {
               children: [
                 {
                   type: "span",
-                  value: "This is a title!",
+                  value: "This\nis a\ntitle!",
                 },
               ],
             },
@@ -39,7 +39,7 @@ describe.only("StructuredText", () => {
     };
 
     describe("with default rules", () => {
-      it("renders the document", () => {
+      it.only("renders the document", () => {
         const wrapper = mount(
           <StructuredText structuredText={structuredText} />
         );
@@ -48,7 +48,7 @@ describe.only("StructuredText", () => {
     });
 
     describe("with custom rules", () => {
-      it.only("renders the document", () => {
+      it("renders the document", () => {
         const wrapper = mount(
           <StructuredText
             structuredText={structuredText}
@@ -103,7 +103,7 @@ describe.only("StructuredText", () => {
               children: [
                 {
                   type: "span",
-                  value: "This is a ",
+                  value: "This is a",
                 },
                 {
                   type: "span",

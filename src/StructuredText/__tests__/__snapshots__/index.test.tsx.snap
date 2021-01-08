@@ -54,7 +54,9 @@ exports[`StructuredText simple dast with no links/blocks with default rules rend
               "children": Array [
                 Object {
                   "type": "span",
-                  "value": "This is a title!",
+                  "value": "This
+is a
+title!",
                 },
               ],
               "level": 1,
@@ -71,7 +73,15 @@ exports[`StructuredText simple dast with no links/blocks with default rules rend
   <h1
     key="t-0"
   >
-    This is a title!
+    This
+    <br
+      key="br-0"
+    />
+    is a
+    <br
+      key="br-1"
+    />
+    title!
   </h1>
 </StructuredText>
 `;

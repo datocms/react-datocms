@@ -21,13 +21,16 @@ export {
   StructuredTextGraphQlResponseRecord,
 };
 
-const adapter = {
-  renderNode: React.createElement as (...args: any) => ReactElement | null,
-  renderMark: React.createElement as (...args: any) => ReactElement | null,
-  renderFragment: (children: ReactElement | null[]) => (
-    <React.Fragment>{children}</React.Fragment>
-  ),
-  renderText: (text: string): ReactElement | string => text,
+type AdapterReturn = ReactElement | string | null;
+
+export const defaultAdapter = {
+  renderNode: React.createElement as (...args: any) => AdapterReturn,
+  renderMark: React.createElement as (...args: any) => AdapterReturn,
+  renderFragment: (
+    children: ReactElement | null[],
+    key: string
+  ): AdapterReturn => <React.Fragment key={key}>{children}</React.Fragment>,
+  renderText: (text: string, key: string): AdapterReturn => text,
 };
 
 export function appendKeyToValidElement(
@@ -40,9 +43,10 @@ export function appendKeyToValidElement(
   return element;
 }
 
-type H = typeof adapter.renderNode;
-type T = typeof adapter.renderText;
-type F = typeof adapter.renderFragment;
+type H = typeof defaultAdapter.renderNode;
+type M = typeof defaultAdapter.renderMark;
+type T = typeof defaultAdapter.renderText;
+type F = typeof defaultAdapter.renderFragment;
 
 type RenderInlineRecordContext<
   R extends StructuredTextGraphQlResponseRecord
@@ -52,7 +56,7 @@ type RenderInlineRecordContext<
 
 type RenderRecordLinkContext<R extends StructuredTextGraphQlResponseRecord> = {
   record: R;
-  children: RenderResult<H, T, H, F>;
+  children: RenderResult<H, T, M, F>;
 };
 
 type RenderBlockContext<R extends StructuredTextGraphQlResponseRecord> = {
@@ -62,15 +66,28 @@ type RenderBlockContext<R extends StructuredTextGraphQlResponseRecord> = {
 export type StructuredTextPropTypes<
   R extends StructuredTextGraphQlResponseRecord
 > = {
+  /** The actual field value you get from DatoCMS **/
   structuredText: StructuredTextGraphQlResponse<R> | null | undefined;
-  customRules?: RenderRule<H, T, H, F>[];
+  /** A set of additional rules to convert the document to JSX **/
+  customRules?: RenderRule<H, T, M, F>[];
+  /** Fuction that converts an 'inlineItem' node into React **/
   renderInlineRecord?: (
     context: RenderInlineRecordContext<R>
   ) => ReactElement | null;
+  /** Fuction that converts an 'itemLink' node into React **/
   renderLinkToRecord?: (
     context: RenderRecordLinkContext<R>
   ) => ReactElement | null;
+  /** Fuction that converts a 'block' node into React **/
   renderBlock?: (context: RenderBlockContext<R>) => ReactElement | null;
+  /** Fuction that converts a simple string text into React **/
+  renderText?: T;
+  /** React.createElement-like function to use to convert a node into React **/
+  renderNode?: H;
+  /** React.createElement-like function to use to convert a mark into React **/
+  renderMark?: M;
+  /** Function to use to generate a React.Fragment **/
+  renderFragment?: F;
 };
 
 export function StructuredText<R extends StructuredTextGraphQlResponseRecord>({
@@ -79,14 +96,22 @@ export function StructuredText<R extends StructuredTextGraphQlResponseRecord>({
   renderLinkToRecord,
   renderBlock,
   renderText,
+  renderNode,
+  renderMark,
+  renderFragment,
   customRules,
 }: StructuredTextPropTypes<R>): ReactElement | null {
   if (!structuredText) {
     return null;
   }
 
-  const result = render<R, H, T, H, F>(
-    adapter,
+  const result = render(
+    {
+      renderText: renderText || defaultAdapter.renderText,
+      renderNode: renderNode || defaultAdapter.renderNode,
+      renderMark: renderMark || defaultAdapter.renderMark,
+      renderFragment: renderFragment || defaultAdapter.renderFragment,
+    },
     structuredText,
     [
       renderRule(isInlineItem, ({ node, key }) => {
@@ -181,5 +206,5 @@ export function StructuredText<R extends StructuredTextGraphQlResponseRecord>({
     ].concat(customRules || [])
   );
 
-  return result as ReturnType<F>;
+  return result;
 }

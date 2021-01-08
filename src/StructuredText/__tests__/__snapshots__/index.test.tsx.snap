@@ -1,6 +1,82 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
-exports[`StructuredText with default rules renders the document 1`] = `
+exports[`StructuredText simple dast with no links/blocks with custom rules renders the document 1`] = `
+<StructuredText
+  customRules={
+    Array [
+      Object {
+        "appliable": [Function],
+        "apply": [Function],
+      },
+    ]
+  }
+  renderText={[Function]}
+  structuredText={
+    Object {
+      "value": Object {
+        "document": Object {
+          "children": Array [
+            Object {
+              "children": Array [
+                Object {
+                  "type": "span",
+                  "value": "This is a title!",
+                },
+              ],
+              "level": 1,
+              "type": "heading",
+            },
+          ],
+          "type": "root",
+        },
+        "schema": "dast",
+      },
+    }
+  }
+>
+  <h2
+    key="t-0"
+  >
+    That is a title!
+    !!
+  </h2>
+</StructuredText>
+`;
+
+exports[`StructuredText simple dast with no links/blocks with default rules renders the document 1`] = `
+<StructuredText
+  structuredText={
+    Object {
+      "value": Object {
+        "document": Object {
+          "children": Array [
+            Object {
+              "children": Array [
+                Object {
+                  "type": "span",
+                  "value": "This is a title!",
+                },
+              ],
+              "level": 1,
+              "type": "heading",
+            },
+          ],
+          "type": "root",
+        },
+        "schema": "dast",
+      },
+    }
+  }
+>
+  <h1
+    key="t-0"
+  >
+    This is a title!
+  </h1>
+</StructuredText>
+`;
+
+exports[`StructuredText with links/blocks with default rules renders the document 1`] = `
 <StructuredText
   renderBlock={[Function]}
   renderInlineRecord={[Function]}

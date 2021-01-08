@@ -232,8 +232,8 @@ export default withQuery(query)(Page);
 | data                 | `ResponsiveImage` object | :white_check_mark: | The actual response you get from a DatoCMS `responsiveImage` GraphQL query.                                                                                                                                                                                                                   |                   |
 | className            | string                   | :x:                | Additional CSS className for root node                                                                                                                                                                                                                                                        | null              |
 | style                | CSS properties           | :x:                | Additional CSS rules to add to the root node                                                                                                                                                                                                                                                  | null              |
-| pictureClassName     | string                   | :x:                | Additional CSS class for the image inside the inner `<picture />` tag                                                                                                                                                                                                                                          | null              |
-| pictureStyle         | CSS properties           | :x:                | Additional CSS rules to add to the image inside the inner `<picture />` tag                                                                                                                                                                                                                                    | null              |
+| pictureClassName     | string                   | :x:                | Additional CSS class for the image inside the inner `<picture />` tag                                                                                                                                                                                                                         | null              |
+| pictureStyle         | CSS properties           | :x:                | Additional CSS rules to add to the image inside the inner `<picture />` tag                                                                                                                                                                                                                   | null              |
 | fadeInDuration       | integer                  | :x:                | Duration (in ms) of the fade-in transition effect upoad image loading                                                                                                                                                                                                                         | 500               |
 | intersectionTreshold | float                    | :x:                | Indicate at what percentage of the placeholder visibility the loading of the image should be triggered. A value of 0 means that as soon as even one pixel is visible, the callback will be run. A value of 1.0 means that the threshold isn't considered passed until every pixel is visible. | 0                 |
 | intersectionMargin   | string                   | :x:                | Margin around the placeholder. Can have values similar to the CSS margin property (top, right, bottom, left). The values can be percentages. This set of values serves to grow or shrink each side of the placeholder element's bounding box before computing intersections.                  | "0px 0px 0px 0px" |
@@ -364,7 +364,7 @@ const Page = ({ data }) => {
     <div>
       <h1>{data.blogPost.title}</h1>
       <StructuredText structuredText={data.blogPost.content} />
-      { /* -> <h1>Hello <strong>world!</strong></h1> */ }
+      {/* -> <h1>Hello <strong>world!</strong></h1> */}
     </div>
   );
 };
@@ -373,7 +373,9 @@ const query = gql`
   query {
     blogPost {
       title
-      content { value }
+      content {
+        value
+      }
     }
   }
 `;
@@ -471,21 +473,19 @@ const Page = ({ data }) => {
         renderBlock={({ record }) => {
           switch (record.__typename) {
             case "ImageRecord":
-              return (
-                <img src={record.image.url} alt={record.image.alt} />
-              );
+              return <img src={record.image.url} alt={record.image.alt} />;
             default:
               return null;
           }
         }}
       />
-      { /*
+      {/*
         Final result:
 
         <h1>Welcome onboard <a href="/team/mark-smith">Mark</a></h1>
         <p>So happy to have <a href="/team/mark-smith">this awesome humang being</a> in our team!</p>
         <img src="https://www.datocms-assets.com/205/1597757278-austin-distel-wd1lrb9oeeo-unsplash.jpg" alt="Our team at work" />
-      */ }
+      */}
     </div>
   );
 };
@@ -521,3 +521,14 @@ const query = gql`
 
 export default withQuery(query)(Page);
 ```
+
+## Props
+
+| prop               | type                                                            | required                                              | description                                                                 | default          |
+| ------------------ | --------------------------------------------------------------- | ----------------------------------------------------- | --------------------------------------------------------------------------- | ---------------- |
+| structuredText     | `StructuredTextGraphQlResponse`                                 | :white_check_mark:                                    | The actual field value you get from DatoCMS                                 |                  |
+| renderInlineRecord | `({ record }) => ReactElement \| null`                          | Only required if document contains `inlineItem` nodes | Convert an `inlineItem` DAST node into React                                | `[]`             |
+| renderLinkToRecord | `({ record, children }) => ReactElement \| null`                | Only required if document contains `itemLink` nodes   | Convert an `itemLink` DAST node into React                                  | `null`           |
+| renderBlock        | `({ record }) => ReactElement \| null`                          | Only required if document contains `block` nodes      | Convert a `block` DAST node into React                                      | `null`           |
+| customRules        | `Array<RenderRule>`                                             | :x:                                                   | Customize how document is converted in JSX (use `renderRule()` to generate) | `null`           |
+| renderText         | `(text: string, key: string) => ReactElement \| string \| null` | :x:                                                   | Convert a simple string text into React                                     | `(text) => text` |

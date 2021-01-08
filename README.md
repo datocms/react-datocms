@@ -321,3 +321,203 @@ const query = gql`
 
 export default withQuery(query)(Page);
 ```
+
+# Structured text
+
+`<StructuredText />` is a React component that you can use to render the value contained inside a DatoCMS [Structured Text field type](#).
+
+## Basic usage
+
+```js
+import React from "react";
+import { StructuredText } from "react-datocms";
+
+const Page = ({ data }) => {
+  // data.blogPost.content ->
+  // {
+  //   value: {
+  //     schema: "dast",
+  //     document: {
+  //       type: "root",
+  //       children: [
+  //         {
+  //           type: "heading",
+  //           level: 1,
+  //           children: [
+  //             {
+  //               type: "span",
+  //               value: "Hello ",
+  //             },
+  //             {
+  //               type: "span",
+  //               marks: ["strong"],
+  //               value: "world!",
+  //             },
+  //           ],
+  //         },
+  //       ],
+  //     },
+  //   },
+  // }
+
+  return (
+    <div>
+      <h1>{data.blogPost.title}</h1>
+      <StructuredText structuredText={data.blogPost.content} />
+      { /* -> <h1>Hello <strong>world!</strong></h1> */ }
+    </div>
+  );
+};
+
+const query = gql`
+  query {
+    blogPost {
+      title
+      content { value }
+    }
+  }
+`;
+
+export default withQuery(query)(Page);
+```
+
+## Custom renderers
+
+You can also pass custom renderers for special nodes (inline records, record links and blocks) as an optional parameter like so:
+
+```js
+import React from "react";
+import { StructuredText } from "react-datocms";
+
+const Page = ({ data }) => {
+  // data.blogPost.content ->
+  // {
+  //   value: {
+  //     schema: "dast",
+  //     document: {
+  //       type: "root",
+  //       children: [
+  //         {
+  //           type: "heading",
+  //           level: 1,
+  //           children: [
+  //             { type: "span", value: "Welcome onboard " },
+  //             { type: "inlineItem", item: "324321" },
+  //           ],
+  //         },
+  //         {
+  //           type: "paragraph",
+  //           children: [
+  //             { type: "span", value: "So happy to have " },
+  //             {
+  //               type: "itemLink",
+  //               item: "324321",
+  //               children: [
+  //                 {
+  //                   type: "span",
+  //                   marks: ["strong"],
+  //                   value: "this awesome humang being",
+  //                 },
+  //               ]
+  //             },
+  //             { type: "span", value: " in our team!" },
+  //           ]
+  //         },
+  //         { type: "block", item: "1984559" }
+  //       ],
+  //     },
+  //   },
+  //   links: [
+  //     {
+  //       id: "324321",
+  //       __typename: "TeamMemberRecord",
+  //       firstName: "Mark",
+  //       slug: "mark-smith",
+  //     },
+  //   ],
+  //   blocks: [
+  //     {
+  //       id: "324321",
+  //       __typename: "ImageRecord",
+  //       image: {
+  //         alt: "Our team at work",
+  //         url: "https://www.datocms-assets.com/205/1597757278-austin-distel-wd1lrb9oeeo-unsplash.jpg",
+  //       },
+  //     },
+  //   ],
+  // }
+
+  return (
+    <div>
+      <h1>{data.blogPost.title}</h1>
+      <StructuredText
+        structuredText={data.blogPost.content}
+        renderInlineRecord={({ record }) => {
+          switch (record.__typename) {
+            case "TeamMemberRecord":
+              return <a href={`/team/${record.slug}`}>{record.firstName}</a>;
+            default:
+              return null;
+          }
+        }}
+        renderLinkToRecord={({ record, children }) => {
+          switch (record.__typename) {
+            case "TeamMemberRecord":
+              return <a href={`/team/${record.slug}`}>{children}</a>;
+            default:
+              return null;
+          }
+        }}
+        renderBlock={({ record }) => {
+          switch (record.__typename) {
+            case "ImageRecord":
+              return (
+                <img src={record.image.url} alt={record.image.alt} />
+              );
+            default:
+              return null;
+          }
+        }}
+      />
+      { /*
+        Final result:
+
+        <h1>Welcome onboard <a href="/team/mark-smith">Mark</a></h1>
+        <p>So happy to have <a href="/team/mark-smith">this awesome humang being</a> in our team!</p>
+        <img src="https://www.datocms-assets.com/205/1597757278-austin-distel-wd1lrb9oeeo-unsplash.jpg" alt="Our team at work" />
+      */ }
+    </div>
+  );
+};
+
+const query = gql`
+  query {
+    blogPost {
+      title
+      content {
+        value
+        links {
+          __typename
+          ... on TeamMemberRecord {
+            id
+            firstName
+            slug
+          }
+        }
+        blocks {
+          __typename
+          ... on ImageRecord {
+            id
+            image {
+              url
+              alt
+            }
+          }
+        }
+      }
+    }
+  }
+`;
+
+export default withQuery(query)(Page);
+```

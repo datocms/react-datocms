@@ -27,7 +27,7 @@ const adapter = {
   renderFragment: (children: ReactElement | null[]) => (
     <React.Fragment>{children}</React.Fragment>
   ),
-  renderText: (text: string) => text,
+  renderText: (text: string): ReactElement | string => text,
 };
 
 export function appendKeyToValidElement(
@@ -75,10 +75,11 @@ export type StructuredTextPropTypes<
 
 export function StructuredText<R extends StructuredTextGraphQlResponseRecord>({
   structuredText,
-  customRules,
   renderInlineRecord,
   renderLinkToRecord,
   renderBlock,
+  renderText,
+  customRules,
 }: StructuredTextPropTypes<R>): ReactElement | null {
   if (!structuredText) {
     return null;
@@ -92,6 +93,13 @@ export function StructuredText<R extends StructuredTextGraphQlResponseRecord>({
         if (!renderInlineRecord) {
           throw new RenderError(
             `The Structured Text document contains an 'inlineItem' node, but no 'renderInlineRecord' prop is specified!`,
+            node
+          );
+        }
+
+        if (!structuredText.links) {
+          throw new RenderError(
+            `The Structured Text document contains an 'inlineItem' node, but .links is not present!`,
             node
           );
         }
@@ -118,6 +126,13 @@ export function StructuredText<R extends StructuredTextGraphQlResponseRecord>({
           );
         }
 
+        if (!structuredText.links) {
+          throw new RenderError(
+            `The Structured Text document contains an 'itemLink' node, but .links is not present!`,
+            node
+          );
+        }
+
         const item = structuredText.links.find((item) => item.id === node.item);
 
         if (!item) {
@@ -139,6 +154,13 @@ export function StructuredText<R extends StructuredTextGraphQlResponseRecord>({
         if (!renderBlock) {
           throw new RenderError(
             `The Structured Text document contains a 'block' node, but no 'renderBlock' prop is specified!`,
+            node
+          );
+        }
+
+        if (!structuredText.blocks) {
+          throw new RenderError(
+            `The Structured Text document contains a 'block' node, but .blocks is not present!`,
             node
           );
         }

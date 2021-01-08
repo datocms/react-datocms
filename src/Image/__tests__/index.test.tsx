@@ -18,7 +18,7 @@ const data = {
   width: 750
 };
 
-describe("Image", () => {
+describe.only("Image", () => {
   describe("not visible", () => {
     it("renders the blur-up thumb", () => {
       const wrapper = mount(<Image data={data} />);

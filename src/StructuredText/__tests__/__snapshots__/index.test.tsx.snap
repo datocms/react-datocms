@@ -1,0 +1,111 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`StructuredText with default rules renders the document 1`] = `
+<StructuredText
+  renderBlock={[Function]}
+  renderInlineRecord={[Function]}
+  renderLinkToRecord={[Function]}
+  structuredText={
+    Object {
+      "blocks": Array [
+        Object {
+          "__typename": "QuoteRecord",
+          "author": "Mark Smith",
+          "id": "456",
+          "quote": "Foo bar.",
+        },
+      ],
+      "links": Array [
+        Object {
+          "__typename": "DocPageRecord",
+          "id": "123",
+          "slug": "how-to-code",
+          "title": "How to code",
+        },
+      ],
+      "value": Object {
+        "document": Object {
+          "children": Array [
+            Object {
+              "children": Array [
+                Object {
+                  "type": "span",
+                  "value": "This is a ",
+                },
+                Object {
+                  "marks": Array [
+                    "highlight",
+                  ],
+                  "type": "span",
+                  "value": "title",
+                },
+                Object {
+                  "item": "123",
+                  "type": "inlineItem",
+                },
+                Object {
+                  "children": Array [
+                    Object {
+                      "type": "span",
+                      "value": "here!",
+                    },
+                  ],
+                  "item": "123",
+                  "type": "itemLink",
+                },
+              ],
+              "level": 1,
+              "type": "heading",
+            },
+            Object {
+              "item": "456",
+              "type": "block",
+            },
+          ],
+          "type": "root",
+        },
+        "schema": "dast",
+      },
+    }
+  }
+>
+  <h1
+    key="t-0"
+  >
+    This is a 
+    <mark
+      key="t-0"
+    >
+      title
+    </mark>
+    <a
+      href="/docs/how-to-code"
+      key="t-2"
+    >
+      How to code
+    </a>
+    <a
+      href="/docs/how-to-code"
+      key="t-3"
+    >
+      here!
+    </a>
+  </h1>
+  <figure
+    key="t-1"
+  >
+    <blockquote>
+      Foo bar.
+    </blockquote>
+    <figcaption>
+      Mark Smith
+    </figcaption>
+  </figure>
+</StructuredText>
+`;
+
+exports[`StructuredText with no value renders null 1`] = `
+<StructuredText
+  structuredText={null}
+/>
+`;

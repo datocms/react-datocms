@@ -16,11 +16,15 @@ type SubscribeToQueryOptions<QueryResult, QueryVariables> = Omit<
 type EnabledQueryListenerOptions<QueryResult, QueryVariables> = {
   /** Whether the subscription has to be performed or not */
   enabled?: true;
+  /** The initial data to use while the initial request is being performed */
+  initialData?: QueryResult;
 } & SubscribeToQueryOptions<QueryResult, QueryVariables>;
 
 type DisabledQueryListenerOptions<QueryResult, QueryVariables> = {
   /** Whether the subscription has to be performed or not */
   enabled: false;
+  /** The initial data to use while the initial request is being performed */
+  initialData?: QueryResult;
 } & Partial<SubscribeToQueryOptions<QueryResult, QueryVariables>>;
 
 type QueryListenerOptions<QueryResult, QueryVariables> =

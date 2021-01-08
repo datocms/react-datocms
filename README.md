@@ -9,24 +9,28 @@ A set of components and utilities to work faster with [DatoCMS](https://www.dato
 <!-- START doctoc generated TOC please keep comment here to allow auto update -->
 <!-- DON'T EDIT THIS SECTION, INSTEAD RE-RUN doctoc TO UPDATE -->
 
-- [Demos](#demos)
-- [Installation](#installation)
+
+  - [Demos](#demos)
+  - [Installation](#installation)
 - [Live real-time updates](#live-real-time-updates)
   - [Reference](#reference)
-  - [Usage](#usage)
   - [Initialization options](#initialization-options)
   - [Connection status](#connection-status)
   - [Error object](#error-object)
   - [Example](#example)
 - [Progressive/responsive image](#progressiveresponsive-image)
   - [Out-of-the-box features](#out-of-the-box-features)
-  - [Usage](#usage-1)
+  - [Usage](#usage)
   - [Example](#example-1)
   - [Props](#props)
     - [The `ResponsiveImage` object](#the-responsiveimage-object)
 - [Social share, SEO and Favicon meta tags](#social-share-seo-and-favicon-meta-tags)
-  - [Usage](#usage-2)
+  - [Usage](#usage-1)
   - [Example](#example-2)
+- [Structured text](#structured-text)
+  - [Basic usage](#basic-usage)
+  - [Custom renderers](#custom-renderers)
+  - [Props](#props-1)
 
 <!-- END doctoc generated TOC please keep comment here to allow auto update -->
 

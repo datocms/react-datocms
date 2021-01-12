@@ -39,7 +39,7 @@ describe("StructuredText", () => {
     };
 
     describe("with default rules", () => {
-      it.only("renders the document", () => {
+      it("renders the document", () => {
         const wrapper = mount(
           <StructuredText structuredText={structuredText} />
         );

@@ -41,13 +41,13 @@ exports[`Image not visible renders the blur-up thumb 1`] = `
           "backgroundColor": undefined,
           "backgroundImage": "url(data:image/jpeg;base64,/9j/4AAQSkZJRgABAQAAAQABAAD/2wCEAAoHBwgHBgoICAgLFQoLDhgQDg0NDh0eHREYIx8lJCIrHB0dLSs7GikyKSEuKjUlKDk1MjIyHyo4PTc+PDcxPjUBCgsLDg0OHBAQHDsoIig7Ozs7Ozs7OzsvOzs7Ozs7Ozs7Lzs7Ozs7Ozs7OzsvOzs7NTsvLy87NTU1Ly8vLzsvL//AABEIAA0AGAMBIgACEQEDEQH/xAAYAAACAwAAAAAAAAAAAAAAAAAGBwABBP/EACEQAAEEAAYDAAAAAAAAAAAAAAEAAgMEBQYHESEiFWFx/8QAFQEBAQAAAAAAAAAAAAAAAAAAAwL/xAAZEQADAAMAAAAAAAAAAAAAAAAAAQIRITH/2gAMAwEAAhEDEQA/AFxLgDWTsAd1J5TGy7hEYqNAaNgECX7sjLMQAHJTEy1Zcarfia4lJMauAxqBhLY6ZlaOzDurWvUOd3jZPfCiEh4xs//Z)",
           "backgroundSize": "cover",
-          "bottom": 0,
+          "height": "100%",
           "left": 0,
           "opacity": 1,
           "position": "absolute",
-          "right": 0,
           "top": 0,
           "transition": "opacity 500ms 500ms",
+          "width": "100%",
         }
       }
     />
@@ -99,13 +99,13 @@ exports[`Image visible image loaded shows the image 1`] = `
           "backgroundColor": undefined,
           "backgroundImage": "url(data:image/jpeg;base64,/9j/4AAQSkZJRgABAQAAAQABAAD/2wCEAAoHBwgHBgoICAgLFQoLDhgQDg0NDh0eHREYIx8lJCIrHB0dLSs7GikyKSEuKjUlKDk1MjIyHyo4PTc+PDcxPjUBCgsLDg0OHBAQHDsoIig7Ozs7Ozs7OzsvOzs7Ozs7Ozs7Lzs7Ozs7Ozs7OzsvOzs7NTsvLy87NTU1Ly8vLzsvL//AABEIAA0AGAMBIgACEQEDEQH/xAAYAAACAwAAAAAAAAAAAAAAAAAGBwABBP/EACEQAAEEAAYDAAAAAAAAAAAAAAEAAgMEBQYHESEiFWFx/8QAFQEBAQAAAAAAAAAAAAAAAAAAAwL/xAAZEQADAAMAAAAAAAAAAAAAAAAAAQIRITH/2gAMAwEAAhEDEQA/AFxLgDWTsAd1J5TGy7hEYqNAaNgECX7sjLMQAHJTEy1Zcarfia4lJMauAxqBhLY6ZlaOzDurWvUOd3jZPfCiEh4xs//Z)",
           "backgroundSize": "cover",
-          "bottom": 0,
+          "height": "100%",
           "left": 0,
           "opacity": 0,
           "position": "absolute",
-          "right": 0,
           "top": 0,
           "transition": "opacity 500ms 500ms",
+          "width": "100%",
         }
       }
     />
@@ -120,13 +120,13 @@ exports[`Image visible image loaded shows the image 1`] = `
         src="https://www.datocms-assets.com/205/image.png?ar=16%3A9&fit=crop&w=750"
         style={
           Object {
-            "bottom": 0,
+            "height": "100%",
             "left": 0,
             "opacity": 1,
             "position": "absolute",
-            "right": 0,
             "top": 0,
             "transition": "opacity 500ms 500ms",
+            "width": "100%",
           }
         }
         title="These are awesome, we know that."
@@ -180,13 +180,13 @@ exports[`Image visible renders the image 1`] = `
           "backgroundColor": undefined,
           "backgroundImage": "url(data:image/jpeg;base64,/9j/4AAQSkZJRgABAQAAAQABAAD/2wCEAAoHBwgHBgoICAgLFQoLDhgQDg0NDh0eHREYIx8lJCIrHB0dLSs7GikyKSEuKjUlKDk1MjIyHyo4PTc+PDcxPjUBCgsLDg0OHBAQHDsoIig7Ozs7Ozs7OzsvOzs7Ozs7Ozs7Lzs7Ozs7Ozs7OzsvOzs7NTsvLy87NTU1Ly8vLzsvL//AABEIAA0AGAMBIgACEQEDEQH/xAAYAAACAwAAAAAAAAAAAAAAAAAGBwABBP/EACEQAAEEAAYDAAAAAAAAAAAAAAEAAgMEBQYHESEiFWFx/8QAFQEBAQAAAAAAAAAAAAAAAAAAAwL/xAAZEQADAAMAAAAAAAAAAAAAAAAAAQIRITH/2gAMAwEAAhEDEQA/AFxLgDWTsAd1J5TGy7hEYqNAaNgECX7sjLMQAHJTEy1Zcarfia4lJMauAxqBhLY6ZlaOzDurWvUOd3jZPfCiEh4xs//Z)",
           "backgroundSize": "cover",
-          "bottom": 0,
+          "height": "100%",
           "left": 0,
           "opacity": 1,
           "position": "absolute",
-          "right": 0,
           "top": 0,
           "transition": "opacity 500ms 500ms",
+          "width": "100%",
         }
       }
     />
@@ -201,13 +201,13 @@ exports[`Image visible renders the image 1`] = `
         src="https://www.datocms-assets.com/205/image.png?ar=16%3A9&fit=crop&w=750"
         style={
           Object {
-            "bottom": 0,
+            "height": "100%",
             "left": 0,
             "opacity": 0,
             "position": "absolute",
-            "right": 0,
             "top": 0,
             "transition": "opacity 500ms 500ms",
+            "width": "100%",
           }
         }
         title="These are awesome, we know that."

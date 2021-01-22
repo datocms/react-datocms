@@ -20,7 +20,15 @@ exports[`StructuredText simple dast with no links/blocks with custom rules rende
               "children": Array [
                 Object {
                   "type": "span",
-                  "value": "This is a title!",
+                  "value": "This
+is a ",
+                },
+                Object {
+                  "marks": Array [
+                    "strong",
+                  ],
+                  "type": "span",
+                  "value": "title",
                 },
               ],
               "level": 1,
@@ -37,8 +45,16 @@ exports[`StructuredText simple dast with no links/blocks with custom rules rende
   <h2
     key="t-0"
   >
-    That is a title!
-    !!
+    That
+    <br
+      key="br-0"
+    />
+    is a 
+    <strong
+      key="t-1"
+    >
+      title
+    </strong>
   </h2>
 </StructuredText>
 `;
@@ -55,8 +71,14 @@ exports[`StructuredText simple dast with no links/blocks with default rules rend
                 Object {
                   "type": "span",
                   "value": "This
-is a
-title!",
+is a ",
+                },
+                Object {
+                  "marks": Array [
+                    "strong",
+                  ],
+                  "type": "span",
+                  "value": "title",
                 },
               ],
               "level": 1,
@@ -77,11 +99,12 @@ title!",
     <br
       key="br-0"
     />
-    is a
-    <br
-      key="br-1"
-    />
-    title!
+    is a 
+    <strong
+      key="t-1"
+    >
+      title
+    </strong>
   </h1>
 </StructuredText>
 `;
@@ -116,7 +139,7 @@ exports[`StructuredText with links/blocks with default rules renders the documen
               "children": Array [
                 Object {
                   "type": "span",
-                  "value": "This is a ",
+                  "value": "This is a",
                 },
                 Object {
                   "marks": Array [
@@ -158,9 +181,9 @@ exports[`StructuredText with links/blocks with default rules renders the documen
   <h1
     key="t-0"
   >
-    This is a 
+    This is a
     <mark
-      key="t-0"
+      key="t-1"
     >
       title
     </mark>

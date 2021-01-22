@@ -29,7 +29,12 @@ describe("StructuredText", () => {
               children: [
                 {
                   type: "span",
-                  value: "This\nis a\ntitle!",
+                  value: "This\nis a ",
+                },
+                {
+                  type: "span",
+                  marks: ["strong"],
+                  value: "title",
                 },
               ],
             },
@@ -55,7 +60,7 @@ describe("StructuredText", () => {
             renderText={(text, key) => {
               return (
                 <React.Fragment key={key}>
-                  {text.replace(/This/, "That")}!!
+                  {text.replace(/This/, "That")}
                 </React.Fragment>
               );
             }}

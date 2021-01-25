@@ -9,9 +9,8 @@ A set of components and utilities to work faster with [DatoCMS](https://www.dato
 <!-- START doctoc generated TOC please keep comment here to allow auto update -->
 <!-- DON'T EDIT THIS SECTION, INSTEAD RE-RUN doctoc TO UPDATE -->
 
-
-  - [Demos](#demos)
-  - [Installation](#installation)
+- [Demos](#demos)
+- [Installation](#installation)
 - [Live real-time updates](#live-real-time-updates)
   - [Reference](#reference)
   - [Initialization options](#initialization-options)
@@ -367,7 +366,7 @@ const Page = ({ data }) => {
   return (
     <div>
       <h1>{data.blogPost.title}</h1>
-      <StructuredText structuredText={data.blogPost.content} />
+      <StructuredText data={data.blogPost.content} />
       {/* -> <h1>Hello <strong>world!</strong></h1> */}
     </div>
   );
@@ -457,7 +456,7 @@ const Page = ({ data }) => {
     <div>
       <h1>{data.blogPost.title}</h1>
       <StructuredText
-        structuredText={data.blogPost.content}
+        data={data.blogPost.content}
         renderInlineRecord={({ record }) => {
           switch (record.__typename) {
             case "TeamMemberRecord":
@@ -530,7 +529,7 @@ export default withQuery(query)(Page);
 
 | prop               | type                                                            | required                                              | description                                                                 | default          |
 | ------------------ | --------------------------------------------------------------- | ----------------------------------------------------- | --------------------------------------------------------------------------- | ---------------- |
-| structuredText     | `StructuredTextGraphQlResponse`                                 | :white_check_mark:                                    | The actual field value you get from DatoCMS                                 |                  |
+| data               | `StructuredTextGraphQlResponse \| DastNode`                     | :white_check_mark:                                    | The actual field value you get from DatoCMS                                 |                  |
 | renderInlineRecord | `({ record }) => ReactElement \| null`                          | Only required if document contains `inlineItem` nodes | Convert an `inlineItem` DAST node into React                                | `[]`             |
 | renderLinkToRecord | `({ record, children }) => ReactElement \| null`                | Only required if document contains `itemLink` nodes   | Convert an `itemLink` DAST node into React                                  | `null`           |
 | renderBlock        | `({ record }) => ReactElement \| null`                          | Only required if document contains `block` nodes      | Convert a `block` DAST node into React                                      | `null`           |

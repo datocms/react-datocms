@@ -11,7 +11,7 @@ import { isHeading } from "datocms-structured-text-utils";
 describe("StructuredText", () => {
   describe("with no value", () => {
     it("renders null", () => {
-      const wrapper = mount(<StructuredText structuredText={null} />);
+      const wrapper = mount(<StructuredText data={null} />);
       expect(wrapper).toMatchSnapshot();
     });
   });
@@ -45,9 +45,7 @@ describe("StructuredText", () => {
 
     describe("with default rules", () => {
       it("renders the document", () => {
-        const wrapper = mount(
-          <StructuredText structuredText={structuredText} />
-        );
+        const wrapper = mount(<StructuredText data={structuredText} />);
         expect(wrapper).toMatchSnapshot();
       });
     });
@@ -56,7 +54,7 @@ describe("StructuredText", () => {
       it("renders the document", () => {
         const wrapper = mount(
           <StructuredText
-            structuredText={structuredText}
+            data={structuredText}
             renderText={(text, key) => {
               return (
                 <React.Fragment key={key}>
@@ -155,7 +153,7 @@ describe("StructuredText", () => {
       it("renders the document", () => {
         const wrapper = mount(
           <StructuredText
-            structuredText={structuredText}
+            data={structuredText}
             renderInlineRecord={({ record }) => {
               switch (record.__typename) {
                 case "DocPageRecord":
@@ -194,7 +192,7 @@ describe("StructuredText", () => {
     describe("with missing renderInlineRecord prop", () => {
       it("raises an error", () => {
         expect(() => {
-          shallow(<StructuredText structuredText={structuredText} />);
+          shallow(<StructuredText data={structuredText} />);
         }).toThrow(RenderError);
       });
     });
@@ -204,7 +202,7 @@ describe("StructuredText", () => {
         expect(() => {
           shallow(
             <StructuredText
-              structuredText={{ ...structuredText, links: [] }}
+              data={{ ...structuredText, links: [] }}
               renderInlineRecord={() => {
                 return null;
               }}

@@ -10,8 +10,7 @@ exports[`StructuredText simple dast with no links/blocks with custom rules rende
       },
     ]
   }
-  renderText={[Function]}
-  structuredText={
+  data={
     Object {
       "value": Object {
         "document": Object {
@@ -41,6 +40,7 @@ is a ",
       },
     }
   }
+  renderText={[Function]}
 >
   <h2
     key="t-0"
@@ -61,7 +61,7 @@ is a ",
 
 exports[`StructuredText simple dast with no links/blocks with default rules renders the document 1`] = `
 <StructuredText
-  structuredText={
+  data={
     Object {
       "value": Object {
         "document": Object {
@@ -111,10 +111,7 @@ is a ",
 
 exports[`StructuredText with links/blocks with default rules renders the document 1`] = `
 <StructuredText
-  renderBlock={[Function]}
-  renderInlineRecord={[Function]}
-  renderLinkToRecord={[Function]}
-  structuredText={
+  data={
     Object {
       "blocks": Array [
         Object {
@@ -177,6 +174,9 @@ exports[`StructuredText with links/blocks with default rules renders the documen
       },
     }
   }
+  renderBlock={[Function]}
+  renderInlineRecord={[Function]}
+  renderLinkToRecord={[Function]}
 >
   <h1
     key="t-0"
@@ -215,6 +215,6 @@ exports[`StructuredText with links/blocks with default rules renders the documen
 
 exports[`StructuredText with no value renders null 1`] = `
 <StructuredText
-  structuredText={null}
+  data={null}
 />
 `;

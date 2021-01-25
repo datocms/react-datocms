@@ -10,7 +10,9 @@ import {
   RenderError,
   RenderResult,
   RenderRule,
+  Node,
   StructuredText as StructuredTextGraphQlResponse,
+  isStructuredText,
 } from "datocms-structured-text-utils";
 import React, { cloneElement, isValidElement, ReactElement } from "react";
 
@@ -67,7 +69,7 @@ export type StructuredTextPropTypes<
   R extends StructuredTextGraphQlResponseRecord
 > = {
   /** The actual field value you get from DatoCMS **/
-  structuredText: StructuredTextGraphQlResponse<R> | null | undefined;
+  data: StructuredTextGraphQlResponse<R> | Node | null | undefined;
   /** A set of additional rules to convert the document to JSX **/
   customRules?: RenderRule<H, T, M, F>[];
   /** Fuction that converts an 'inlineItem' node into React **/
@@ -91,7 +93,7 @@ export type StructuredTextPropTypes<
 };
 
 export function StructuredText<R extends StructuredTextGraphQlResponseRecord>({
-  structuredText,
+  data,
   renderInlineRecord,
   renderLinkToRecord,
   renderBlock,
@@ -101,10 +103,6 @@ export function StructuredText<R extends StructuredTextGraphQlResponseRecord>({
   renderFragment,
   customRules,
 }: StructuredTextPropTypes<R>): ReactElement | null {
-  if (!structuredText) {
-    return null;
-  }
-
   const result = render(
     {
       renderText: renderText || defaultAdapter.renderText,
@@ -112,7 +110,7 @@ export function StructuredText<R extends StructuredTextGraphQlResponseRecord>({
       renderMark: renderMark || defaultAdapter.renderMark,
       renderFragment: renderFragment || defaultAdapter.renderFragment,
     },
-    structuredText,
+    data,
     [
       renderRule(isInlineItem, ({ node, key }) => {
         if (!renderInlineRecord) {
@@ -122,18 +120,20 @@ export function StructuredText<R extends StructuredTextGraphQlResponseRecord>({
           );
         }
 
-        if (!structuredText.links) {
+        if (!isStructuredText(data) || !data.links) {
           throw new RenderError(
-            `The Structured Text document contains an 'inlineItem' node, but .links is not present!`,
+            `The document contains an 'itemLink' node, but the passed data prop is not a Structured Text GraphQL response, or data.links is not present!`,
             node
           );
         }
 
-        const item = structuredText.links.find((item) => item.id === node.item);
+        const structuredText = data;
+
+        const item = data.links.find((item) => item.id === node.item);
 
         if (!item) {
           throw new RenderError(
-            `The Structured Text document contains an 'inlineItem' node, but cannot find a record with ID ${node.item} inside .links!`,
+            `The Structured Text document contains an 'inlineItem' node, but cannot find a record with ID ${node.item} inside data.links!`,
             node
           );
         }
@@ -151,18 +151,18 @@ export function StructuredText<R extends StructuredTextGraphQlResponseRecord>({
           );
         }
 
-        if (!structuredText.links) {
+        if (!isStructuredText(data) || !data.links) {
           throw new RenderError(
-            `The Structured Text document contains an 'itemLink' node, but .links is not present!`,
+            `The document contains an 'itemLink' node, but the passed data prop is not a Structured Text GraphQL response, or data.links is not present!`,
             node
           );
         }
 
-        const item = structuredText.links.find((item) => item.id === node.item);
+        const item = data.links.find((item) => item.id === node.item);
 
         if (!item) {
           throw new RenderError(
-            `The Structured Text document contains an 'itemLink' node, but cannot find a record with ID ${node.item} inside .links!`,
+            `The Structured Text document contains an 'itemLink' node, but cannot find a record with ID ${node.item} inside data.links!`,
             node
           );
         }
@@ -183,20 +183,18 @@ export function StructuredText<R extends StructuredTextGraphQlResponseRecord>({
           );
         }
 
-        if (!structuredText.blocks) {
+        if (!isStructuredText(data) || !data.blocks) {
           throw new RenderError(
-            `The Structured Text document contains a 'block' node, but .blocks is not present!`,
+            `The document contains an 'block' node, but the passed data prop is not a Structured Text GraphQL response, or data.blocks is not present!`,
             node
           );
         }
 
-        const item = structuredText.blocks.find(
-          (item) => item.id === node.item
-        );
+        const item = data.blocks.find((item) => item.id === node.item);
 
         if (!item) {
           throw new RenderError(
-            `The Structured Text document contains a 'block' node, but cannot find a record with ID ${node.item} inside .blocks!`,
+            `The Structured Text document contains a 'block' node, but cannot find a record with ID ${node.item} inside data.blocks!`,
             node
           );
         }

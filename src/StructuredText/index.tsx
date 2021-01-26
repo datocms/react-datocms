@@ -27,7 +27,6 @@ type AdapterReturn = ReactElement | string | null;
 
 export const defaultAdapter = {
   renderNode: React.createElement as (...args: any) => AdapterReturn,
-  renderMark: React.createElement as (...args: any) => AdapterReturn,
   renderFragment: (
     children: ReactElement | null[],
     key: string
@@ -46,7 +45,6 @@ export function appendKeyToValidElement(
 }
 
 type H = typeof defaultAdapter.renderNode;
-type M = typeof defaultAdapter.renderMark;
 type T = typeof defaultAdapter.renderText;
 type F = typeof defaultAdapter.renderFragment;
 
@@ -58,7 +56,7 @@ type RenderInlineRecordContext<
 
 type RenderRecordLinkContext<R extends StructuredTextGraphQlResponseRecord> = {
   record: R;
-  children: RenderResult<H, T, M, F>;
+  children: RenderResult<H, T, F>;
 };
 
 type RenderBlockContext<R extends StructuredTextGraphQlResponseRecord> = {
@@ -71,7 +69,7 @@ export type StructuredTextPropTypes<
   /** The actual field value you get from DatoCMS **/
   data: StructuredTextGraphQlResponse<R> | Node | null | undefined;
   /** A set of additional rules to convert the document to JSX **/
-  customRules?: RenderRule<H, T, M, F>[];
+  customRules?: RenderRule<H, T, F>[];
   /** Fuction that converts an 'inlineItem' node into React **/
   renderInlineRecord?: (
     context: RenderInlineRecordContext<R>
@@ -86,8 +84,6 @@ export type StructuredTextPropTypes<
   renderText?: T;
   /** React.createElement-like function to use to convert a node into React **/
   renderNode?: H;
-  /** React.createElement-like function to use to convert a mark into React **/
-  renderMark?: M;
   /** Function to use to generate a React.Fragment **/
   renderFragment?: F;
 };
@@ -99,7 +95,6 @@ export function StructuredText<R extends StructuredTextGraphQlResponseRecord>({
   renderBlock,
   renderText,
   renderNode,
-  renderMark,
   renderFragment,
   customRules,
 }: StructuredTextPropTypes<R>): ReactElement | null {
@@ -107,7 +102,6 @@ export function StructuredText<R extends StructuredTextGraphQlResponseRecord>({
     {
       renderText: renderText || defaultAdapter.renderText,
       renderNode: renderNode || defaultAdapter.renderNode,
-      renderMark: renderMark || defaultAdapter.renderMark,
       renderFragment: renderFragment || defaultAdapter.renderFragment,
     },
     data,

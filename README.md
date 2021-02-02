@@ -13,20 +13,23 @@ A set of components and utilities to work faster with [DatoCMS](https://www.dato
 - [Installation](#installation)
 - [Live real-time updates](#live-real-time-updates)
   - [Reference](#reference)
-  - [Usage](#usage)
   - [Initialization options](#initialization-options)
   - [Connection status](#connection-status)
   - [Error object](#error-object)
   - [Example](#example)
 - [Progressive/responsive image](#progressiveresponsive-image)
   - [Out-of-the-box features](#out-of-the-box-features)
-  - [Usage](#usage-1)
+  - [Usage](#usage)
   - [Example](#example-1)
   - [Props](#props)
     - [The `ResponsiveImage` object](#the-responsiveimage-object)
 - [Social share, SEO and Favicon meta tags](#social-share-seo-and-favicon-meta-tags)
-  - [Usage](#usage-2)
+  - [Usage](#usage-1)
   - [Example](#example-2)
+- [Structured text](#structured-text)
+  - [Basic usage](#basic-usage)
+  - [Custom renderers](#custom-renderers)
+  - [Props](#props-1)
 
 <!-- END doctoc generated TOC please keep comment here to allow auto update -->
 
@@ -232,8 +235,8 @@ export default withQuery(query)(Page);
 | data                 | `ResponsiveImage` object | :white_check_mark: | The actual response you get from a DatoCMS `responsiveImage` GraphQL query.                                                                                                                                                                                                                   |                   |
 | className            | string                   | :x:                | Additional CSS className for root node                                                                                                                                                                                                                                                        | null              |
 | style                | CSS properties           | :x:                | Additional CSS rules to add to the root node                                                                                                                                                                                                                                                  | null              |
-| pictureClassName     | string                   | :x:                | Additional CSS class for the image inside the inner `<picture />` tag                                                                                                                                                                                                                                          | null              |
-| pictureStyle         | CSS properties           | :x:                | Additional CSS rules to add to the image inside the inner `<picture />` tag                                                                                                                                                                                                                                    | null              |
+| pictureClassName     | string                   | :x:                | Additional CSS class for the image inside the inner `<picture />` tag                                                                                                                                                                                                                         | null              |
+| pictureStyle         | CSS properties           | :x:                | Additional CSS rules to add to the image inside the inner `<picture />` tag                                                                                                                                                                                                                   | null              |
 | fadeInDuration       | integer                  | :x:                | Duration (in ms) of the fade-in transition effect upoad image loading                                                                                                                                                                                                                         | 500               |
 | intersectionTreshold | float                    | :x:                | Indicate at what percentage of the placeholder visibility the loading of the image should be triggered. A value of 0 means that as soon as even one pixel is visible, the callback will be run. A value of 1.0 means that the threshold isn't considered passed until every pixel is visible. | 0                 |
 | intersectionMargin   | string                   | :x:                | Margin around the placeholder. Can have values similar to the CSS margin property (top, right, bottom, left). The values can be percentages. This set of values serves to grow or shrink each side of the placeholder element's bounding box before computing intersections.                  | "0px 0px 0px 0px" |
@@ -321,3 +324,214 @@ const query = gql`
 
 export default withQuery(query)(Page);
 ```
+
+# Structured text
+
+`<StructuredText />` is a React component that you can use to render the value contained inside a DatoCMS [Structured Text field type](#).
+
+## Basic usage
+
+```js
+import React from "react";
+import { StructuredText } from "react-datocms";
+
+const Page = ({ data }) => {
+  // data.blogPost.content ->
+  // {
+  //   value: {
+  //     schema: "dast",
+  //     document: {
+  //       type: "root",
+  //       children: [
+  //         {
+  //           type: "heading",
+  //           level: 1,
+  //           children: [
+  //             {
+  //               type: "span",
+  //               value: "Hello ",
+  //             },
+  //             {
+  //               type: "span",
+  //               marks: ["strong"],
+  //               value: "world!",
+  //             },
+  //           ],
+  //         },
+  //       ],
+  //     },
+  //   },
+  // }
+
+  return (
+    <div>
+      <h1>{data.blogPost.title}</h1>
+      <StructuredText data={data.blogPost.content} />
+      {/* -> <h1>Hello <strong>world!</strong></h1> */}
+    </div>
+  );
+};
+
+const query = gql`
+  query {
+    blogPost {
+      title
+      content {
+        value
+      }
+    }
+  }
+`;
+
+export default withQuery(query)(Page);
+```
+
+## Custom renderers
+
+You can also pass custom renderers for special nodes (inline records, record links and blocks) as an optional parameter like so:
+
+```js
+import React from "react";
+import { StructuredText } from "react-datocms";
+
+const Page = ({ data }) => {
+  // data.blogPost.content ->
+  // {
+  //   value: {
+  //     schema: "dast",
+  //     document: {
+  //       type: "root",
+  //       children: [
+  //         {
+  //           type: "heading",
+  //           level: 1,
+  //           children: [
+  //             { type: "span", value: "Welcome onboard " },
+  //             { type: "inlineItem", item: "324321" },
+  //           ],
+  //         },
+  //         {
+  //           type: "paragraph",
+  //           children: [
+  //             { type: "span", value: "So happy to have " },
+  //             {
+  //               type: "itemLink",
+  //               item: "324321",
+  //               children: [
+  //                 {
+  //                   type: "span",
+  //                   marks: ["strong"],
+  //                   value: "this awesome humang being",
+  //                 },
+  //               ]
+  //             },
+  //             { type: "span", value: " in our team!" },
+  //           ]
+  //         },
+  //         { type: "block", item: "1984559" }
+  //       ],
+  //     },
+  //   },
+  //   links: [
+  //     {
+  //       id: "324321",
+  //       __typename: "TeamMemberRecord",
+  //       firstName: "Mark",
+  //       slug: "mark-smith",
+  //     },
+  //   ],
+  //   blocks: [
+  //     {
+  //       id: "324321",
+  //       __typename: "ImageRecord",
+  //       image: {
+  //         alt: "Our team at work",
+  //         url: "https://www.datocms-assets.com/205/1597757278-austin-distel-wd1lrb9oeeo-unsplash.jpg",
+  //       },
+  //     },
+  //   ],
+  // }
+
+  return (
+    <div>
+      <h1>{data.blogPost.title}</h1>
+      <StructuredText
+        data={data.blogPost.content}
+        renderInlineRecord={({ record }) => {
+          switch (record.__typename) {
+            case "TeamMemberRecord":
+              return <a href={`/team/${record.slug}`}>{record.firstName}</a>;
+            default:
+              return null;
+          }
+        }}
+        renderLinkToRecord={({ record, children }) => {
+          switch (record.__typename) {
+            case "TeamMemberRecord":
+              return <a href={`/team/${record.slug}`}>{children}</a>;
+            default:
+              return null;
+          }
+        }}
+        renderBlock={({ record }) => {
+          switch (record.__typename) {
+            case "ImageRecord":
+              return <img src={record.image.url} alt={record.image.alt} />;
+            default:
+              return null;
+          }
+        }}
+      />
+      {/*
+        Final result:
+
+        <h1>Welcome onboard <a href="/team/mark-smith">Mark</a></h1>
+        <p>So happy to have <a href="/team/mark-smith">this awesome humang being</a> in our team!</p>
+        <img src="https://www.datocms-assets.com/205/1597757278-austin-distel-wd1lrb9oeeo-unsplash.jpg" alt="Our team at work" />
+      */}
+    </div>
+  );
+};
+
+const query = gql`
+  query {
+    blogPost {
+      title
+      content {
+        value
+        links {
+          __typename
+          ... on TeamMemberRecord {
+            id
+            firstName
+            slug
+          }
+        }
+        blocks {
+          __typename
+          ... on ImageRecord {
+            id
+            image {
+              url
+              alt
+            }
+          }
+        }
+      }
+    }
+  }
+`;
+
+export default withQuery(query)(Page);
+```
+
+## Props
+
+| prop               | type                                                            | required                                              | description                                                                 | default          |
+| ------------------ | --------------------------------------------------------------- | ----------------------------------------------------- | --------------------------------------------------------------------------- | ---------------- |
+| data               | `StructuredTextGraphQlResponse \| DastNode`                     | :white_check_mark:                                    | The actual field value you get from DatoCMS                                 |                  |
+| renderInlineRecord | `({ record }) => ReactElement \| null`                          | Only required if document contains `inlineItem` nodes | Convert an `inlineItem` DAST node into React                                | `[]`             |
+| renderLinkToRecord | `({ record, children }) => ReactElement \| null`                | Only required if document contains `itemLink` nodes   | Convert an `itemLink` DAST node into React                                  | `null`           |
+| renderBlock        | `({ record }) => ReactElement \| null`                          | Only required if document contains `block` nodes      | Convert a `block` DAST node into React                                      | `null`           |
+| customRules        | `Array<RenderRule>`                                             | :x:                                                   | Customize how document is converted in JSX (use `renderRule()` to generate) | `null`           |
+| renderText         | `(text: string, key: string) => ReactElement \| string \| null` | :x:                                                   | Convert a simple string text into React                                     | `(text) => text` |

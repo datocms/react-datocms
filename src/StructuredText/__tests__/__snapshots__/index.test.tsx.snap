@@ -1,0 +1,220 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`StructuredText simple dast with no links/blocks with custom rules renders the document 1`] = `
+<StructuredText
+  customRules={
+    Array [
+      Object {
+        "appliable": [Function],
+        "apply": [Function],
+      },
+    ]
+  }
+  data={
+    Object {
+      "value": Object {
+        "document": Object {
+          "children": Array [
+            Object {
+              "children": Array [
+                Object {
+                  "type": "span",
+                  "value": "This
+is a ",
+                },
+                Object {
+                  "marks": Array [
+                    "strong",
+                  ],
+                  "type": "span",
+                  "value": "title",
+                },
+              ],
+              "level": 1,
+              "type": "heading",
+            },
+          ],
+          "type": "root",
+        },
+        "schema": "dast",
+      },
+    }
+  }
+  renderText={[Function]}
+>
+  <h2
+    key="t-0"
+  >
+    That
+    <br
+      key="br-0"
+    />
+    is a 
+    <strong
+      key="t-1"
+    >
+      title
+    </strong>
+  </h2>
+</StructuredText>
+`;
+
+exports[`StructuredText simple dast with no links/blocks with default rules renders the document 1`] = `
+<StructuredText
+  data={
+    Object {
+      "value": Object {
+        "document": Object {
+          "children": Array [
+            Object {
+              "children": Array [
+                Object {
+                  "type": "span",
+                  "value": "This
+is a ",
+                },
+                Object {
+                  "marks": Array [
+                    "strong",
+                  ],
+                  "type": "span",
+                  "value": "title",
+                },
+              ],
+              "level": 1,
+              "type": "heading",
+            },
+          ],
+          "type": "root",
+        },
+        "schema": "dast",
+      },
+    }
+  }
+>
+  <h1
+    key="t-0"
+  >
+    This
+    <br
+      key="br-0"
+    />
+    is a 
+    <strong
+      key="t-1"
+    >
+      title
+    </strong>
+  </h1>
+</StructuredText>
+`;
+
+exports[`StructuredText with links/blocks with default rules renders the document 1`] = `
+<StructuredText
+  data={
+    Object {
+      "blocks": Array [
+        Object {
+          "__typename": "QuoteRecord",
+          "author": "Mark Smith",
+          "id": "456",
+          "quote": "Foo bar.",
+        },
+      ],
+      "links": Array [
+        Object {
+          "__typename": "DocPageRecord",
+          "id": "123",
+          "slug": "how-to-code",
+          "title": "How to code",
+        },
+      ],
+      "value": Object {
+        "document": Object {
+          "children": Array [
+            Object {
+              "children": Array [
+                Object {
+                  "type": "span",
+                  "value": "This is a",
+                },
+                Object {
+                  "marks": Array [
+                    "highlight",
+                  ],
+                  "type": "span",
+                  "value": "title",
+                },
+                Object {
+                  "item": "123",
+                  "type": "inlineItem",
+                },
+                Object {
+                  "children": Array [
+                    Object {
+                      "type": "span",
+                      "value": "here!",
+                    },
+                  ],
+                  "item": "123",
+                  "type": "itemLink",
+                },
+              ],
+              "level": 1,
+              "type": "heading",
+            },
+            Object {
+              "item": "456",
+              "type": "block",
+            },
+          ],
+          "type": "root",
+        },
+        "schema": "dast",
+      },
+    }
+  }
+  renderBlock={[Function]}
+  renderInlineRecord={[Function]}
+  renderLinkToRecord={[Function]}
+>
+  <h1
+    key="t-0"
+  >
+    This is a
+    <mark
+      key="t-1"
+    >
+      title
+    </mark>
+    <a
+      href="/docs/how-to-code"
+      key="t-2"
+    >
+      How to code
+    </a>
+    <a
+      href="/docs/how-to-code"
+      key="t-3"
+    >
+      here!
+    </a>
+  </h1>
+  <figure
+    key="t-1"
+  >
+    <blockquote>
+      Foo bar.
+    </blockquote>
+    <figcaption>
+      Mark Smith
+    </figcaption>
+  </figure>
+</StructuredText>
+`;
+
+exports[`StructuredText with no value renders null 1`] = `
+<StructuredText
+  data={null}
+/>
+`;

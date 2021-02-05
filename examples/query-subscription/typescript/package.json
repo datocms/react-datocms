@@ -4,7 +4,7 @@
   "private": true,
   "dependencies": {
     "react": "^17.0.1",
-    "react-datocms": "^1.4.5",
+    "react-datocms": "latest",
     "react-dom": "^17.0.1",
     "react-helmet": "5.2.1"
   },

@@ -34,7 +34,7 @@ export const query = `
       id
       title
       slug
-      excerpt(markdown: true)
+      excerpt { value }
       coverImage {
         responsiveImage(imgixParams: { fit: crop, ar: "16:9", w: 750 }) {
           ${RESPONSIVE_IMAGE_FRAGMENT}

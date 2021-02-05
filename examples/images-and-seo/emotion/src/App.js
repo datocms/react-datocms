@@ -1,7 +1,7 @@
 import React from "react";
 import { useQuery } from "graphql-hooks";
 import { Helmet } from "react-helmet";
-import { renderMetaTags, renderMetaTagsToString } from "react-datocms";
+import { renderMetaTags, renderMetaTagsToString, StructuredText } from "react-datocms";
 import { query } from "./query";
 import {
   SeoInspect,
@@ -55,9 +55,9 @@ const App = () => {
                 {blogPost.title}
               </a>
             </BlogPostTitle>
-            <BlogPostExcerpt
-              dangerouslySetInnerHTML={{ __html: blogPost.excerpt }}
-            />
+            <BlogPostExcerpt>
+              <StructuredText data={blogPost.excerpt} />
+            </BlogPostExcerpt>
             <BlogPostAuthor>
               <BlogPostAuthorImage data={blogPost.author.avatar.responsiveImage} />
               Written by {blogPost.author.name}

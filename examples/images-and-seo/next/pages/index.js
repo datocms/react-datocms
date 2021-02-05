@@ -1,6 +1,6 @@
 import Head from "next/head";
 import React from "react";
-import { Image, renderMetaTags, renderMetaTagsToString } from "react-datocms";
+import { Image, StructuredText, renderMetaTags, renderMetaTagsToString } from "react-datocms";
 import { query } from "../lib/query";
 import { request } from "../lib/datocms";
 
@@ -48,10 +48,9 @@ const App = ({ data }) => {
                 {blogPost.title}
               </a>
             </h6>
-            <div
-              className="blogPost-excerpt"
-              dangerouslySetInnerHTML={{ __html: blogPost.excerpt }}
-            />
+            <div className="blogPost-excerpt">
+              <StructuredText data={blogPost.excerpt} />
+            </div>
             <footer className="blogPost-author">
               <Image
                 className="blogPost-author-image"

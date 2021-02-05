@@ -2,14 +2,18 @@ import React from "react";
 import "./App.css";
 import { useQuery } from "graphql-hooks";
 import { Helmet } from "react-helmet";
-import { Image, renderMetaTags, renderMetaTagsToString } from "react-datocms";
+import {
+  Image,
+  renderMetaTags,
+  renderMetaTagsToString,
+  StructuredText,
+} from "react-datocms";
 import { query } from "./query";
 
 const App = () => {
-  const { loading, error, data } = useQuery(
-    query,
-    { variables: { first: 10 } }
-  );
+  const { loading, error, data } = useQuery(query, {
+    variables: { first: 10 },
+  });
 
   if (loading) return <div>Loading...</div>;
   if (error) return <div>Something bad happened</div>;
@@ -21,7 +25,8 @@ const App = () => {
       <Helmet>{renderMetaTags(metaTags)}</Helmet>
       <pre className="seo-inspect">
         Look at all these juicy meta tags! ↴
-        <br/><br/>
+        <br />
+        <br />
         {renderMetaTagsToString(metaTags)}
       </pre>
       <div className="app">
@@ -29,7 +34,7 @@ const App = () => {
         <div className="app-subtitle">
           News, tips, highlights, and other updates from the team at DatoCMS.
         </div>
-        {data.blogPosts.map(blogPost => (
+        {data.blogPosts.map((blogPost) => (
           <article key={blogPost.id} className="blogPost">
             <Image
               className="blogPost-image"
@@ -45,10 +50,10 @@ const App = () => {
                 {blogPost.title}
               </a>
             </h6>
-            <div
-              className="blogPost-excerpt"
-              dangerouslySetInnerHTML={{ __html: blogPost.excerpt }}
-            />
+            <div className="blogPost-excerpt">
+              <StructuredText data={blogPost.excerpt} />
+            </div>
+
             <footer className="blogPost-author">
               <Image
                 className="blogPost-author-image"

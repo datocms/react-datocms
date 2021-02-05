@@ -1,7 +1,12 @@
 import React from "react";
 import "./App.css";
 import { Helmet } from "react-helmet";
-import { Image, renderMetaTags, useQuerySubscription } from "react-datocms";
+import {
+  Image,
+  renderMetaTags,
+  useQuerySubscription,
+  StructuredText,
+} from "react-datocms";
 import { query, QueryResponseType, QueryVariables } from "./query";
 
 const App: React.FC = () => {
@@ -60,10 +65,9 @@ const App: React.FC = () => {
                   {blogPost.title}
                 </a>
               </h6>
-              <div
-                className="blogPost-excerpt"
-                dangerouslySetInnerHTML={{ __html: blogPost.excerpt }}
-              />
+              <div className="blogPost-excerpt">
+                <StructuredText data={blogPost.excerpt} />
+              </div>
               <footer className="blogPost-author">
                 <Image
                   className="blogPost-author-image"

@@ -1,6 +1,6 @@
 import {
-  ToMetaTagsType,
-  ResponsiveImageType
+  ResponsiveImageType,
+  StructuredTextGraphQlResponse, ToMetaTagsType
 } from "react-datocms";
 
 const RESPONSIVE_IMAGE_FRAGMENT = `
@@ -40,7 +40,7 @@ export const query = `
       id
       title
       slug
-      excerpt(markdown: true)
+      excerpt { value }
       coverImage {
         responsiveImage(imgixParams: { fit: crop, ar: "16:9", w: 750, auto: format }) {
           ${RESPONSIVE_IMAGE_FRAGMENT}
@@ -61,7 +61,7 @@ export const query = `
 type BlogPost = {
   id: string;
   title: string;
-  excerpt: string;
+  excerpt: StructuredTextGraphQlResponse;
   slug: string;
   coverImage: {
     responsiveImage: ResponsiveImageType;

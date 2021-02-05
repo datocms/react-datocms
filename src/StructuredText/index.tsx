@@ -121,8 +121,6 @@ export function StructuredText<R extends StructuredTextGraphQlResponseRecord>({
           );
         }
 
-        const structuredText = data;
-
         const item = data.links.find((item) => item.id === node.item);
 
         if (!item) {

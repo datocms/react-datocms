@@ -172,7 +172,7 @@ const App: React.FC = () => {
 ## Usage
 
 1. Import `Image` from `react-datocms` and use it in place of the regular `<img />` tag
-2. Write a GraphQL query to your DatoCMS project using the [`responsiveImage` query](https://www.datocms.com/docs/qualcosa)
+2. Write a GraphQL query to your DatoCMS project using the [`responsiveImage` query](https://www.datocms.com/docs/content-delivery-api/images-and-videos#responsive-images)
 
 The GraphQL query returns multiple thumbnails with optimized compression. The `Image` component automatically sets up the “blur-up” effect as well as lazy loading of images further down the screen.
 

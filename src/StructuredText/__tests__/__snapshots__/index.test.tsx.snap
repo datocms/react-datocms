@@ -157,9 +157,12 @@ exports[`StructuredText with links/blocks with default rules renders the documen
                     },
                   ],
                   "item": "123",
-                  "meta": Object {
-                    "openInNewWindow": true,
-                  },
+                  "meta": Array [
+                    Object {
+                      "id": "openInNewWindow",
+                      "value": true,
+                    },
+                  ],
                   "type": "itemLink",
                 },
               ],

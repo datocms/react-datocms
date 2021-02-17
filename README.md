@@ -465,10 +465,10 @@ const Page = ({ data }) => {
               return null;
           }
         }}
-        renderLinkToRecord={({ record, children }) => {
+        renderLinkToRecord={({ record, children, transformedMeta }) => {
           switch (record.__typename) {
             case "TeamMemberRecord":
-              return <a href={`/team/${record.slug}`}>{children}</a>;
+              return <a {...transformedMeta} href={`/team/${record.slug}`}>{children}</a>;
             default:
               return null;
           }

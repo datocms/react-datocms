@@ -120,6 +120,9 @@ describe("StructuredText", () => {
                 {
                   type: "itemLink",
                   item: "123",
+                  meta: {
+                    openInNewWindow: true,
+                  },
                   children: [{ type: "span", value: "here!" }],
                 },
               ],
@@ -162,10 +165,10 @@ describe("StructuredText", () => {
                   return null;
               }
             }}
-            renderLinkToRecord={({ record, children }) => {
+            renderLinkToRecord={({ record, children, transformedMeta }) => {
               switch (record.__typename) {
                 case "DocPageRecord":
-                  return <a href={`/docs/${record.slug}`}>{children}</a>;
+                  return <a {...transformedMeta} href={`/docs/${record.slug}`}>{children}</a>;
                 default:
                   return null;
               }

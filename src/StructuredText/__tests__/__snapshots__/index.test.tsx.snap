@@ -157,6 +157,9 @@ exports[`StructuredText with links/blocks with default rules renders the documen
                     },
                   ],
                   "item": "123",
+                  "meta": Object {
+                    "openInNewWindow": true,
+                  },
                   "type": "itemLink",
                 },
               ],
@@ -196,6 +199,7 @@ exports[`StructuredText with links/blocks with default rules renders the documen
     <a
       href="/docs/how-to-code"
       key="t-3"
+      target="_blank"
     >
       here!
     </a>

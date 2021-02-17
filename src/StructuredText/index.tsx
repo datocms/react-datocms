@@ -1,6 +1,9 @@
 import {
+  defaultMetaTransformer,
   render,
   renderRule,
+  TransformedMeta,
+  TransformMetaFn,
 } from "datocms-structured-text-generic-html-renderer";
 import {
   isBlock,
@@ -57,6 +60,7 @@ type RenderInlineRecordContext<
 type RenderRecordLinkContext<R extends StructuredTextGraphQlResponseRecord> = {
   record: R;
   children: RenderResult<H, T, F>;
+  transformedMeta: TransformedMeta;
 };
 
 type RenderBlockContext<R extends StructuredTextGraphQlResponseRecord> = {
@@ -80,6 +84,8 @@ export type StructuredTextPropTypes<
   ) => ReactElement | null;
   /** Fuction that converts a 'block' node into React **/
   renderBlock?: (context: RenderBlockContext<R>) => ReactElement | null;
+  /** Function that converts 'link' and 'itemLink' `meta` into HTML props */
+  metaTransformer?: TransformMetaFn;
   /** Fuction that converts a simple string text into React **/
   renderText?: T;
   /** React.createElement-like function to use to convert a node into React **/
@@ -97,6 +103,7 @@ export function StructuredText<R extends StructuredTextGraphQlResponseRecord>({
   renderNode,
   renderFragment,
   customRules,
+  metaTransformer,
 }: StructuredTextPropTypes<R>): ReactElement | null {
   const result = render(
     {
@@ -163,6 +170,12 @@ export function StructuredText<R extends StructuredTextGraphQlResponseRecord>({
           renderLinkToRecord({
             record: item,
             children: (children as any) as ReturnType<F>,
+            transformedMeta: node.meta
+            ? (metaTransformer || defaultMetaTransformer)({
+                node,
+                meta: node.meta,
+              })
+            : null,
           }),
           key
         );
@@ -193,7 +206,8 @@ export function StructuredText<R extends StructuredTextGraphQlResponseRecord>({
 
         return appendKeyToValidElement(renderBlock({ record: item }), key);
       }),
-    ].concat(customRules || [])
+    ].concat(customRules || []),
+    metaTransformer,
   );
 
   return result;

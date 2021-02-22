@@ -45,8 +45,10 @@ type ImagePropTypes = {
   pictureClassName?: string;
   /** Duration (in ms) of the fade-in transition effect upoad image loading */
   fadeInDuration?: number;
-  /** Indicate at what percentage of the placeholder visibility the loading of the image should be triggered. A value of 0 means that as soon as even one pixel is visible, the callback will be run. A value of 1.0 means that the threshold isn't considered passed until every pixel is visible */
+  /** @deprecated Use the intersectionThreshold prop */
   intersectionTreshold?: number;
+  /** Indicate at what percentage of the placeholder visibility the loading of the image should be triggered. A value of 0 means that as soon as even one pixel is visible, the callback will be run. A value of 1.0 means that the threshold isn't considered passed until every pixel is visible */
+  intersectionThreshold?: number;
   /** Margin around the placeholder. Can have values similar to the CSS margin property (top, right, bottom, left). The values can be percentages. This set of values serves to grow or shrink each side of the placeholder element's bounding box before computing intersections */
   intersectionMargin?: string;
   /** Wheter enable lazy loading or not */
@@ -101,6 +103,7 @@ export const Image: React.FC<ImagePropTypes> = function ({
   className,
   fadeInDuration,
   intersectionTreshold,
+  intersectionThreshold,
   intersectionMargin,
   pictureClassName,
   lazyLoad = true,
@@ -116,7 +119,7 @@ export const Image: React.FC<ImagePropTypes> = function ({
   }, []);
 
   const [ref, inView, _entry] = useInView({
-    threshold: intersectionTreshold || 0,
+    threshold: intersectionThreshold || intersectionTreshold || 0,
     rootMargin: intersectionMargin || "0px 0px 0px 0px",
     triggerOnce: true,
   });

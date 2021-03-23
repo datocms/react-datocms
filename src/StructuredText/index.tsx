@@ -10,6 +10,7 @@ import {
   isInlineItem,
   isItemLink,
   Record as StructuredTextGraphQlResponseRecord,
+  Document as StructuredTextDocument,
   RenderError,
   RenderResult,
   RenderRule,
@@ -23,6 +24,7 @@ export {
   renderRule,
   RenderError,
   StructuredTextGraphQlResponse,
+  StructuredTextDocument,
   StructuredTextGraphQlResponseRecord,
 };
 
@@ -71,7 +73,7 @@ export type StructuredTextPropTypes<
   R extends StructuredTextGraphQlResponseRecord
 > = {
   /** The actual field value you get from DatoCMS **/
-  data: StructuredTextGraphQlResponse<R> | Node | null | undefined;
+  data: StructuredTextGraphQlResponse<R> | StructuredTextDocument | Node | null | undefined;
   /** A set of additional rules to convert the document to JSX **/
   customRules?: RenderRule<H, T, F>[];
   /** Fuction that converts an 'inlineItem' node into React **/

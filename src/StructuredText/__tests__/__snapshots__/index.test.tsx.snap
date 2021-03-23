@@ -1,5 +1,53 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
+exports[`StructuredText simple dast /2 with default rules renders the document 1`] = `
+<StructuredText
+  data={
+    Object {
+      "document": Object {
+        "children": Array [
+          Object {
+            "children": Array [
+              Object {
+                "type": "span",
+                "value": "This
+is a ",
+              },
+              Object {
+                "marks": Array [
+                  "strong",
+                ],
+                "type": "span",
+                "value": "title",
+              },
+            ],
+            "level": 1,
+            "type": "heading",
+          },
+        ],
+        "type": "root",
+      },
+      "schema": "dast",
+    }
+  }
+>
+  <h1
+    key="t-0"
+  >
+    This
+    <br
+      key="br-0"
+    />
+    is a 
+    <strong
+      key="t-1"
+    >
+      title
+    </strong>
+  </h1>
+</StructuredText>
+`;
+
 exports[`StructuredText simple dast with no links/blocks with custom rules renders the document 1`] = `
 <StructuredText
   customRules={

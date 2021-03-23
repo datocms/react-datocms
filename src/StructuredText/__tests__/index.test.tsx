@@ -3,6 +3,7 @@ import * as React from "react";
 import {
   StructuredText,
   StructuredTextGraphQlResponse,
+  StructuredTextDocument,
   RenderError,
   renderRule,
 } from "../index";
@@ -13,6 +14,39 @@ describe("StructuredText", () => {
     it("renders null", () => {
       const wrapper = mount(<StructuredText data={null} />);
       expect(wrapper).toMatchSnapshot();
+    });
+  });
+
+  describe("simple dast /2", () => {
+    const structuredText: StructuredTextDocument = {
+      schema: "dast",
+      document: {
+        type: "root",
+        children: [
+          {
+            type: "heading",
+            level: 1,
+            children: [
+              {
+                type: "span",
+                value: "This\nis a ",
+              },
+              {
+                type: "span",
+                marks: ["strong"],
+                value: "title",
+              },
+            ],
+          },
+        ],
+      },
+    };
+
+    describe("with default rules", () => {
+      it("renders the document", () => {
+        const wrapper = mount(<StructuredText data={structuredText} />);
+        expect(wrapper).toMatchSnapshot();
+      });
     });
   });
 

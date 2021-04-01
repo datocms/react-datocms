@@ -392,7 +392,7 @@ You can also pass custom renderers for special nodes (inline records, record lin
 
 ```js
 import React from "react";
-import { StructuredText } from "react-datocms";
+import { StructuredText, Image } from "react-datocms";
 
 const Page = ({ data }) => {
   // data.blogPost.content ->
@@ -445,8 +445,7 @@ const Page = ({ data }) => {
   //       id: "324321",
   //       __typename: "ImageRecord",
   //       image: {
-  //         alt: "Our team at work",
-  //         url: "https://www.datocms-assets.com/205/1597757278-austin-distel-wd1lrb9oeeo-unsplash.jpg",
+  //         responsiveImage: { ... },
   //       },
   //     },
   //   ],
@@ -480,7 +479,7 @@ const Page = ({ data }) => {
         renderBlock={({ record }) => {
           switch (record.__typename) {
             case "ImageRecord":
-              return <img src={record.image.url} alt={record.image.alt} />;
+              return <Image data={record.image.responsiveImage} />;
             default:
               return null;
           }
@@ -516,8 +515,18 @@ const query = gql`
           ... on ImageRecord {
             id
             image {
-              url
-              alt
+              responsiveImage(imgixParams: { fit: crop, w: 300, h: 300, auto: format }) {
+                srcSet
+                webpSrcSet
+                sizes
+                src
+                width
+                height
+                aspectRatio
+                alt
+                title
+                base64
+              }
             }
           }
         }

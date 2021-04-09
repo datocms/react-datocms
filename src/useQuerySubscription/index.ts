@@ -8,26 +8,26 @@ import {
 } from "datocms-listen";
 import { useDeepCompareEffectNoCheck as useDeepCompareEffect } from "use-deep-compare-effect";
 
-type SubscribeToQueryOptions<QueryResult, QueryVariables> = Omit<
+export type SubscribeToQueryOptions<QueryResult, QueryVariables> = Omit<
   Options<QueryResult, QueryVariables>,
   "onStatusChange" | "onUpdate" | "onChannelError"
 >;
 
-type EnabledQueryListenerOptions<QueryResult, QueryVariables> = {
+export type EnabledQueryListenerOptions<QueryResult, QueryVariables> = {
   /** Whether the subscription has to be performed or not */
   enabled?: true;
   /** The initial data to use while the initial request is being performed */
   initialData?: QueryResult;
 } & SubscribeToQueryOptions<QueryResult, QueryVariables>;
 
-type DisabledQueryListenerOptions<QueryResult, QueryVariables> = {
+export type DisabledQueryListenerOptions<QueryResult, QueryVariables> = {
   /** Whether the subscription has to be performed or not */
   enabled: false;
   /** The initial data to use while the initial request is being performed */
   initialData?: QueryResult;
 } & Partial<SubscribeToQueryOptions<QueryResult, QueryVariables>>;
 
-type QueryListenerOptions<QueryResult, QueryVariables> =
+export type QueryListenerOptions<QueryResult, QueryVariables> =
   | EnabledQueryListenerOptions<QueryResult, QueryVariables>
   | DisabledQueryListenerOptions<QueryResult, QueryVariables>;
 

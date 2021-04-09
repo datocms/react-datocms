@@ -76,7 +76,7 @@
     "datocms-structured-text-generic-html-renderer": "^1.0.14",
     "datocms-structured-text-utils": "^1.0.14",
     "intersection-observer": "^0.12.0",
-    "react-intersection-observer": "^8.26.1",
+    "react-intersection-observer": "^8.31.0",
     "use-deep-compare-effect": "^1.6.1"
   }
 }

@@ -15,6 +15,7 @@ exports[`Image not visible renders the blur-up thumb 1`] = `
       "width": 750,
     }
   }
+  intersectionThreshold={0.1}
 >
   <div
     style={
@@ -73,6 +74,7 @@ exports[`Image visible image loaded shows the image 1`] = `
       "width": 750,
     }
   }
+  intersectionThreshold={0.3}
 >
   <div
     style={
@@ -154,6 +156,7 @@ exports[`Image visible renders the image 1`] = `
       "width": 750,
     }
   }
+  intersectionThreshold={0.2}
 >
   <div
     style={

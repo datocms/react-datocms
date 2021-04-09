@@ -118,7 +118,7 @@ export const Image: React.FC<ImagePropTypes> = function ({
     setLoaded(true);
   }, []);
 
-  const [ref, inView, _entry] = useInView({
+  const { ref, inView } = useInView({
     threshold: intersectionThreshold || intersectionTreshold || 0,
     rootMargin: intersectionMargin || "0px 0px 0px 0px",
     triggerOnce: true,

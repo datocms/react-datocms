@@ -1,11 +1,11 @@
 {
   "compilerOptions": {
     "declaration": true,
-    "declarationDir": "./dist",
+    "declarationDir": "./dist/cjs",
     "module": "commonjs",
     "noImplicitAny": true,
     "lib": ["es2017", "es7", "es6", "dom"],
-    "outDir": "./dist",
+    "outDir": "./dist/cjs",
     "target": "es3",
     "moduleResolution": "node",
     "jsx": "react",

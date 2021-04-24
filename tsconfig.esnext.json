@@ -4,5 +4,8 @@
     "module": "esnext",
     "outDir": "./dist/esm",
     "declarationDir": "./dist/esm",
+    "noEmitHelpers": true,
+    "importHelpers": true,
+    "isolatedModules": true,
   },
 }

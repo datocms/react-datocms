@@ -23,6 +23,9 @@ import React, { cloneElement, isValidElement, ReactElement } from "react";
 export {
   renderRule,
   RenderError,
+};
+
+export type {
   StructuredTextGraphQlResponse,
   StructuredTextDocument,
   StructuredTextGraphQlResponseRecord,

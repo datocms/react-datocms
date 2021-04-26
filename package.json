@@ -1,7 +1,7 @@
 {
   "name": "react-datocms",
   "version": "1.6.2",
-  "types": "dist/index.d.ts",
+  "types": "dist/types/index.d.ts",
   "main": "dist/cjs/index.js",
   "module": "dist/esm/index.js",
   "sideEffects": false,
@@ -16,8 +16,6 @@
   "author": "Stefano Verna <s.verna@datocms.com>",
   "homepage": "https://github.com/datocms/react-datocms",
   "devDependencies": {
-    "@rollup/plugin-commonjs": "^18.0.0",
-    "@rollup/plugin-node-resolve": "^11.2.1",
     "@types/enzyme": "^3.10.8",
     "@types/enzyme-to-json": "^1.5.4",
     "@types/jest": "^26.0.22",
@@ -35,13 +33,11 @@
     "react": "^17.0.2",
     "react-dom": "^17.0.2",
     "rimraf": "^3.0.2",
-    "rollup": "^2.45.2",
-    "rollup-plugin-typescript2": "^0.30.0",
     "ts-jest": "^26.5.5",
     "typescript": "^4.2.4"
   },
   "scripts": {
-    "build": "rimraf dist && rollup -c rollup.config.ts",
+    "build": "rimraf dist && tsc && tsc --project ./tsconfig.esnext.json",
     "watch": "rimraf dist && tsc --watch",
     "prepare": "npm run test && npm run build",
     "test": "jest --coverage",

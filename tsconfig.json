@@ -1,7 +1,7 @@
 {
   "compilerOptions": {
     "declaration": true,
-    "declarationDir": "./dist/cjs",
+    "declarationDir": "./dist/types",
     "module": "commonjs",
     "noImplicitAny": true,
     "lib": ["es2017", "es7", "es6", "dom"],

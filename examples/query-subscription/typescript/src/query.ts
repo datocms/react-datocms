@@ -36,7 +36,7 @@ export const query = `
       }
     }
 
-    blogPosts: allBlogPosts(first: $first, orderBy: publicationDate_DESC) {
+    blogPosts: allBlogPosts(first: $first, orderBy: _firstPublishedAt_DESC) {
       id
       title
       slug

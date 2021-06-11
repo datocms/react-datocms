@@ -1,4 +1,6 @@
-[DatoCMS](https://www.datocms.com/images/full_logo.svg)
+<a href="https://www.datocms.com/">
+  <img src="https://www.datocms.com/images/full_logo.svg" height="60">
+</a>
 
 # react-datocms
 

@@ -1,12 +1,12 @@
-<a href="https://www.datocms.com/">
-  <img src="https://www.datocms.com/images/full_logo.svg" height="60">
-</a>
-
 # react-datocms
 
 ![MIT](https://img.shields.io/npm/l/react-datocms?style=for-the-badge) ![MIT](https://img.shields.io/npm/v/react-datocms?style=for-the-badge) [![Build Status](https://img.shields.io/travis/datocms/react-datocms?style=for-the-badge)](https://travis-ci.org/datocms/react-datocms)
 
 A set of components and utilities to work faster with [DatoCMS](https://www.datocms.com/) in React environments. Integrates seamlessy with DatoCMS's [GraphQL Content Delivery API](https://www.datocms.com/docs/content-delivery-api) and [Real-time Updates API](https://www.datocms.com/docs/real-time-updates-api).
+
+<a href="https://www.datocms.com/">
+  <img src="https://www.datocms.com/images/full_logo.svg" height="60">
+</a>
 
 ## Table of Contents
 

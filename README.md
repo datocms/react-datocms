@@ -4,9 +4,11 @@
 
 A set of components and utilities to work faster with [DatoCMS](https://www.datocms.com/) in React environments. Integrates seamlessy with DatoCMS's [GraphQL Content Delivery API](https://www.datocms.com/docs/content-delivery-api) and [Real-time Updates API](https://www.datocms.com/docs/real-time-updates-api).
 
+<br /><br />
 <a href="https://www.datocms.com/">
   <img src="https://www.datocms.com/images/full_logo.svg" height="60">
 </a>
+<br /><br />
 
 ## Table of Contents
 

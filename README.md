@@ -1,3 +1,5 @@
+[DatoCMS](https://www.datocms.com/images/full_logo.svg)
+
 # react-datocms
 
 ![MIT](https://img.shields.io/npm/l/react-datocms?style=for-the-badge) ![MIT](https://img.shields.io/npm/v/react-datocms?style=for-the-badge) [![Build Status](https://img.shields.io/travis/datocms/react-datocms?style=for-the-badge)](https://travis-ci.org/datocms/react-datocms)

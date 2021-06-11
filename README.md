@@ -9,8 +9,8 @@ A set of components and utilities to work faster with [DatoCMS](https://www.dato
 <!-- START doctoc generated TOC please keep comment here to allow auto update -->
 <!-- DON'T EDIT THIS SECTION, INSTEAD RE-RUN doctoc TO UPDATE -->
 
-  - [Demos](#demos)
-  - [Installation](#installation)
+- [Demos](#demos)
+- [Installation](#installation)
 - [Live real-time updates](#live-real-time-updates)
   - [Reference](#reference)
   - [Initialization options](#initialization-options)
@@ -101,8 +101,8 @@ The `status` property represents the state of the server-sent events connection.
 ## Example
 
 ```js
-import React from "react";
-import { useQuerySubscription } from "react-datocms";
+import React from 'react';
+import { useQuerySubscription } from 'react-datocms';
 
 const App: React.FC = () => {
   const { status, error, data } = useQuerySubscription({
@@ -115,13 +115,13 @@ const App: React.FC = () => {
         }
       }`,
     variables: { first: 10 },
-    token: "YOUR_API_TOKEN",
+    token: 'YOUR_API_TOKEN',
   });
 
   const statusMessage = {
-    connecting: "Connecting to DatoCMS...",
-    connected: "Connected to DatoCMS, receiving live updates!",
-    closed: "Connection closed",
+    connecting: 'Connecting to DatoCMS...',
+    connected: 'Connected to DatoCMS, receiving live updates!',
+    closed: 'Connection closed',
   };
 
   return (
@@ -181,8 +181,8 @@ The GraphQL query returns multiple thumbnails with optimized compression. The `I
 For a fully working example take a look at our [examples directory](https://github.com/datocms/react-datocms/tree/master/examples).
 
 ```js
-import React from "react";
-import { Image } from "react-datocms";
+import React from 'react';
+import { Image } from 'react-datocms';
 
 const Page = ({ data }) => (
   <div>
@@ -291,8 +291,8 @@ You can `concat` multiple array of `Tag`s together and pass them to a single `re
 For a working example take a look at our [examples directory](https://github.com/datocms/react-datocms/tree/master/examples).
 
 ```js
-import React from "react";
-import { renderMetaTags } from "react-datocms";
+import React from 'react';
+import { renderMetaTags } from 'react-datocms';
 
 const Page = ({ data }) => (
   <div>
@@ -332,8 +332,8 @@ export default withQuery(query)(Page);
 ## Basic usage
 
 ```js
-import React from "react";
-import { StructuredText } from "react-datocms";
+import React from 'react';
+import { StructuredText } from 'react-datocms';
 
 const Page = ({ data }) => {
   // data.blogPost.content ->
@@ -391,8 +391,8 @@ export default withQuery(query)(Page);
 You can also pass custom renderers for special nodes (inline records, record links and blocks) as an optional parameter like so:
 
 ```js
-import React from "react";
-import { StructuredText, Image } from "react-datocms";
+import React from 'react';
+import { StructuredText, Image } from 'react-datocms';
 
 const Page = ({ data }) => {
   // data.blogPost.content ->
@@ -458,7 +458,7 @@ const Page = ({ data }) => {
         data={data.blogPost.content}
         renderInlineRecord={({ record }) => {
           switch (record.__typename) {
-            case "TeamMemberRecord":
+            case 'TeamMemberRecord':
               return <a href={`/team/${record.slug}`}>{record.firstName}</a>;
             default:
               return null;
@@ -466,7 +466,7 @@ const Page = ({ data }) => {
         }}
         renderLinkToRecord={({ record, children, transformedMeta }) => {
           switch (record.__typename) {
-            case "TeamMemberRecord":
+            case 'TeamMemberRecord':
               return (
                 <a {...transformedMeta} href={`/team/${record.slug}`}>
                   {children}
@@ -478,7 +478,7 @@ const Page = ({ data }) => {
         }}
         renderBlock={({ record }) => {
           switch (record.__typename) {
-            case "ImageRecord":
+            case 'ImageRecord':
               return <Image data={record.image.responsiveImage} />;
             default:
               return null;
@@ -515,7 +515,9 @@ const query = gql`
           ... on ImageRecord {
             id
             image {
-              responsiveImage(imgixParams: { fit: crop, w: 300, h: 300, auto: format }) {
+              responsiveImage(
+                imgixParams: { fit: crop, w: 300, h: 300, auto: format }
+              ) {
                 srcSet
                 webpSrcSet
                 sizes
@@ -537,6 +539,55 @@ const query = gql`
 
 export default withQuery(query)(Page);
 ```
+
+## Override default rendering of nodes
+
+This component automatically renders "standard" nodes the best way it can using a set of default rules, but you might want to customize those.
+
+For example:
+
+- For `heading` nodes, you might want to add an anchor;
+- For `code` nodes, you might want to use a custom sytax highlighting component like [`prism-react-renderer`](https://github.com/FormidableLabs/prism-react-renderer);
+
+In this case, you can easily override default rendering rules with the `customRules` prop.
+
+```jsx
+import { isHeading, isCode } from 'datocms-structured-text-utils';
+import { render as toPlainText } from 'datocms-structured-text-to-plain-text';
+import SyntaxHighlight from 'components/SyntaxHighlight';
+
+<StructuredText
+  data={data.blogPost.content}
+  customRules={[
+    renderRule(isHeading, ({ node, children, key }) => {
+      const HeadingTag = `h${node.level}`;
+      const anchor = toPlainText(node)
+        .toLowerCase()
+        .replace(/ /g, '-')
+        .replace(/[^\w-]+/g, '');
+
+      return (
+        <HeadingTag key={key}>
+          {children} <a id={anchor} />
+          <a href={`#${anchor}`} />
+        </HeadingTag>
+      );
+    }),
+    renderRule(isCode, ({ node, key }) => {
+      return (
+        <SyntaxHighlight
+          key={key}
+          code={node.code}
+          language={node.language}
+          linesToBeHighlighted={node.highlight}
+        />
+      );
+    }),
+  ]}
+/>;
+```
+
+Note: if you override the rules for `inline_item`, `item_link` or `block` nodes, then the `renderInlineRecord`, `renderLinkToRecord` and `renderBlock` props won't be considered!
 
 ## Props
 

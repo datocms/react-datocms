@@ -542,7 +542,7 @@ export default withQuery(query)(Page);
 
 ## Override default rendering of nodes
 
-This component automatically renders "standard" nodes the best way it can using a set of default rules, but you might want to customize those.
+This component automatically renders all nodes except for `inline_item`, `item_link` and `block` using a set of default rules, but you might want to customize those. For example:
 
 For example:
 

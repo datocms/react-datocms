@@ -34,7 +34,8 @@ A set of components and utilities to work faster with [DatoCMS](https://www.dato
   - [Example](#example-2)
 - [Structured text](#structured-text)
   - [Basic usage](#basic-usage)
-  - [Custom renderers](#custom-renderers)
+  - [Custom renderers for inline records, blocks, and links](#custom-renderers)
+  - [Override default text rendering](#override-default-rendering-of-nodes)
   - [Props](#props-1)
 
 <!-- END doctoc generated TOC please keep comment here to allow auto update -->
@@ -554,6 +555,7 @@ For example:
 
 - For `heading` nodes, you might want to add an anchor;
 - For `code` nodes, you might want to use a custom sytax highlighting component like [`prism-react-renderer`](https://github.com/FormidableLabs/prism-react-renderer);
+- For all possible node types, refer to the [list of typeguard functions defined in the main `structured-text` package](https://github.com/datocms/structured-text/tree/main/packages/utils#typescript-type-guards). The [DAST format documentation](https://www.datocms.com/docs/structured-text/dast) has additional details.
 
 In this case, you can easily override default rendering rules with the `customRules` prop.
 

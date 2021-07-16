@@ -555,6 +555,7 @@ For example:
 
 - For `heading` nodes, you might want to add an anchor;
 - For `code` nodes, you might want to use a custom sytax highlighting component like [`prism-react-renderer`](https://github.com/FormidableLabs/prism-react-renderer);
+- Apply different logic/formatting to a node based on what its parent node is (using the `ancestors` parameter)
 - For all possible node types, refer to the [list of typeguard functions defined in the main `structured-text` package](https://github.com/datocms/structured-text/tree/main/packages/utils#typescript-type-guards). The [DAST format documentation](https://www.datocms.com/docs/structured-text/dast) has additional details.
 
 In this case, you can easily override default rendering rules with the `customRules` prop.
@@ -567,6 +568,8 @@ import SyntaxHighlight from 'components/SyntaxHighlight';
 <StructuredText
   data={data.blogPost.content}
   customRules={[
+    
+    // Add HTML anchors to heading levels for in-page navigation
     renderRule(isHeading, ({ node, children, key }) => {
       const HeadingTag = `h${node.level}`;
       const anchor = toPlainText(node)
@@ -581,6 +584,8 @@ import SyntaxHighlight from 'components/SyntaxHighlight';
         </HeadingTag>
       );
     }),
+    
+    // Use a custom syntax highlighter component for code blocks
     renderRule(isCode, ({ node, key }) => {
       return (
         <SyntaxHighlight
@@ -591,6 +596,25 @@ import SyntaxHighlight from 'components/SyntaxHighlight';
         />
       );
     }),
+    
+    // Apply different formatting to top-level paragraphs
+    renderRule(
+      isParagraph,
+      ({ adapter: { renderNode }, node, children, key, ancestors }) => {
+        if (isRoot(ancestors[0])) {
+          // If this paragraph node is a top-level one, give it a special class
+          return renderNode('p', { key, className: 'top-level-paragraph-container-example' }, children);
+        } else {
+          // Proceed with default paragraph rendering...
+          // return renderNode('p', { key }, children);
+
+          // Or even completely remove the paragraph and directly render the inner children:
+          return children;
+        }
+      }
+    )
+    
+ 
   ]}
 />;
 ```

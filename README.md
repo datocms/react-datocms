@@ -562,6 +562,7 @@ For example:
 In this case, you can easily override default rendering rules with the `customRules` prop.
 
 ```jsx
+import { renderRule, StructuredText } from 'react-datocms';
 import { isHeading, isCode } from 'datocms-structured-text-utils';
 import { render as toPlainText } from 'datocms-structured-text-to-plain-text';
 import SyntaxHighlight from 'components/SyntaxHighlight';

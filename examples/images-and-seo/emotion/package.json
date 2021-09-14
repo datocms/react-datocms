@@ -6,6 +6,7 @@
     "@emotion/core": "^10.0.28",
     "@emotion/styled": "^10.0.27",
     "graphql-hooks": "^4.4.3",
+    "npm-force-resolutions": "^0.0.10",
     "react": "^17.0.1",
     "react-datocms": "latest",
     "react-dom": "^17.0.1",
@@ -13,10 +14,15 @@
     "react-scripts": "^4.0.3"
   },
   "scripts": {
+    "preinstall": "npx npm-force-resolutions",
     "start": "react-app-rewired start",
     "build": "react-app-rewired build",
     "test": "react-app-rewired test",
     "eject": "react-scripts eject"
+  },
+  "resolutions": {
+    "browserslist": "4.16.6",
+    "glob-parent": "5.1.2"
   },
   "eslintConfig": {
     "extends": "react-app"
@@ -34,6 +40,7 @@
     ]
   },
   "devDependencies": {
+    "browserslist": "^4.16.6",
     "react-app-rewired": "^2.1.8"
   }
 }

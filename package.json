@@ -37,12 +37,16 @@
     "typescript": "^4.2.4"
   },
   "scripts": {
+    "preinstall": "npx npm-force-resolutions",
     "build": "rimraf dist && tsc && tsc --project ./tsconfig.esnext.json",
     "watch": "rimraf dist && tsc --watch",
     "prepare": "npm run test && npm run build",
     "test": "jest --coverage",
     "toc": "doctoc README.md"
   },
+  "resolutions": {
+    "trim": "0.0.3"
+  },  
   "peerDependencies": {
     "react": ">= 16.12.0"
   },
@@ -78,6 +82,7 @@
     "datocms-structured-text-generic-html-renderer": "^1.1.0",
     "datocms-structured-text-utils": "^1.1.0",
     "intersection-observer": "^0.12.0",
+    "npm-force-resolutions": "^0.0.10",
     "react-intersection-observer": "^8.31.1",
     "use-deep-compare-effect": "^1.6.1"
   }

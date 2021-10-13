@@ -34,7 +34,7 @@ A set of components and utilities to work faster with [DatoCMS](https://www.dato
   - [Example](#example-2)
 - [Structured text](#structured-text)
   - [Basic usage](#basic-usage)
-  - [Custom renderers for inline records, blocks, and links](#custom-renderers)
+  - [Custom renderers for inline records, blocks, and links](##custom-renderers-for-inline-records-blocks-and-links)
   - [Override default text rendering](#override-default-rendering-of-nodes)
   - [Props](#props-1)
 

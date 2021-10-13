@@ -393,7 +393,7 @@ const query = gql`
 export default withQuery(query)(Page);
 ```
 
-## Record/block renderers
+## Custom renderers for inline records, blocks, and links
 
 You can also pass custom renderers for special nodes (inline records, record links and blocks) as an optional parameter like so:
 

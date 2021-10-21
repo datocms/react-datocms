@@ -74,7 +74,7 @@
     ]
   },
   "dependencies": {
-    "datocms-listen": "^0.1.4",
+    "datocms-listen": "^0.1.5",
     "datocms-structured-text-generic-html-renderer": "^1.1.0",
     "datocms-structured-text-utils": "^1.1.0",
     "intersection-observer": "^0.12.0",

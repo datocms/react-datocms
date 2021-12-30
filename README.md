@@ -6,7 +6,7 @@ A set of components and utilities to work faster with [DatoCMS](https://www.dato
 
 <br /><br />
 <a href="https://www.datocms.com/">
-  <img src="https://www.datocms.com/images/full_logo.svg" height="60">
+<img src="https://www.datocms.com/images/full_logo.svg" height="60">
 </a>
 <br /><br />
 
@@ -570,7 +570,6 @@ import SyntaxHighlight from 'components/SyntaxHighlight';
 <StructuredText
   data={data.blogPost.content}
   customRules={[
-    
     // Add HTML anchors to heading levels for in-page navigation
     renderRule(isHeading, ({ node, children, key }) => {
       const HeadingTag = `h${node.level}`;
@@ -586,7 +585,7 @@ import SyntaxHighlight from 'components/SyntaxHighlight';
         </HeadingTag>
       );
     }),
-    
+
     // Use a custom syntax highlighter component for code blocks
     renderRule(isCode, ({ node, key }) => {
       return (
@@ -598,14 +597,18 @@ import SyntaxHighlight from 'components/SyntaxHighlight';
         />
       );
     }),
-    
+
     // Apply different formatting to top-level paragraphs
     renderRule(
       isParagraph,
       ({ adapter: { renderNode }, node, children, key, ancestors }) => {
         if (isRoot(ancestors[0])) {
           // If this paragraph node is a top-level one, give it a special class
-          return renderNode('p', { key, className: 'top-level-paragraph-container-example' }, children);
+          return renderNode(
+            'p',
+            { key, className: 'top-level-paragraph-container-example' },
+            children,
+          );
         } else {
           // Proceed with default paragraph rendering...
           // return renderNode('p', { key }, children);
@@ -613,10 +616,8 @@ import SyntaxHighlight from 'components/SyntaxHighlight';
           // Or even completely remove the paragraph and directly render the inner children:
           return children;
         }
-      }
-    )
-    
- 
+      },
+    ),
   ]}
 />;
 ```
@@ -634,3 +635,22 @@ Note: if you override the rules for `inline_item`, `item_link` or `block` nodes,
 | metaTransformer    | `({ node, meta }) => Object \| null`                            | :x:                                                   | Transform `link` and `itemLink` meta property into HTML props                                    | [See function](https://github.com/datocms/structured-text/blob/main/packages/generic-html-renderer/src/index.ts#L61) |
 | customRules        | `Array<RenderRule>`                                             | :x:                                                   | Customize how document is converted in JSX (use `renderRule()` to generate)                      | `null`                                                                                                               |
 | renderText         | `(text: string, key: string) => ReactElement \| string \| null` | :x:                                                   | Convert a simple string text into React                                                          | `(text) => text`                                                                                                     |
+
+## Development
+
+This repository contains a number of demos/examples. You can use them to locally test your changes to the package with `npm link`:
+
+```
+npm link
+cd examples/images-and-seo/vanilla-react
+npm link react-datocms
+npm run start
+```
+
+Now on another terminal you can run:
+
+```
+npm run watch
+```
+
+This will re-compile the package everytime you make a change, and the example project will pick those changes instantly.

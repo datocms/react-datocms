@@ -1,4 +1,4 @@
-import React, { useCallback, useState } from "react";
+import React, { useState } from "react";
 import "intersection-observer";
 import { useInView } from "react-intersection-observer";
 
@@ -114,9 +114,7 @@ export const Image: React.FC<ImagePropTypes> = function ({
 }) {
   const [loaded, setLoaded] = useState<boolean>(false);
 
-  const handleLoad = useCallback(() => {
-    setLoaded(true);
-  }, []);
+  const handleLoad = () => setLoaded(true);
 
   const { ref, inView } = useInView({
     threshold: intersectionThreshold || intersectionTreshold || 0,

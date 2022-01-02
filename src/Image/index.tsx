@@ -51,14 +51,16 @@ type ImagePropTypes = {
   intersectionThreshold?: number;
   /** Margin around the placeholder. Can have values similar to the CSS margin property (top, right, bottom, left). The values can be percentages. This set of values serves to grow or shrink each side of the placeholder element's bounding box before computing intersections */
   intersectionMargin?: string;
-  /** Wheter enable lazy loading or not */
+  /** Whether enable lazy loading or not */
   lazyLoad?: boolean;
   /** Additional CSS rules to add to the root node */
   style?: React.CSSProperties;
   /** Additional CSS rules to add to the image inside the `<picture />` tag */
   pictureStyle?: React.CSSProperties;
-  /** Wheter the image wrapper should explicitely declare the width of the image or keep it fluid */
+  /** Whether the image wrapper should explicitely declare the width of the image or keep it fluid */
   explicitWidth?: boolean;
+  /** Triggered when the image finishes loading */
+  onLoad?(): void;
 };
 
 type State = {
@@ -111,10 +113,14 @@ export const Image: React.FC<ImagePropTypes> = function ({
   pictureStyle,
   explicitWidth,
   data,
+  onLoad,
 }) {
   const [loaded, setLoaded] = useState(false);
 
-  const handleLoad = () => setLoaded(true);
+  const handleLoad = () => {
+    onLoad?.();
+    setLoaded(true);
+  };
 
   const { ref, inView } = useInView({
     threshold: intersectionThreshold || intersectionTreshold || 0,

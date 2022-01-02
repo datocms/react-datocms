@@ -61,7 +61,7 @@ type ImagePropTypes = {
   explicitWidth?: boolean;
   /** Triggered when the image finishes loading */
   onLoad?(): void;
-  /** Whether the image should use a blurred image placeholder */
+  /** Whether the component should use a blurred image placeholder */
   usePlaceholder?: boolean;
 };
 

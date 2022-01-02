@@ -112,7 +112,7 @@ export const Image: React.FC<ImagePropTypes> = function ({
   explicitWidth,
   data,
 }) {
-  const [loaded, setLoaded] = useState<boolean>(false);
+  const [loaded, setLoaded] = useState(false);
 
   const handleLoad = () => setLoaded(true);
 

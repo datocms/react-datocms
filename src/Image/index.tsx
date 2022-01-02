@@ -150,9 +150,7 @@ export const Image: React.FC<ImagePropTypes> = function ({
   );
 
   const transition =
-    fadeInDuration > 0
-      ? `opacity ${fadeInDuration}ms ${fadeInDuration}ms`
-      : undefined;
+    fadeInDuration > 0 ? `opacity ${fadeInDuration}ms` : undefined;
 
   const placeholder = (
     <div

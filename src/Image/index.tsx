@@ -192,8 +192,8 @@ export const Image: React.FC<ImagePropTypes> = function ({
       style={{
         display: explicitWidth ? "inline-block" : "block",
         overflow: "hidden",
-        ...style,
         position: "relative",
+        ...style,
       }}
     >
       {sizer}

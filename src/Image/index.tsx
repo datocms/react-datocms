@@ -101,7 +101,7 @@ const imageShowStrategy = ({ lazyLoad, loaded }: State) => {
 
 export const Image: React.FC<ImagePropTypes> = function ({
   className,
-  fadeInDuration,
+  fadeInDuration = 500,
   intersectionTreshold,
   intersectionThreshold,
   intersectionMargin,
@@ -150,8 +150,8 @@ export const Image: React.FC<ImagePropTypes> = function ({
   );
 
   const transition =
-    typeof fadeInDuration === "undefined" || fadeInDuration > 0
-      ? `opacity ${fadeInDuration || 500}ms ${fadeInDuration || 500}ms`
+    fadeInDuration > 0
+      ? `opacity ${fadeInDuration}ms ${fadeInDuration}ms`
       : undefined;
 
   const placeholder = (

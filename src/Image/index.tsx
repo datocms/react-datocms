@@ -61,6 +61,8 @@ type ImagePropTypes = {
   explicitWidth?: boolean;
   /** Triggered when the image finishes loading */
   onLoad?(): void;
+  /** Whether the image should use a blurred image placeholder */
+  usePlaceholder?: boolean;
 };
 
 type State = {
@@ -116,6 +118,7 @@ export const Image = forwardRef<HTMLDivElement, ImagePropTypes>(
       explicitWidth,
       data,
       onLoad,
+      usePlaceholder = true,
     },
     ref
   ) => {
@@ -170,7 +173,7 @@ export const Image = forwardRef<HTMLDivElement, ImagePropTypes>(
     const transition =
       fadeInDuration > 0 ? `opacity ${fadeInDuration}ms` : undefined;
 
-    const placeholder = (
+    const placeholder = usePlaceholder ? (
       <div
         style={{
           backgroundImage: data.base64 ? `url(${data.base64})` : undefined,
@@ -181,7 +184,7 @@ export const Image = forwardRef<HTMLDivElement, ImagePropTypes>(
           ...absolutePositioning,
         }}
       />
-    );
+    ) : null;
 
     const { width, aspectRatio } = data;
     const height = data.height || width / aspectRatio;

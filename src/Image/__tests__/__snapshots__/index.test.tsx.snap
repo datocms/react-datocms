@@ -1,7 +1,7 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
 exports[`Image not visible renders the blur-up thumb 1`] = `
-<Image
+<ForwardRef
   data={
     Object {
       "alt": "DatoCMS swag",
@@ -47,7 +47,7 @@ exports[`Image not visible renders the blur-up thumb 1`] = `
           "opacity": 1,
           "position": "absolute",
           "top": 0,
-          "transition": "opacity 500ms 500ms",
+          "transition": "opacity 500ms",
           "width": "100%",
         }
       }
@@ -56,11 +56,11 @@ exports[`Image not visible renders the blur-up thumb 1`] = `
       <picture />
     </noscript>
   </div>
-</Image>
+</ForwardRef>
 `;
 
 exports[`Image visible image loaded shows the image 1`] = `
-<Image
+<ForwardRef
   data={
     Object {
       "alt": "DatoCMS swag",
@@ -106,7 +106,7 @@ exports[`Image visible image loaded shows the image 1`] = `
           "opacity": 0,
           "position": "absolute",
           "top": 0,
-          "transition": "opacity 500ms 500ms",
+          "transition": "opacity 500ms",
           "width": "100%",
         }
       }
@@ -127,7 +127,7 @@ exports[`Image visible image loaded shows the image 1`] = `
             "opacity": 1,
             "position": "absolute",
             "top": 0,
-            "transition": "opacity 500ms 500ms",
+            "transition": "opacity 500ms",
             "width": "100%",
           }
         }
@@ -138,11 +138,11 @@ exports[`Image visible image loaded shows the image 1`] = `
       <picture />
     </noscript>
   </div>
-</Image>
+</ForwardRef>
 `;
 
 exports[`Image visible renders the image 1`] = `
-<Image
+<ForwardRef
   data={
     Object {
       "alt": "DatoCMS swag",
@@ -188,7 +188,7 @@ exports[`Image visible renders the image 1`] = `
           "opacity": 1,
           "position": "absolute",
           "top": 0,
-          "transition": "opacity 500ms 500ms",
+          "transition": "opacity 500ms",
           "width": "100%",
         }
       }
@@ -209,7 +209,7 @@ exports[`Image visible renders the image 1`] = `
             "opacity": 0,
             "position": "absolute",
             "top": 0,
-            "transition": "opacity 500ms 500ms",
+            "transition": "opacity 500ms",
             "width": "100%",
           }
         }
@@ -220,5 +220,5 @@ exports[`Image visible renders the image 1`] = `
       <picture />
     </noscript>
   </div>
-</Image>
+</ForwardRef>
 `;

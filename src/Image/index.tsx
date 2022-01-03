@@ -1,4 +1,4 @@
-import React, { useCallback, useState } from "react";
+import React, { useState, forwardRef, useCallback } from "react";
 import "intersection-observer";
 import { useInView } from "react-intersection-observer";
 
@@ -51,14 +51,18 @@ type ImagePropTypes = {
   intersectionThreshold?: number;
   /** Margin around the placeholder. Can have values similar to the CSS margin property (top, right, bottom, left). The values can be percentages. This set of values serves to grow or shrink each side of the placeholder element's bounding box before computing intersections */
   intersectionMargin?: string;
-  /** Wheter enable lazy loading or not */
+  /** Whether enable lazy loading or not */
   lazyLoad?: boolean;
   /** Additional CSS rules to add to the root node */
   style?: React.CSSProperties;
   /** Additional CSS rules to add to the image inside the `<picture />` tag */
   pictureStyle?: React.CSSProperties;
-  /** Wheter the image wrapper should explicitely declare the width of the image or keep it fluid */
+  /** Whether the image wrapper should explicitely declare the width of the image or keep it fluid */
   explicitWidth?: boolean;
+  /** Triggered when the image finishes loading */
+  onLoad?(): void;
+  /** Whether the component should use a blurred image placeholder */
+  usePlaceholder?: boolean;
 };
 
 type State = {
@@ -99,144 +103,158 @@ const imageShowStrategy = ({ lazyLoad, loaded }: State) => {
   return true;
 };
 
-export const Image: React.FC<ImagePropTypes> = function ({
-  className,
-  fadeInDuration,
-  intersectionTreshold,
-  intersectionThreshold,
-  intersectionMargin,
-  pictureClassName,
-  lazyLoad = true,
-  style,
-  pictureStyle,
-  explicitWidth,
-  data,
-}) {
-  const [loaded, setLoaded] = useState<boolean>(false);
+export const Image = forwardRef<HTMLDivElement, ImagePropTypes>(
+  (
+    {
+      className,
+      fadeInDuration = 500,
+      intersectionTreshold,
+      intersectionThreshold,
+      intersectionMargin,
+      pictureClassName,
+      lazyLoad = true,
+      style,
+      pictureStyle,
+      explicitWidth,
+      data,
+      onLoad,
+      usePlaceholder = true,
+    },
+    ref
+  ) => {
+    const [loaded, setLoaded] = useState(false);
 
-  const handleLoad = useCallback(() => {
-    setLoaded(true);
-  }, []);
+    const handleLoad = () => {
+      onLoad?.();
+      setLoaded(true);
+    };
 
-  const { ref, inView } = useInView({
-    threshold: intersectionThreshold || intersectionTreshold || 0,
-    rootMargin: intersectionMargin || "0px 0px 0px 0px",
-    triggerOnce: true,
-  });
+    const [viewRef, inView] = useInView({
+      threshold: intersectionThreshold || intersectionTreshold || 0,
+      rootMargin: intersectionMargin || "0px 0px 0px 0px",
+      triggerOnce: true,
+    });
 
-  const absolutePositioning: React.CSSProperties = {
-    position: "absolute",
-    left: 0,
-    top: 0,
-    width: "100%",
-    height: "100%",
-  };
+    const callbackRef = useCallback(
+      (_ref: HTMLDivElement) => {
+        viewRef(_ref);
+        if (ref) (ref as React.MutableRefObject<HTMLDivElement>).current = _ref;
+      },
+      [viewRef]
+    );
 
-  const addImage = imageAddStrategy({
-    lazyLoad,
-    inView,
-    loaded,
-  });
-  const showImage = imageShowStrategy({
-    lazyLoad,
-    inView,
-    loaded,
-  });
+    const absolutePositioning: React.CSSProperties = {
+      position: "absolute",
+      left: 0,
+      top: 0,
+      width: "100%",
+      height: "100%",
+    };
 
-  const webpSource = data.webpSrcSet && (
-    <source srcSet={data.webpSrcSet} sizes={data.sizes} type="image/webp" />
-  );
+    const addImage = imageAddStrategy({
+      lazyLoad,
+      inView,
+      loaded,
+    });
+    const showImage = imageShowStrategy({
+      lazyLoad,
+      inView,
+      loaded,
+    });
 
-  const regularSource = data.srcSet && (
-    <source srcSet={data.srcSet} sizes={data.sizes} />
-  );
+    const webpSource = data.webpSrcSet && (
+      <source srcSet={data.webpSrcSet} sizes={data.sizes} type="image/webp" />
+    );
 
-  const transition =
-    typeof fadeInDuration === "undefined" || fadeInDuration > 0
-      ? `opacity ${fadeInDuration || 500}ms ${fadeInDuration || 500}ms`
-      : undefined;
+    const regularSource = data.srcSet && (
+      <source srcSet={data.srcSet} sizes={data.sizes} />
+    );
 
-  const placeholder = (
-    <div
-      style={{
-        backgroundImage: data.base64 ? `url(${data.base64})` : undefined,
-        backgroundColor: data.bgColor,
-        backgroundSize: "cover",
-        opacity: showImage ? 0 : 1,
-        transition,
-        ...absolutePositioning,
-      }}
-    />
-  );
+    const transition =
+      fadeInDuration > 0 ? `opacity ${fadeInDuration}ms` : undefined;
 
-  const { width, aspectRatio } = data;
-  const height = data.height || width / aspectRatio;
+    const placeholder = usePlaceholder ? (
+      <div
+        style={{
+          backgroundImage: data.base64 ? `url(${data.base64})` : undefined,
+          backgroundColor: data.bgColor,
+          backgroundSize: "cover",
+          opacity: showImage ? 0 : 1,
+          transition,
+          ...absolutePositioning,
+        }}
+      />
+    ) : null;
 
-  const svg = `<svg xmlns="http://www.w3.org/2000/svg" width="${width}" height="${height}"></svg>`;
+    const { width, aspectRatio } = data;
+    const height = data.height || width / aspectRatio;
 
-  const sizer = (
-    <img
-      className={pictureClassName}
-      style={{
-        display: "block",
-        width: explicitWidth ? `${width}px` : "100%",
-        ...pictureStyle,
-      }}
-      src={`data:image/svg+xml;base64,${universalBtoa(svg)}`}
-      role="presentation"
-    />
-  );
+    const svg = `<svg xmlns="http://www.w3.org/2000/svg" width="${width}" height="${height}"></svg>`;
 
-  return (
-    <div
-      ref={ref}
-      className={className}
-      style={{
-        display: explicitWidth ? "inline-block" : "block",
-        overflow: "hidden",
-        ...style,
-        position: "relative",
-      }}
-    >
-      {sizer}
-      {placeholder}
-      {addImage && (
-        <picture>
-          {webpSource}
-          {regularSource}
-          {data.src && (
-            <img
-              src={data.src}
-              alt={data.alt ?? ''}
-              title={data.title}
-              onLoad={handleLoad}
-              className={pictureClassName}
-              style={{
-                ...absolutePositioning,
-                ...pictureStyle,
-                opacity: showImage ? 1 : 0,
-                transition,
-              }}
-            />
-          )}
-        </picture>
-      )}
-      <noscript>
-        <picture>
-          {webpSource}
-          {regularSource}
-          {data.src && (
-            <img
-              src={data.src}
-              alt={data.alt ?? ''}
-              title={data.title}
-              className={pictureClassName}
-              style={{ ...absolutePositioning, ...pictureStyle }}
-              loading="lazy"
-            />
-          )}
-        </picture>
-      </noscript>
-    </div>
-  );
-};
+    const sizer = (
+      <img
+        className={pictureClassName}
+        style={{
+          display: "block",
+          width: explicitWidth ? `${width}px` : "100%",
+          ...pictureStyle,
+        }}
+        src={`data:image/svg+xml;base64,${universalBtoa(svg)}`}
+        role="presentation"
+      />
+    );
+
+    return (
+      <div
+        ref={callbackRef}
+        className={className}
+        style={{
+          display: explicitWidth ? "inline-block" : "block",
+          overflow: "hidden",
+          position: "relative",
+          ...style,
+        }}
+      >
+        {sizer}
+        {placeholder}
+        {addImage && (
+          <picture>
+            {webpSource}
+            {regularSource}
+            {data.src && (
+              <img
+                src={data.src}
+                alt={data.alt}
+                title={data.title}
+                onLoad={handleLoad}
+                className={pictureClassName}
+                style={{
+                  ...absolutePositioning,
+                  ...pictureStyle,
+                  opacity: showImage ? 1 : 0,
+                  transition,
+                }}
+              />
+            )}
+          </picture>
+        )}
+        <noscript>
+          <picture>
+            {webpSource}
+            {regularSource}
+            {data.src && (
+              <img
+                src={data.src}
+                alt={data.alt ?? ""}
+                title={data.title}
+                className={pictureClassName}
+                style={{ ...absolutePositioning, ...pictureStyle }}
+                loading="lazy"
+              />
+            )}
+          </picture>
+        </noscript>
+      </div>
+    );
+  }
+);

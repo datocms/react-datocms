@@ -71,7 +71,7 @@ type ImagePropTypes = {
   /** Defines how the image will fit into its parent container when using layout="fill" */
   objectFit?: CSSProperties['objectFit'];
   /** Defines how the image is positioned within its parent element when using layout="fill". */
-  objectPosition?: string;
+  objectPosition?: CSSProperties['objectPosition'];
   /** Triggered when the image finishes loading */
   onLoad?(): void;
   /** Whether the component should use a blurred image placeholder */

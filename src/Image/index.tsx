@@ -1,10 +1,10 @@
-import React, { useState, forwardRef, useCallback } from "react";
-import "intersection-observer";
-import { useInView } from "react-intersection-observer";
+import React, { useState, forwardRef, useCallback, CSSProperties } from 'react';
+import 'intersection-observer';
+import { useInView } from 'react-intersection-observer';
 
-const isSsr = typeof window === "undefined";
+const isSsr = typeof window === 'undefined';
 const universalBtoa = isSsr
-  ? (str: string) => Buffer.from(str.toString(), "binary").toString("base64")
+  ? (str: string) => Buffer.from(str.toString(), 'binary').toString('base64')
   : window.btoa;
 
 const isIntersectionObserverAvailable = isSsr
@@ -57,8 +57,21 @@ type ImagePropTypes = {
   style?: React.CSSProperties;
   /** Additional CSS rules to add to the image inside the `<picture />` tag */
   pictureStyle?: React.CSSProperties;
-  /** Whether the image wrapper should explicitely declare the width of the image or keep it fluid */
-  explicitWidth?: boolean;
+  /**
+   * The layout behavior of the image as the viewport changes size
+   *
+   * Possible values:
+   *
+   * * `intrinsic` (default): the image will scale the dimensions down for smaller viewports, but maintain the original dimensions for larger viewports
+   * * `fixed`: the image dimensions will not change as the viewport changes (no responsiveness) similar to the native img element
+   * * `responsive`: the image will scale the dimensions down for smaller viewports and scale up for larger viewports
+   * * `fill`: image will stretch both width and height to the dimensions of the parent element, provided the parent element is `relative`
+   * */
+  layout?: 'intrinsic' | 'fixed' | 'responsive' | 'fill';
+  /** Defines how the image will fit into its parent container when using layout="fill" */
+  objectFit?: CSSProperties['objectFit'];
+  /** Defines how the image is positioned within its parent element when using layout="fill". */
+  objectPosition?: string;
   /** Triggered when the image finishes loading */
   onLoad?(): void;
   /** Whether the component should use a blurred image placeholder */
@@ -115,12 +128,14 @@ export const Image = forwardRef<HTMLDivElement, ImagePropTypes>(
       lazyLoad = true,
       style,
       pictureStyle,
-      explicitWidth,
+      layout = 'intrinsic',
+      objectFit,
+      objectPosition,
       data,
       onLoad,
       usePlaceholder = true,
     },
-    ref
+    ref,
   ) => {
     const [loaded, setLoaded] = useState(false);
 
@@ -131,7 +146,7 @@ export const Image = forwardRef<HTMLDivElement, ImagePropTypes>(
 
     const [viewRef, inView] = useInView({
       threshold: intersectionThreshold || intersectionTreshold || 0,
-      rootMargin: intersectionMargin || "0px 0px 0px 0px",
+      rootMargin: intersectionMargin || '0px 0px 0px 0px',
       triggerOnce: true,
     });
 
@@ -140,15 +155,15 @@ export const Image = forwardRef<HTMLDivElement, ImagePropTypes>(
         viewRef(_ref);
         if (ref) (ref as React.MutableRefObject<HTMLDivElement>).current = _ref;
       },
-      [viewRef]
+      [viewRef],
     );
 
     const absolutePositioning: React.CSSProperties = {
-      position: "absolute",
+      position: 'absolute',
       left: 0,
       top: 0,
-      width: "100%",
-      height: "100%",
+      width: '100%',
+      height: '100%',
     };
 
     const addImage = imageAddStrategy({
@@ -174,13 +189,15 @@ export const Image = forwardRef<HTMLDivElement, ImagePropTypes>(
       fadeInDuration > 0 ? `opacity ${fadeInDuration}ms` : undefined;
 
     const placeholder = usePlaceholder ? (
-      <div
+      <img
+        role="presentation"
+        src={data.base64}
         style={{
-          backgroundImage: data.base64 ? `url(${data.base64})` : undefined,
           backgroundColor: data.bgColor,
-          backgroundSize: "cover",
           opacity: showImage ? 0 : 1,
           transition,
+          objectFit,
+          objectPosition,
           ...absolutePositioning,
         }}
       />
@@ -191,27 +208,32 @@ export const Image = forwardRef<HTMLDivElement, ImagePropTypes>(
 
     const svg = `<svg xmlns="http://www.w3.org/2000/svg" width="${width}" height="${height}"></svg>`;
 
-    const sizer = (
-      <img
-        className={pictureClassName}
-        style={{
-          display: "block",
-          width: explicitWidth ? `${width}px` : "100%",
-          ...pictureStyle,
-        }}
-        src={`data:image/svg+xml;base64,${universalBtoa(svg)}`}
-        role="presentation"
-      />
-    );
+    const sizer =
+      layout !== 'fill' ? (
+        <img
+          className={pictureClassName}
+          style={{
+            display: 'block',
+            width: '100%',
+          }}
+          src={`data:image/svg+xml;base64,${universalBtoa(svg)}`}
+          role="presentation"
+        />
+      ) : null;
 
     return (
       <div
         ref={callbackRef}
         className={className}
         style={{
-          display: explicitWidth ? "inline-block" : "block",
-          overflow: "hidden",
-          position: "relative",
+          overflow: 'hidden',
+          ...(layout === 'fill'
+            ? absolutePositioning
+            : layout === 'intrinsic'
+            ? { position: 'relative', width: '100%', maxWidth: width }
+            : layout === 'fixed'
+            ? { position: 'relative', width }
+            : { position: 'relative', width: '100%' }),
           ...style,
         }}
       >
@@ -229,10 +251,12 @@ export const Image = forwardRef<HTMLDivElement, ImagePropTypes>(
                 onLoad={handleLoad}
                 className={pictureClassName}
                 style={{
-                  ...absolutePositioning,
-                  ...pictureStyle,
                   opacity: showImage ? 1 : 0,
                   transition,
+                  ...absolutePositioning,
+                  objectFit,
+                  objectPosition,
+                  ...pictureStyle,
                 }}
               />
             )}
@@ -245,7 +269,7 @@ export const Image = forwardRef<HTMLDivElement, ImagePropTypes>(
             {data.src && (
               <img
                 src={data.src}
-                alt={data.alt ?? ""}
+                alt={data.alt ?? ''}
                 title={data.title}
                 className={pictureClassName}
                 style={{ ...absolutePositioning, ...pictureStyle }}
@@ -256,5 +280,5 @@ export const Image = forwardRef<HTMLDivElement, ImagePropTypes>(
         </noscript>
       </div>
     );
-  }
+  },
 );

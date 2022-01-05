@@ -15,8 +15,8 @@ A set of components and utilities to work faster with [DatoCMS](https://www.dato
 <!-- START doctoc generated TOC please keep comment here to allow auto update -->
 <!-- DON'T EDIT THIS SECTION, INSTEAD RE-RUN doctoc TO UPDATE -->
 
-- [Demos](#demos)
-- [Installation](#installation)
+  - [Demos](#demos)
+  - [Installation](#installation)
 - [Live real-time updates](#live-real-time-updates)
   - [Reference](#reference)
   - [Initialization options](#initialization-options)
@@ -28,6 +28,7 @@ A set of components and utilities to work faster with [DatoCMS](https://www.dato
   - [Usage](#usage)
   - [Example](#example-1)
   - [Props](#props)
+    - [Layout mode](#layout-mode)
     - [The `ResponsiveImage` object](#the-responsiveimage-object)
 - [Social share, SEO and Favicon meta tags](#social-share-seo-and-favicon-meta-tags)
   - [Usage](#usage-1)
@@ -35,8 +36,9 @@ A set of components and utilities to work faster with [DatoCMS](https://www.dato
 - [Structured text](#structured-text)
   - [Basic usage](#basic-usage)
   - [Custom renderers for inline records, blocks, and links](#custom-renderers-for-inline-records-blocks-and-links)
-  - [Override default text rendering](#override-default-rendering-of-nodes)
+  - [Override default rendering of nodes](#override-default-rendering-of-nodes)
   - [Props](#props-1)
+  - [Development](#development)
 
 <!-- END doctoc generated TOC please keep comment here to allow auto update -->
 

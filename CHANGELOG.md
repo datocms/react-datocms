@@ -5,7 +5,16 @@ All notable changes to this project will be documented in this file.
 The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/),
 and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0.html).
 
-## [1.2.2] - 2020-05-7
+## [2.0.0] - 2022-01-05
+
+### Added
+
+- `layout` property to Image component
+### Changed
+
+- Default layout is now `intrinsic`, so the image the image will scale the dimensions down for smaller viewports, but maintain the original dimensions for larger viewports
+
+## [1.2.2] - 2020-05-07
 
 ### Fixed
 

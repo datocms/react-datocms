@@ -15,8 +15,8 @@ A set of components and utilities to work faster with [DatoCMS](https://www.dato
 <!-- START doctoc generated TOC please keep comment here to allow auto update -->
 <!-- DON'T EDIT THIS SECTION, INSTEAD RE-RUN doctoc TO UPDATE -->
 
-  - [Demos](#demos)
-  - [Installation](#installation)
+- [Demos](#demos)
+- [Installation](#installation)
 - [Live real-time updates](#live-real-time-updates)
   - [Reference](#reference)
   - [Initialization options](#initialization-options)
@@ -31,14 +31,15 @@ A set of components and utilities to work faster with [DatoCMS](https://www.dato
     - [Layout mode](#layout-mode)
     - [The `ResponsiveImage` object](#the-responsiveimage-object)
 - [Social share, SEO and Favicon meta tags](#social-share-seo-and-favicon-meta-tags)
-  - [Usage](#usage-1)
-  - [Example](#example-2)
+  - [`renderMetaTags()`](#rendermetatags)
+  - [`renderMetaTagsToString()`](#rendermetatagstostring)
+  - [`toRemixMeta()` and `toRemixLinks()`](#toremixmeta-and-toremixlinks)
 - [Structured text](#structured-text)
   - [Basic usage](#basic-usage)
   - [Custom renderers for inline records, blocks, and links](#custom-renderers-for-inline-records-blocks-and-links)
   - [Override default rendering of nodes](#override-default-rendering-of-nodes)
   - [Props](#props-1)
-  - [Development](#development)
+- [Development](#development)
 
 <!-- END doctoc generated TOC please keep comment here to allow auto update -->
 
@@ -254,23 +255,27 @@ export default withQuery(query)(Page);
 | onLoad                | () => void                                       | :x:                | Function triggered when the image has finished loading                                                                                                                                                                                                                                        | undefined         |
 | usePlaceholder        | Boolean                                          | :x:                | Whether the component should use a blurred image placeholder                                                                                                                                                                                                                                  | true              |
 
-
 ### Layout mode
 
 With the `layout` property, you can configure the behavior of the image as the viewport changes size:
 
-* When `intrinsic` (default behaviour), the image will scale the dimensions down for smaller viewports, but maintain the original dimensions for larger viewports.
-* When `fixed`, the image dimensions will not change as the viewport changes (no responsiveness) similar to the native `img` element.
-* When `responsive`, the image will scale the dimensions down for smaller viewports and scale up for larger viewports.
-* When `fill`, the image will stretch both width and height to the dimensions of the parent element, provided the parent element is relative.
-  * This is usually paired with the `objectFit` and `objectPosition` properties.
-  * Ensure the parent element has `position: relative` in their stylesheet.
+- When `intrinsic` (default behaviour), the image will scale the dimensions down for smaller viewports, but maintain the original dimensions for larger viewports.
+- When `fixed`, the image dimensions will not change as the viewport changes (no responsiveness) similar to the native `img` element.
+- When `responsive`, the image will scale the dimensions down for smaller viewports and scale up for larger viewports.
+- When `fill`, the image will stretch both width and height to the dimensions of the parent element, provided the parent element is relative.
+  - This is usually paired with the `objectFit` and `objectPosition` properties.
+  - Ensure the parent element has `position: relative` in their stylesheet.
 
 Example for `layout="fill"` (useful also for background images):
 
 ```jsx
 <div style={{ position: 'relative', width: 200, height: 500 }}>
-  <Image data={imageData} layout="fill" objectFit="cover" objectPosition="50% 50%" />
+  <Image
+    data={imageData}
+    layout="fill"
+    objectFit="cover"
+    objectPosition="50% 50%"
+  />
 </div>
 ```
 
@@ -301,59 +306,89 @@ Here's a complete recap of what `responsiveImage` offers:
 
 # Social share, SEO and Favicon meta tags
 
-Just like the image component, `renderMetaTags()` is a helper specially designed to work seamlessly with DatoCMS’s [`_seoMetaTags` and `faviconMetaTags` GraphQL queries](https://www.datocms.com/docs/content-delivery-api/seo) so that you can handle proper SEO in your pages with a simple one-liner.
+Just like for the image component this package offers a number of utilities designed to work seamlessly with DatoCMS’s [`_seoMetaTags` and `faviconMetaTags` GraphQL queries](https://www.datocms.com/docs/content-delivery-api/seo) so that you can easily handle SEO, social shares and favicons in your pages.
 
-- TypeScript ready;
-- Compatible with any GraphQL library (Apollo, graphql-hooks, graphql-request, etc.);
-- Usable both client and server side;
-- Compatible with vanilla React, Next.js and pretty much any other React-based solution;
+All the utilities take an array of `SeoOrFaviconTag`s in the exact form they're returned by the following [DatoCMS GraphQL API queries](https://www.datocms.com/docs/content-delivery-api/seo):
 
-## Usage
-
-`renderMetaTags()` takes an array of `Tag`s in the exact form they're returned by the following [DatoCMS GraphQL API](https://www.datocms.com/docs/content-delivery-api/seo) queries:
-
-- `_seoMetaTags` query on any record, or
+- `_seoMetaTags` (always available on any type of record)
 - `faviconMetaTags` on the global `_site` object.
 
-You can `concat` multiple array of `Tag`s together and pass them to a single `renderMetaTags()` call.
+```graphql
+query {
+  page: homepage {
+    title
+    seo: _seoMetaTags {
+      attributes
+      content
+      tag
+    }
+  }
 
-## Example
+  site: _site {
+    favicon: faviconMetaTags {
+      attributes
+      content
+      tag
+    }
+  }
+}
+```
 
-For a working example take a look at our [examples directory](https://github.com/datocms/react-datocms/tree/master/examples).
+You can then concat those two arrays of tags and pass them togheter to the function, ie:
+
+```js
+renderMetaTags([...data.page.seo, ...data.site.favicon]);
+```
+
+## `renderMetaTags()`
+
+This function generates React `<meta>` and `<link />` elements, so it is compatible with React packages like [`react-helmet`](https://www.npmjs.com/package/react-helmet).
+
+For a complete example take a look at our [examples directory](https://github.com/datocms/react-datocms/tree/master/examples).
 
 ```js
 import React from 'react';
 import { renderMetaTags } from 'react-datocms';
 
-const Page = ({ data }) => (
-  <div>
-    <Helmet>{renderMetaTags(data.page.seo.concat(data.site.favicon))}</Helmet>
-    <h1>{data.page.title}</h1>
-  </div>
-);
+function Page({ data }) {
+  return (
+    <div>
+      <Helmet>
+        {renderMetaTags([...data.page.seo, ...data.site.favicon])}
+      </Helmet>
+    </div>
+  );
+}
+```
 
-const query = gql`
-  query {
-    page: homepage {
-      title
-      seo: _seoMetaTags {
-        attributes
-        content
-        tag
-      }
-    }
+## `renderMetaTagsToString()`
 
-    site: _site {
-      favicon: faviconMetaTags {
-        attributes
-        content
-        tag
-      }
-    }
-  }
+This function generates an HTML string containing `<meta>` and `<link />` tags, so it can be used server-side.
+
+```js
+const someMoreComplexHtml = `
+  <html>
+    <head>
+      ${renderMetaTagsToString([...data.page.seo, ...data.site.favicon])}
+    </head>
+  </html>
 `;
+```
 
-export default withQuery(query)(Page);
+## `toRemixMeta()` and `toRemixLinks()`
+
+These two functions generate `HtmlMetaDescriptor` and `RemixHtmlLinkDescriptor` objects, compatibile with [`meta`](https://remix.run/docs/en/v1.1.1/api/conventions#meta) and [`links`](https://remix.run/docs/en/v1.1.1/api/conventions#links) exports of the [Remix](https://remix.run/) framework:
+
+```js
+import type { LinksFunction, MetaFunction } from 'remix';
+
+export const links: LinksFunction = ({ data: { site } }) => {
+  return toRemixLinks(site.favicon);
+};
+
+export const meta: MetaFunction = ({ data: { post, site } }) => {
+  return toRemixMeta([...post.seo, ...site.favicon]);
+};
 ```
 
 # Structured text
@@ -367,8 +402,7 @@ import React from 'react';
 import { StructuredText } from 'react-datocms';
 
 const Page = ({ data }) => {
-  // data.blogPost.content ->
-  // {
+  // data.blogPost.content = {
   //   value: {
   //     schema: "dast",
   //     document: {
@@ -660,7 +694,7 @@ Note: if you override the rules for `inline_item`, `item_link` or `block` nodes,
 | customRules        | `Array<RenderRule>`                                             | :x:                                                   | Customize how document is converted in JSX (use `renderRule()` to generate)                      | `null`                                                                                                               |
 | renderText         | `(text: string, key: string) => ReactElement \| string \| null` | :x:                                                   | Convert a simple string text into React                                                          | `(text) => text`                                                                                                     |
 
-## Development
+# Development
 
 This repository contains a number of demos/examples. You can use them to locally test your changes to the package with `npm link`:
 

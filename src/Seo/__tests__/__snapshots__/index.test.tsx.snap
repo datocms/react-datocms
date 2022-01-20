@@ -5,31 +5,319 @@ exports[`renderMetaTags generates an array of meta tags 1`] = `
   <title
     key="title"
   >
-    A new Media Area is online! - DatoCMS
+    Remix CMS - The easiest way to manage content with Remix
   </title>
   <meta
-    content="A new Media Area is online!"
+    content="Remix CMS - The easiest way to manage content with Remix"
     key="meta-og:title"
     property="og:title"
   />
   <meta
-    content="A new Media Area is online!"
+    content="Remix CMS - The easiest way to manage content with Remix"
     key="meta-twitter:title"
     name="twitter:title"
   />
+  <meta
+    content="Remix makes building scalable and fast React apps simple, pair it with a CMS that shares the same intuitiveness. Start a new Remix + Dato project now."
+    key="meta-description"
+    name="description"
+  />
+  <meta
+    content="Remix makes building scalable and fast React apps simple, pair it with a CMS that shares the same intuitiveness. Start a new Remix + Dato project now."
+    key="meta-og:description"
+    property="og:description"
+  />
+  <meta
+    content="Remix makes building scalable and fast React apps simple, pair it with a CMS that shares the same intuitiveness. Start a new Remix + Dato project now."
+    key="meta-twitter:description"
+    name="twitter:description"
+  />
+  <meta
+    content="https://www.datocms-assets.com/205/1642515293-full-logo.svg?fit=max&fm=jpg&w=1000"
+    key="meta-og:image"
+    property="og:image"
+  />
+  <meta
+    content="746"
+    key="meta-og:image:width"
+    property="og:image:width"
+  />
+  <meta
+    content="186"
+    key="meta-og:image:height"
+    property="og:image:height"
+  />
+  <meta
+    content="https://www.datocms-assets.com/205/1642515293-full-logo.svg?fit=max&fm=jpg&w=1000"
+    key="meta-twitter:image"
+    name="twitter:image"
+  />
+  <meta
+    content="en"
+    key="meta-og:locale"
+    property="og:locale"
+  />
+  <meta
+    content="article"
+    key="meta-og:type"
+    property="og:type"
+  />
+  <meta
+    content="DatoCMS"
+    key="meta-og:site_name"
+    property="og:site_name"
+  />
+  <meta
+    content="2022-01-18T14:02:47Z"
+    key="meta-article:modified_time"
+    property="article:modified_time"
+  />
+  <meta
+    content="summary_large_image"
+    key="meta-twitter:card"
+    name="twitter:card"
+  />
+  <meta
+    content="@datocms"
+    key="meta-twitter:site"
+    name="twitter:site"
+  />
   <link
-    href="https://example.org/favicon.png?h=16&w=16"
+    href="https://www.datocms-assets.com/205/1525789775-dato.png?h=16&w=16"
     key="link-icon-16x16"
     rel="icon"
     sizes="16x16"
     type="image/png"
   />
   <link
-    href="https://example.org/favicon.png?h=32&w=32"
+    href="https://www.datocms-assets.com/205/1525789775-dato.png?h=32&w=32"
     key="link-icon-32x32"
     rel="icon"
     sizes="32x32"
     type="image/png"
   />
+  <link
+    href="https://www.datocms-assets.com/205/1525789775-dato.png?h=96&w=96"
+    key="link-icon-96x96"
+    rel="icon"
+    sizes="96x96"
+    type="image/png"
+  />
+  <link
+    href="https://www.datocms-assets.com/205/1525789775-dato.png?h=192&w=192"
+    key="link-icon-192x192"
+    rel="icon"
+    sizes="192x192"
+    type="image/png"
+  />
+  <link
+    href="https://www.datocms-assets.com/205/1525789775-dato.png?h=57&w=57"
+    key="link-apple-touch-icon-57x57"
+    rel="apple-touch-icon"
+    sizes="57x57"
+  />
+  <link
+    href="https://www.datocms-assets.com/205/1525789775-dato.png?h=60&w=60"
+    key="link-apple-touch-icon-60x60"
+    rel="apple-touch-icon"
+    sizes="60x60"
+  />
+  <link
+    href="https://www.datocms-assets.com/205/1525789775-dato.png?h=72&w=72"
+    key="link-apple-touch-icon-72x72"
+    rel="apple-touch-icon"
+    sizes="72x72"
+  />
+  <link
+    href="https://www.datocms-assets.com/205/1525789775-dato.png?h=76&w=76"
+    key="link-apple-touch-icon-76x76"
+    rel="apple-touch-icon"
+    sizes="76x76"
+  />
+  <link
+    href="https://www.datocms-assets.com/205/1525789775-dato.png?h=114&w=114"
+    key="link-apple-touch-icon-114x114"
+    rel="apple-touch-icon"
+    sizes="114x114"
+  />
+  <link
+    href="https://www.datocms-assets.com/205/1525789775-dato.png?h=120&w=120"
+    key="link-apple-touch-icon-120x120"
+    rel="apple-touch-icon"
+    sizes="120x120"
+  />
+  <link
+    href="https://www.datocms-assets.com/205/1525789775-dato.png?h=144&w=144"
+    key="link-apple-touch-icon-144x144"
+    rel="apple-touch-icon"
+    sizes="144x144"
+  />
+  <link
+    href="https://www.datocms-assets.com/205/1525789775-dato.png?h=152&w=152"
+    key="link-apple-touch-icon-152x152"
+    rel="apple-touch-icon"
+    sizes="152x152"
+  />
+  <link
+    href="https://www.datocms-assets.com/205/1525789775-dato.png?h=180&w=180"
+    key="link-apple-touch-icon-180x180"
+    rel="apple-touch-icon"
+    sizes="180x180"
+  />
+  <meta
+    content="https://www.datocms-assets.com/205/1525789775-dato.png?h=70&w=70"
+    key="meta-msapplication-square70x70logo"
+    name="msapplication-square70x70logo"
+  />
+  <meta
+    content="https://www.datocms-assets.com/205/1525789775-dato.png?h=150&w=150"
+    key="meta-msapplication-square150x150logo"
+    name="msapplication-square150x150logo"
+  />
+  <meta
+    content="https://www.datocms-assets.com/205/1525789775-dato.png?h=310&w=310"
+    key="meta-msapplication-square310x310logo"
+    name="msapplication-square310x310logo"
+  />
+  <meta
+    content="https://www.datocms-assets.com/205/1525789775-dato.png?h=150&w=310"
+    key="meta-msapplication-square310x150logo"
+    name="msapplication-square310x150logo"
+  />
 </head>
+`;
+
+exports[`renderMetaTagsToString generates an array of meta tags 1`] = `
+"<title>Remix CMS - The easiest way to manage content with Remix</title>
+<meta property=\\"og:title\\" content=\\"Remix CMS - The easiest way to manage content with Remix\\" />
+<meta name=\\"twitter:title\\" content=\\"Remix CMS - The easiest way to manage content with Remix\\" />
+<meta name=\\"description\\" content=\\"Remix makes building scalable and fast React apps simple, pair it with a CMS that shares the same intuitiveness. Start a new Remix + Dato project now.\\" />
+<meta property=\\"og:description\\" content=\\"Remix makes building scalable and fast React apps simple, pair it with a CMS that shares the same intuitiveness. Start a new Remix + Dato project now.\\" />
+<meta name=\\"twitter:description\\" content=\\"Remix makes building scalable and fast React apps simple, pair it with a CMS that shares the same intuitiveness. Start a new Remix + Dato project now.\\" />
+<meta property=\\"og:image\\" content=\\"https://www.datocms-assets.com/205/1642515293-full-logo.svg?fit=max&fm=jpg&w=1000\\" />
+<meta property=\\"og:image:width\\" content=\\"746\\" />
+<meta property=\\"og:image:height\\" content=\\"186\\" />
+<meta name=\\"twitter:image\\" content=\\"https://www.datocms-assets.com/205/1642515293-full-logo.svg?fit=max&fm=jpg&w=1000\\" />
+<meta property=\\"og:locale\\" content=\\"en\\" />
+<meta property=\\"og:type\\" content=\\"article\\" />
+<meta property=\\"og:site_name\\" content=\\"DatoCMS\\" />
+<meta property=\\"article:modified_time\\" content=\\"2022-01-18T14:02:47Z\\" />
+<meta name=\\"twitter:card\\" content=\\"summary_large_image\\" />
+<meta name=\\"twitter:site\\" content=\\"@datocms\\" />
+<link sizes=\\"16x16\\" type=\\"image/png\\" rel=\\"icon\\" href=\\"https://www.datocms-assets.com/205/1525789775-dato.png?h=16&w=16\\" />
+<link sizes=\\"32x32\\" type=\\"image/png\\" rel=\\"icon\\" href=\\"https://www.datocms-assets.com/205/1525789775-dato.png?h=32&w=32\\" />
+<link sizes=\\"96x96\\" type=\\"image/png\\" rel=\\"icon\\" href=\\"https://www.datocms-assets.com/205/1525789775-dato.png?h=96&w=96\\" />
+<link sizes=\\"192x192\\" type=\\"image/png\\" rel=\\"icon\\" href=\\"https://www.datocms-assets.com/205/1525789775-dato.png?h=192&w=192\\" />
+<link sizes=\\"57x57\\" rel=\\"apple-touch-icon\\" href=\\"https://www.datocms-assets.com/205/1525789775-dato.png?h=57&w=57\\" />
+<link sizes=\\"60x60\\" rel=\\"apple-touch-icon\\" href=\\"https://www.datocms-assets.com/205/1525789775-dato.png?h=60&w=60\\" />
+<link sizes=\\"72x72\\" rel=\\"apple-touch-icon\\" href=\\"https://www.datocms-assets.com/205/1525789775-dato.png?h=72&w=72\\" />
+<link sizes=\\"76x76\\" rel=\\"apple-touch-icon\\" href=\\"https://www.datocms-assets.com/205/1525789775-dato.png?h=76&w=76\\" />
+<link sizes=\\"114x114\\" rel=\\"apple-touch-icon\\" href=\\"https://www.datocms-assets.com/205/1525789775-dato.png?h=114&w=114\\" />
+<link sizes=\\"120x120\\" rel=\\"apple-touch-icon\\" href=\\"https://www.datocms-assets.com/205/1525789775-dato.png?h=120&w=120\\" />
+<link sizes=\\"144x144\\" rel=\\"apple-touch-icon\\" href=\\"https://www.datocms-assets.com/205/1525789775-dato.png?h=144&w=144\\" />
+<link sizes=\\"152x152\\" rel=\\"apple-touch-icon\\" href=\\"https://www.datocms-assets.com/205/1525789775-dato.png?h=152&w=152\\" />
+<link sizes=\\"180x180\\" rel=\\"apple-touch-icon\\" href=\\"https://www.datocms-assets.com/205/1525789775-dato.png?h=180&w=180\\" />
+<meta name=\\"msapplication-square70x70logo\\" content=\\"https://www.datocms-assets.com/205/1525789775-dato.png?h=70&w=70\\" />
+<meta name=\\"msapplication-square150x150logo\\" content=\\"https://www.datocms-assets.com/205/1525789775-dato.png?h=150&w=150\\" />
+<meta name=\\"msapplication-square310x310logo\\" content=\\"https://www.datocms-assets.com/205/1525789775-dato.png?h=310&w=310\\" />
+<meta name=\\"msapplication-square310x150logo\\" content=\\"https://www.datocms-assets.com/205/1525789775-dato.png?h=150&w=310\\" />"
+`;
+
+exports[`toRemixLinks generates an array of link descriptors 1`] = `
+Array [
+  Object {
+    "href": "https://www.datocms-assets.com/205/1525789775-dato.png?h=16&w=16",
+    "rel": "icon",
+    "sizes": "16x16",
+    "type": "image/png",
+  },
+  Object {
+    "href": "https://www.datocms-assets.com/205/1525789775-dato.png?h=32&w=32",
+    "rel": "icon",
+    "sizes": "32x32",
+    "type": "image/png",
+  },
+  Object {
+    "href": "https://www.datocms-assets.com/205/1525789775-dato.png?h=96&w=96",
+    "rel": "icon",
+    "sizes": "96x96",
+    "type": "image/png",
+  },
+  Object {
+    "href": "https://www.datocms-assets.com/205/1525789775-dato.png?h=192&w=192",
+    "rel": "icon",
+    "sizes": "192x192",
+    "type": "image/png",
+  },
+  Object {
+    "href": "https://www.datocms-assets.com/205/1525789775-dato.png?h=57&w=57",
+    "rel": "apple-touch-icon",
+    "sizes": "57x57",
+  },
+  Object {
+    "href": "https://www.datocms-assets.com/205/1525789775-dato.png?h=60&w=60",
+    "rel": "apple-touch-icon",
+    "sizes": "60x60",
+  },
+  Object {
+    "href": "https://www.datocms-assets.com/205/1525789775-dato.png?h=72&w=72",
+    "rel": "apple-touch-icon",
+    "sizes": "72x72",
+  },
+  Object {
+    "href": "https://www.datocms-assets.com/205/1525789775-dato.png?h=76&w=76",
+    "rel": "apple-touch-icon",
+    "sizes": "76x76",
+  },
+  Object {
+    "href": "https://www.datocms-assets.com/205/1525789775-dato.png?h=114&w=114",
+    "rel": "apple-touch-icon",
+    "sizes": "114x114",
+  },
+  Object {
+    "href": "https://www.datocms-assets.com/205/1525789775-dato.png?h=120&w=120",
+    "rel": "apple-touch-icon",
+    "sizes": "120x120",
+  },
+  Object {
+    "href": "https://www.datocms-assets.com/205/1525789775-dato.png?h=144&w=144",
+    "rel": "apple-touch-icon",
+    "sizes": "144x144",
+  },
+  Object {
+    "href": "https://www.datocms-assets.com/205/1525789775-dato.png?h=152&w=152",
+    "rel": "apple-touch-icon",
+    "sizes": "152x152",
+  },
+  Object {
+    "href": "https://www.datocms-assets.com/205/1525789775-dato.png?h=180&w=180",
+    "rel": "apple-touch-icon",
+    "sizes": "180x180",
+  },
+]
+`;
+
+exports[`toRemixMeta generates a meta descriptor 1`] = `
+Object {
+  "article:modified_time": "2022-01-18T14:02:47Z",
+  "description": "Remix makes building scalable and fast React apps simple, pair it with a CMS that shares the same intuitiveness. Start a new Remix + Dato project now.",
+  "msapplication-square150x150logo": "https://www.datocms-assets.com/205/1525789775-dato.png?h=150&w=150",
+  "msapplication-square310x150logo": "https://www.datocms-assets.com/205/1525789775-dato.png?h=150&w=310",
+  "msapplication-square310x310logo": "https://www.datocms-assets.com/205/1525789775-dato.png?h=310&w=310",
+  "msapplication-square70x70logo": "https://www.datocms-assets.com/205/1525789775-dato.png?h=70&w=70",
+  "og:description": "Remix makes building scalable and fast React apps simple, pair it with a CMS that shares the same intuitiveness. Start a new Remix + Dato project now.",
+  "og:image": "https://www.datocms-assets.com/205/1642515293-full-logo.svg?fit=max&fm=jpg&w=1000",
+  "og:image:height": "186",
+  "og:image:width": "746",
+  "og:locale": "en",
+  "og:site_name": "DatoCMS",
+  "og:title": "Remix CMS - The easiest way to manage content with Remix",
+  "og:type": "article",
+  "title": "Remix CMS - The easiest way to manage content with Remix",
+  "twitter:card": "summary_large_image",
+  "twitter:description": "Remix makes building scalable and fast React apps simple, pair it with a CMS that shares the same intuitiveness. Start a new Remix + Dato project now.",
+  "twitter:image": "https://www.datocms-assets.com/205/1642515293-full-logo.svg?fit=max&fm=jpg&w=1000",
+  "twitter:site": "@datocms",
+  "twitter:title": "Remix CMS - The easiest way to manage content with Remix",
+}
 `;

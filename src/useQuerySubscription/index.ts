@@ -83,7 +83,7 @@ export function useQuerySubscription<
         unsubscribe();
       }
     };
-  }, Object.values(subscribeToQueryOptions));
+  }, [subscribeToQueryOptions]);
 
   return { error, status, data: data || initialData };
 }

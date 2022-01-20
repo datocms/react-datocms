@@ -366,6 +366,8 @@ function Page({ data }) {
 This function generates an HTML string containing `<meta>` and `<link />` tags, so it can be used server-side.
 
 ```js
+import { renderMetaTagsToString } from 'react-datocms';
+
 const someMoreComplexHtml = `
   <html>
     <head>
@@ -381,6 +383,7 @@ These two functions generate `HtmlMetaDescriptor` and `RemixHtmlLinkDescriptor` 
 
 ```js
 import type { LinksFunction, MetaFunction } from 'remix';
+import { toRemixLinks, toRemixMeta } from 'react-datocms';
 
 export const links: LinksFunction = ({ data: { site } }) => {
   return toRemixLinks(site.favicon);

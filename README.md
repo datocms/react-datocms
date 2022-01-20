@@ -390,9 +390,7 @@ export const meta: MetaFunction = ({ data: { post } }) => {
 };
 ```
 
-Please note that the [`links`](https://remix.run/docs/en/v1.1.1/api/conventions#links) export [doesn't receive any loader data](https://github.com/remix-run/remix/issues/32) for performance reasons, so you cannot use it to declare favicons meta tags!
-
-The best way to render favicon meta tags is to use `renderMetaTags` in your root component:
+Please note that the [`links`](https://remix.run/docs/en/v1.1.1/api/conventions#links) export [doesn't receive any loader data](https://github.com/remix-run/remix/issues/32) for performance reasons, so you cannot use it to declare favicons meta tags! The best way to render them is using `renderMetaTags` in your root component:
 
 ```jsx
 import { renderMetaTags } from 'react-datocms';
@@ -422,7 +420,7 @@ export default function App() {
         <meta name="viewport" content="width=device-width,initial-scale=1" />
         <Meta />
         <Links />
-        {renderMetaTags([...site.favicon])}
+        {renderMetaTags(site.favicon)}
       </head>
       <body>
         <Outlet />

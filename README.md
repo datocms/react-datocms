@@ -15,8 +15,8 @@ A set of components and utilities to work faster with [DatoCMS](https://www.dato
 <!-- START doctoc generated TOC please keep comment here to allow auto update -->
 <!-- DON'T EDIT THIS SECTION, INSTEAD RE-RUN doctoc TO UPDATE -->
 
-- [Demos](#demos)
-- [Installation](#installation)
+  - [Demos](#demos)
+  - [Installation](#installation)
 - [Live real-time updates](#live-real-time-updates)
   - [Reference](#reference)
   - [Initialization options](#initialization-options)
@@ -33,7 +33,7 @@ A set of components and utilities to work faster with [DatoCMS](https://www.dato
 - [Social share, SEO and Favicon meta tags](#social-share-seo-and-favicon-meta-tags)
   - [`renderMetaTags()`](#rendermetatags)
   - [`renderMetaTagsToString()`](#rendermetatagstostring)
-  - [`toRemixMeta()` and `toRemixLinks()`](#toremixmeta-and-toremixlinks)
+  - [`toRemixMeta()`](#toremixmeta)
 - [Structured text](#structured-text)
   - [Basic usage](#basic-usage)
   - [Custom renderers for inline records, blocks, and links](#custom-renderers-for-inline-records-blocks-and-links)
@@ -377,21 +377,62 @@ const someMoreComplexHtml = `
 `;
 ```
 
-## `toRemixMeta()` and `toRemixLinks()`
+## `toRemixMeta()`
 
-These two functions generate `HtmlMetaDescriptor` and `RemixHtmlLinkDescriptor` objects, compatibile with [`meta`](https://remix.run/docs/en/v1.1.1/api/conventions#meta) and [`links`](https://remix.run/docs/en/v1.1.1/api/conventions#links) exports of the [Remix](https://remix.run/) framework:
+This function generates a `HtmlMetaDescriptor` objects, compatibile with the [`meta`](https://remix.run/docs/en/v1.1.1/api/conventions#meta) export of the [Remix](https://remix.run/) framework:
 
 ```js
-import type { LinksFunction, MetaFunction } from 'remix';
-import { toRemixLinks, toRemixMeta } from 'react-datocms';
+import type { MetaFunction } from 'remix';
+import { toRemixMeta } from 'react-datocms';
 
-export const links: LinksFunction = ({ data: { site } }) => {
-  return toRemixLinks(site.favicon);
+export const meta: MetaFunction = ({ data: { post } }) => {
+  return toRemixMeta(post.seo);
+};
+```
+
+Please note that the [`links`](https://remix.run/docs/en/v1.1.1/api/conventions#links) export [doesn't receive any loader data](https://github.com/remix-run/remix/issues/32) for performance reasons, so you cannot use it to declare favicons meta tags!
+
+The best way to render favicon meta tags is to use `renderMetaTags` in your root component:
+
+```jsx
+import { renderMetaTags } from 'react-datocms';
+
+export const loader = () => {
+  return request({
+    query: `
+        {
+          site: _site {
+            favicon: faviconMetaTags(variants: [icon, msApplication, appleTouchIcon]) {
+              ...metaTagsFragment
+            }
+          }
+        }
+        ${metaTagsFragment}
+      `,
+  });
 };
 
-export const meta: MetaFunction = ({ data: { post, site } }) => {
-  return toRemixMeta([...post.seo, ...site.favicon]);
-};
+export default function App() {
+  const { site } = useLoaderData();
+
+  return (
+    <html lang="en">
+      <head>
+        <meta charSet="utf-8" />
+        <meta name="viewport" content="width=device-width,initial-scale=1" />
+        <Meta />
+        <Links />
+        {renderMetaTags([...site.favicon])}
+      </head>
+      <body>
+        <Outlet />
+        <ScrollRestoration />
+        <Scripts />
+        {process.env.NODE_ENV === 'development' && <LiveReload />}
+      </body>
+    </html>
+  );
+}
 ```
 
 # Structured text

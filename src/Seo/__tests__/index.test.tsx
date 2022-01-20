@@ -1,6 +1,6 @@
 import * as React from "react";
 import { shallow } from "enzyme";
-import { renderMetaTags, renderMetaTagsToString, toRemixLinks, toRemixMeta, SeoOrFaviconTag } from "..";
+import { renderMetaTags, renderMetaTagsToString, toRemixMeta, SeoOrFaviconTag } from "..";
 
 const metaTags: SeoOrFaviconTag[] = [
   {
@@ -298,12 +298,6 @@ describe("renderMetaTags", () => {
 describe("renderMetaTagsToString", () => {
   it("generates an array of meta tags", () => {
     expect(renderMetaTagsToString(metaTags)).toMatchSnapshot();
-  });
-});
-
-describe("toRemixLinks", () => {
-  it("generates an array of link descriptors", () => {
-    expect(toRemixLinks(metaTags)).toMatchSnapshot();
   });
 });
 

@@ -55,15 +55,3 @@ export function toRemixMeta(
     };
   }, {} as RemixHtmlMetaDescriptor);
 }
-
-export function toRemixLinks(
-  metaTags: null | SeoOrFaviconTag[],
-): RemixHtmlLinkDescriptor[] {
-  if (!metaTags) {
-    return [];
-  }
-
-  return metaTags
-    .filter((tag): tag is SeoLinkTag => tag.tag === 'link')
-    .map((tag) => tag.attributes);
-}

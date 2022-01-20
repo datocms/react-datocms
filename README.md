@@ -379,7 +379,7 @@ const someMoreComplexHtml = `
 
 ## `toRemixMeta()`
 
-This function generates a `HtmlMetaDescriptor` objects, compatibile with the [`meta`](https://remix.run/docs/en/v1.1.1/api/conventions#meta) export of the [Remix](https://remix.run/) framework:
+This function generates a `HtmlMetaDescriptor` object, compatibile with the [`meta`](https://remix.run/docs/en/v1.1.1/api/conventions#meta) export of the [Remix](https://remix.run/) framework:
 
 ```js
 import type { MetaFunction } from 'remix';

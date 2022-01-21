@@ -1,5 +1,4 @@
 import React, { useState, forwardRef, useCallback, CSSProperties } from 'react';
-import 'intersection-observer';
 import { useInView } from 'react-intersection-observer';
 
 const isSsr = typeof window === 'undefined';
@@ -148,6 +147,7 @@ export const Image = forwardRef<HTMLDivElement, ImagePropTypes>(
       threshold: intersectionThreshold || intersectionTreshold || 0,
       rootMargin: intersectionMargin || '0px 0px 0px 0px',
       triggerOnce: true,
+      fallbackInView: true,
     });
 
     const callbackRef = useCallback(

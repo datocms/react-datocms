@@ -163,9 +163,7 @@ const App: React.FC = () => {
 `<Image />` is a React component specially designed to work seamlessly with DatoCMS’s [`responsiveImage` GraphQL query](https://www.datocms.com/docs/content-delivery-api/uploads#responsive-images) that optimizes image loading for your sites.
 
 - TypeScript ready;
-- Compatible with IE11;
 - CSS-in-JS ready;
-- Compatible with any GraphQL library (Apollo, graphql-hooks, graphql-request, etc.);
 - Usable both client and server side;
 - Compatible with vanilla React, Next.js and pretty much any other React-based solution;
 
@@ -173,11 +171,17 @@ const App: React.FC = () => {
 
 ## Out-of-the-box features
 
-- Offer WebP version of images for browsers that support the format
-- Generate multiple smaller images so smartphones and tablets don’t download desktop-sized images
-- Efficiently lazy load images to speed initial page load and save bandwidth
-- Use either blur-up or background color techniques to show a preview of the image while it loads
-- Hold the image position so your page doesn’t jump while images load
+- Offers WebP version of images for browsers that support the format
+- Generates multiple smaller images so smartphones and tablets don’t download desktop-sized images
+- Efficiently lazy loads images to speed initial page load and save bandwidth
+- Holds the image position so your page doesn’t jump while images load
+- Uses either blur-up or background color techniques to show a preview of the image while it loads
+
+## Intersection Observer
+
+Intersection Observer is the API used to determine if the image is inside the viewport or not. [Browser support is really good](https://caniuse.com/intersectionobserver) - With Safari adding support in 12.1, all major browsers now support Intersection Observers natively.
+
+If the IntersectionObserver object is not available, the component treats the image as it's always visible in the viewport. Feel free to add [polyfill](https://www.npmjs.com/package/intersection-observer) so that it will also 100% work on older versions of iOS and IE11.
 
 ## Usage
 
@@ -720,6 +724,7 @@ import SyntaxHighlight from 'components/SyntaxHighlight';
     ),
   ]}
   customMarkRules={[
+    // convert "strong" marks into <b> tags
     renderMarkRule('strong', ({ mark, children, key }) => {
       return <b key={key}>{children}</b>;
     }),

@@ -1,5 +1,6 @@
 import * as React from 'react';
 import { mount } from 'enzyme';
+import 'intersection-observer';
 import { Image } from '../index';
 import { mockAllIsIntersecting } from 'react-intersection-observer/test-utils';
 

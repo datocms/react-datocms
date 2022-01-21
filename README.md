@@ -15,8 +15,8 @@ A set of components and utilities to work faster with [DatoCMS](https://www.dato
 <!-- START doctoc generated TOC please keep comment here to allow auto update -->
 <!-- DON'T EDIT THIS SECTION, INSTEAD RE-RUN doctoc TO UPDATE -->
 
-- [Demos](#demos)
-- [Installation](#installation)
+  - [Demos](#demos)
+  - [Installation](#installation)
 - [Live real-time updates](#live-real-time-updates)
   - [Reference](#reference)
   - [Initialization options](#initialization-options)
@@ -25,6 +25,7 @@ A set of components and utilities to work faster with [DatoCMS](https://www.dato
   - [Example](#example)
 - [Progressive/responsive image](#progressiveresponsive-image)
   - [Out-of-the-box features](#out-of-the-box-features)
+  - [Intersection Observer](#intersection-observer)
   - [Usage](#usage)
   - [Example](#example-1)
   - [Props](#props)
@@ -181,7 +182,7 @@ const App: React.FC = () => {
 
 Intersection Observer is the API used to determine if the image is inside the viewport or not. [Browser support is really good](https://caniuse.com/intersectionobserver) - With Safari adding support in 12.1, all major browsers now support Intersection Observers natively.
 
-If the IntersectionObserver object is not available, the component treats the image as it's always visible in the viewport. Feel free to add [polyfill](https://www.npmjs.com/package/intersection-observer) so that it will also 100% work on older versions of iOS and IE11.
+If the IntersectionObserver object is not available, the component treats the image as it's always visible in the viewport. Feel free to add a [polyfill](https://www.npmjs.com/package/intersection-observer) so that it will also 100% work on older versions of iOS and IE11.
 
 ## Usage
 

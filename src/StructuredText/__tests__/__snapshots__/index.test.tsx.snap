@@ -1,5 +1,61 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
+exports[`StructuredText simple dast /2 with custom mark rules renders the document 1`] = `
+<StructuredText
+  customMarkRules={
+    Array [
+      Object {
+        "appliable": [Function],
+        "apply": [Function],
+      },
+    ]
+  }
+  data={
+    Object {
+      "document": Object {
+        "children": Array [
+          Object {
+            "children": Array [
+              Object {
+                "type": "span",
+                "value": "This
+is a ",
+              },
+              Object {
+                "marks": Array [
+                  "strong",
+                ],
+                "type": "span",
+                "value": "title",
+              },
+            ],
+            "level": 1,
+            "type": "heading",
+          },
+        ],
+        "type": "root",
+      },
+      "schema": "dast",
+    }
+  }
+>
+  <h1
+    key="t-0"
+  >
+    This
+    <br
+      key="t-0-br-0"
+    />
+    is a 
+    <b
+      key="t-1"
+    >
+      title
+    </b>
+  </h1>
+</StructuredText>
+`;
+
 exports[`StructuredText simple dast /2 with default rules renders the document 1`] = `
 <StructuredText
   data={
@@ -36,7 +92,7 @@ is a ",
   >
     This
     <br
-      key="br-0"
+      key="t-0-br-0"
     />
     is a 
     <strong
@@ -50,7 +106,7 @@ is a ",
 
 exports[`StructuredText simple dast with no links/blocks with custom rules renders the document 1`] = `
 <StructuredText
-  customRules={
+  customNodeRules={
     Array [
       Object {
         "appliable": [Function],
@@ -95,7 +151,7 @@ is a ",
   >
     That
     <br
-      key="br-0"
+      key="t-0-br-0"
     />
     is a 
     <strong
@@ -145,7 +201,7 @@ is a ",
   >
     This
     <br
-      key="br-0"
+      key="t-0-br-0"
     />
     is a 
     <strong

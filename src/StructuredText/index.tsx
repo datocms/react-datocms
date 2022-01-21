@@ -1,10 +1,12 @@
 import {
   defaultMetaTransformer,
   render,
-  renderRule,
+  renderNodeRule,
+  renderMarkRule,
   TransformedMeta,
   TransformMetaFn,
-} from "datocms-structured-text-generic-html-renderer";
+  RenderMarkRule,
+} from 'datocms-structured-text-generic-html-renderer';
 import {
   isBlock,
   isInlineItem,
@@ -17,13 +19,13 @@ import {
   Node,
   StructuredText as StructuredTextGraphQlResponse,
   isStructuredText,
-} from "datocms-structured-text-utils";
-import React, { cloneElement, isValidElement, ReactElement } from "react";
+} from 'datocms-structured-text-utils';
+import React, { cloneElement, isValidElement, ReactElement } from 'react';
 
-export {
-  renderRule,
-  RenderError,
-};
+export { renderNodeRule, renderMarkRule, RenderError };
+
+// deprecated
+export { renderNodeRule as renderRule };
 
 export type {
   StructuredTextGraphQlResponse,
@@ -37,14 +39,14 @@ export const defaultAdapter = {
   renderNode: React.createElement as (...args: any) => AdapterReturn,
   renderFragment: (
     children: ReactElement | null[],
-    key: string
+    key: string,
   ): AdapterReturn => <React.Fragment key={key}>{children}</React.Fragment>,
   renderText: (text: string, key: string): AdapterReturn => text,
 };
 
 export function appendKeyToValidElement(
   element: ReactElement | null,
-  key: string
+  key: string,
 ): ReactElement | null {
   if (isValidElement(element) && element.key === null) {
     return cloneElement(element, { key });
@@ -56,11 +58,10 @@ type H = typeof defaultAdapter.renderNode;
 type T = typeof defaultAdapter.renderText;
 type F = typeof defaultAdapter.renderFragment;
 
-type RenderInlineRecordContext<
-  R extends StructuredTextGraphQlResponseRecord
-> = {
-  record: R;
-};
+type RenderInlineRecordContext<R extends StructuredTextGraphQlResponseRecord> =
+  {
+    record: R;
+  };
 
 type RenderRecordLinkContext<R extends StructuredTextGraphQlResponseRecord> = {
   record: R;
@@ -73,19 +74,26 @@ type RenderBlockContext<R extends StructuredTextGraphQlResponseRecord> = {
 };
 
 export type StructuredTextPropTypes<
-  R extends StructuredTextGraphQlResponseRecord
+  R extends StructuredTextGraphQlResponseRecord,
 > = {
   /** The actual field value you get from DatoCMS **/
-  data: StructuredTextGraphQlResponse<R> | StructuredTextDocument | Node | null | undefined;
-  /** A set of additional rules to convert the document to JSX **/
-  customRules?: RenderRule<H, T, F>[];
+  data:
+    | StructuredTextGraphQlResponse<R>
+    | StructuredTextDocument
+    | Node
+    | null
+    | undefined;
+  /** A set of additional rules to convert nodes to JSX **/
+  customNodeRules?: RenderRule<H, T, F>[];
+  /** A set of additional rules to convert marks to JSX **/
+  customMarkRules?: RenderMarkRule<H, T, F>[];
   /** Fuction that converts an 'inlineItem' node into React **/
   renderInlineRecord?: (
-    context: RenderInlineRecordContext<R>
+    context: RenderInlineRecordContext<R>,
   ) => ReactElement | null;
   /** Fuction that converts an 'itemLink' node into React **/
   renderLinkToRecord?: (
-    context: RenderRecordLinkContext<R>
+    context: RenderRecordLinkContext<R>,
   ) => ReactElement | null;
   /** Fuction that converts a 'block' node into React **/
   renderBlock?: (context: RenderBlockContext<R>) => ReactElement | null;
@@ -97,6 +105,8 @@ export type StructuredTextPropTypes<
   renderNode?: H;
   /** Function to use to generate a React.Fragment **/
   renderFragment?: F;
+  /** @deprecated use customNodeRules **/
+  customRules?: RenderRule<H, T, F>[];
 };
 
 export function StructuredText<R extends StructuredTextGraphQlResponseRecord>({
@@ -107,29 +117,32 @@ export function StructuredText<R extends StructuredTextGraphQlResponseRecord>({
   renderText,
   renderNode,
   renderFragment,
+  customMarkRules,
   customRules,
+  customNodeRules,
   metaTransformer,
 }: StructuredTextPropTypes<R>): ReactElement | null {
-  const result = render(
-    {
+  const result = render(data, {
+    adapter: {
       renderText: renderText || defaultAdapter.renderText,
       renderNode: renderNode || defaultAdapter.renderNode,
       renderFragment: renderFragment || defaultAdapter.renderFragment,
     },
-    data,
-    [
-      renderRule(isInlineItem, ({ node, key }) => {
+    metaTransformer,
+    customMarkRules,
+    customNodeRules: [
+      renderNodeRule(isInlineItem, ({ node, key }) => {
         if (!renderInlineRecord) {
           throw new RenderError(
             `The Structured Text document contains an 'inlineItem' node, but no 'renderInlineRecord' prop is specified!`,
-            node
+            node,
           );
         }
 
         if (!isStructuredText(data) || !data.links) {
           throw new RenderError(
             `The document contains an 'itemLink' node, but the passed data prop is not a Structured Text GraphQL response, or data.links is not present!`,
-            node
+            node,
           );
         }
 
@@ -138,27 +151,27 @@ export function StructuredText<R extends StructuredTextGraphQlResponseRecord>({
         if (!item) {
           throw new RenderError(
             `The Structured Text document contains an 'inlineItem' node, but cannot find a record with ID ${node.item} inside data.links!`,
-            node
+            node,
           );
         }
 
         return appendKeyToValidElement(
           renderInlineRecord({ record: item }),
-          key
+          key,
         );
       }),
-      renderRule(isItemLink, ({ node, key, children }) => {
+      renderNodeRule(isItemLink, ({ node, key, children }) => {
         if (!renderLinkToRecord) {
           throw new RenderError(
             `The Structured Text document contains an 'itemLink' node, but no 'renderLinkToRecord' prop is specified!`,
-            node
+            node,
           );
         }
 
         if (!isStructuredText(data) || !data.links) {
           throw new RenderError(
             `The document contains an 'itemLink' node, but the passed data prop is not a Structured Text GraphQL response, or data.links is not present!`,
-            node
+            node,
           );
         }
 
@@ -167,36 +180,36 @@ export function StructuredText<R extends StructuredTextGraphQlResponseRecord>({
         if (!item) {
           throw new RenderError(
             `The Structured Text document contains an 'itemLink' node, but cannot find a record with ID ${node.item} inside data.links!`,
-            node
+            node,
           );
         }
 
         return appendKeyToValidElement(
           renderLinkToRecord({
             record: item,
-            children: (children as any) as ReturnType<F>,
+            children: children as any as ReturnType<F>,
             transformedMeta: node.meta
-            ? (metaTransformer || defaultMetaTransformer)({
-                node,
-                meta: node.meta,
-              })
-            : null,
+              ? (metaTransformer || defaultMetaTransformer)({
+                  node,
+                  meta: node.meta,
+                })
+              : null,
           }),
-          key
+          key,
         );
       }),
-      renderRule(isBlock, ({ node, key }) => {
+      renderNodeRule(isBlock, ({ node, key }) => {
         if (!renderBlock) {
           throw new RenderError(
             `The Structured Text document contains a 'block' node, but no 'renderBlock' prop is specified!`,
-            node
+            node,
           );
         }
 
         if (!isStructuredText(data) || !data.blocks) {
           throw new RenderError(
             `The document contains an 'block' node, but the passed data prop is not a Structured Text GraphQL response, or data.blocks is not present!`,
-            node
+            node,
           );
         }
 
@@ -205,15 +218,19 @@ export function StructuredText<R extends StructuredTextGraphQlResponseRecord>({
         if (!item) {
           throw new RenderError(
             `The Structured Text document contains a 'block' node, but cannot find a record with ID ${node.item} inside data.blocks!`,
-            node
+            node,
           );
         }
 
         return appendKeyToValidElement(renderBlock({ record: item }), key);
       }),
-    ].concat(customRules || []),
-    metaTransformer,
-  );
+      ...(customNodeRules || customRules || []),
+    ],
+  });
 
-  return result;
+  if (typeof result === 'string') {
+    return <>{result}</>;
+  }
+
+  return result || null;
 }

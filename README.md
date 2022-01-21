@@ -15,8 +15,8 @@ A set of components and utilities to work faster with [DatoCMS](https://www.dato
 <!-- START doctoc generated TOC please keep comment here to allow auto update -->
 <!-- DON'T EDIT THIS SECTION, INSTEAD RE-RUN doctoc TO UPDATE -->
 
-  - [Demos](#demos)
-  - [Installation](#installation)
+- [Demos](#demos)
+- [Installation](#installation)
 - [Live real-time updates](#live-real-time-updates)
   - [Reference](#reference)
   - [Initialization options](#initialization-options)
@@ -659,19 +659,19 @@ For example:
 
 - For all possible node types, refer to the [list of typeguard functions defined in the main `structured-text` package](https://github.com/datocms/structured-text/tree/main/packages/utils#typescript-type-guards). The [DAST format documentation](https://www.datocms.com/docs/structured-text/dast) has additional details.
 
-In this case, you can easily override default rendering rules with the `customRules` prop.
+In this case, you can easily override default rendering rules with the `customNodeRules` and `customMarkRules` props.
 
 ```jsx
-import { renderRule, StructuredText } from 'react-datocms';
+import { renderNodeRule, renderMarkRule, StructuredText } from 'react-datocms';
 import { isHeading, isCode } from 'datocms-structured-text-utils';
 import { render as toPlainText } from 'datocms-structured-text-to-plain-text';
 import SyntaxHighlight from 'components/SyntaxHighlight';
 
 <StructuredText
   data={data.blogPost.content}
-  customRules={[
+  customNodeRules={[
     // Add HTML anchors to heading levels for in-page navigation
-    renderRule(isHeading, ({ node, children, key }) => {
+    renderNodeRule(isHeading, ({ node, children, key }) => {
       const HeadingTag = `h${node.level}`;
       const anchor = toPlainText(node)
         .toLowerCase()
@@ -687,7 +687,7 @@ import SyntaxHighlight from 'components/SyntaxHighlight';
     }),
 
     // Use a custom syntax highlighter component for code blocks
-    renderRule(isCode, ({ node, key }) => {
+    renderNodeRule(isCode, ({ node, key }) => {
       return (
         <SyntaxHighlight
           key={key}
@@ -699,7 +699,7 @@ import SyntaxHighlight from 'components/SyntaxHighlight';
     }),
 
     // Apply different formatting to top-level paragraphs
-    renderRule(
+    renderNodeRule(
       isParagraph,
       ({ adapter: { renderNode }, node, children, key, ancestors }) => {
         if (isRoot(ancestors[0])) {
@@ -719,6 +719,11 @@ import SyntaxHighlight from 'components/SyntaxHighlight';
       },
     ),
   ]}
+  customMarkRules={[
+    renderMarkRule('strong', ({ mark, children, key }) => {
+      return <b key={key}>{children}</b>;
+    }),
+  ]}
 />;
 ```
 
@@ -733,7 +738,8 @@ Note: if you override the rules for `inline_item`, `item_link` or `block` nodes,
 | renderLinkToRecord | `({ record, children }) => ReactElement \| null`                | Only required if document contains `itemLink` nodes   | Convert an `itemLink` DAST node into React                                                       | `null`                                                                                                               |
 | renderBlock        | `({ record }) => ReactElement \| null`                          | Only required if document contains `block` nodes      | Convert a `block` DAST node into React                                                           | `null`                                                                                                               |
 | metaTransformer    | `({ node, meta }) => Object \| null`                            | :x:                                                   | Transform `link` and `itemLink` meta property into HTML props                                    | [See function](https://github.com/datocms/structured-text/blob/main/packages/generic-html-renderer/src/index.ts#L61) |
-| customRules        | `Array<RenderRule>`                                             | :x:                                                   | Customize how document is converted in JSX (use `renderRule()` to generate)                      | `null`                                                                                                               |
+| customNodeRules    | `Array<RenderRule>`                                             | :x:                                                   | Customize how nodes are converted in JSX (use `renderNodeRule()` to generate rules)              | `null`                                                                                                               |
+| customMarkRules    | `Array<RenderMarkRule>`                                         | :x:                                                   | Customize how marks are converted in JSX (use `renderMarkRule()` to generate rules)              | `null`                                                                                                               |
 | renderText         | `(text: string, key: string) => ReactElement \| string \| null` | :x:                                                   | Convert a simple string text into React                                                          | `(text) => text`                                                                                                     |
 
 # Development

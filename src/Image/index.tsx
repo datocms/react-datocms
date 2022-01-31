@@ -1,10 +1,8 @@
 import React, { useState, forwardRef, useCallback, CSSProperties } from 'react';
 import { useInView } from 'react-intersection-observer';
+import { encode } from 'universal-base64';
 
 const isSsr = typeof window === 'undefined';
-const universalBtoa = isSsr
-  ? (str: string) => Buffer.from(str.toString(), 'binary').toString('base64')
-  : window.btoa;
 
 const isIntersectionObserverAvailable = isSsr
   ? false
@@ -216,7 +214,7 @@ export const Image = forwardRef<HTMLDivElement, ImagePropTypes>(
             display: 'block',
             width: '100%',
           }}
-          src={`data:image/svg+xml;base64,${universalBtoa(svg)}`}
+          src={`data:image/svg+xml;base64,${encode(svg)}`}
           role="presentation"
         />
       ) : null;

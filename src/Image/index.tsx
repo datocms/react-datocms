@@ -244,7 +244,7 @@ export const Image = forwardRef<HTMLDivElement, ImagePropTypes>(
             {data.src && (
               <img
                 src={data.src}
-                alt={data.alt}
+                alt={data.alt ?? ''}
                 title={data.title}
                 onLoad={handleLoad}
                 className={pictureClassName}

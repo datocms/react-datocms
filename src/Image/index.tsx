@@ -189,6 +189,7 @@ export const Image = forwardRef<HTMLDivElement, ImagePropTypes>(
     const placeholder = usePlaceholder ? (
       <img
         role="presentation"
+        aria-hidden="true"
         src={data.base64}
         style={{
           backgroundColor: data.bgColor,
@@ -196,7 +197,11 @@ export const Image = forwardRef<HTMLDivElement, ImagePropTypes>(
           transition,
           objectFit,
           objectPosition,
-          ...absolutePositioning,
+          willChange: 'opacity',
+          position: 'absolute',
+          left: 0,
+          top: 0,
+          width: '100%',
         }}
       />
     ) : null;

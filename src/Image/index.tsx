@@ -220,7 +220,7 @@ export const Image = forwardRef<HTMLDivElement, ImagePropTypes>(
             width: '100%',
           }}
           src={`data:image/svg+xml;base64,${encode(svg)}`}
-          role="presentation"
+          aria-hidden="true"
         />
       ) : null;
 

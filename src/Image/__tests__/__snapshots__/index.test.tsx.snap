@@ -246,7 +246,7 @@ exports[`Image layout=fixed not visible renders the blur-up thumb 1`] = `
     }
   >
     <img
-      role="presentation"
+      aria-hidden="true"
       src="data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHdpZHRoPSI3NTAiIGhlaWdodD0iNDIxIj48L3N2Zz4="
       style={
         Object {
@@ -309,7 +309,7 @@ exports[`Image layout=fixed visible image loaded shows the image 1`] = `
     }
   >
     <img
-      role="presentation"
+      aria-hidden="true"
       src="data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHdpZHRoPSI3NTAiIGhlaWdodD0iNDIxIj48L3N2Zz4="
       style={
         Object {
@@ -397,7 +397,7 @@ exports[`Image layout=fixed visible renders the image 1`] = `
     }
   >
     <img
-      role="presentation"
+      aria-hidden="true"
       src="data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHdpZHRoPSI3NTAiIGhlaWdodD0iNDIxIj48L3N2Zz4="
       style={
         Object {
@@ -486,7 +486,7 @@ exports[`Image layout=intrinsic not visible renders the blur-up thumb 1`] = `
     }
   >
     <img
-      role="presentation"
+      aria-hidden="true"
       src="data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHdpZHRoPSI3NTAiIGhlaWdodD0iNDIxIj48L3N2Zz4="
       style={
         Object {
@@ -550,7 +550,7 @@ exports[`Image layout=intrinsic visible image loaded shows the image 1`] = `
     }
   >
     <img
-      role="presentation"
+      aria-hidden="true"
       src="data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHdpZHRoPSI3NTAiIGhlaWdodD0iNDIxIj48L3N2Zz4="
       style={
         Object {
@@ -639,7 +639,7 @@ exports[`Image layout=intrinsic visible renders the image 1`] = `
     }
   >
     <img
-      role="presentation"
+      aria-hidden="true"
       src="data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHdpZHRoPSI3NTAiIGhlaWdodD0iNDIxIj48L3N2Zz4="
       style={
         Object {
@@ -727,7 +727,7 @@ exports[`Image layout=responsive not visible renders the blur-up thumb 1`] = `
     }
   >
     <img
-      role="presentation"
+      aria-hidden="true"
       src="data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHdpZHRoPSI3NTAiIGhlaWdodD0iNDIxIj48L3N2Zz4="
       style={
         Object {
@@ -790,7 +790,7 @@ exports[`Image layout=responsive visible image loaded shows the image 1`] = `
     }
   >
     <img
-      role="presentation"
+      aria-hidden="true"
       src="data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHdpZHRoPSI3NTAiIGhlaWdodD0iNDIxIj48L3N2Zz4="
       style={
         Object {
@@ -878,7 +878,7 @@ exports[`Image layout=responsive visible renders the image 1`] = `
     }
   >
     <img
-      role="presentation"
+      aria-hidden="true"
       src="data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHdpZHRoPSI3NTAiIGhlaWdodD0iNDIxIj48L3N2Zz4="
       style={
         Object {

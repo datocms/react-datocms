@@ -1,38 +1,11 @@
-import { SeoLinkTag, SeoOrFaviconTag } from './types';
+import { TitleMetaLinkTag } from './types';
 
 interface RemixHtmlMetaDescriptor {
   [name: string]: string | string[];
 }
 
-interface RemixHtmlLinkDescriptor {
-  href: string;
-  crossOrigin?: 'anonymous' | 'use-credentials';
-  rel: string;
-  media?: string;
-  integrity?: string;
-  hrefLang?: string;
-  type?: string;
-  referrerPolicy?:
-    | ''
-    | 'no-referrer'
-    | 'no-referrer-when-downgrade'
-    | 'same-origin'
-    | 'origin'
-    | 'strict-origin'
-    | 'origin-when-cross-origin'
-    | 'strict-origin-when-cross-origin'
-    | 'unsafe-url';
-  sizes?: string;
-  imagesrcset?: string;
-  imagesizes?: string;
-  as?: string;
-  color?: string;
-  disabled?: boolean;
-  title?: string;
-}
-
 export function toRemixMeta(
-  metaTags: null | SeoOrFaviconTag[],
+  metaTags: null | TitleMetaLinkTag[],
 ): RemixHtmlMetaDescriptor {
   if (!metaTags) {
     return {};
@@ -44,6 +17,10 @@ export function toRemixMeta(
     }
 
     if (tag.tag === 'link') {
+      return acc;
+    }
+
+    if (!tag.attributes) {
       return acc;
     }
 

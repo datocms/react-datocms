@@ -1,8 +1,9 @@
 import * as React from "react";
 import { shallow } from "enzyme";
-import { renderMetaTags, renderMetaTagsToString, toRemixMeta, SeoOrFaviconTag } from "..";
+import { renderMetaTags, renderMetaTagsToString, toRemixMeta } from "..";
+import { TitleMetaLinkTag } from "../types";
 
-const metaTags: SeoOrFaviconTag[] = [
+const metaTags: TitleMetaLinkTag[] = [
   {
     "content": "Remix CMS - The easiest way to manage content with Remix",
     "attributes": null,

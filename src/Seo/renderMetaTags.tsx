@@ -1,7 +1,7 @@
 import React from 'react';
-import { SeoOrFaviconTag } from './types';
+import { TitleMetaLinkTag } from './types';
 
-export function renderMetaTags(data: SeoOrFaviconTag[]): JSX.Element[] {
+export function renderMetaTags(data: TitleMetaLinkTag[]): JSX.Element[] {
   return data.map(({ tag, attributes, content }) => {
     let key: string[] = [tag];
 
@@ -21,7 +21,7 @@ export function renderMetaTags(data: SeoOrFaviconTag[]): JSX.Element[] {
       key.push(attributes.sizes);
     }
 
-    const Tag = tag;
+    const Tag = tag as 'meta' | 'title' | 'link';
 
     return (
       <Tag key={key.join('-')} {...attributes}>

@@ -1,6 +1,6 @@
-import { SeoOrFaviconTag } from "./types";
+import { TitleMetaLinkTag } from "./types";
 
-export function renderMetaTagsToString(data: SeoOrFaviconTag[]): string {
+export function renderMetaTagsToString(data: TitleMetaLinkTag[]): string {
   return data
     .map((tag) => {
       if (tag.tag === 'title') {

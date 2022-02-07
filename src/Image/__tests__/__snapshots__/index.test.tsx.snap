@@ -45,7 +45,6 @@ exports[`Image layout=fill not visible renders the blur-up thumb 1`] = `
           "top": 0,
           "transition": "opacity 500ms",
           "width": "100%",
-          "willChange": "opacity",
         }
       }
     />
@@ -101,7 +100,6 @@ exports[`Image layout=fill visible image loaded shows the image 1`] = `
           "top": 0,
           "transition": "opacity 500ms",
           "width": "100%",
-          "willChange": "opacity",
         }
       }
     />
@@ -182,7 +180,6 @@ exports[`Image layout=fill visible renders the image 1`] = `
           "top": 0,
           "transition": "opacity 500ms",
           "width": "100%",
-          "willChange": "opacity",
         }
       }
     />
@@ -270,7 +267,6 @@ exports[`Image layout=fixed not visible renders the blur-up thumb 1`] = `
           "top": 0,
           "transition": "opacity 500ms",
           "width": "100%",
-          "willChange": "opacity",
         }
       }
     />
@@ -333,7 +329,6 @@ exports[`Image layout=fixed visible image loaded shows the image 1`] = `
           "top": 0,
           "transition": "opacity 500ms",
           "width": "100%",
-          "willChange": "opacity",
         }
       }
     />
@@ -421,7 +416,6 @@ exports[`Image layout=fixed visible renders the image 1`] = `
           "top": 0,
           "transition": "opacity 500ms",
           "width": "100%",
-          "willChange": "opacity",
         }
       }
     />
@@ -510,7 +504,6 @@ exports[`Image layout=intrinsic not visible renders the blur-up thumb 1`] = `
           "top": 0,
           "transition": "opacity 500ms",
           "width": "100%",
-          "willChange": "opacity",
         }
       }
     />
@@ -574,7 +567,6 @@ exports[`Image layout=intrinsic visible image loaded shows the image 1`] = `
           "top": 0,
           "transition": "opacity 500ms",
           "width": "100%",
-          "willChange": "opacity",
         }
       }
     />
@@ -663,7 +655,6 @@ exports[`Image layout=intrinsic visible renders the image 1`] = `
           "top": 0,
           "transition": "opacity 500ms",
           "width": "100%",
-          "willChange": "opacity",
         }
       }
     />
@@ -751,7 +742,6 @@ exports[`Image layout=responsive not visible renders the blur-up thumb 1`] = `
           "top": 0,
           "transition": "opacity 500ms",
           "width": "100%",
-          "willChange": "opacity",
         }
       }
     />
@@ -814,7 +804,6 @@ exports[`Image layout=responsive visible image loaded shows the image 1`] = `
           "top": 0,
           "transition": "opacity 500ms",
           "width": "100%",
-          "willChange": "opacity",
         }
       }
     />
@@ -902,7 +891,6 @@ exports[`Image layout=responsive visible renders the image 1`] = `
           "top": 0,
           "transition": "opacity 500ms",
           "width": "100%",
-          "willChange": "opacity",
         }
       }
     />

@@ -197,7 +197,6 @@ export const Image = forwardRef<HTMLDivElement, ImagePropTypes>(
           transition,
           objectFit,
           objectPosition,
-          willChange: 'opacity',
           position: 'absolute',
           left: 0,
           top: 0,

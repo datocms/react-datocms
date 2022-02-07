@@ -74,11 +74,12 @@ type RenderBlockContext<R extends StructuredTextGraphQlResponseRecord> = {
 };
 
 export type StructuredTextPropTypes<
-  R extends StructuredTextGraphQlResponseRecord,
+  R1 extends StructuredTextGraphQlResponseRecord,
+  R2 extends StructuredTextGraphQlResponseRecord = R1,
 > = {
   /** The actual field value you get from DatoCMS **/
   data:
-    | StructuredTextGraphQlResponse<R>
+    | StructuredTextGraphQlResponse<R1, R2>
     | StructuredTextDocument
     | Node
     | null
@@ -89,14 +90,14 @@ export type StructuredTextPropTypes<
   customMarkRules?: RenderMarkRule<H, T, F>[];
   /** Fuction that converts an 'inlineItem' node into React **/
   renderInlineRecord?: (
-    context: RenderInlineRecordContext<R>,
+    context: RenderInlineRecordContext<R2>,
   ) => ReactElement | null;
   /** Fuction that converts an 'itemLink' node into React **/
   renderLinkToRecord?: (
-    context: RenderRecordLinkContext<R>,
+    context: RenderRecordLinkContext<R2>,
   ) => ReactElement | null;
   /** Fuction that converts a 'block' node into React **/
-  renderBlock?: (context: RenderBlockContext<R>) => ReactElement | null;
+  renderBlock?: (context: RenderBlockContext<R1>) => ReactElement | null;
   /** Function that converts 'link' and 'itemLink' `meta` into HTML props */
   metaTransformer?: TransformMetaFn;
   /** Fuction that converts a simple string text into React **/
@@ -109,7 +110,10 @@ export type StructuredTextPropTypes<
   customRules?: RenderRule<H, T, F>[];
 };
 
-export function StructuredText<R extends StructuredTextGraphQlResponseRecord>({
+export function StructuredText<
+  R1 extends StructuredTextGraphQlResponseRecord,
+  R2 extends StructuredTextGraphQlResponseRecord = R1,
+>({
   data,
   renderInlineRecord,
   renderLinkToRecord,
@@ -121,7 +125,7 @@ export function StructuredText<R extends StructuredTextGraphQlResponseRecord>({
   customRules,
   customNodeRules,
   metaTransformer,
-}: StructuredTextPropTypes<R>): ReactElement | null {
+}: StructuredTextPropTypes<R1, R2>): ReactElement | null {
   const result = render(data, {
     adapter: {
       renderText: renderText || defaultAdapter.renderText,

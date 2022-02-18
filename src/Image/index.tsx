@@ -190,6 +190,7 @@ export const Image = forwardRef<HTMLDivElement, ImagePropTypes>(
       <img
         role="presentation"
         aria-hidden="true"
+        alt=""
         src={data.base64}
         style={{
           backgroundColor: data.bgColor,
@@ -220,6 +221,7 @@ export const Image = forwardRef<HTMLDivElement, ImagePropTypes>(
           }}
           src={`data:image/svg+xml;base64,${encode(svg)}`}
           aria-hidden="true"
+          alt=""
         />
       ) : null;
 

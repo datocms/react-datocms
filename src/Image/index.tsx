@@ -1,8 +1,8 @@
-import React, { useState, forwardRef, useCallback, CSSProperties } from "react";
-import { useInView } from "react-intersection-observer";
-import { encode } from "universal-base64";
+import React, { useState, forwardRef, useCallback, CSSProperties } from 'react';
+import { useInView } from 'react-intersection-observer';
+import { encode } from 'universal-base64';
 
-const isSsr = typeof window === "undefined";
+const isSsr = typeof window === 'undefined';
 
 const isIntersectionObserverAvailable = isSsr
   ? false
@@ -66,11 +66,11 @@ type ImagePropTypes = {
    * * `responsive`: the image will scale the dimensions down for smaller viewports and scale up for larger viewports
    * * `fill`: image will stretch both width and height to the dimensions of the parent element, provided the parent element is `relative`
    * */
-  layout?: "intrinsic" | "fixed" | "responsive" | "fill";
+  layout?: 'intrinsic' | 'fixed' | 'responsive' | 'fill';
   /** Defines how the image will fit into its parent container when using layout="fill" */
-  objectFit?: CSSProperties["objectFit"];
+  objectFit?: CSSProperties['objectFit'];
   /** Defines how the image is positioned within its parent element when using layout="fill". */
-  objectPosition?: CSSProperties["objectPosition"];
+  objectPosition?: CSSProperties['objectPosition'];
   /** Triggered when the image finishes loading */
   onLoad?(): void;
   /** Whether the component should use a blurred image placeholder */
@@ -127,7 +127,7 @@ export const Image = forwardRef<HTMLDivElement, ImagePropTypes>(
       lazyLoad = true,
       style,
       pictureStyle,
-      layout = "intrinsic",
+      layout = 'intrinsic',
       objectFit,
       objectPosition,
       data,
@@ -145,7 +145,7 @@ export const Image = forwardRef<HTMLDivElement, ImagePropTypes>(
 
     const [viewRef, inView] = useInView({
       threshold: intersectionThreshold || intersectionTreshold || 0,
-      rootMargin: intersectionMargin || "0px 0px 0px 0px",
+      rootMargin: intersectionMargin || '0px 0px 0px 0px',
       triggerOnce: true,
       fallbackInView: true,
     });
@@ -159,11 +159,11 @@ export const Image = forwardRef<HTMLDivElement, ImagePropTypes>(
     );
 
     const absolutePositioning: React.CSSProperties = {
-      position: "absolute",
+      position: 'absolute',
       left: 0,
       top: 0,
-      width: "100%",
-      height: "100%",
+      width: '100%',
+      height: '100%',
     };
 
     const addImage = imageAddStrategy({
@@ -204,10 +204,10 @@ export const Image = forwardRef<HTMLDivElement, ImagePropTypes>(
           transition,
           objectFit,
           objectPosition,
-          position: "absolute",
+          position: 'absolute',
           left: 0,
           top: 0,
-          width: "100%",
+          width: '100%',
         }}
       />
     ) : null;
@@ -218,12 +218,12 @@ export const Image = forwardRef<HTMLDivElement, ImagePropTypes>(
     const svg = `<svg xmlns="http://www.w3.org/2000/svg" width="${width}" height="${height}"></svg>`;
 
     const sizer =
-      layout !== "fill" ? (
+      layout !== 'fill' ? (
         <img
           className={pictureClassName}
           style={{
-            display: "block",
-            width: "100%",
+            display: 'block',
+            width: '100%',
           }}
           src={`data:image/svg+xml;base64,${encode(svg)}`}
           aria-hidden="true"
@@ -236,14 +236,14 @@ export const Image = forwardRef<HTMLDivElement, ImagePropTypes>(
         ref={callbackRef}
         className={className}
         style={{
-          overflow: "hidden",
-          ...(layout === "fill"
+          overflow: 'hidden',
+          ...(layout === 'fill'
             ? absolutePositioning
-            : layout === "intrinsic"
-            ? { position: "relative", width: "100%", maxWidth: width }
-            : layout === "fixed"
-            ? { position: "relative", width }
-            : { position: "relative", width: "100%" }),
+            : layout === 'intrinsic'
+            ? { position: 'relative', width: '100%', maxWidth: width }
+            : layout === 'fixed'
+            ? { position: 'relative', width }
+            : { position: 'relative', width: '100%' }),
           ...style,
         }}
       >
@@ -256,7 +256,7 @@ export const Image = forwardRef<HTMLDivElement, ImagePropTypes>(
             {data.src && (
               <img
                 src={data.src}
-                alt={data.alt ?? ""}
+                alt={data.alt ?? ''}
                 title={data.title ?? undefined}
                 onLoad={handleLoad}
                 className={pictureClassName}
@@ -279,7 +279,7 @@ export const Image = forwardRef<HTMLDivElement, ImagePropTypes>(
             {data.src && (
               <img
                 src={data.src}
-                alt={data.alt ?? ""}
+                alt={data.alt ?? ''}
                 title={data.title ?? undefined}
                 className={pictureClassName}
                 style={{ ...absolutePositioning, ...pictureStyle }}

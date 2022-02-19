@@ -1,36 +1,38 @@
-import React, { useState, forwardRef, useCallback, CSSProperties } from 'react';
-import { useInView } from 'react-intersection-observer';
-import { encode } from 'universal-base64';
+import React, { useState, forwardRef, useCallback, CSSProperties } from "react";
+import { useInView } from "react-intersection-observer";
+import { encode } from "universal-base64";
 
-const isSsr = typeof window === 'undefined';
+const isSsr = typeof window === "undefined";
 
 const isIntersectionObserverAvailable = isSsr
   ? false
   : !!(window as any).IntersectionObserver;
 
+type Maybe<T> = T | null;
+
 export type ResponsiveImageType = {
   /** The aspect ratio (width/height) of the image */
   aspectRatio: number;
   /** A base64-encoded thumbnail to offer during image loading */
-  base64?: string;
+  base64?: Maybe<string>;
   /** The height of the image */
-  height?: number;
+  height?: Maybe<number>;
   /** The width of the image */
   width: number;
   /** The HTML5 `sizes` attribute for the image */
-  sizes?: string;
+  sizes?: Maybe<string>;
   /** The fallback `src` attribute for the image */
-  src?: string;
+  src?: Maybe<string>;
   /** The HTML5 `srcSet` attribute for the image */
-  srcSet?: string;
+  srcSet?: Maybe<string>;
   /** The HTML5 `srcSet` attribute for the image in WebP format, for browsers that support the format */
-  webpSrcSet?: string;
+  webpSrcSet?: Maybe<string>;
   /** The background color for the image placeholder */
-  bgColor?: string;
+  bgColor?: Maybe<string>;
   /** Alternate text (`alt`) for the image */
-  alt?: string;
+  alt?: Maybe<string>;
   /** Title attribute (`title`) for the image */
-  title?: string;
+  title?: Maybe<string>;
 };
 
 type ImagePropTypes = {
@@ -64,11 +66,11 @@ type ImagePropTypes = {
    * * `responsive`: the image will scale the dimensions down for smaller viewports and scale up for larger viewports
    * * `fill`: image will stretch both width and height to the dimensions of the parent element, provided the parent element is `relative`
    * */
-  layout?: 'intrinsic' | 'fixed' | 'responsive' | 'fill';
+  layout?: "intrinsic" | "fixed" | "responsive" | "fill";
   /** Defines how the image will fit into its parent container when using layout="fill" */
-  objectFit?: CSSProperties['objectFit'];
+  objectFit?: CSSProperties["objectFit"];
   /** Defines how the image is positioned within its parent element when using layout="fill". */
-  objectPosition?: CSSProperties['objectPosition'];
+  objectPosition?: CSSProperties["objectPosition"];
   /** Triggered when the image finishes loading */
   onLoad?(): void;
   /** Whether the component should use a blurred image placeholder */
@@ -125,14 +127,14 @@ export const Image = forwardRef<HTMLDivElement, ImagePropTypes>(
       lazyLoad = true,
       style,
       pictureStyle,
-      layout = 'intrinsic',
+      layout = "intrinsic",
       objectFit,
       objectPosition,
       data,
       onLoad,
       usePlaceholder = true,
     },
-    ref,
+    ref
   ) => {
     const [loaded, setLoaded] = useState(false);
 
@@ -143,7 +145,7 @@ export const Image = forwardRef<HTMLDivElement, ImagePropTypes>(
 
     const [viewRef, inView] = useInView({
       threshold: intersectionThreshold || intersectionTreshold || 0,
-      rootMargin: intersectionMargin || '0px 0px 0px 0px',
+      rootMargin: intersectionMargin || "0px 0px 0px 0px",
       triggerOnce: true,
       fallbackInView: true,
     });
@@ -153,15 +155,15 @@ export const Image = forwardRef<HTMLDivElement, ImagePropTypes>(
         viewRef(_ref);
         if (ref) (ref as React.MutableRefObject<HTMLDivElement>).current = _ref;
       },
-      [viewRef],
+      [viewRef]
     );
 
     const absolutePositioning: React.CSSProperties = {
-      position: 'absolute',
+      position: "absolute",
       left: 0,
       top: 0,
-      width: '100%',
-      height: '100%',
+      width: "100%",
+      height: "100%",
     };
 
     const addImage = imageAddStrategy({
@@ -176,11 +178,15 @@ export const Image = forwardRef<HTMLDivElement, ImagePropTypes>(
     });
 
     const webpSource = data.webpSrcSet && (
-      <source srcSet={data.webpSrcSet} sizes={data.sizes} type="image/webp" />
+      <source
+        srcSet={data.webpSrcSet}
+        sizes={data.sizes ?? undefined}
+        type="image/webp"
+      />
     );
 
     const regularSource = data.srcSet && (
-      <source srcSet={data.srcSet} sizes={data.sizes} />
+      <source srcSet={data.srcSet} sizes={data.sizes ?? undefined} />
     );
 
     const transition =
@@ -191,17 +197,17 @@ export const Image = forwardRef<HTMLDivElement, ImagePropTypes>(
         role="presentation"
         aria-hidden="true"
         alt=""
-        src={data.base64}
+        src={data.base64 ?? undefined}
         style={{
-          backgroundColor: data.bgColor,
+          backgroundColor: data.bgColor ?? undefined,
           opacity: showImage ? 0 : 1,
           transition,
           objectFit,
           objectPosition,
-          position: 'absolute',
+          position: "absolute",
           left: 0,
           top: 0,
-          width: '100%',
+          width: "100%",
         }}
       />
     ) : null;
@@ -212,12 +218,12 @@ export const Image = forwardRef<HTMLDivElement, ImagePropTypes>(
     const svg = `<svg xmlns="http://www.w3.org/2000/svg" width="${width}" height="${height}"></svg>`;
 
     const sizer =
-      layout !== 'fill' ? (
+      layout !== "fill" ? (
         <img
           className={pictureClassName}
           style={{
-            display: 'block',
-            width: '100%',
+            display: "block",
+            width: "100%",
           }}
           src={`data:image/svg+xml;base64,${encode(svg)}`}
           aria-hidden="true"
@@ -230,14 +236,14 @@ export const Image = forwardRef<HTMLDivElement, ImagePropTypes>(
         ref={callbackRef}
         className={className}
         style={{
-          overflow: 'hidden',
-          ...(layout === 'fill'
+          overflow: "hidden",
+          ...(layout === "fill"
             ? absolutePositioning
-            : layout === 'intrinsic'
-            ? { position: 'relative', width: '100%', maxWidth: width }
-            : layout === 'fixed'
-            ? { position: 'relative', width }
-            : { position: 'relative', width: '100%' }),
+            : layout === "intrinsic"
+            ? { position: "relative", width: "100%", maxWidth: width }
+            : layout === "fixed"
+            ? { position: "relative", width }
+            : { position: "relative", width: "100%" }),
           ...style,
         }}
       >
@@ -250,8 +256,8 @@ export const Image = forwardRef<HTMLDivElement, ImagePropTypes>(
             {data.src && (
               <img
                 src={data.src}
-                alt={data.alt ?? ''}
-                title={data.title}
+                alt={data.alt ?? ""}
+                title={data.title ?? undefined}
                 onLoad={handleLoad}
                 className={pictureClassName}
                 style={{
@@ -273,8 +279,8 @@ export const Image = forwardRef<HTMLDivElement, ImagePropTypes>(
             {data.src && (
               <img
                 src={data.src}
-                alt={data.alt ?? ''}
-                title={data.title}
+                alt={data.alt ?? ""}
+                title={data.title ?? undefined}
                 className={pictureClassName}
                 style={{ ...absolutePositioning, ...pictureStyle }}
                 loading="lazy"
@@ -284,5 +290,5 @@ export const Image = forwardRef<HTMLDivElement, ImagePropTypes>(
         </noscript>
       </div>
     );
-  },
+  }
 );

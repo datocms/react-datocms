@@ -134,7 +134,7 @@ export const Image = forwardRef<HTMLDivElement, ImagePropTypes>(
       onLoad,
       usePlaceholder = true,
     },
-    ref
+    ref,
   ) => {
     const [loaded, setLoaded] = useState(false);
 
@@ -155,7 +155,7 @@ export const Image = forwardRef<HTMLDivElement, ImagePropTypes>(
         viewRef(_ref);
         if (ref) (ref as React.MutableRefObject<HTMLDivElement>).current = _ref;
       },
-      [viewRef]
+      [viewRef],
     );
 
     const absolutePositioning: React.CSSProperties = {
@@ -290,5 +290,5 @@ export const Image = forwardRef<HTMLDivElement, ImagePropTypes>(
         </noscript>
       </div>
     );
-  }
+  },
 );

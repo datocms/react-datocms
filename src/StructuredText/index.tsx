@@ -58,20 +58,24 @@ type H = typeof defaultAdapter.renderNode;
 type T = typeof defaultAdapter.renderText;
 type F = typeof defaultAdapter.renderFragment;
 
-type RenderInlineRecordContext<R extends StructuredTextGraphQlResponseRecord> =
-  {
-    record: R;
-  };
+export type RenderInlineRecordContext<
+  R extends StructuredTextGraphQlResponseRecord,
+> = {
+  record: R;
+};
 
-type RenderRecordLinkContext<R extends StructuredTextGraphQlResponseRecord> = {
+export type RenderRecordLinkContext<
+  R extends StructuredTextGraphQlResponseRecord,
+> = {
   record: R;
   children: RenderResult<H, T, F>;
   transformedMeta: TransformedMeta;
 };
 
-type RenderBlockContext<R extends StructuredTextGraphQlResponseRecord> = {
-  record: R;
-};
+export type RenderBlockContext<R extends StructuredTextGraphQlResponseRecord> =
+  {
+    record: R;
+  };
 
 export type StructuredTextPropTypes<
   R1 extends StructuredTextGraphQlResponseRecord,

@@ -6,7 +6,8 @@
   "module": "dist/esm/index.js",
   "sideEffects": false,
   "files": [
-    "dist"
+    "dist",
+    "src"
   ],
   "repository": {
     "type": "git",

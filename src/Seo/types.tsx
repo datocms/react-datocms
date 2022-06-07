@@ -2,9 +2,9 @@ export interface TitleMetaLinkTag {
   /** the tag for the meta information */
   tag: string;
   /** the inner content of the meta tag */
-  content: string | null | undefined;
+  content?: string | null | undefined;
   /** the HTML attributes to attach to the meta tag */
-  attributes: Record<string, string> | null | undefined;
+  attributes?: Record<string, string> | null | undefined;
 }
 
 export interface SeoTitleTag {

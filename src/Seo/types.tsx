@@ -1,11 +1,10 @@
-
-export type TitleMetaLinkTag = {
+export interface TitleMetaLinkTag {
   /** the tag for the meta information */
   tag: string;
   /** the inner content of the meta tag */
-  content: string | null;
+  content: string | null | undefined;
   /** the HTML attributes to attach to the meta tag */
-  attributes: Record<string, string> | null;
+  attributes: Record<string, string> | null | undefined;
 }
 
 export interface SeoTitleTag {
@@ -17,12 +16,12 @@ export interface SeoTitleTag {
 export interface RegularMetaAttributes {
   name: string;
   content: string;
-};
+}
 
 export interface OgMetaAttributes {
   property: string;
   content: string;
-};
+}
 
 export interface SeoMetaTag {
   tag: 'meta';
@@ -31,16 +30,16 @@ export interface SeoMetaTag {
 }
 
 export interface FaviconAttributes {
-  sizes: string,
-  type: string,
-  rel: string,
-  href: string,
+  sizes: string;
+  type: string;
+  rel: string;
+  href: string;
 }
 
 export interface AppleTouchIconAttributes {
-  sizes: string,
-  rel: 'apple-touch-icon',
-  href: string,
+  sizes: string;
+  rel: 'apple-touch-icon';
+  href: string;
 }
 
 export interface SeoLinkTag {

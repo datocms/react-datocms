@@ -36,8 +36,17 @@ const client = buildClient({ apiToken: 'YOUR_API_TOKEN' });
 
 const { state, error, data } = useSiteSearch({
   client,
-  initialState: { locale: 'en' },
   buildTriggerId: '7497',
+  // optional: you can omit it you only have one locale, or you want to find results in every locale
+  initialState: { locale: 'en' },
+  // optional: to configure how to present the part of page title/content that matches the query
+  highlightMatch: (text, key, context) =>
+    context === 'title' ? (
+      <strong key={key}>{text}</strong>
+    ) : (
+      <mark key={key}>{text}</mark>
+    ),
+  // optional: defaults to 8 search results per page
   resultsPerPage: 10,
 });
 ```
@@ -108,17 +117,14 @@ function App() {
 
   const { state, error, data } = useSiteSearch({
     client,
-    buildTriggerId: '7497',
-    // optional: you can omit it you only have one locale, or you want to find results in every locale
     initialState: { locale: 'en' },
-    // optional: to configure how to present the part of page title/content that matches the query
     highlightMatch: (text, key, context) =>
       context === 'title' ? (
         <strong key={key}>{text}</strong>
       ) : (
         <mark key={key}>{text}</mark>
       ),
-    // optional: defaults to 8 search results per page
+    buildTriggerId: '7497',
     resultsPerPage: 10,
   });
 

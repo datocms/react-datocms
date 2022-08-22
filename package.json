@@ -43,7 +43,7 @@
     "watch": "rimraf dist && tsc --watch",
     "prepare": "npm run test && npm run build",
     "test": "jest --coverage",
-    "toc": "doctoc README.md"
+    "toc": "doctoc --github docs"
   },
   "peerDependencies": {
     "react": ">= 16.12.0"

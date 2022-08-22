@@ -1,16 +1,16 @@
-import { useState } from "react";
+import { useState } from 'react';
 import {
   subscribeToQuery,
   UnsubscribeFn,
   ChannelErrorData,
   ConnectionStatus,
   Options,
-} from "datocms-listen";
-import { useDeepCompareEffectNoCheck as useDeepCompareEffect } from "use-deep-compare-effect";
+} from 'datocms-listen';
+import { useDeepCompareEffectNoCheck as useDeepCompareEffect } from 'use-deep-compare-effect';
 
 export type SubscribeToQueryOptions<QueryResult, QueryVariables> = Omit<
   Options<QueryResult, QueryVariables>,
-  "onStatusChange" | "onUpdate" | "onChannelError"
+  'onStatusChange' | 'onUpdate' | 'onChannelError'
 >;
 
 export type EnabledQueryListenerOptions<QueryResult, QueryVariables> = {
@@ -33,14 +33,14 @@ export type QueryListenerOptions<QueryResult, QueryVariables> =
 
 export function useQuerySubscription<
   QueryResult = any,
-  QueryVariables = Record<string, any>
+  QueryVariables = Record<string, any>,
 >(options: QueryListenerOptions<QueryResult, QueryVariables>) {
   const { enabled, initialData, ...other } = options;
 
   const [error, setError] = useState<ChannelErrorData | null>(null);
   const [data, setData] = useState<QueryResult | null>(null);
   const [status, setStatus] = useState<ConnectionStatus>(
-    enabled ? "connecting" : "closed"
+    enabled ? 'connecting' : 'closed',
   );
 
   const subscribeToQueryOptions = other as EnabledQueryListenerOptions<
@@ -50,7 +50,7 @@ export function useQuerySubscription<
 
   useDeepCompareEffect(() => {
     if (enabled === false) {
-      setStatus("closed");
+      setStatus('closed');
 
       return () => {
         // we don't have to perform any uninstall

@@ -80,6 +80,7 @@
     "datocms-structured-text-generic-html-renderer": "^2.0.1",
     "datocms-structured-text-utils": "^2.0.1",
     "react-intersection-observer": "^8.33.1",
+    "react-string-replace": "^1.1.0",
     "universal-base64": "^2.1.0",
     "use-deep-compare-effect": "^1.6.1"
   }

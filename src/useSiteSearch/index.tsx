@@ -8,6 +8,7 @@ type SearchResultInstancesHrefSchema = {
     [k: string]: unknown;
   };
   filter: {
+    fuzzy?: string;
     query: string;
     build_trigger_id?: string;
     locale?: string;
@@ -58,6 +59,7 @@ type Highlighter = (
 export type UseSiteSearchConfig<Client extends GenericClient> = {
   client: Client;
   buildTriggerId: string;
+  fuzzySearch?: boolean;
   resultsPerPage?: number;
   highlightMatch?: Highlighter;
   initialState?: {
@@ -150,7 +152,7 @@ export function useSiteSearch<Client extends GenericClient>(
 
         setResponse(undefined);
 
-        const response = await config.client.searchResults.rawList({
+        const request: SearchResultInstancesHrefSchema = {
           filter: {
             query: state.query,
             locale: state.locale,
@@ -160,7 +162,13 @@ export function useSiteSearch<Client extends GenericClient>(
             limit: resultsPerPage,
             offset: resultsPerPage * state.page,
           },
-        });
+        };
+
+        if (config.fuzzySearch) {
+          request.fuzzy = 'true';
+        }
+
+        const response = await config.client.searchResults.rawList(request);
 
         if (!isCancelled) {
           setResponse(response);
@@ -187,6 +195,7 @@ export function useSiteSearch<Client extends GenericClient>(
     resultsPerPage,
     state,
     config.buildTriggerId,
+    config.fuzzySearch,
     config.client.config.apiToken,
   ]);
 

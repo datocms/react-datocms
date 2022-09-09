@@ -37,6 +37,8 @@ const client = buildClient({ apiToken: 'YOUR_API_TOKEN' });
 const { state, error, data } = useSiteSearch({
   client,
   buildTriggerId: '7497',
+  // optional: by default fuzzy-search is not active
+  fuzzySearch: true,
   // optional: you can omit it you only have one locale, or you want to find results in every locale
   initialState: { locale: 'en' },
   // optional: to configure how to present the part of page title/content that matches the query
@@ -59,6 +61,7 @@ For a complete walk-through, please refer to the [DatoCMS Site Search documentat
 | ------------------- | ------------------------------------------------------------------ | ------------------ | ------------------------------------------------------------------------------------------------------------------------------------------ | ---------------------------------------------------------- |
 | client              | CMA Client instance                                                | :white_check_mark: | [DatoCMS CMA Client](https://www.datocms.com/docs/content-management-api/using-the-nodejs-clients) instance                                |                                                            |
 | buildTriggerId      | string                                                             | :white_check_mark: | The [ID of the build trigger](https://www.datocms.com/docs/site-search/base-integration#performing-searches) to use to find search results |                                                            |
+| fuzzySearch         | boolean                                                            | :x:                | Whether fuzzy-search is active or not. When active, it will also find strings that approximately match the query provided.                 | false                                                      |
 | resultsPerPage      | number                                                             | :x:                | The number of search results to show per page                                                                                              | 8                                                          |
 | highlightMatch      | (match, key, context: 'title' \| 'bodyExcerpt') => React.ReactNode | :x:                | A function specifying how to highlight the part of page title/content that matches the query                                               | (text, key) => (&lt;mark key={key}&gt;{text}&lt;/mark&gt;) |
 | initialState.query  | string                                                             | :x:                | Initialize the form with a specific query                                                                                                  | ''                                                         |

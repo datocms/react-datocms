@@ -1,17 +1,17 @@
-import { TitleMetaLinkTag } from './types';
+import { TitleMetaLinkTag, SeoOrFaviconTag } from './types';
 
 interface RemixHtmlMetaDescriptor {
   [name: string]: string | string[];
 }
 
 export function toRemixMeta(
-  metaTags: null | TitleMetaLinkTag[],
+  metaTags: null | TitleMetaLinkTag[] | SeoOrFaviconTag[],
 ): RemixHtmlMetaDescriptor {
   if (!metaTags) {
     return {};
   }
 
-  return metaTags.reduce((acc, tag) => {
+  return (metaTags as TitleMetaLinkTag[]).reduce((acc, tag) => {
     if (tag.tag === 'title') {
       return tag.content ? { ...acc, title: tag.content } : acc;
     }

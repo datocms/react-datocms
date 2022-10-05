@@ -1,6 +1,8 @@
-import { TitleMetaLinkTag } from "./types";
+import { TitleMetaLinkTag, SeoOrFaviconTag } from './types';
 
-export function renderMetaTagsToString(data: TitleMetaLinkTag[]): string {
+export function renderMetaTagsToString(
+  data: TitleMetaLinkTag[] | SeoOrFaviconTag[],
+): string {
   return data
     .map((tag) => {
       if (tag.tag === 'title') {
@@ -18,4 +20,4 @@ export function renderMetaTagsToString(data: TitleMetaLinkTag[]): string {
       return `<${tag.tag} ${serializedAttrs.join(' ')} />`;
     })
     .join('\n');
-};
+}

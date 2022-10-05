@@ -1,7 +1,9 @@
 import {
   ResponsiveImageType,
-  StructuredTextGraphQlResponse, ToMetaTagsType
-} from "react-datocms";
+  StructuredTextGraphQlResponse,
+  SeoTag,
+  FaviconTag,
+} from 'react-datocms';
 
 const RESPONSIVE_IMAGE_FRAGMENT = `
   aspectRatio
@@ -76,10 +78,10 @@ type BlogPost = {
 
 export type QueryResponseType = {
   page: {
-    seo: ToMetaTagsType;
+    seo: SeoTag[];
   };
   site: {
-    favicon: ToMetaTagsType;
+    favicon: FaviconTag[];
   };
   blogPosts: BlogPost[];
 };

@@ -1,13 +1,13 @@
-import React from "react";
-import "./App.css";
-import { Helmet } from "react-helmet";
+import React from 'react';
+import './App.css';
+import { Helmet } from 'react-helmet';
 import {
   Image,
   renderMetaTags,
   useQuerySubscription,
   StructuredText,
-} from "react-datocms";
-import { query, QueryResponseType, QueryVariables } from "./query";
+} from 'react-datocms';
+import { query, QueryResponseType, QueryVariables } from './query';
 
 const App: React.FC = () => {
   const { status, error, data } = useQuerySubscription<
@@ -16,15 +16,15 @@ const App: React.FC = () => {
   >({
     query,
     variables: { first: 10 },
-    token: "faeb9172e232a75339242faafb9e56de8c8f13b735f7090964",
+    token: 'faeb9172e232a75339242faafb9e56de8c8f13b735f7090964',
   });
 
-  const metaTags = data ? data.page.seo.concat(data.site.favicon) : [];
+  const metaTags = data ? [...data.page.seo, ...data.site.favicon] : [];
 
   const statusMessage = {
-    connecting: "Connecting to DatoCMS...",
-    connected: "Connected to DatoCMS, receiving live updates!",
-    closed: "Connection closed",
+    connecting: 'Connecting to DatoCMS...',
+    connected: 'Connected to DatoCMS, receiving live updates!',
+    closed: 'Connection closed',
   };
 
   return (
@@ -36,7 +36,7 @@ const App: React.FC = () => {
           News, tips, highlights, and other updates from the team at DatoCMS.
         </div>
         <div className="status">
-          {status === "connected" && <div className="connected-badge" />}
+          {status === 'connected' && <div className="connected-badge" />}
           {statusMessage[status]}
         </div>
         {error && (

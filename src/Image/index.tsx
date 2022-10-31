@@ -35,7 +35,7 @@ export type ResponsiveImageType = {
   title?: Maybe<string>;
 };
 
-type ImagePropTypes = {
+export type ImagePropTypes = {
   /** The actual response you get from a DatoCMS `responsiveImage` GraphQL query */
   data: ResponsiveImageType;
   /** Additional CSS className for root node */

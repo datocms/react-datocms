@@ -265,22 +265,21 @@ export const Image = forwardRef<HTMLDivElement, ImagePropTypes>(
     const transition =
       fadeInDuration > 0 ? `opacity ${fadeInDuration}ms` : undefined;
 
-    const placeholder = usePlaceholder ? (
-      <img
-        role="presentation"
-        aria-hidden="true"
-        alt=""
-        src={data.base64 ?? undefined}
-        style={{
-          backgroundColor: data.bgColor ?? undefined,
-          opacity: showImage ? 0 : 1,
-          transition,
-          objectFit,
-          objectPosition,
-          ...absolutePositioning,
-        }}
-      />
-    ) : null;
+    const placeholder =
+      usePlaceholder && (data.bgColor || data.base64) ? (
+        <img
+          role="presentation"
+          aria-hidden="true"
+          alt=""
+          src={data.base64 ?? undefined}
+          style={{
+            backgroundColor: data.bgColor ?? undefined,
+            objectFit,
+            objectPosition,
+            ...absolutePositioning,
+          }}
+        />
+      ) : null;
 
     const { width, aspectRatio } = data;
     const height = data.height || width / aspectRatio;

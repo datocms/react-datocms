@@ -278,13 +278,15 @@ export const Image = forwardRef<HTMLDivElement, ImagePropTypes>(
             objectPosition,
             transition,
             opacity: showImage ? 0 : 1,
-            ...absolutePositioning,
             // During the opacity transition of the placeholder to the definitive version,
             // hardware acceleration is triggered. This results in the browser trying to render the
             // placeholder with your GPU, causing blurred edges. Solution: style the placeholder
             // so the edges overflow the container
-            width: '105%',
-            height: '105%',
+            position: 'absolute',
+            left: '-5%',
+            top: '-5%',
+            width: '110%',
+            height: '110%',
           }}
         />
       ) : null;
@@ -336,7 +338,7 @@ export const Image = forwardRef<HTMLDivElement, ImagePropTypes>(
                 alt={data.alt ?? ''}
                 title={data.title ?? undefined}
                 onLoad={handleLoad}
-                fetchPriority={priority ? 'high' : undefined}
+                fetchpriority={priority ? 'high' : undefined}
                 className={pictureClassName}
                 style={{
                   opacity: showImage ? 1 : 0,
@@ -362,7 +364,7 @@ export const Image = forwardRef<HTMLDivElement, ImagePropTypes>(
                 className={pictureClassName}
                 style={{ ...absolutePositioning, ...pictureStyle }}
                 loading={lazyLoad ? 'lazy' : undefined}
-                fetchPriority={priority ? 'high' : undefined}
+                fetchpriority={priority ? 'high' : undefined}
               />
             )}
           </picture>

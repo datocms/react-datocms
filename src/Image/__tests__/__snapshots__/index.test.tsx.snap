@@ -38,15 +38,15 @@ exports[`Image layout=fill not visible renders the blur-up thumb 1`] = `
       style={
         Object {
           "backgroundColor": undefined,
-          "height": "105%",
-          "left": 0,
+          "height": "110%",
+          "left": "-5%",
           "objectFit": undefined,
           "objectPosition": undefined,
           "opacity": 1,
           "position": "absolute",
-          "top": 0,
+          "top": "-5%",
           "transition": "opacity 500ms",
-          "width": "105%",
+          "width": "110%",
         }
       }
     />
@@ -95,15 +95,15 @@ exports[`Image layout=fill visible image loaded shows the image 1`] = `
       style={
         Object {
           "backgroundColor": undefined,
-          "height": "105%",
-          "left": 0,
+          "height": "110%",
+          "left": "-5%",
           "objectFit": undefined,
           "objectPosition": undefined,
           "opacity": 0,
           "position": "absolute",
-          "top": 0,
+          "top": "-5%",
           "transition": "opacity 500ms",
-          "width": "105%",
+          "width": "110%",
         }
       }
     />
@@ -172,15 +172,15 @@ exports[`Image layout=fill visible renders the image (minimal data) 1`] = `
       style={
         Object {
           "backgroundColor": undefined,
-          "height": "105%",
-          "left": 0,
+          "height": "110%",
+          "left": "-5%",
           "objectFit": undefined,
           "objectPosition": undefined,
           "opacity": 1,
           "position": "absolute",
-          "top": 0,
+          "top": "-5%",
           "transition": "opacity 500ms",
-          "width": "105%",
+          "width": "110%",
         }
       }
     />
@@ -252,15 +252,15 @@ exports[`Image layout=fill visible renders the image 1`] = `
       style={
         Object {
           "backgroundColor": undefined,
-          "height": "105%",
-          "left": 0,
+          "height": "110%",
+          "left": "-5%",
           "objectFit": undefined,
           "objectPosition": undefined,
           "opacity": 1,
           "position": "absolute",
-          "top": 0,
+          "top": "-5%",
           "transition": "opacity 500ms",
-          "width": "105%",
+          "width": "110%",
         }
       }
     />
@@ -342,15 +342,15 @@ exports[`Image layout=fixed not visible renders the blur-up thumb 1`] = `
       style={
         Object {
           "backgroundColor": undefined,
-          "height": "105%",
-          "left": 0,
+          "height": "110%",
+          "left": "-5%",
           "objectFit": undefined,
           "objectPosition": undefined,
           "opacity": 1,
           "position": "absolute",
-          "top": 0,
+          "top": "-5%",
           "transition": "opacity 500ms",
-          "width": "105%",
+          "width": "110%",
         }
       }
     />
@@ -407,15 +407,15 @@ exports[`Image layout=fixed visible image loaded shows the image 1`] = `
       style={
         Object {
           "backgroundColor": undefined,
-          "height": "105%",
-          "left": 0,
+          "height": "110%",
+          "left": "-5%",
           "objectFit": undefined,
           "objectPosition": undefined,
           "opacity": 0,
           "position": "absolute",
-          "top": 0,
+          "top": "-5%",
           "transition": "opacity 500ms",
-          "width": "105%",
+          "width": "110%",
         }
       }
     />
@@ -492,15 +492,15 @@ exports[`Image layout=fixed visible renders the image (minimal data) 1`] = `
       style={
         Object {
           "backgroundColor": undefined,
-          "height": "105%",
-          "left": 0,
+          "height": "110%",
+          "left": "-5%",
           "objectFit": undefined,
           "objectPosition": undefined,
           "opacity": 1,
           "position": "absolute",
-          "top": 0,
+          "top": "-5%",
           "transition": "opacity 500ms",
-          "width": "105%",
+          "width": "110%",
         }
       }
     />
@@ -580,15 +580,15 @@ exports[`Image layout=fixed visible renders the image 1`] = `
       style={
         Object {
           "backgroundColor": undefined,
-          "height": "105%",
-          "left": 0,
+          "height": "110%",
+          "left": "-5%",
           "objectFit": undefined,
           "objectPosition": undefined,
           "opacity": 1,
           "position": "absolute",
-          "top": 0,
+          "top": "-5%",
           "transition": "opacity 500ms",
-          "width": "105%",
+          "width": "110%",
         }
       }
     />
@@ -671,15 +671,15 @@ exports[`Image layout=intrinsic not visible renders the blur-up thumb 1`] = `
       style={
         Object {
           "backgroundColor": undefined,
-          "height": "105%",
-          "left": 0,
+          "height": "110%",
+          "left": "-5%",
           "objectFit": undefined,
           "objectPosition": undefined,
           "opacity": 1,
           "position": "absolute",
-          "top": 0,
+          "top": "-5%",
           "transition": "opacity 500ms",
-          "width": "105%",
+          "width": "110%",
         }
       }
     />
@@ -737,15 +737,15 @@ exports[`Image layout=intrinsic visible image loaded shows the image 1`] = `
       style={
         Object {
           "backgroundColor": undefined,
-          "height": "105%",
-          "left": 0,
+          "height": "110%",
+          "left": "-5%",
           "objectFit": undefined,
           "objectPosition": undefined,
           "opacity": 0,
           "position": "absolute",
-          "top": 0,
+          "top": "-5%",
           "transition": "opacity 500ms",
-          "width": "105%",
+          "width": "110%",
         }
       }
     />
@@ -823,15 +823,15 @@ exports[`Image layout=intrinsic visible renders the image (minimal data) 1`] = `
       style={
         Object {
           "backgroundColor": undefined,
-          "height": "105%",
-          "left": 0,
+          "height": "110%",
+          "left": "-5%",
           "objectFit": undefined,
           "objectPosition": undefined,
           "opacity": 1,
           "position": "absolute",
-          "top": 0,
+          "top": "-5%",
           "transition": "opacity 500ms",
-          "width": "105%",
+          "width": "110%",
         }
       }
     />
@@ -912,15 +912,15 @@ exports[`Image layout=intrinsic visible renders the image 1`] = `
       style={
         Object {
           "backgroundColor": undefined,
-          "height": "105%",
-          "left": 0,
+          "height": "110%",
+          "left": "-5%",
           "objectFit": undefined,
           "objectPosition": undefined,
           "opacity": 1,
           "position": "absolute",
-          "top": 0,
+          "top": "-5%",
           "transition": "opacity 500ms",
-          "width": "105%",
+          "width": "110%",
         }
       }
     />
@@ -1002,15 +1002,15 @@ exports[`Image layout=responsive not visible renders the blur-up thumb 1`] = `
       style={
         Object {
           "backgroundColor": undefined,
-          "height": "105%",
-          "left": 0,
+          "height": "110%",
+          "left": "-5%",
           "objectFit": undefined,
           "objectPosition": undefined,
           "opacity": 1,
           "position": "absolute",
-          "top": 0,
+          "top": "-5%",
           "transition": "opacity 500ms",
-          "width": "105%",
+          "width": "110%",
         }
       }
     />
@@ -1067,15 +1067,15 @@ exports[`Image layout=responsive visible image loaded shows the image 1`] = `
       style={
         Object {
           "backgroundColor": undefined,
-          "height": "105%",
-          "left": 0,
+          "height": "110%",
+          "left": "-5%",
           "objectFit": undefined,
           "objectPosition": undefined,
           "opacity": 0,
           "position": "absolute",
-          "top": 0,
+          "top": "-5%",
           "transition": "opacity 500ms",
-          "width": "105%",
+          "width": "110%",
         }
       }
     />
@@ -1152,15 +1152,15 @@ exports[`Image layout=responsive visible renders the image (minimal data) 1`] = 
       style={
         Object {
           "backgroundColor": undefined,
-          "height": "105%",
-          "left": 0,
+          "height": "110%",
+          "left": "-5%",
           "objectFit": undefined,
           "objectPosition": undefined,
           "opacity": 1,
           "position": "absolute",
-          "top": 0,
+          "top": "-5%",
           "transition": "opacity 500ms",
-          "width": "105%",
+          "width": "110%",
         }
       }
     />
@@ -1240,15 +1240,15 @@ exports[`Image layout=responsive visible renders the image 1`] = `
       style={
         Object {
           "backgroundColor": undefined,
-          "height": "105%",
-          "left": 0,
+          "height": "110%",
+          "left": "-5%",
           "objectFit": undefined,
           "objectPosition": undefined,
           "opacity": 1,
           "position": "absolute",
-          "top": 0,
+          "top": "-5%",
           "transition": "opacity 500ms",
-          "width": "105%",
+          "width": "110%",
         }
       }
     />

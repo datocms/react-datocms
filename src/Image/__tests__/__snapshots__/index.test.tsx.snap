@@ -38,6 +38,7 @@ exports[`Image layout=fill not visible renders the blur-up thumb 1`] = `
       style={
         Object {
           "backgroundColor": undefined,
+          "height": "100%",
           "left": 0,
           "objectFit": undefined,
           "objectPosition": undefined,
@@ -94,6 +95,7 @@ exports[`Image layout=fill visible image loaded shows the image 1`] = `
       style={
         Object {
           "backgroundColor": undefined,
+          "height": "100%",
           "left": 0,
           "objectFit": undefined,
           "objectPosition": undefined,
@@ -175,6 +177,7 @@ exports[`Image layout=fill visible renders the image 1`] = `
       style={
         Object {
           "backgroundColor": undefined,
+          "height": "100%",
           "left": 0,
           "objectFit": undefined,
           "objectPosition": undefined,
@@ -264,6 +267,7 @@ exports[`Image layout=fixed not visible renders the blur-up thumb 1`] = `
       style={
         Object {
           "backgroundColor": undefined,
+          "height": "100%",
           "left": 0,
           "objectFit": undefined,
           "objectPosition": undefined,
@@ -328,6 +332,7 @@ exports[`Image layout=fixed visible image loaded shows the image 1`] = `
       style={
         Object {
           "backgroundColor": undefined,
+          "height": "100%",
           "left": 0,
           "objectFit": undefined,
           "objectPosition": undefined,
@@ -417,6 +422,7 @@ exports[`Image layout=fixed visible renders the image 1`] = `
       style={
         Object {
           "backgroundColor": undefined,
+          "height": "100%",
           "left": 0,
           "objectFit": undefined,
           "objectPosition": undefined,
@@ -507,6 +513,7 @@ exports[`Image layout=intrinsic not visible renders the blur-up thumb 1`] = `
       style={
         Object {
           "backgroundColor": undefined,
+          "height": "100%",
           "left": 0,
           "objectFit": undefined,
           "objectPosition": undefined,
@@ -572,6 +579,7 @@ exports[`Image layout=intrinsic visible image loaded shows the image 1`] = `
       style={
         Object {
           "backgroundColor": undefined,
+          "height": "100%",
           "left": 0,
           "objectFit": undefined,
           "objectPosition": undefined,
@@ -662,6 +670,7 @@ exports[`Image layout=intrinsic visible renders the image 1`] = `
       style={
         Object {
           "backgroundColor": undefined,
+          "height": "100%",
           "left": 0,
           "objectFit": undefined,
           "objectPosition": undefined,
@@ -751,6 +760,7 @@ exports[`Image layout=responsive not visible renders the blur-up thumb 1`] = `
       style={
         Object {
           "backgroundColor": undefined,
+          "height": "100%",
           "left": 0,
           "objectFit": undefined,
           "objectPosition": undefined,
@@ -815,6 +825,7 @@ exports[`Image layout=responsive visible image loaded shows the image 1`] = `
       style={
         Object {
           "backgroundColor": undefined,
+          "height": "100%",
           "left": 0,
           "objectFit": undefined,
           "objectPosition": undefined,
@@ -904,6 +915,7 @@ exports[`Image layout=responsive visible renders the image 1`] = `
       style={
         Object {
           "backgroundColor": undefined,
+          "height": "100%",
           "left": 0,
           "objectFit": undefined,
           "objectPosition": undefined,

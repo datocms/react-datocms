@@ -91,7 +91,7 @@ const query = gql`
           # background color placeholder
           bgColor
 
-          # only if you pass sizes: argument to responsiveImage() query
+          # you can omit `sizes` if you explicitly pass the `sizes` prop to the image component
           sizes
         }
       }

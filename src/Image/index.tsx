@@ -277,10 +277,7 @@ export const Image = forwardRef<HTMLDivElement, ImagePropTypes>(
           transition,
           objectFit,
           objectPosition,
-          position: 'absolute',
-          left: 0,
-          top: 0,
-          width: '100%',
+          ...absolutePositioning,
         }}
       />
     ) : null;

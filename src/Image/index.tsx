@@ -65,7 +65,7 @@ export type ImagePropTypes = {
    * * `fixed`: the image dimensions will not change as the viewport changes (no responsiveness) similar to the native img element
    * * `responsive`: the image will scale the dimensions down for smaller viewports and scale up for larger viewports
    * * `fill`: image will stretch both width and height to the dimensions of the parent element, provided the parent element is `relative`
-   * */
+   **/
   layout?: 'intrinsic' | 'fixed' | 'responsive' | 'fill';
   /** Defines how the image will fit into its parent container when using layout="fill" */
   objectFit?: CSSProperties['objectFit'];
@@ -75,6 +75,26 @@ export type ImagePropTypes = {
   onLoad?(): void;
   /** Whether the component should use a blurred image placeholder */
   usePlaceholder?: boolean;
+  /**
+   * The HTML5 `sizes` attribute for the image
+   *
+   * Learn more about srcset and sizes:
+   * -> https://web.dev/learn/design/responsive-images/#sizes
+   * -> https://developer.mozilla.org/en-US/docs/Web/HTML/Element/img#attr-sizes
+   **/
+  sizes?: HTMLImageElement['sizes'];
+  /**
+   * When true, the image will be considered high priority. Lazy loading is automatically disabled, and fetchpriority="high" is added to the image.
+   * You should use the priority property on any image detected as the Largest Contentful Paint (LCP) element. It may be appropriate to have multiple priority images, as different images may be the LCP element for different viewport sizes.
+   * Should only be used when the image is visible above the fold.
+   **/
+  priority?: boolean;
+  /**
+   * If `data` does not contain `srcSet`, the candidates for the `srcset` of the image will be auto-generated based on these width multipliers
+   *
+   * Default candidate multipliers are [0.25, 0.5, 0.75, 1, 1.5, 2, 3, 4]
+   **/
+  srcSetCandidates?: number[];
 };
 
 type State = {
@@ -115,6 +135,49 @@ const imageShowStrategy = ({ lazyLoad, loaded }: State) => {
   return true;
 };
 
+const buildSrcSet = (
+  src: string | null | undefined,
+  width: number | undefined,
+  candidateMultipliers: number[],
+) => {
+  if (!src || !width) {
+    return undefined;
+  }
+
+  return candidateMultipliers
+    .map((multiplier) => {
+      const url = new URL(src);
+
+      if (multiplier !== 1) {
+        url.searchParams.set('dpr', `${multiplier}`);
+        const maxH = url.searchParams.get('max-h');
+        const maxW = url.searchParams.get('max-w');
+        if (maxH) {
+          url.searchParams.set(
+            'max-h',
+            `${Math.floor(parseInt(maxH) * multiplier)}`,
+          );
+        }
+        if (maxW) {
+          url.searchParams.set(
+            'max-w',
+            `${Math.floor(parseInt(maxW) * multiplier)}`,
+          );
+        }
+      }
+
+      const finalWidth = Math.floor(width * multiplier);
+
+      if (finalWidth < 50) {
+        return null;
+      }
+
+      return `${url.toString()} ${finalWidth}w`;
+    })
+    .filter(Boolean)
+    .join(',');
+};
+
 export const Image = forwardRef<HTMLDivElement, ImagePropTypes>(
   (
     {
@@ -124,7 +187,7 @@ export const Image = forwardRef<HTMLDivElement, ImagePropTypes>(
       intersectionThreshold,
       intersectionMargin,
       pictureClassName,
-      lazyLoad = true,
+      lazyLoad: rawLazyLoad = true,
       style,
       pictureStyle,
       layout = 'intrinsic',
@@ -133,9 +196,14 @@ export const Image = forwardRef<HTMLDivElement, ImagePropTypes>(
       data,
       onLoad,
       usePlaceholder = true,
+      priority = false,
+      sizes,
+      srcSetCandidates = [0.25, 0.5, 0.75, 1, 1.5, 2, 3, 4],
     },
     ref,
   ) => {
+    const lazyLoad = priority ? false : rawLazyLoad;
+
     const [loaded, setLoaded] = useState(false);
 
     const handleLoad = () => {
@@ -180,13 +248,18 @@ export const Image = forwardRef<HTMLDivElement, ImagePropTypes>(
     const webpSource = data.webpSrcSet && (
       <source
         srcSet={data.webpSrcSet}
-        sizes={data.sizes ?? undefined}
+        sizes={sizes ?? data.sizes ?? undefined}
         type="image/webp"
       />
     );
 
-    const regularSource = data.srcSet && (
-      <source srcSet={data.srcSet} sizes={data.sizes ?? undefined} />
+    const regularSource = (
+      <source
+        srcSet={
+          data.srcSet ?? buildSrcSet(data.src, data.width, srcSetCandidates)
+        }
+        sizes={sizes ?? data.sizes ?? undefined}
+      />
     );
 
     const transition =
@@ -259,6 +332,7 @@ export const Image = forwardRef<HTMLDivElement, ImagePropTypes>(
                 alt={data.alt ?? ''}
                 title={data.title ?? undefined}
                 onLoad={handleLoad}
+                fetchPriority={priority ? 'high' : undefined}
                 className={pictureClassName}
                 style={{
                   opacity: showImage ? 1 : 0,
@@ -283,7 +357,8 @@ export const Image = forwardRef<HTMLDivElement, ImagePropTypes>(
                 title={data.title ?? undefined}
                 className={pictureClassName}
                 style={{ ...absolutePositioning, ...pictureStyle }}
-                loading="lazy"
+                loading={lazyLoad ? 'lazy' : undefined}
+                fetchPriority={priority ? 'high' : undefined}
               />
             )}
           </picture>

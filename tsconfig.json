@@ -15,6 +15,6 @@
     "skipLibCheck": false,
     "sourceMap": true
   },
-  "include": ["src/**/*", "test/jest-dom.d.ts"],
+  "include": ["src/**/*", "test/jest-dom.d.ts", "react-extras.d.ts"],
   "exclude": ["node_modules", "dist"]
 }

@@ -11,14 +11,14 @@ const isIntersectionObserverAvailable = isSsr
 type Maybe<T> = T | null;
 
 export type ResponsiveImageType = {
-  /** The aspect ratio (width/height) of the image */
-  aspectRatio: number;
   /** A base64-encoded thumbnail to offer during image loading */
   base64?: Maybe<string>;
   /** The height of the image */
   height?: Maybe<number>;
   /** The width of the image */
   width: number;
+  /** The aspect ratio (width/height) of the image */
+  aspectRatio?: number;
   /** The HTML5 `sizes` attribute for the image */
   sizes?: Maybe<string>;
   /** The fallback `src` attribute for the image */
@@ -282,7 +282,7 @@ export const Image = forwardRef<HTMLDivElement, ImagePropTypes>(
       ) : null;
 
     const { width, aspectRatio } = data;
-    const height = data.height || width / aspectRatio;
+    const height = data.height ?? (aspectRatio ? width / aspectRatio : 0);
 
     const svg = `<svg xmlns="http://www.w3.org/2000/svg" width="${width}" height="${height}"></svg>`;
 

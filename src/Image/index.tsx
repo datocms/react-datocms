@@ -1,4 +1,11 @@
-import React, { useState, forwardRef, useCallback, CSSProperties } from 'react';
+import React, {
+  useState,
+  forwardRef,
+  useCallback,
+  CSSProperties,
+  useRef,
+  useEffect,
+} from 'react';
 import { useInView } from 'react-intersection-observer';
 import { encode } from 'universal-base64';
 
@@ -206,10 +213,23 @@ export const Image = forwardRef<HTMLDivElement, ImagePropTypes>(
 
     const [loaded, setLoaded] = useState(false);
 
+    const imageRef = useRef<HTMLImageElement>(null);
+
     const handleLoad = () => {
       onLoad?.();
       setLoaded(true);
     };
+
+    // https://stackoverflow.com/q/39777833/266535
+    useEffect(() => {
+      if (!imageRef.current) {
+        return;
+      }
+
+      if (imageRef.current.complete && imageRef.current.naturalWidth) {
+        handleLoad();
+      }
+    }, []);
 
     const [viewRef, inView] = useInView({
       threshold: intersectionThreshold || intersectionTreshold || 0,
@@ -334,6 +354,7 @@ export const Image = forwardRef<HTMLDivElement, ImagePropTypes>(
             {regularSource}
             {data.src && (
               <img
+                ref={imageRef}
                 src={data.src}
                 alt={data.alt ?? ''}
                 title={data.title ?? undefined}

@@ -362,7 +362,12 @@ export const Image = forwardRef<HTMLDivElement, ImagePropTypes>(
                 alt={data.alt ?? ''}
                 title={data.title ?? undefined}
                 className={pictureClassName}
-                style={{ ...absolutePositioning, ...pictureStyle }}
+                style={{
+                  ...absolutePositioning,
+                  objectFit,
+                  objectPosition,
+                  ...pictureStyle,
+                }}
                 loading={lazyLoad ? 'lazy' : undefined}
                 fetchpriority={priority ? 'high' : undefined}
               />

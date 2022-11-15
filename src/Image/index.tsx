@@ -260,6 +260,8 @@ export const Image = forwardRef<HTMLDivElement, ImagePropTypes>(
       top: 0,
       width: '100%',
       height: '100%',
+      maxWidth: 'none',
+      maxHeight: 'none',
     };
 
     const addImage = imageAddStrategy({
@@ -316,6 +318,8 @@ export const Image = forwardRef<HTMLDivElement, ImagePropTypes>(
             top: '-5%',
             width: '110%',
             height: '110%',
+            maxWidth: 'none',
+            maxHeight: 'none',
             ...placeholderStyle,
           }}
         />

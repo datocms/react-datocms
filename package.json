@@ -1,6 +1,6 @@
 {
   "name": "react-datocms",
-  "version": "4.0.5",
+  "version": "4.0.6",
   "types": "dist/types/index.d.ts",
   "main": "dist/cjs/index.js",
   "module": "dist/esm/index.js",

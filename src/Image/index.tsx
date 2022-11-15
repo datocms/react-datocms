@@ -49,7 +49,7 @@ export type ImagePropTypes = {
   className?: string;
   /** Additional CSS class for the image inside the `<picture />` tag */
   pictureClassName?: string;
-  /** Additional CSS class for the placeholder */
+  /** Additional CSS class for the placeholder image */
   placeholderClassName?: string;
   /** Duration (in ms) of the fade-in transition effect upoad image loading */
   fadeInDuration?: number;

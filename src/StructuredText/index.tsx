@@ -147,7 +147,7 @@ export function StructuredText<
           );
         }
 
-        if (!isStructuredText(data) || !data.links) {
+        if (!(isStructuredText(data) && data.links)) {
           throw new RenderError(
             `The document contains an 'itemLink' node, but the passed data prop is not a Structured Text GraphQL response, or data.links is not present!`,
             node,
@@ -176,7 +176,7 @@ export function StructuredText<
           );
         }
 
-        if (!isStructuredText(data) || !data.links) {
+        if (!(isStructuredText(data) && data.links)) {
           throw new RenderError(
             `The document contains an 'itemLink' node, but the passed data prop is not a Structured Text GraphQL response, or data.links is not present!`,
             node,
@@ -214,7 +214,7 @@ export function StructuredText<
           );
         }
 
-        if (!isStructuredText(data) || !data.blocks) {
+        if (!(isStructuredText(data) && data.blocks)) {
           throw new RenderError(
             `The document contains an 'block' node, but the passed data prop is not a Structured Text GraphQL response, or data.blocks is not present!`,
             node,

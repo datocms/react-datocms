@@ -6,7 +6,9 @@ import {
   ConnectionStatus,
   Options,
 } from 'datocms-listen';
-import { useDeepCompareEffectNoCheck as useDeepCompareEffect } from 'use-deep-compare-effect';
+import {
+  useDeepCompareEffectNoCheck as useDeepCompareEffect,
+} from 'use-deep-compare-effect';
 
 export type SubscribeToQueryOptions<QueryResult, QueryVariables> = Omit<
   Options<QueryResult, QueryVariables>,

@@ -26,6 +26,14 @@ const minimalData = {
   width: 750,
 };
 
+const minimalDataWithRelativeUrl = {
+  base64:
+    'data:image/jpeg;base64,/9j/4AAQSkZJRgABAQAAAQABAAD/2wCEAAoHBwgHBgoICAgLFQoLDhgQDg0NDh0eHREYIx8lJCIrHB0dLSs7GikyKSEuKjUlKDk1MjIyHyo4PTc+PDcxPjUBCgsLDg0OHBAQHDsoIig7Ozs7Ozs7OzsvOzs7Ozs7Ozs7Lzs7Ozs7Ozs7OzsvOzs7NTsvLy87NTU1Ly8vLzsvL//AABEIAA0AGAMBIgACEQEDEQH/xAAYAAACAwAAAAAAAAAAAAAAAAAGBwABBP/EACEQAAEEAAYDAAAAAAAAAAAAAAEAAgMEBQYHESEiFWFx/8QAFQEBAQAAAAAAAAAAAAAAAAAAAwL/xAAZEQADAAMAAAAAAAAAAAAAAAAAAQIRITH/2gAMAwEAAhEDEQA/AFxLgDWTsAd1J5TGy7hEYqNAaNgECX7sjLMQAHJTEy1Zcarfia4lJMauAxqBhLY6ZlaOzDurWvUOd3jZPfCiEh4xs//Z',
+  height: 421,
+  src: '/205/image.png?ar=16%3A9&fit=crop&w=750',
+  width: 750,
+};
+
 describe('Image', () => {
   // intersectionThreshold is an hack to make tests work
   // we need the library to generate a different IntersectionObserver for each test
@@ -56,6 +64,19 @@ describe('Image', () => {
           const wrapper = mount(
             <Image
               data={minimalData}
+              layout={layout}
+              intersectionThreshold={0.2}
+            />,
+          );
+          mockAllIsIntersecting(true);
+          wrapper.update();
+          expect(wrapper).toMatchSnapshot();
+        });
+
+        it('renders the image (relative URL)', () => {
+          const wrapper = mount(
+            <Image
+              data={minimalDataWithRelativeUrl}
               layout={layout}
               intersectionThreshold={0.2}
             />,

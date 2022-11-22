@@ -146,6 +146,8 @@ const imageShowStrategy = ({ lazyLoad, loaded }: State) => {
   return true;
 };
 
+const bogusBaseUrl = 'https://example.com/';
+
 const buildSrcSet = (
   src: string | null | undefined,
   width: number | undefined,
@@ -157,7 +159,7 @@ const buildSrcSet = (
 
   return candidateMultipliers
     .map((multiplier) => {
-      const url = new URL(src);
+      const url = new URL(src, bogusBaseUrl);
 
       if (multiplier !== 1) {
         url.searchParams.set('dpr', `${multiplier}`);
@@ -183,7 +185,7 @@ const buildSrcSet = (
         return null;
       }
 
-      return `${url.toString()} ${finalWidth}w`;
+      return `${url.toString().replace(bogusBaseUrl, '/')} ${finalWidth}w`;
     })
     .filter(Boolean)
     .join(',');

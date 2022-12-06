@@ -303,7 +303,7 @@ import SyntaxHighlight from 'components/SyntaxHighlight';
           // return renderNode('p', { key }, children);
 
           // Or even completely remove the paragraph and directly render the inner children:
-          return children;
+          return <React.Fragment key={key}>{children}</React.Fragment>;
         }
       },
     ),

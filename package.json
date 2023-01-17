@@ -4,6 +4,24 @@
   "types": "dist/types/index.d.ts",
   "main": "dist/cjs/index.js",
   "module": "dist/esm/index.js",
+  "exports": {
+    ".": "./dist/cjs/index.js",
+    "./seo": "./dist/cjs/Seo/index.js",
+    "./image": "./dist/cjs/Image/index.js",
+    "./structured-text": "./dist/cjs/StructuredText/index.js",
+    "./use-query-subscription": "./dist/cjs/useQuerySubscription/index.js",
+    "./use-site-search": "./dist/cjs/useSiteSearch/index.js"
+  },
+  "typesVersions": {
+    "*": {
+      "*": ["dist/types/index.d.ts"],
+      "seo": ["./dist/types/Seo/index.d.ts"],
+      "image": ["./dist/types/Image/index.d.ts"],
+      "structured-text": ["./dist/types/StructuredText/index.d.ts"],
+      "use-query-subscription": ["./dist/types/useQuerySubscription/index.d.ts"],
+      "use-site-search": ["./dist/types/useSiteSearch/index.d.ts"]
+    }
+  },
   "sideEffects": false,
   "files": [
     "dist",

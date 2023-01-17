@@ -1,6 +1,6 @@
 {
   "name": "react-datocms",
-  "version": "4.0.7",
+  "version": "4.0.8",
   "types": "dist/types/index.d.ts",
   "main": "dist/cjs/index.js",
   "module": "dist/esm/index.js",
@@ -14,12 +14,24 @@
   },
   "typesVersions": {
     "*": {
-      "*": ["dist/types/index.d.ts"],
-      "seo": ["./dist/types/Seo/index.d.ts"],
-      "image": ["./dist/types/Image/index.d.ts"],
-      "structured-text": ["./dist/types/StructuredText/index.d.ts"],
-      "use-query-subscription": ["./dist/types/useQuerySubscription/index.d.ts"],
-      "use-site-search": ["./dist/types/useSiteSearch/index.d.ts"]
+      "*": [
+        "dist/types/index.d.ts"
+      ],
+      "seo": [
+        "./dist/types/Seo/index.d.ts"
+      ],
+      "image": [
+        "./dist/types/Image/index.d.ts"
+      ],
+      "structured-text": [
+        "./dist/types/StructuredText/index.d.ts"
+      ],
+      "use-query-subscription": [
+        "./dist/types/useQuerySubscription/index.d.ts"
+      ],
+      "use-site-search": [
+        "./dist/types/useSiteSearch/index.d.ts"
+      ]
     }
   },
   "sideEffects": false,

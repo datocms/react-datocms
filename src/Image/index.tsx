@@ -339,6 +339,7 @@ export const Image = forwardRef<HTMLDivElement, ImagePropTypes>(
           style={{
             display: 'block',
             width: '100%',
+            ...pictureStyle,
           }}
           src={`data:image/svg+xml;base64,${encode(svg)}`}
           aria-hidden="true"

@@ -5,7 +5,10 @@
   "main": "dist/cjs/index.js",
   "module": "dist/esm/index.js",
   "exports": {
-    ".": "./dist/cjs/index.js",
+    ".": {
+      "module": "./dist/esm/index.js",
+      "default": "./dist/cjs/index.js"
+    },
     "./seo": "./dist/cjs/Seo/index.js",
     "./image": "./dist/cjs/Image/index.js",
     "./structured-text": "./dist/cjs/StructuredText/index.js",

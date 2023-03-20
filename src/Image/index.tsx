@@ -300,7 +300,6 @@ export const Image = forwardRef<HTMLDivElement, ImagePropTypes>(
     const placeholder =
       usePlaceholder && (data.bgColor || data.base64) ? (
         <img
-          role="presentation"
           aria-hidden="true"
           alt=""
           src={data.base64 ?? undefined}

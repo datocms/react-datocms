@@ -1,5 +1,5 @@
 import React from 'react';
-import ReactDOM from 'react-dom';
+import { createRoot } from 'react-dom/client';
 import { Global } from "@emotion/core";
 import { GraphQLClient, ClientContext } from "graphql-hooks";
 
@@ -13,10 +13,12 @@ const client = new GraphQLClient({
   }
 });
 
-ReactDOM.render(
+const domNode = document.getElementById('root');
+const root = createRoot(domNode);
+
+root.render(
   <ClientContext.Provider value={client}>
     <Global styles={globalStyle} />
     <App />
   </ClientContext.Provider>,
-  document.getElementById("root")
 );

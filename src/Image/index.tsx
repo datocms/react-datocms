@@ -6,7 +6,7 @@ import React, {
   useRef,
   useEffect,
 } from 'react';
-import { useInView } from 'react-intersection-observer';
+import { useInView } from './useInView';
 import { encode } from 'universal-base64';
 
 const isSsr = typeof window === 'undefined';

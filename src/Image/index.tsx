@@ -355,10 +355,10 @@ export const Image = forwardRef<HTMLDivElement, ImagePropTypes>(
           ...(layout === 'fill'
             ? absolutePositioning
             : layout === 'intrinsic'
-            ? { position: 'relative', width: '100%', maxWidth: width }
-            : layout === 'fixed'
-            ? { position: 'relative', width }
-            : { position: 'relative', width: '100%' }),
+              ? { position: 'relative', width: '100%', maxWidth: width }
+              : layout === 'fixed'
+                ? { position: 'relative', width }
+                : { position: 'relative', width: '100%' }),
           ...style,
         }}
       >
@@ -375,7 +375,7 @@ export const Image = forwardRef<HTMLDivElement, ImagePropTypes>(
                 alt={data.alt ?? ''}
                 title={data.title ?? undefined}
                 onLoad={handleLoad}
-                fetchpriority={priority ? 'high' : undefined}
+                fetchPriority={priority ? 'high' : undefined}
                 className={pictureClassName}
                 style={{
                   opacity: showImage ? 1 : 0,
@@ -406,7 +406,7 @@ export const Image = forwardRef<HTMLDivElement, ImagePropTypes>(
                   ...pictureStyle,
                 }}
                 loading={lazyLoad ? 'lazy' : undefined}
-                fetchpriority={priority ? 'high' : undefined}
+                fetchPriority={priority ? 'high' : undefined}
               />
             )}
           </picture>

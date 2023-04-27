@@ -1,7 +1,7 @@
-import { AriaAttributes } from 'react';
+import { HTMLAttributes } from 'react';
 
 declare module 'react' {
   interface ImgHTMLAttributes<T> extends HTMLAttributes<T> {
-    fetchpriority?: 'auto' | 'low' | 'high';
+    fetchPriority?: 'auto' | 'low' | 'high';
   }
 }

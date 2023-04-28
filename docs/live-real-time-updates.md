@@ -13,12 +13,14 @@ Live updates are great both to get instant previews of your content while editin
 <!-- DON'T EDIT THIS SECTION, INSTEAD RE-RUN doctoc TO UPDATE -->
 **Table of Contents**  *generated with [DocToc](https://github.com/thlorenz/doctoc)*
 
-- [Installation](#installation)
-- [Reference](#reference)
-- [Initialization options](#initialization-options)
-- [Connection status](#connection-status)
-- [Error object](#error-object)
-- [Example](#example)
+- [Live real-time updates](#live-real-time-updates)
+  - [Table of Contents](#table-of-contents)
+  - [Installation](#installation)
+  - [Reference](#reference)
+  - [Initialization options](#initialization-options)
+  - [Connection status](#connection-status)
+  - [Error object](#error-object)
+  - [Example](#example)
 
 <!-- END doctoc generated TOC please keep comment here to allow auto update -->
 
@@ -42,19 +44,19 @@ const {
 
 ## Initialization options
 
-| prop               | type                                                                                      | required           | description                                                        | default                              |
-| ------------------ | ----------------------------------------------------------------------------------------- | ------------------ | ------------------------------------------------------------------ | ------------------------------------ |
-| enabled            | boolean                                                                                   | :x:                | Whether the subscription has to be performed or not                | true                                 |
-| query              | string                                                                                    | :white_check_mark: | The GraphQL query to subscribe                                     |                                      |
-| token              | string                                                                                    | :white_check_mark: | DatoCMS API token to use                                           |                                      |
-| variables          | Object                                                                                    | :x:                | GraphQL variables for the query                                    |                                      |
-| preview            | boolean                                                                                   | :x:                | If true, the Content Delivery API with draft content will be used  | false                                |
-| environment        | string                                                                                    | :x:                | The name of the DatoCMS environment where to perform the query     | defaults to primary environment      |
-| initialData        | Object                                                                                    | :x:                | The initial data to use on the first render                        |                                      |
-| reconnectionPeriod | number                                                                                    | :x:                | In case of network errors, the period (in ms) to wait to reconnect | 1000                                 |
-| fetcher            | a [fetch-like function](https://developer.mozilla.org/en-US/docs/Web/API/Fetch_API)       | :x:                | The fetch function to use to perform the registration query        | window.fetch                         |
-| eventSourceClass   | an [EventSource-like](https://developer.mozilla.org/en-US/docs/Web/API/EventSource) class | :x:                | The EventSource class to use to open up the SSE connection         | window.EventSource                   |
-| baseUrl            | string                                                                                    | :x:                | The base URL to use to perform the query                           | `https://graphql-listen.datocms.com` |
+| prop               | type                                                                                       | required           | description                                                        | default                              |
+| ------------------ | ------------------------------------------------------------------------------------------ | ------------------ | ------------------------------------------------------------------ | ------------------------------------ |
+| enabled            | boolean                                                                                    | :x:                | Whether the subscription has to be performed or not                | true                                 |
+| query              | string \| [`TypedDocumentNode`](https://github.com/dotansimha/graphql-typed-document-node) | :white_check_mark: | The GraphQL query to subscribe                                     |                                      |
+| token              | string                                                                                     | :white_check_mark: | DatoCMS API token to use                                           |                                      |
+| variables          | Object                                                                                     | :x:                | GraphQL variables for the query                                    |                                      |
+| preview            | boolean                                                                                    | :x:                | If true, the Content Delivery API with draft content will be used  | false                                |
+| environment        | string                                                                                     | :x:                | The name of the DatoCMS environment where to perform the query     | defaults to primary environment      |
+| initialData        | Object                                                                                     | :x:                | The initial data to use on the first render                        |                                      |
+| reconnectionPeriod | number                                                                                     | :x:                | In case of network errors, the period (in ms) to wait to reconnect | 1000                                 |
+| fetcher            | a [fetch-like function](https://developer.mozilla.org/en-US/docs/Web/API/Fetch_API)        | :x:                | The fetch function to use to perform the registration query        | window.fetch                         |
+| eventSourceClass   | an [EventSource-like](https://developer.mozilla.org/en-US/docs/Web/API/EventSource) class  | :x:                | The EventSource class to use to open up the SSE connection         | window.EventSource                   |
+| baseUrl            | string                                                                                     | :x:                | The base URL to use to perform the query                           | `https://graphql-listen.datocms.com` |
 
 ## Connection status
 

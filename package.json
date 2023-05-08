@@ -5,12 +5,36 @@
   "main": "dist/cjs/index.js",
   "module": "dist/esm/index.js",
   "exports": {
-    ".": "./dist/cjs/index.js",
-    "./seo": "./dist/cjs/Seo/index.js",
-    "./image": "./dist/cjs/Image/index.js",
-    "./structured-text": "./dist/cjs/StructuredText/index.js",
-    "./use-query-subscription": "./dist/cjs/useQuerySubscription/index.js",
-    "./use-site-search": "./dist/cjs/useSiteSearch/index.js"
+    ".": {
+      "require": "./dist/cjs/index.js",
+      "import": "./dist/esm/index.js",
+      "types": "./dist/esm/index.d.ts"
+    },
+    "./seo": {
+      "require": "./dist/cjs/Seo/index.js",
+      "import": "./dist/esm/Seo/index.js",
+      "types": "./dist/esm/Seo/index.d.ts"
+    },
+    "./image": {
+      "require": "./dist/cjs/Image/index.js",
+      "import": "./dist/esm/Image/index.js",
+      "types": "./dist/esm/Image/index.d.ts"
+    },
+    "./structured-text": {
+      "require": "./dist/cjs/StructuredText/index.js",
+      "import": "./dist/esm/StructuredText/index.js",
+      "types": "./dist/esm/StructuredText/index.d.ts"
+    },
+    "./use-query-subscription": {
+      "require": "./dist/cjs/useQuerySubscription/index.js",
+      "import": "./dist/esm/useQuerySubscription/index.js",
+      "types": "./dist/esm/useQuerySubscription/index.d.ts"
+    },
+    "./use-site-search": {
+      "require": "./dist/cjs/useSiteSearch/index.js",
+      "import": "./dist/esm/useSiteSearch/index.js",
+      "types": "./dist/esm/useSiteSearch/index.d.ts"
+    }
   },
   "typesVersions": {
     "*": {

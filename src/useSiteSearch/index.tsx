@@ -8,7 +8,7 @@ type SearchResultInstancesHrefSchema = {
     [k: string]: unknown;
   };
   filter: {
-    fuzzy?: string;
+    fuzzy?: boolean;
     query: string;
     build_trigger_id?: string;
     locale?: string;
@@ -236,12 +236,12 @@ export function useSiteSearch<Client extends GenericClient>(
     data:
       state.query === ''
         ? {
-            pageResults: [],
-            totalResults: 0,
-            totalPages: 0,
-          }
+          pageResults: [],
+          totalResults: 0,
+          totalPages: 0,
+        }
         : response
-        ? {
+          ? {
             pageResults: response.data.map((rawSearchResult) => ({
               id: rawSearchResult.id,
               url: rawSearchResult.attributes.url,
@@ -267,6 +267,6 @@ export function useSiteSearch<Client extends GenericClient>(
             totalResults: response.meta.total_count,
             totalPages: Math.ceil(response.meta.total_count / resultsPerPage),
           }
-        : undefined,
+          : undefined,
   };
 }

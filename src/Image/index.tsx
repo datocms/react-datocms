@@ -5,6 +5,7 @@ import React, {
   CSSProperties,
   useRef,
   useEffect,
+  version,
 } from 'react';
 import { useInView } from './useInView';
 import { encode } from 'universal-base64';
@@ -14,6 +15,23 @@ const isSsr = typeof window === 'undefined';
 const isIntersectionObserverAvailable = isSsr
   ? false
   : !!(window as any).IntersectionObserver;
+
+function fetchPriorityProp(
+  fetchPriority?: string
+): Record<string, string | undefined> {
+  const [majorStr, minorStr] = version.split('.')
+  const major = parseInt(majorStr, 10)
+  const minor = parseInt(minorStr, 10)
+  if (major > 18 || (major === 18 && minor >= 3)) {
+    // In React 18.3.0 or newer, we must use camelCase
+    // prop to avoid "Warning: Invalid DOM property".
+    // See https://github.com/facebook/react/pull/25927
+    return { fetchPriority }
+  }
+  // In React 18.2.0 or older, we must use lowercase prop
+  // to avoid "Warning: Invalid DOM property".
+  return { fetchpriority: fetchPriority }
+}
 
 type Maybe<T> = T | null;
 
@@ -375,7 +393,7 @@ export const Image = forwardRef<HTMLDivElement, ImagePropTypes>(
                 alt={data.alt ?? ''}
                 title={data.title ?? undefined}
                 onLoad={handleLoad}
-                fetchPriority={priority ? 'high' : undefined}
+                {...fetchPriorityProp(priority ? 'high' : undefined)}
                 className={pictureClassName}
                 style={{
                   opacity: showImage ? 1 : 0,
@@ -406,7 +424,7 @@ export const Image = forwardRef<HTMLDivElement, ImagePropTypes>(
                   ...pictureStyle,
                 }}
                 loading={lazyLoad ? 'lazy' : undefined}
-                fetchPriority={priority ? 'high' : undefined}
+                {...fetchPriorityProp(priority ? 'high' : undefined)}
               />
             )}
           </picture>

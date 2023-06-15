@@ -149,3 +149,26 @@ export default function App() {
   );
 }
 ```
+
+## `toNextMetadata()`
+
+This function generates a `Metadata` object, compatibile with the [`generateMetadata`](https://nextjs.org/docs/app/api-reference/functions/generate-metadata) export of the [Next](https://nextjs.org/) framework:
+
+```js
+export async function generateMetadata(): Promise<Metadata> {
+  // `homepage` is a field in a GraphQL query like this:
+  //
+  //     query Homepage {
+  //       homepage {
+  //         _seoMetaTags {
+  //           tag
+  //           attributes
+  //           content
+  //         }
+  //       }
+  //     }
+  const { homepage } = await getHomepageContent()
+ 
+  return toNextMetadata(homepage?._seoMetaTags || [])
+}
+```

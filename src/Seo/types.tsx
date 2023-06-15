@@ -51,3 +51,63 @@ export interface SeoLinkTag {
 export type SeoTag = SeoTitleTag | SeoMetaTag;
 export type FaviconTag = SeoMetaTag | SeoLinkTag;
 export type SeoOrFaviconTag = SeoTag | FaviconTag;
+
+export const isSeoTitleTag = (tag: any): tag is SeoTitleTag =>
+  'tag' in tag && tag.tag === 'title' && !tag.attributes;
+
+export const isSeoTag = (tag: any): tag is SeoTag =>
+  isSeoTitleTag(tag) || isSeoMetaTag(tag);
+
+export const isFaviconAttributes = (tag: any): tag is FaviconAttributes =>
+  'sizes' in tag &&
+  typeof tag.sizes === 'string' &&
+  'type' in tag &&
+  typeof tag.type === 'string' &&
+  'rel' in tag &&
+  typeof tag.rel === 'string' &&
+  'href' in tag &&
+  typeof tag.href === 'string';
+
+export const isAppleTouchIconAttributes = (
+  tag: any,
+): tag is AppleTouchIconAttributes =>
+  'sizes' in tag &&
+  typeof tag.sizes === 'string' &&
+  'rel' in tag &&
+  tag.rel === 'apple-touch-icon' &&
+  'href' in tag &&
+  typeof tag.href === 'string';
+
+export const isSeoLinkTag = (tag: any): tag is SeoLinkTag =>
+  'tag' in tag &&
+  tag.tag === 'link' &&
+  !tag.content &&
+  (isFaviconAttributes(tag.attributes) ||
+    isAppleTouchIconAttributes(tag.attributes));
+
+export const isFaviconTag = (tag: any): tag is FaviconTag =>
+  isSeoMetaTag(tag) || isSeoLinkTag(tag);
+
+export const isSeoOrFaviconTag = (
+  seoOrFaviconTag: TitleMetaLinkTag | SeoOrFaviconTag,
+): seoOrFaviconTag is SeoOrFaviconTag =>
+  isSeoTag(seoOrFaviconTag) || isFaviconTag(seoOrFaviconTag);
+
+export const isRegularMetaAttributes = (
+  attributes: RegularMetaAttributes | OgMetaAttributes,
+): attributes is RegularMetaAttributes =>
+  'name' in attributes && 'content' in attributes;
+
+export const isOgMetaAttributes = (
+  attributes: RegularMetaAttributes | OgMetaAttributes,
+): attributes is OgMetaAttributes =>
+  'property' in attributes && 'content' in attributes;
+
+export const isSeoMetaTag = (
+  seoMetaTag: SeoOrFaviconTag,
+): seoMetaTag is SeoMetaTag =>
+  'tag' in seoMetaTag &&
+  seoMetaTag.tag === 'meta' &&
+  !seoMetaTag.content &&
+  (isRegularMetaAttributes(seoMetaTag.attributes) ||
+    isOgMetaAttributes(seoMetaTag.attributes));

@@ -223,6 +223,98 @@ exports[`renderMetaTagsToString generates an array of meta tags 1`] = `
 <meta name=\\"msapplication-square310x150logo\\" content=\\"https://www.datocms-assets.com/205/1525789775-dato.png?h=150&w=310\\" />"
 `;
 
+exports[`toNextMetadata generates a Next Metadata object 1`] = `
+Object {
+  "description": "Remix makes building scalable and fast React apps simple, pair it with a CMS that shares the same intuitiveness. Start a new Remix + Dato project now.",
+  "icons": Object {
+    "apple": Array [
+      Object {
+        "sizes": "57x57",
+        "url": "https://www.datocms-assets.com/205/1525789775-dato.png?h=57&w=57",
+      },
+      Object {
+        "sizes": "60x60",
+        "url": "https://www.datocms-assets.com/205/1525789775-dato.png?h=60&w=60",
+      },
+      Object {
+        "sizes": "72x72",
+        "url": "https://www.datocms-assets.com/205/1525789775-dato.png?h=72&w=72",
+      },
+      Object {
+        "sizes": "76x76",
+        "url": "https://www.datocms-assets.com/205/1525789775-dato.png?h=76&w=76",
+      },
+      Object {
+        "sizes": "114x114",
+        "url": "https://www.datocms-assets.com/205/1525789775-dato.png?h=114&w=114",
+      },
+      Object {
+        "sizes": "120x120",
+        "url": "https://www.datocms-assets.com/205/1525789775-dato.png?h=120&w=120",
+      },
+      Object {
+        "sizes": "144x144",
+        "url": "https://www.datocms-assets.com/205/1525789775-dato.png?h=144&w=144",
+      },
+      Object {
+        "sizes": "152x152",
+        "url": "https://www.datocms-assets.com/205/1525789775-dato.png?h=152&w=152",
+      },
+      Object {
+        "sizes": "180x180",
+        "url": "https://www.datocms-assets.com/205/1525789775-dato.png?h=180&w=180",
+      },
+    ],
+    "icon": Array [
+      Object {
+        "rel": "icon",
+        "sizes": "16x16",
+        "type": "image/png",
+        "url": "https://www.datocms-assets.com/205/1525789775-dato.png?h=16&w=16",
+      },
+      Object {
+        "rel": "icon",
+        "sizes": "32x32",
+        "type": "image/png",
+        "url": "https://www.datocms-assets.com/205/1525789775-dato.png?h=32&w=32",
+      },
+      Object {
+        "rel": "icon",
+        "sizes": "96x96",
+        "type": "image/png",
+        "url": "https://www.datocms-assets.com/205/1525789775-dato.png?h=96&w=96",
+      },
+      Object {
+        "rel": "icon",
+        "sizes": "192x192",
+        "type": "image/png",
+        "url": "https://www.datocms-assets.com/205/1525789775-dato.png?h=192&w=192",
+      },
+    ],
+  },
+  "openGraph": Object {
+    "description": "Remix makes building scalable and fast React apps simple, pair it with a CMS that shares the same intuitiveness. Start a new Remix + Dato project now.",
+    "images": Object {
+      "height": "186",
+      "url": "https://www.datocms-assets.com/205/1642515293-full-logo.svg?fit=max&fm=jpg&w=1000",
+      "width": "746",
+    },
+    "locale": "en",
+    "siteName": "DatoCMS",
+    "title": "Remix CMS - The easiest way to manage content with Remix",
+    "type": "article",
+  },
+  "title": "Remix CMS - The easiest way to manage content with Remix",
+  "twitter": Object {
+    "card": "summary_large_image",
+    "description": "Remix makes building scalable and fast React apps simple, pair it with a CMS that shares the same intuitiveness. Start a new Remix + Dato project now.",
+    "image": "https://www.datocms-assets.com/205/1642515293-full-logo.svg?fit=max&fm=jpg&w=1000",
+    "site": "@datocms",
+    "title": "Remix CMS - The easiest way to manage content with Remix",
+  },
+}
+`;
+
 exports[`toRemixMeta generates a meta descriptor 1`] = `
 Object {
   "article:modified_time": "2022-01-18T14:02:47Z",

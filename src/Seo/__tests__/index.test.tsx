@@ -1,6 +1,11 @@
 import * as React from 'react';
 import { shallow } from 'enzyme';
-import { renderMetaTags, renderMetaTagsToString, toRemixMeta } from '..';
+import {
+  renderMetaTags,
+  renderMetaTagsToString,
+  toNextMetadata,
+  toRemixMeta,
+} from '..';
 import { TitleMetaLinkTag } from '../types';
 
 const metaTags: TitleMetaLinkTag[] = [
@@ -310,5 +315,11 @@ describe('renderMetaTagsToString', () => {
 describe('toRemixMeta', () => {
   it('generates a meta descriptor', () => {
     expect(toRemixMeta(metaTags)).toMatchSnapshot();
+  });
+});
+
+describe('toNextMetadata', () => {
+  it('generates a Next Metadata object', () => {
+    expect(toNextMetadata(metaTags)).toMatchSnapshot();
   });
 });

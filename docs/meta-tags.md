@@ -13,6 +13,7 @@ Just like for the [image component](./image.md) this package offers a number of 
 - [`renderMetaTags()`](#rendermetatags)
 - [`renderMetaTagsToString()`](#rendermetatagstostring)
 - [`toRemixMeta()`](#toremixmeta)
+- [`toNextMetadata()`](#tonextmetadata)
 
 <!-- END doctoc generated TOC please keep comment here to allow auto update -->
 
@@ -156,17 +157,6 @@ This function generates a `Metadata` object, compatibile with the [`generateMeta
 
 ```js
 export async function generateMetadata(): Promise<Metadata> {
-  // `homepage` is a field in a GraphQL query like this:
-  //
-  //     query Homepage {
-  //       homepage {
-  //         _seoMetaTags {
-  //           tag
-  //           attributes
-  //           content
-  //         }
-  //       }
-  //     }
   const { homepage } = await getHomepageContent()
  
   return toNextMetadata(homepage?._seoMetaTags || [])

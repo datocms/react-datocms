@@ -5,8 +5,8 @@ import {
   renderMetaTagsToString,
   toNextMetadata,
   toRemixMeta,
-} from '..';
-import { TitleMetaLinkTag } from '../types';
+} from '../index.js';
+import { TitleMetaLinkTag } from '../types.js';
 
 const metaTags: TitleMetaLinkTag[] = [
   {

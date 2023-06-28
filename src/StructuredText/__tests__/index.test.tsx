@@ -6,7 +6,7 @@ import {
   StructuredTextDocument,
   RenderError,
   renderNodeRule,
-} from '../index';
+} from '../index.js';
 import { isHeading } from 'datocms-structured-text-utils';
 import { renderMarkRule } from 'datocms-structured-text-generic-html-renderer';
 

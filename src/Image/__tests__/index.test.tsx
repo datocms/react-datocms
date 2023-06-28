@@ -1,7 +1,7 @@
 import * as React from 'react';
 import { mount } from 'enzyme';
 import 'intersection-observer';
-import { Image } from '../index';
+import { Image } from '../index.js';
 import { mockAllIsIntersecting } from 'react-intersection-observer/test-utils';
 
 const data = {

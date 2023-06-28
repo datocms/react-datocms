@@ -115,7 +115,7 @@
       "js"
     ],
     "transform": {
-      "\\.(ts|tsx)$": "ts-jest"
+      "\\.(ts|tsx)$": ["ts-jest", { "useESM": true }]
     },
     "setupFiles": [
       "raf/polyfill"
@@ -133,7 +133,10 @@
     ],
     "snapshotSerializers": [
       "enzyme-to-json/serializer"
-    ]
+    ],
+    "moduleNameMapper": {
+      "^(\\.\\.?\\/.+)\\.js$": "$1"
+    }
   },
   "dependencies": {
     "datocms-listen": "^0.1.9",

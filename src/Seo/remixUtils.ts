@@ -1,4 +1,4 @@
-import { TitleMetaLinkTag, SeoOrFaviconTag } from './types';
+import { TitleMetaLinkTag, SeoOrFaviconTag } from './types.js';
 
 interface RemixHtmlMetaDescriptor {
   [name: string]: string | string[];

@@ -4,10 +4,15 @@
     "declarationDir": "./dist/types",
     "module": "commonjs",
     "noImplicitAny": true,
-    "lib": ["es2017", "es7", "es6", "dom"],
+    "lib": [
+      "es2017",
+      "es7",
+      "es6",
+      "dom"
+    ],
     "outDir": "./dist/cjs",
     "target": "es3",
-    "moduleResolution": "node",
+    "moduleResolution": "NodeNext",
     "jsx": "react",
     "resolveJsonModule": true,
     "strictNullChecks": true,
@@ -15,6 +20,13 @@
     "skipLibCheck": false,
     "sourceMap": true
   },
-  "include": ["src/**/*", "test/jest-dom.d.ts", "react-extras.d.ts"],
-  "exclude": ["node_modules", "dist"]
+  "include": [
+    "src/**/*",
+    "test/jest-dom.d.ts",
+    "react-extras.d.ts"
+  ],
+  "exclude": [
+    "node_modules",
+    "dist"
+  ]
 }

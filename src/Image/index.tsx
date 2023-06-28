@@ -9,7 +9,7 @@ import React, {
   useEffect,
   version,
 } from 'react';
-import { useInView } from './useInView';
+import { useInView } from './useInView.js';
 import { encode } from 'universal-base64';
 
 const isSsr = typeof window === 'undefined';
@@ -375,10 +375,10 @@ export const Image = forwardRef<HTMLDivElement, ImagePropTypes>(
           ...(layout === 'fill'
             ? absolutePositioning
             : layout === 'intrinsic'
-            ? { position: 'relative', width: '100%', maxWidth: width }
-            : layout === 'fixed'
-            ? { position: 'relative', width }
-            : { position: 'relative', width: '100%' }),
+              ? { position: 'relative', width: '100%', maxWidth: width }
+              : layout === 'fixed'
+                ? { position: 'relative', width }
+                : { position: 'relative', width: '100%' }),
           ...style,
         }}
       >

@@ -1,5 +1,5 @@
 import React from 'react';
-import { TitleMetaLinkTag, SeoOrFaviconTag } from './types';
+import { TitleMetaLinkTag, SeoOrFaviconTag } from './types.js';
 
 export function renderMetaTags(
   data: TitleMetaLinkTag[] | SeoOrFaviconTag[],

@@ -8,7 +8,7 @@ import {
   isSeoLinkTag,
   isSeoMetaTag,
   isSeoOrFaviconTag,
-} from './types';
+} from './types.js';
 
 export type AppleIcon = {
   sizes: string;

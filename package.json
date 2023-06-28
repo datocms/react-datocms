@@ -4,6 +4,7 @@
   "engines": {
     "node": ">=8.0.0"
   },
+  "type": "module",
   "types": "dist/types/index.d.ts",
   "main": "dist/cjs/index.js",
   "module": "dist/esm/index.js",

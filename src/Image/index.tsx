@@ -16,7 +16,7 @@ const isSsr = typeof window === 'undefined';
 
 const isIntersectionObserverAvailable = isSsr
   ? false
-  : !!(window as any).IntersectionObserver;
+  : !!window.IntersectionObserver;
 
 function fetchPriorityProp(
   fetchPriority?: string,
@@ -389,6 +389,7 @@ export const Image = forwardRef<HTMLDivElement, ImagePropTypes>(
             {webpSource}
             {regularSource}
             {data.src && (
+              // biome-ignore lint/a11y/useAltText: We do support the `alt` attribute
               <img
                 ref={imageRef}
                 src={data.src}
@@ -414,6 +415,7 @@ export const Image = forwardRef<HTMLDivElement, ImagePropTypes>(
             {webpSource}
             {regularSource}
             {data.src && (
+              // biome-ignore lint/a11y/useAltText: We do support the `alt` attribute
               <img
                 src={data.src}
                 alt={data.alt ?? ''}

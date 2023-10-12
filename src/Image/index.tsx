@@ -375,10 +375,10 @@ export const Image = forwardRef<HTMLDivElement, ImagePropTypes>(
           ...(layout === 'fill'
             ? absolutePositioning
             : layout === 'intrinsic'
-              ? { position: 'relative', width: '100%', maxWidth: width }
-              : layout === 'fixed'
-                ? { position: 'relative', width }
-                : { position: 'relative', width: '100%' }),
+            ? { position: 'relative', width: '100%', maxWidth: width }
+            : layout === 'fixed'
+            ? { position: 'relative', width }
+            : { position: 'relative', width: '100%' }),
           ...style,
         }}
       >

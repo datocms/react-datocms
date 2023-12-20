@@ -42,10 +42,12 @@ const App = () => {
         </AppSubtitle>
         {data.blogPosts.map(blogPost => (
           <BlogPost key={blogPost.id}>
-            <BlogPostImage
-              fadeInDuration={1000}
-              data={blogPost.coverImage.responsiveImage}
-            />
+            { blogPost.coverImage?.responsiveImage &&
+              <BlogPostImage
+                fadeInDuration={1000}
+                data={blogPost.coverImage.responsiveImage}
+              />
+            }
             <BlogPostTitle>
               <a
                 href={`https://www.datocms.com/blog/${blogPost.slug}`}

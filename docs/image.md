@@ -79,6 +79,7 @@ const query = gql`
         ) {
           # always required
           src
+          srcSet
           width
           height
 

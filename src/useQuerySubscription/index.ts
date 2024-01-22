@@ -35,9 +35,9 @@ export type QueryListenerOptions<QueryResult, QueryVariables> =
 
 export function useQuerySubscription<
   // biome-ignore lint/suspicious/noExplicitAny: <explanation>
-QueryResult  = any,
+  QueryResult = any,
   // biome-ignore lint/suspicious/noExplicitAny: <explanation>
-QueryVariables  = Record<string, any>,
+  QueryVariables = Record<string, any>,
 >(options: QueryListenerOptions<QueryResult, QueryVariables>) {
   const { enabled, initialData, ...other } = options;
 

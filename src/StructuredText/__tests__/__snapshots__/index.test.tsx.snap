@@ -3,26 +3,26 @@
 exports[`StructuredText simple dast /2 with custom mark rules renders the document 1`] = `
 <StructuredText
   customMarkRules={
-    Array [
-      Object {
+    [
+      {
         "appliable": [Function],
         "apply": [Function],
       },
     ]
   }
   data={
-    Object {
-      "document": Object {
-        "children": Array [
-          Object {
-            "children": Array [
-              Object {
+    {
+      "document": {
+        "children": [
+          {
+            "children": [
+              {
                 "type": "span",
                 "value": "This
 is a ",
               },
-              Object {
-                "marks": Array [
+              {
+                "marks": [
                   "strong",
                 ],
                 "type": "span",
@@ -59,18 +59,18 @@ is a ",
 exports[`StructuredText simple dast /2 with default rules renders the document 1`] = `
 <StructuredText
   data={
-    Object {
-      "document": Object {
-        "children": Array [
-          Object {
-            "children": Array [
-              Object {
+    {
+      "document": {
+        "children": [
+          {
+            "children": [
+              {
                 "type": "span",
                 "value": "This
 is a ",
               },
-              Object {
-                "marks": Array [
+              {
+                "marks": [
                   "strong",
                 ],
                 "type": "span",
@@ -107,27 +107,27 @@ is a ",
 exports[`StructuredText simple dast with no links/blocks with custom rules renders the document 1`] = `
 <StructuredText
   customNodeRules={
-    Array [
-      Object {
+    [
+      {
         "appliable": [Function],
         "apply": [Function],
       },
     ]
   }
   data={
-    Object {
-      "value": Object {
-        "document": Object {
-          "children": Array [
-            Object {
-              "children": Array [
-                Object {
+    {
+      "value": {
+        "document": {
+          "children": [
+            {
+              "children": [
+                {
                   "type": "span",
                   "value": "This
 is a ",
                 },
-                Object {
-                  "marks": Array [
+                {
+                  "marks": [
                     "strong",
                   ],
                   "type": "span",
@@ -166,19 +166,19 @@ is a ",
 exports[`StructuredText simple dast with no links/blocks with default rules renders the document 1`] = `
 <StructuredText
   data={
-    Object {
-      "value": Object {
-        "document": Object {
-          "children": Array [
-            Object {
-              "children": Array [
-                Object {
+    {
+      "value": {
+        "document": {
+          "children": [
+            {
+              "children": [
+                {
                   "type": "span",
                   "value": "This
 is a ",
                 },
-                Object {
-                  "marks": Array [
+                {
+                  "marks": [
                     "strong",
                   ],
                   "type": "span",
@@ -216,53 +216,53 @@ is a ",
 exports[`StructuredText with links/blocks with default rules renders the document 1`] = `
 <StructuredText
   data={
-    Object {
-      "blocks": Array [
-        Object {
+    {
+      "blocks": [
+        {
           "__typename": "QuoteRecord",
           "author": "Mark Smith",
           "id": "456",
           "quote": "Foo bar.",
         },
       ],
-      "links": Array [
-        Object {
+      "links": [
+        {
           "__typename": "DocPageRecord",
           "id": "123",
           "slug": "how-to-code",
           "title": "How to code",
         },
       ],
-      "value": Object {
-        "document": Object {
-          "children": Array [
-            Object {
-              "children": Array [
-                Object {
+      "value": {
+        "document": {
+          "children": [
+            {
+              "children": [
+                {
                   "type": "span",
                   "value": "This is a",
                 },
-                Object {
-                  "marks": Array [
+                {
+                  "marks": [
                     "highlight",
                   ],
                   "type": "span",
                   "value": "title",
                 },
-                Object {
+                {
                   "item": "123",
                   "type": "inlineItem",
                 },
-                Object {
-                  "children": Array [
-                    Object {
+                {
+                  "children": [
+                    {
                       "type": "span",
                       "value": "here!",
                     },
                   ],
                   "item": "123",
-                  "meta": Array [
-                    Object {
+                  "meta": [
+                    {
                       "id": "target",
                       "value": "_blank",
                     },
@@ -273,7 +273,7 @@ exports[`StructuredText with links/blocks with default rules renders the documen
               "level": 1,
               "type": "heading",
             },
-            Object {
+            {
               "item": "456",
               "type": "block",
             },

@@ -3,7 +3,7 @@
 exports[`Image layout=fill not visible renders the blur-up thumb 1`] = `
 <ForwardRef
   data={
-    Object {
+    {
       "alt": "DatoCMS swag",
       "aspectRatio": 1.7777777777777777,
       "base64": "data:image/jpeg;base64,/9j/4AAQSkZJRgABAQAAAQABAAD/2wCEAAoHBwgHBgoICAgLFQoLDhgQDg0NDh0eHREYIx8lJCIrHB0dLSs7GikyKSEuKjUlKDk1MjIyHyo4PTc+PDcxPjUBCgsLDg0OHBAQHDsoIig7Ozs7Ozs7OzsvOzs7Ozs7Ozs7Lzs7Ozs7Ozs7OzsvOzs7NTsvLy87NTU1Ly8vLzsvL//AABEIAA0AGAMBIgACEQEDEQH/xAAYAAACAwAAAAAAAAAAAAAAAAAGBwABBP/EACEQAAEEAAYDAAAAAAAAAAAAAAEAAgMEBQYHESEiFWFx/8QAFQEBAQAAAAAAAAAAAAAAAAAAAwL/xAAZEQADAAMAAAAAAAAAAAAAAAAAAQIRITH/2gAMAwEAAhEDEQA/AFxLgDWTsAd1J5TGy7hEYqNAaNgECX7sjLMQAHJTEy1Zcarfia4lJMauAxqBhLY6ZlaOzDurWvUOd3jZPfCiEh4xs//Z",
@@ -20,7 +20,7 @@ exports[`Image layout=fill not visible renders the blur-up thumb 1`] = `
 >
   <div
     style={
-      Object {
+      {
         "height": "100%",
         "left": 0,
         "maxHeight": "none",
@@ -37,7 +37,7 @@ exports[`Image layout=fill not visible renders the blur-up thumb 1`] = `
       aria-hidden="true"
       src="data:image/jpeg;base64,/9j/4AAQSkZJRgABAQAAAQABAAD/2wCEAAoHBwgHBgoICAgLFQoLDhgQDg0NDh0eHREYIx8lJCIrHB0dLSs7GikyKSEuKjUlKDk1MjIyHyo4PTc+PDcxPjUBCgsLDg0OHBAQHDsoIig7Ozs7Ozs7OzsvOzs7Ozs7Ozs7Lzs7Ozs7Ozs7OzsvOzs7NTsvLy87NTU1Ly8vLzsvL//AABEIAA0AGAMBIgACEQEDEQH/xAAYAAACAwAAAAAAAAAAAAAAAAAGBwABBP/EACEQAAEEAAYDAAAAAAAAAAAAAAEAAgMEBQYHESEiFWFx/8QAFQEBAQAAAAAAAAAAAAAAAAAAAwL/xAAZEQADAAMAAAAAAAAAAAAAAAAAAQIRITH/2gAMAwEAAhEDEQA/AFxLgDWTsAd1J5TGy7hEYqNAaNgECX7sjLMQAHJTEy1Zcarfia4lJMauAxqBhLY6ZlaOzDurWvUOd3jZPfCiEh4xs//Z"
       style={
-        Object {
+        {
           "backgroundColor": undefined,
           "height": "110%",
           "left": "-5%",
@@ -63,7 +63,7 @@ exports[`Image layout=fill not visible renders the blur-up thumb 1`] = `
 exports[`Image layout=fill visible image loaded shows the image 1`] = `
 <ForwardRef
   data={
-    Object {
+    {
       "alt": "DatoCMS swag",
       "aspectRatio": 1.7777777777777777,
       "base64": "data:image/jpeg;base64,/9j/4AAQSkZJRgABAQAAAQABAAD/2wCEAAoHBwgHBgoICAgLFQoLDhgQDg0NDh0eHREYIx8lJCIrHB0dLSs7GikyKSEuKjUlKDk1MjIyHyo4PTc+PDcxPjUBCgsLDg0OHBAQHDsoIig7Ozs7Ozs7OzsvOzs7Ozs7Ozs7Lzs7Ozs7Ozs7OzsvOzs7NTsvLy87NTU1Ly8vLzsvL//AABEIAA0AGAMBIgACEQEDEQH/xAAYAAACAwAAAAAAAAAAAAAAAAAGBwABBP/EACEQAAEEAAYDAAAAAAAAAAAAAAEAAgMEBQYHESEiFWFx/8QAFQEBAQAAAAAAAAAAAAAAAAAAAwL/xAAZEQADAAMAAAAAAAAAAAAAAAAAAQIRITH/2gAMAwEAAhEDEQA/AFxLgDWTsAd1J5TGy7hEYqNAaNgECX7sjLMQAHJTEy1Zcarfia4lJMauAxqBhLY6ZlaOzDurWvUOd3jZPfCiEh4xs//Z",
@@ -80,7 +80,7 @@ exports[`Image layout=fill visible image loaded shows the image 1`] = `
 >
   <div
     style={
-      Object {
+      {
         "height": "100%",
         "left": 0,
         "maxHeight": "none",
@@ -97,7 +97,7 @@ exports[`Image layout=fill visible image loaded shows the image 1`] = `
       aria-hidden="true"
       src="data:image/jpeg;base64,/9j/4AAQSkZJRgABAQAAAQABAAD/2wCEAAoHBwgHBgoICAgLFQoLDhgQDg0NDh0eHREYIx8lJCIrHB0dLSs7GikyKSEuKjUlKDk1MjIyHyo4PTc+PDcxPjUBCgsLDg0OHBAQHDsoIig7Ozs7Ozs7OzsvOzs7Ozs7Ozs7Lzs7Ozs7Ozs7OzsvOzs7NTsvLy87NTU1Ly8vLzsvL//AABEIAA0AGAMBIgACEQEDEQH/xAAYAAACAwAAAAAAAAAAAAAAAAAGBwABBP/EACEQAAEEAAYDAAAAAAAAAAAAAAEAAgMEBQYHESEiFWFx/8QAFQEBAQAAAAAAAAAAAAAAAAAAAwL/xAAZEQADAAMAAAAAAAAAAAAAAAAAAQIRITH/2gAMAwEAAhEDEQA/AFxLgDWTsAd1J5TGy7hEYqNAaNgECX7sjLMQAHJTEy1Zcarfia4lJMauAxqBhLY6ZlaOzDurWvUOd3jZPfCiEh4xs//Z"
       style={
-        Object {
+        {
           "backgroundColor": undefined,
           "height": "110%",
           "left": "-5%",
@@ -123,7 +123,7 @@ exports[`Image layout=fill visible image loaded shows the image 1`] = `
         onLoad={[Function]}
         src="https://www.datocms-assets.com/205/image.png?ar=16%3A9&fit=crop&w=750"
         style={
-          Object {
+          {
             "height": "100%",
             "left": 0,
             "maxHeight": "none",
@@ -150,7 +150,7 @@ exports[`Image layout=fill visible image loaded shows the image 1`] = `
 exports[`Image layout=fill visible renders the image (minimal data) 1`] = `
 <ForwardRef
   data={
-    Object {
+    {
       "base64": "data:image/jpeg;base64,/9j/4AAQSkZJRgABAQAAAQABAAD/2wCEAAoHBwgHBgoICAgLFQoLDhgQDg0NDh0eHREYIx8lJCIrHB0dLSs7GikyKSEuKjUlKDk1MjIyHyo4PTc+PDcxPjUBCgsLDg0OHBAQHDsoIig7Ozs7Ozs7OzsvOzs7Ozs7Ozs7Lzs7Ozs7Ozs7OzsvOzs7NTsvLy87NTU1Ly8vLzsvL//AABEIAA0AGAMBIgACEQEDEQH/xAAYAAACAwAAAAAAAAAAAAAAAAAGBwABBP/EACEQAAEEAAYDAAAAAAAAAAAAAAEAAgMEBQYHESEiFWFx/8QAFQEBAQAAAAAAAAAAAAAAAAAAAwL/xAAZEQADAAMAAAAAAAAAAAAAAAAAAQIRITH/2gAMAwEAAhEDEQA/AFxLgDWTsAd1J5TGy7hEYqNAaNgECX7sjLMQAHJTEy1Zcarfia4lJMauAxqBhLY6ZlaOzDurWvUOd3jZPfCiEh4xs//Z",
       "height": 421,
       "src": "https://www.datocms-assets.com/205/image.png?ar=16%3A9&fit=crop&w=750",
@@ -162,7 +162,7 @@ exports[`Image layout=fill visible renders the image (minimal data) 1`] = `
 >
   <div
     style={
-      Object {
+      {
         "height": "100%",
         "left": 0,
         "maxHeight": "none",
@@ -179,7 +179,7 @@ exports[`Image layout=fill visible renders the image (minimal data) 1`] = `
       aria-hidden="true"
       src="data:image/jpeg;base64,/9j/4AAQSkZJRgABAQAAAQABAAD/2wCEAAoHBwgHBgoICAgLFQoLDhgQDg0NDh0eHREYIx8lJCIrHB0dLSs7GikyKSEuKjUlKDk1MjIyHyo4PTc+PDcxPjUBCgsLDg0OHBAQHDsoIig7Ozs7Ozs7OzsvOzs7Ozs7Ozs7Lzs7Ozs7Ozs7OzsvOzs7NTsvLy87NTU1Ly8vLzsvL//AABEIAA0AGAMBIgACEQEDEQH/xAAYAAACAwAAAAAAAAAAAAAAAAAGBwABBP/EACEQAAEEAAYDAAAAAAAAAAAAAAEAAgMEBQYHESEiFWFx/8QAFQEBAQAAAAAAAAAAAAAAAAAAAwL/xAAZEQADAAMAAAAAAAAAAAAAAAAAAQIRITH/2gAMAwEAAhEDEQA/AFxLgDWTsAd1J5TGy7hEYqNAaNgECX7sjLMQAHJTEy1Zcarfia4lJMauAxqBhLY6ZlaOzDurWvUOd3jZPfCiEh4xs//Z"
       style={
-        Object {
+        {
           "backgroundColor": undefined,
           "height": "110%",
           "left": "-5%",
@@ -204,7 +204,7 @@ exports[`Image layout=fill visible renders the image (minimal data) 1`] = `
         onLoad={[Function]}
         src="https://www.datocms-assets.com/205/image.png?ar=16%3A9&fit=crop&w=750"
         style={
-          Object {
+          {
             "height": "100%",
             "left": 0,
             "maxHeight": "none",
@@ -230,7 +230,7 @@ exports[`Image layout=fill visible renders the image (minimal data) 1`] = `
 exports[`Image layout=fill visible renders the image (relative URL) 1`] = `
 <ForwardRef
   data={
-    Object {
+    {
       "base64": "data:image/jpeg;base64,/9j/4AAQSkZJRgABAQAAAQABAAD/2wCEAAoHBwgHBgoICAgLFQoLDhgQDg0NDh0eHREYIx8lJCIrHB0dLSs7GikyKSEuKjUlKDk1MjIyHyo4PTc+PDcxPjUBCgsLDg0OHBAQHDsoIig7Ozs7Ozs7OzsvOzs7Ozs7Ozs7Lzs7Ozs7Ozs7OzsvOzs7NTsvLy87NTU1Ly8vLzsvL//AABEIAA0AGAMBIgACEQEDEQH/xAAYAAACAwAAAAAAAAAAAAAAAAAGBwABBP/EACEQAAEEAAYDAAAAAAAAAAAAAAEAAgMEBQYHESEiFWFx/8QAFQEBAQAAAAAAAAAAAAAAAAAAAwL/xAAZEQADAAMAAAAAAAAAAAAAAAAAAQIRITH/2gAMAwEAAhEDEQA/AFxLgDWTsAd1J5TGy7hEYqNAaNgECX7sjLMQAHJTEy1Zcarfia4lJMauAxqBhLY6ZlaOzDurWvUOd3jZPfCiEh4xs//Z",
       "height": 421,
       "src": "/205/image.png?ar=16%3A9&fit=crop&w=750",
@@ -242,7 +242,7 @@ exports[`Image layout=fill visible renders the image (relative URL) 1`] = `
 >
   <div
     style={
-      Object {
+      {
         "height": "100%",
         "left": 0,
         "maxHeight": "none",
@@ -259,7 +259,7 @@ exports[`Image layout=fill visible renders the image (relative URL) 1`] = `
       aria-hidden="true"
       src="data:image/jpeg;base64,/9j/4AAQSkZJRgABAQAAAQABAAD/2wCEAAoHBwgHBgoICAgLFQoLDhgQDg0NDh0eHREYIx8lJCIrHB0dLSs7GikyKSEuKjUlKDk1MjIyHyo4PTc+PDcxPjUBCgsLDg0OHBAQHDsoIig7Ozs7Ozs7OzsvOzs7Ozs7Ozs7Lzs7Ozs7Ozs7OzsvOzs7NTsvLy87NTU1Ly8vLzsvL//AABEIAA0AGAMBIgACEQEDEQH/xAAYAAACAwAAAAAAAAAAAAAAAAAGBwABBP/EACEQAAEEAAYDAAAAAAAAAAAAAAEAAgMEBQYHESEiFWFx/8QAFQEBAQAAAAAAAAAAAAAAAAAAAwL/xAAZEQADAAMAAAAAAAAAAAAAAAAAAQIRITH/2gAMAwEAAhEDEQA/AFxLgDWTsAd1J5TGy7hEYqNAaNgECX7sjLMQAHJTEy1Zcarfia4lJMauAxqBhLY6ZlaOzDurWvUOd3jZPfCiEh4xs//Z"
       style={
-        Object {
+        {
           "backgroundColor": undefined,
           "height": "110%",
           "left": "-5%",
@@ -284,7 +284,7 @@ exports[`Image layout=fill visible renders the image (relative URL) 1`] = `
         onLoad={[Function]}
         src="/205/image.png?ar=16%3A9&fit=crop&w=750"
         style={
-          Object {
+          {
             "height": "100%",
             "left": 0,
             "maxHeight": "none",
@@ -310,7 +310,7 @@ exports[`Image layout=fill visible renders the image (relative URL) 1`] = `
 exports[`Image layout=fill visible renders the image 1`] = `
 <ForwardRef
   data={
-    Object {
+    {
       "alt": "DatoCMS swag",
       "aspectRatio": 1.7777777777777777,
       "base64": "data:image/jpeg;base64,/9j/4AAQSkZJRgABAQAAAQABAAD/2wCEAAoHBwgHBgoICAgLFQoLDhgQDg0NDh0eHREYIx8lJCIrHB0dLSs7GikyKSEuKjUlKDk1MjIyHyo4PTc+PDcxPjUBCgsLDg0OHBAQHDsoIig7Ozs7Ozs7OzsvOzs7Ozs7Ozs7Lzs7Ozs7Ozs7OzsvOzs7NTsvLy87NTU1Ly8vLzsvL//AABEIAA0AGAMBIgACEQEDEQH/xAAYAAACAwAAAAAAAAAAAAAAAAAGBwABBP/EACEQAAEEAAYDAAAAAAAAAAAAAAEAAgMEBQYHESEiFWFx/8QAFQEBAQAAAAAAAAAAAAAAAAAAAwL/xAAZEQADAAMAAAAAAAAAAAAAAAAAAQIRITH/2gAMAwEAAhEDEQA/AFxLgDWTsAd1J5TGy7hEYqNAaNgECX7sjLMQAHJTEy1Zcarfia4lJMauAxqBhLY6ZlaOzDurWvUOd3jZPfCiEh4xs//Z",
@@ -327,7 +327,7 @@ exports[`Image layout=fill visible renders the image 1`] = `
 >
   <div
     style={
-      Object {
+      {
         "height": "100%",
         "left": 0,
         "maxHeight": "none",
@@ -344,7 +344,7 @@ exports[`Image layout=fill visible renders the image 1`] = `
       aria-hidden="true"
       src="data:image/jpeg;base64,/9j/4AAQSkZJRgABAQAAAQABAAD/2wCEAAoHBwgHBgoICAgLFQoLDhgQDg0NDh0eHREYIx8lJCIrHB0dLSs7GikyKSEuKjUlKDk1MjIyHyo4PTc+PDcxPjUBCgsLDg0OHBAQHDsoIig7Ozs7Ozs7OzsvOzs7Ozs7Ozs7Lzs7Ozs7Ozs7OzsvOzs7NTsvLy87NTU1Ly8vLzsvL//AABEIAA0AGAMBIgACEQEDEQH/xAAYAAACAwAAAAAAAAAAAAAAAAAGBwABBP/EACEQAAEEAAYDAAAAAAAAAAAAAAEAAgMEBQYHESEiFWFx/8QAFQEBAQAAAAAAAAAAAAAAAAAAAwL/xAAZEQADAAMAAAAAAAAAAAAAAAAAAQIRITH/2gAMAwEAAhEDEQA/AFxLgDWTsAd1J5TGy7hEYqNAaNgECX7sjLMQAHJTEy1Zcarfia4lJMauAxqBhLY6ZlaOzDurWvUOd3jZPfCiEh4xs//Z"
       style={
-        Object {
+        {
           "backgroundColor": undefined,
           "height": "110%",
           "left": "-5%",
@@ -370,7 +370,7 @@ exports[`Image layout=fill visible renders the image 1`] = `
         onLoad={[Function]}
         src="https://www.datocms-assets.com/205/image.png?ar=16%3A9&fit=crop&w=750"
         style={
-          Object {
+          {
             "height": "100%",
             "left": 0,
             "maxHeight": "none",
@@ -397,7 +397,7 @@ exports[`Image layout=fill visible renders the image 1`] = `
 exports[`Image layout=fixed not visible renders the blur-up thumb 1`] = `
 <ForwardRef
   data={
-    Object {
+    {
       "alt": "DatoCMS swag",
       "aspectRatio": 1.7777777777777777,
       "base64": "data:image/jpeg;base64,/9j/4AAQSkZJRgABAQAAAQABAAD/2wCEAAoHBwgHBgoICAgLFQoLDhgQDg0NDh0eHREYIx8lJCIrHB0dLSs7GikyKSEuKjUlKDk1MjIyHyo4PTc+PDcxPjUBCgsLDg0OHBAQHDsoIig7Ozs7Ozs7OzsvOzs7Ozs7Ozs7Lzs7Ozs7Ozs7OzsvOzs7NTsvLy87NTU1Ly8vLzsvL//AABEIAA0AGAMBIgACEQEDEQH/xAAYAAACAwAAAAAAAAAAAAAAAAAGBwABBP/EACEQAAEEAAYDAAAAAAAAAAAAAAEAAgMEBQYHESEiFWFx/8QAFQEBAQAAAAAAAAAAAAAAAAAAAwL/xAAZEQADAAMAAAAAAAAAAAAAAAAAAQIRITH/2gAMAwEAAhEDEQA/AFxLgDWTsAd1J5TGy7hEYqNAaNgECX7sjLMQAHJTEy1Zcarfia4lJMauAxqBhLY6ZlaOzDurWvUOd3jZPfCiEh4xs//Z",
@@ -414,7 +414,7 @@ exports[`Image layout=fixed not visible renders the blur-up thumb 1`] = `
 >
   <div
     style={
-      Object {
+      {
         "overflow": "hidden",
         "position": "relative",
         "width": 750,
@@ -426,7 +426,7 @@ exports[`Image layout=fixed not visible renders the blur-up thumb 1`] = `
       aria-hidden="true"
       src="data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHdpZHRoPSI3NTAiIGhlaWdodD0iNDIxIj48L3N2Zz4="
       style={
-        Object {
+        {
           "display": "block",
           "width": "100%",
         }
@@ -437,7 +437,7 @@ exports[`Image layout=fixed not visible renders the blur-up thumb 1`] = `
       aria-hidden="true"
       src="data:image/jpeg;base64,/9j/4AAQSkZJRgABAQAAAQABAAD/2wCEAAoHBwgHBgoICAgLFQoLDhgQDg0NDh0eHREYIx8lJCIrHB0dLSs7GikyKSEuKjUlKDk1MjIyHyo4PTc+PDcxPjUBCgsLDg0OHBAQHDsoIig7Ozs7Ozs7OzsvOzs7Ozs7Ozs7Lzs7Ozs7Ozs7OzsvOzs7NTsvLy87NTU1Ly8vLzsvL//AABEIAA0AGAMBIgACEQEDEQH/xAAYAAACAwAAAAAAAAAAAAAAAAAGBwABBP/EACEQAAEEAAYDAAAAAAAAAAAAAAEAAgMEBQYHESEiFWFx/8QAFQEBAQAAAAAAAAAAAAAAAAAAAwL/xAAZEQADAAMAAAAAAAAAAAAAAAAAAQIRITH/2gAMAwEAAhEDEQA/AFxLgDWTsAd1J5TGy7hEYqNAaNgECX7sjLMQAHJTEy1Zcarfia4lJMauAxqBhLY6ZlaOzDurWvUOd3jZPfCiEh4xs//Z"
       style={
-        Object {
+        {
           "backgroundColor": undefined,
           "height": "110%",
           "left": "-5%",
@@ -463,7 +463,7 @@ exports[`Image layout=fixed not visible renders the blur-up thumb 1`] = `
 exports[`Image layout=fixed visible image loaded shows the image 1`] = `
 <ForwardRef
   data={
-    Object {
+    {
       "alt": "DatoCMS swag",
       "aspectRatio": 1.7777777777777777,
       "base64": "data:image/jpeg;base64,/9j/4AAQSkZJRgABAQAAAQABAAD/2wCEAAoHBwgHBgoICAgLFQoLDhgQDg0NDh0eHREYIx8lJCIrHB0dLSs7GikyKSEuKjUlKDk1MjIyHyo4PTc+PDcxPjUBCgsLDg0OHBAQHDsoIig7Ozs7Ozs7OzsvOzs7Ozs7Ozs7Lzs7Ozs7Ozs7OzsvOzs7NTsvLy87NTU1Ly8vLzsvL//AABEIAA0AGAMBIgACEQEDEQH/xAAYAAACAwAAAAAAAAAAAAAAAAAGBwABBP/EACEQAAEEAAYDAAAAAAAAAAAAAAEAAgMEBQYHESEiFWFx/8QAFQEBAQAAAAAAAAAAAAAAAAAAAwL/xAAZEQADAAMAAAAAAAAAAAAAAAAAAQIRITH/2gAMAwEAAhEDEQA/AFxLgDWTsAd1J5TGy7hEYqNAaNgECX7sjLMQAHJTEy1Zcarfia4lJMauAxqBhLY6ZlaOzDurWvUOd3jZPfCiEh4xs//Z",
@@ -480,7 +480,7 @@ exports[`Image layout=fixed visible image loaded shows the image 1`] = `
 >
   <div
     style={
-      Object {
+      {
         "overflow": "hidden",
         "position": "relative",
         "width": 750,
@@ -492,7 +492,7 @@ exports[`Image layout=fixed visible image loaded shows the image 1`] = `
       aria-hidden="true"
       src="data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHdpZHRoPSI3NTAiIGhlaWdodD0iNDIxIj48L3N2Zz4="
       style={
-        Object {
+        {
           "display": "block",
           "width": "100%",
         }
@@ -503,7 +503,7 @@ exports[`Image layout=fixed visible image loaded shows the image 1`] = `
       aria-hidden="true"
       src="data:image/jpeg;base64,/9j/4AAQSkZJRgABAQAAAQABAAD/2wCEAAoHBwgHBgoICAgLFQoLDhgQDg0NDh0eHREYIx8lJCIrHB0dLSs7GikyKSEuKjUlKDk1MjIyHyo4PTc+PDcxPjUBCgsLDg0OHBAQHDsoIig7Ozs7Ozs7OzsvOzs7Ozs7Ozs7Lzs7Ozs7Ozs7OzsvOzs7NTsvLy87NTU1Ly8vLzsvL//AABEIAA0AGAMBIgACEQEDEQH/xAAYAAACAwAAAAAAAAAAAAAAAAAGBwABBP/EACEQAAEEAAYDAAAAAAAAAAAAAAEAAgMEBQYHESEiFWFx/8QAFQEBAQAAAAAAAAAAAAAAAAAAAwL/xAAZEQADAAMAAAAAAAAAAAAAAAAAAQIRITH/2gAMAwEAAhEDEQA/AFxLgDWTsAd1J5TGy7hEYqNAaNgECX7sjLMQAHJTEy1Zcarfia4lJMauAxqBhLY6ZlaOzDurWvUOd3jZPfCiEh4xs//Z"
       style={
-        Object {
+        {
           "backgroundColor": undefined,
           "height": "110%",
           "left": "-5%",
@@ -529,7 +529,7 @@ exports[`Image layout=fixed visible image loaded shows the image 1`] = `
         onLoad={[Function]}
         src="https://www.datocms-assets.com/205/image.png?ar=16%3A9&fit=crop&w=750"
         style={
-          Object {
+          {
             "height": "100%",
             "left": 0,
             "maxHeight": "none",
@@ -556,7 +556,7 @@ exports[`Image layout=fixed visible image loaded shows the image 1`] = `
 exports[`Image layout=fixed visible renders the image (minimal data) 1`] = `
 <ForwardRef
   data={
-    Object {
+    {
       "base64": "data:image/jpeg;base64,/9j/4AAQSkZJRgABAQAAAQABAAD/2wCEAAoHBwgHBgoICAgLFQoLDhgQDg0NDh0eHREYIx8lJCIrHB0dLSs7GikyKSEuKjUlKDk1MjIyHyo4PTc+PDcxPjUBCgsLDg0OHBAQHDsoIig7Ozs7Ozs7OzsvOzs7Ozs7Ozs7Lzs7Ozs7Ozs7OzsvOzs7NTsvLy87NTU1Ly8vLzsvL//AABEIAA0AGAMBIgACEQEDEQH/xAAYAAACAwAAAAAAAAAAAAAAAAAGBwABBP/EACEQAAEEAAYDAAAAAAAAAAAAAAEAAgMEBQYHESEiFWFx/8QAFQEBAQAAAAAAAAAAAAAAAAAAAwL/xAAZEQADAAMAAAAAAAAAAAAAAAAAAQIRITH/2gAMAwEAAhEDEQA/AFxLgDWTsAd1J5TGy7hEYqNAaNgECX7sjLMQAHJTEy1Zcarfia4lJMauAxqBhLY6ZlaOzDurWvUOd3jZPfCiEh4xs//Z",
       "height": 421,
       "src": "https://www.datocms-assets.com/205/image.png?ar=16%3A9&fit=crop&w=750",
@@ -568,7 +568,7 @@ exports[`Image layout=fixed visible renders the image (minimal data) 1`] = `
 >
   <div
     style={
-      Object {
+      {
         "overflow": "hidden",
         "position": "relative",
         "width": 750,
@@ -580,7 +580,7 @@ exports[`Image layout=fixed visible renders the image (minimal data) 1`] = `
       aria-hidden="true"
       src="data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHdpZHRoPSI3NTAiIGhlaWdodD0iNDIxIj48L3N2Zz4="
       style={
-        Object {
+        {
           "display": "block",
           "width": "100%",
         }
@@ -591,7 +591,7 @@ exports[`Image layout=fixed visible renders the image (minimal data) 1`] = `
       aria-hidden="true"
       src="data:image/jpeg;base64,/9j/4AAQSkZJRgABAQAAAQABAAD/2wCEAAoHBwgHBgoICAgLFQoLDhgQDg0NDh0eHREYIx8lJCIrHB0dLSs7GikyKSEuKjUlKDk1MjIyHyo4PTc+PDcxPjUBCgsLDg0OHBAQHDsoIig7Ozs7Ozs7OzsvOzs7Ozs7Ozs7Lzs7Ozs7Ozs7OzsvOzs7NTsvLy87NTU1Ly8vLzsvL//AABEIAA0AGAMBIgACEQEDEQH/xAAYAAACAwAAAAAAAAAAAAAAAAAGBwABBP/EACEQAAEEAAYDAAAAAAAAAAAAAAEAAgMEBQYHESEiFWFx/8QAFQEBAQAAAAAAAAAAAAAAAAAAAwL/xAAZEQADAAMAAAAAAAAAAAAAAAAAAQIRITH/2gAMAwEAAhEDEQA/AFxLgDWTsAd1J5TGy7hEYqNAaNgECX7sjLMQAHJTEy1Zcarfia4lJMauAxqBhLY6ZlaOzDurWvUOd3jZPfCiEh4xs//Z"
       style={
-        Object {
+        {
           "backgroundColor": undefined,
           "height": "110%",
           "left": "-5%",
@@ -616,7 +616,7 @@ exports[`Image layout=fixed visible renders the image (minimal data) 1`] = `
         onLoad={[Function]}
         src="https://www.datocms-assets.com/205/image.png?ar=16%3A9&fit=crop&w=750"
         style={
-          Object {
+          {
             "height": "100%",
             "left": 0,
             "maxHeight": "none",
@@ -642,7 +642,7 @@ exports[`Image layout=fixed visible renders the image (minimal data) 1`] = `
 exports[`Image layout=fixed visible renders the image (relative URL) 1`] = `
 <ForwardRef
   data={
-    Object {
+    {
       "base64": "data:image/jpeg;base64,/9j/4AAQSkZJRgABAQAAAQABAAD/2wCEAAoHBwgHBgoICAgLFQoLDhgQDg0NDh0eHREYIx8lJCIrHB0dLSs7GikyKSEuKjUlKDk1MjIyHyo4PTc+PDcxPjUBCgsLDg0OHBAQHDsoIig7Ozs7Ozs7OzsvOzs7Ozs7Ozs7Lzs7Ozs7Ozs7OzsvOzs7NTsvLy87NTU1Ly8vLzsvL//AABEIAA0AGAMBIgACEQEDEQH/xAAYAAACAwAAAAAAAAAAAAAAAAAGBwABBP/EACEQAAEEAAYDAAAAAAAAAAAAAAEAAgMEBQYHESEiFWFx/8QAFQEBAQAAAAAAAAAAAAAAAAAAAwL/xAAZEQADAAMAAAAAAAAAAAAAAAAAAQIRITH/2gAMAwEAAhEDEQA/AFxLgDWTsAd1J5TGy7hEYqNAaNgECX7sjLMQAHJTEy1Zcarfia4lJMauAxqBhLY6ZlaOzDurWvUOd3jZPfCiEh4xs//Z",
       "height": 421,
       "src": "/205/image.png?ar=16%3A9&fit=crop&w=750",
@@ -654,7 +654,7 @@ exports[`Image layout=fixed visible renders the image (relative URL) 1`] = `
 >
   <div
     style={
-      Object {
+      {
         "overflow": "hidden",
         "position": "relative",
         "width": 750,
@@ -666,7 +666,7 @@ exports[`Image layout=fixed visible renders the image (relative URL) 1`] = `
       aria-hidden="true"
       src="data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHdpZHRoPSI3NTAiIGhlaWdodD0iNDIxIj48L3N2Zz4="
       style={
-        Object {
+        {
           "display": "block",
           "width": "100%",
         }
@@ -677,7 +677,7 @@ exports[`Image layout=fixed visible renders the image (relative URL) 1`] = `
       aria-hidden="true"
       src="data:image/jpeg;base64,/9j/4AAQSkZJRgABAQAAAQABAAD/2wCEAAoHBwgHBgoICAgLFQoLDhgQDg0NDh0eHREYIx8lJCIrHB0dLSs7GikyKSEuKjUlKDk1MjIyHyo4PTc+PDcxPjUBCgsLDg0OHBAQHDsoIig7Ozs7Ozs7OzsvOzs7Ozs7Ozs7Lzs7Ozs7Ozs7OzsvOzs7NTsvLy87NTU1Ly8vLzsvL//AABEIAA0AGAMBIgACEQEDEQH/xAAYAAACAwAAAAAAAAAAAAAAAAAGBwABBP/EACEQAAEEAAYDAAAAAAAAAAAAAAEAAgMEBQYHESEiFWFx/8QAFQEBAQAAAAAAAAAAAAAAAAAAAwL/xAAZEQADAAMAAAAAAAAAAAAAAAAAAQIRITH/2gAMAwEAAhEDEQA/AFxLgDWTsAd1J5TGy7hEYqNAaNgECX7sjLMQAHJTEy1Zcarfia4lJMauAxqBhLY6ZlaOzDurWvUOd3jZPfCiEh4xs//Z"
       style={
-        Object {
+        {
           "backgroundColor": undefined,
           "height": "110%",
           "left": "-5%",
@@ -702,7 +702,7 @@ exports[`Image layout=fixed visible renders the image (relative URL) 1`] = `
         onLoad={[Function]}
         src="/205/image.png?ar=16%3A9&fit=crop&w=750"
         style={
-          Object {
+          {
             "height": "100%",
             "left": 0,
             "maxHeight": "none",
@@ -728,7 +728,7 @@ exports[`Image layout=fixed visible renders the image (relative URL) 1`] = `
 exports[`Image layout=fixed visible renders the image 1`] = `
 <ForwardRef
   data={
-    Object {
+    {
       "alt": "DatoCMS swag",
       "aspectRatio": 1.7777777777777777,
       "base64": "data:image/jpeg;base64,/9j/4AAQSkZJRgABAQAAAQABAAD/2wCEAAoHBwgHBgoICAgLFQoLDhgQDg0NDh0eHREYIx8lJCIrHB0dLSs7GikyKSEuKjUlKDk1MjIyHyo4PTc+PDcxPjUBCgsLDg0OHBAQHDsoIig7Ozs7Ozs7OzsvOzs7Ozs7Ozs7Lzs7Ozs7Ozs7OzsvOzs7NTsvLy87NTU1Ly8vLzsvL//AABEIAA0AGAMBIgACEQEDEQH/xAAYAAACAwAAAAAAAAAAAAAAAAAGBwABBP/EACEQAAEEAAYDAAAAAAAAAAAAAAEAAgMEBQYHESEiFWFx/8QAFQEBAQAAAAAAAAAAAAAAAAAAAwL/xAAZEQADAAMAAAAAAAAAAAAAAAAAAQIRITH/2gAMAwEAAhEDEQA/AFxLgDWTsAd1J5TGy7hEYqNAaNgECX7sjLMQAHJTEy1Zcarfia4lJMauAxqBhLY6ZlaOzDurWvUOd3jZPfCiEh4xs//Z",
@@ -745,7 +745,7 @@ exports[`Image layout=fixed visible renders the image 1`] = `
 >
   <div
     style={
-      Object {
+      {
         "overflow": "hidden",
         "position": "relative",
         "width": 750,
@@ -757,7 +757,7 @@ exports[`Image layout=fixed visible renders the image 1`] = `
       aria-hidden="true"
       src="data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHdpZHRoPSI3NTAiIGhlaWdodD0iNDIxIj48L3N2Zz4="
       style={
-        Object {
+        {
           "display": "block",
           "width": "100%",
         }
@@ -768,7 +768,7 @@ exports[`Image layout=fixed visible renders the image 1`] = `
       aria-hidden="true"
       src="data:image/jpeg;base64,/9j/4AAQSkZJRgABAQAAAQABAAD/2wCEAAoHBwgHBgoICAgLFQoLDhgQDg0NDh0eHREYIx8lJCIrHB0dLSs7GikyKSEuKjUlKDk1MjIyHyo4PTc+PDcxPjUBCgsLDg0OHBAQHDsoIig7Ozs7Ozs7OzsvOzs7Ozs7Ozs7Lzs7Ozs7Ozs7OzsvOzs7NTsvLy87NTU1Ly8vLzsvL//AABEIAA0AGAMBIgACEQEDEQH/xAAYAAACAwAAAAAAAAAAAAAAAAAGBwABBP/EACEQAAEEAAYDAAAAAAAAAAAAAAEAAgMEBQYHESEiFWFx/8QAFQEBAQAAAAAAAAAAAAAAAAAAAwL/xAAZEQADAAMAAAAAAAAAAAAAAAAAAQIRITH/2gAMAwEAAhEDEQA/AFxLgDWTsAd1J5TGy7hEYqNAaNgECX7sjLMQAHJTEy1Zcarfia4lJMauAxqBhLY6ZlaOzDurWvUOd3jZPfCiEh4xs//Z"
       style={
-        Object {
+        {
           "backgroundColor": undefined,
           "height": "110%",
           "left": "-5%",
@@ -794,7 +794,7 @@ exports[`Image layout=fixed visible renders the image 1`] = `
         onLoad={[Function]}
         src="https://www.datocms-assets.com/205/image.png?ar=16%3A9&fit=crop&w=750"
         style={
-          Object {
+          {
             "height": "100%",
             "left": 0,
             "maxHeight": "none",
@@ -821,7 +821,7 @@ exports[`Image layout=fixed visible renders the image 1`] = `
 exports[`Image layout=intrinsic not visible renders the blur-up thumb 1`] = `
 <ForwardRef
   data={
-    Object {
+    {
       "alt": "DatoCMS swag",
       "aspectRatio": 1.7777777777777777,
       "base64": "data:image/jpeg;base64,/9j/4AAQSkZJRgABAQAAAQABAAD/2wCEAAoHBwgHBgoICAgLFQoLDhgQDg0NDh0eHREYIx8lJCIrHB0dLSs7GikyKSEuKjUlKDk1MjIyHyo4PTc+PDcxPjUBCgsLDg0OHBAQHDsoIig7Ozs7Ozs7OzsvOzs7Ozs7Ozs7Lzs7Ozs7Ozs7OzsvOzs7NTsvLy87NTU1Ly8vLzsvL//AABEIAA0AGAMBIgACEQEDEQH/xAAYAAACAwAAAAAAAAAAAAAAAAAGBwABBP/EACEQAAEEAAYDAAAAAAAAAAAAAAEAAgMEBQYHESEiFWFx/8QAFQEBAQAAAAAAAAAAAAAAAAAAAwL/xAAZEQADAAMAAAAAAAAAAAAAAAAAAQIRITH/2gAMAwEAAhEDEQA/AFxLgDWTsAd1J5TGy7hEYqNAaNgECX7sjLMQAHJTEy1Zcarfia4lJMauAxqBhLY6ZlaOzDurWvUOd3jZPfCiEh4xs//Z",
@@ -838,7 +838,7 @@ exports[`Image layout=intrinsic not visible renders the blur-up thumb 1`] = `
 >
   <div
     style={
-      Object {
+      {
         "maxWidth": 750,
         "overflow": "hidden",
         "position": "relative",
@@ -851,7 +851,7 @@ exports[`Image layout=intrinsic not visible renders the blur-up thumb 1`] = `
       aria-hidden="true"
       src="data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHdpZHRoPSI3NTAiIGhlaWdodD0iNDIxIj48L3N2Zz4="
       style={
-        Object {
+        {
           "display": "block",
           "width": "100%",
         }
@@ -862,7 +862,7 @@ exports[`Image layout=intrinsic not visible renders the blur-up thumb 1`] = `
       aria-hidden="true"
       src="data:image/jpeg;base64,/9j/4AAQSkZJRgABAQAAAQABAAD/2wCEAAoHBwgHBgoICAgLFQoLDhgQDg0NDh0eHREYIx8lJCIrHB0dLSs7GikyKSEuKjUlKDk1MjIyHyo4PTc+PDcxPjUBCgsLDg0OHBAQHDsoIig7Ozs7Ozs7OzsvOzs7Ozs7Ozs7Lzs7Ozs7Ozs7OzsvOzs7NTsvLy87NTU1Ly8vLzsvL//AABEIAA0AGAMBIgACEQEDEQH/xAAYAAACAwAAAAAAAAAAAAAAAAAGBwABBP/EACEQAAEEAAYDAAAAAAAAAAAAAAEAAgMEBQYHESEiFWFx/8QAFQEBAQAAAAAAAAAAAAAAAAAAAwL/xAAZEQADAAMAAAAAAAAAAAAAAAAAAQIRITH/2gAMAwEAAhEDEQA/AFxLgDWTsAd1J5TGy7hEYqNAaNgECX7sjLMQAHJTEy1Zcarfia4lJMauAxqBhLY6ZlaOzDurWvUOd3jZPfCiEh4xs//Z"
       style={
-        Object {
+        {
           "backgroundColor": undefined,
           "height": "110%",
           "left": "-5%",
@@ -888,7 +888,7 @@ exports[`Image layout=intrinsic not visible renders the blur-up thumb 1`] = `
 exports[`Image layout=intrinsic visible image loaded shows the image 1`] = `
 <ForwardRef
   data={
-    Object {
+    {
       "alt": "DatoCMS swag",
       "aspectRatio": 1.7777777777777777,
       "base64": "data:image/jpeg;base64,/9j/4AAQSkZJRgABAQAAAQABAAD/2wCEAAoHBwgHBgoICAgLFQoLDhgQDg0NDh0eHREYIx8lJCIrHB0dLSs7GikyKSEuKjUlKDk1MjIyHyo4PTc+PDcxPjUBCgsLDg0OHBAQHDsoIig7Ozs7Ozs7OzsvOzs7Ozs7Ozs7Lzs7Ozs7Ozs7OzsvOzs7NTsvLy87NTU1Ly8vLzsvL//AABEIAA0AGAMBIgACEQEDEQH/xAAYAAACAwAAAAAAAAAAAAAAAAAGBwABBP/EACEQAAEEAAYDAAAAAAAAAAAAAAEAAgMEBQYHESEiFWFx/8QAFQEBAQAAAAAAAAAAAAAAAAAAAwL/xAAZEQADAAMAAAAAAAAAAAAAAAAAAQIRITH/2gAMAwEAAhEDEQA/AFxLgDWTsAd1J5TGy7hEYqNAaNgECX7sjLMQAHJTEy1Zcarfia4lJMauAxqBhLY6ZlaOzDurWvUOd3jZPfCiEh4xs//Z",
@@ -905,7 +905,7 @@ exports[`Image layout=intrinsic visible image loaded shows the image 1`] = `
 >
   <div
     style={
-      Object {
+      {
         "maxWidth": 750,
         "overflow": "hidden",
         "position": "relative",
@@ -918,7 +918,7 @@ exports[`Image layout=intrinsic visible image loaded shows the image 1`] = `
       aria-hidden="true"
       src="data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHdpZHRoPSI3NTAiIGhlaWdodD0iNDIxIj48L3N2Zz4="
       style={
-        Object {
+        {
           "display": "block",
           "width": "100%",
         }
@@ -929,7 +929,7 @@ exports[`Image layout=intrinsic visible image loaded shows the image 1`] = `
       aria-hidden="true"
       src="data:image/jpeg;base64,/9j/4AAQSkZJRgABAQAAAQABAAD/2wCEAAoHBwgHBgoICAgLFQoLDhgQDg0NDh0eHREYIx8lJCIrHB0dLSs7GikyKSEuKjUlKDk1MjIyHyo4PTc+PDcxPjUBCgsLDg0OHBAQHDsoIig7Ozs7Ozs7OzsvOzs7Ozs7Ozs7Lzs7Ozs7Ozs7OzsvOzs7NTsvLy87NTU1Ly8vLzsvL//AABEIAA0AGAMBIgACEQEDEQH/xAAYAAACAwAAAAAAAAAAAAAAAAAGBwABBP/EACEQAAEEAAYDAAAAAAAAAAAAAAEAAgMEBQYHESEiFWFx/8QAFQEBAQAAAAAAAAAAAAAAAAAAAwL/xAAZEQADAAMAAAAAAAAAAAAAAAAAAQIRITH/2gAMAwEAAhEDEQA/AFxLgDWTsAd1J5TGy7hEYqNAaNgECX7sjLMQAHJTEy1Zcarfia4lJMauAxqBhLY6ZlaOzDurWvUOd3jZPfCiEh4xs//Z"
       style={
-        Object {
+        {
           "backgroundColor": undefined,
           "height": "110%",
           "left": "-5%",
@@ -955,7 +955,7 @@ exports[`Image layout=intrinsic visible image loaded shows the image 1`] = `
         onLoad={[Function]}
         src="https://www.datocms-assets.com/205/image.png?ar=16%3A9&fit=crop&w=750"
         style={
-          Object {
+          {
             "height": "100%",
             "left": 0,
             "maxHeight": "none",
@@ -982,7 +982,7 @@ exports[`Image layout=intrinsic visible image loaded shows the image 1`] = `
 exports[`Image layout=intrinsic visible renders the image (minimal data) 1`] = `
 <ForwardRef
   data={
-    Object {
+    {
       "base64": "data:image/jpeg;base64,/9j/4AAQSkZJRgABAQAAAQABAAD/2wCEAAoHBwgHBgoICAgLFQoLDhgQDg0NDh0eHREYIx8lJCIrHB0dLSs7GikyKSEuKjUlKDk1MjIyHyo4PTc+PDcxPjUBCgsLDg0OHBAQHDsoIig7Ozs7Ozs7OzsvOzs7Ozs7Ozs7Lzs7Ozs7Ozs7OzsvOzs7NTsvLy87NTU1Ly8vLzsvL//AABEIAA0AGAMBIgACEQEDEQH/xAAYAAACAwAAAAAAAAAAAAAAAAAGBwABBP/EACEQAAEEAAYDAAAAAAAAAAAAAAEAAgMEBQYHESEiFWFx/8QAFQEBAQAAAAAAAAAAAAAAAAAAAwL/xAAZEQADAAMAAAAAAAAAAAAAAAAAAQIRITH/2gAMAwEAAhEDEQA/AFxLgDWTsAd1J5TGy7hEYqNAaNgECX7sjLMQAHJTEy1Zcarfia4lJMauAxqBhLY6ZlaOzDurWvUOd3jZPfCiEh4xs//Z",
       "height": 421,
       "src": "https://www.datocms-assets.com/205/image.png?ar=16%3A9&fit=crop&w=750",
@@ -994,7 +994,7 @@ exports[`Image layout=intrinsic visible renders the image (minimal data) 1`] = `
 >
   <div
     style={
-      Object {
+      {
         "maxWidth": 750,
         "overflow": "hidden",
         "position": "relative",
@@ -1007,7 +1007,7 @@ exports[`Image layout=intrinsic visible renders the image (minimal data) 1`] = `
       aria-hidden="true"
       src="data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHdpZHRoPSI3NTAiIGhlaWdodD0iNDIxIj48L3N2Zz4="
       style={
-        Object {
+        {
           "display": "block",
           "width": "100%",
         }
@@ -1018,7 +1018,7 @@ exports[`Image layout=intrinsic visible renders the image (minimal data) 1`] = `
       aria-hidden="true"
       src="data:image/jpeg;base64,/9j/4AAQSkZJRgABAQAAAQABAAD/2wCEAAoHBwgHBgoICAgLFQoLDhgQDg0NDh0eHREYIx8lJCIrHB0dLSs7GikyKSEuKjUlKDk1MjIyHyo4PTc+PDcxPjUBCgsLDg0OHBAQHDsoIig7Ozs7Ozs7OzsvOzs7Ozs7Ozs7Lzs7Ozs7Ozs7OzsvOzs7NTsvLy87NTU1Ly8vLzsvL//AABEIAA0AGAMBIgACEQEDEQH/xAAYAAACAwAAAAAAAAAAAAAAAAAGBwABBP/EACEQAAEEAAYDAAAAAAAAAAAAAAEAAgMEBQYHESEiFWFx/8QAFQEBAQAAAAAAAAAAAAAAAAAAAwL/xAAZEQADAAMAAAAAAAAAAAAAAAAAAQIRITH/2gAMAwEAAhEDEQA/AFxLgDWTsAd1J5TGy7hEYqNAaNgECX7sjLMQAHJTEy1Zcarfia4lJMauAxqBhLY6ZlaOzDurWvUOd3jZPfCiEh4xs//Z"
       style={
-        Object {
+        {
           "backgroundColor": undefined,
           "height": "110%",
           "left": "-5%",
@@ -1043,7 +1043,7 @@ exports[`Image layout=intrinsic visible renders the image (minimal data) 1`] = `
         onLoad={[Function]}
         src="https://www.datocms-assets.com/205/image.png?ar=16%3A9&fit=crop&w=750"
         style={
-          Object {
+          {
             "height": "100%",
             "left": 0,
             "maxHeight": "none",
@@ -1069,7 +1069,7 @@ exports[`Image layout=intrinsic visible renders the image (minimal data) 1`] = `
 exports[`Image layout=intrinsic visible renders the image (relative URL) 1`] = `
 <ForwardRef
   data={
-    Object {
+    {
       "base64": "data:image/jpeg;base64,/9j/4AAQSkZJRgABAQAAAQABAAD/2wCEAAoHBwgHBgoICAgLFQoLDhgQDg0NDh0eHREYIx8lJCIrHB0dLSs7GikyKSEuKjUlKDk1MjIyHyo4PTc+PDcxPjUBCgsLDg0OHBAQHDsoIig7Ozs7Ozs7OzsvOzs7Ozs7Ozs7Lzs7Ozs7Ozs7OzsvOzs7NTsvLy87NTU1Ly8vLzsvL//AABEIAA0AGAMBIgACEQEDEQH/xAAYAAACAwAAAAAAAAAAAAAAAAAGBwABBP/EACEQAAEEAAYDAAAAAAAAAAAAAAEAAgMEBQYHESEiFWFx/8QAFQEBAQAAAAAAAAAAAAAAAAAAAwL/xAAZEQADAAMAAAAAAAAAAAAAAAAAAQIRITH/2gAMAwEAAhEDEQA/AFxLgDWTsAd1J5TGy7hEYqNAaNgECX7sjLMQAHJTEy1Zcarfia4lJMauAxqBhLY6ZlaOzDurWvUOd3jZPfCiEh4xs//Z",
       "height": 421,
       "src": "/205/image.png?ar=16%3A9&fit=crop&w=750",
@@ -1081,7 +1081,7 @@ exports[`Image layout=intrinsic visible renders the image (relative URL) 1`] = `
 >
   <div
     style={
-      Object {
+      {
         "maxWidth": 750,
         "overflow": "hidden",
         "position": "relative",
@@ -1094,7 +1094,7 @@ exports[`Image layout=intrinsic visible renders the image (relative URL) 1`] = `
       aria-hidden="true"
       src="data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHdpZHRoPSI3NTAiIGhlaWdodD0iNDIxIj48L3N2Zz4="
       style={
-        Object {
+        {
           "display": "block",
           "width": "100%",
         }
@@ -1105,7 +1105,7 @@ exports[`Image layout=intrinsic visible renders the image (relative URL) 1`] = `
       aria-hidden="true"
       src="data:image/jpeg;base64,/9j/4AAQSkZJRgABAQAAAQABAAD/2wCEAAoHBwgHBgoICAgLFQoLDhgQDg0NDh0eHREYIx8lJCIrHB0dLSs7GikyKSEuKjUlKDk1MjIyHyo4PTc+PDcxPjUBCgsLDg0OHBAQHDsoIig7Ozs7Ozs7OzsvOzs7Ozs7Ozs7Lzs7Ozs7Ozs7OzsvOzs7NTsvLy87NTU1Ly8vLzsvL//AABEIAA0AGAMBIgACEQEDEQH/xAAYAAACAwAAAAAAAAAAAAAAAAAGBwABBP/EACEQAAEEAAYDAAAAAAAAAAAAAAEAAgMEBQYHESEiFWFx/8QAFQEBAQAAAAAAAAAAAAAAAAAAAwL/xAAZEQADAAMAAAAAAAAAAAAAAAAAAQIRITH/2gAMAwEAAhEDEQA/AFxLgDWTsAd1J5TGy7hEYqNAaNgECX7sjLMQAHJTEy1Zcarfia4lJMauAxqBhLY6ZlaOzDurWvUOd3jZPfCiEh4xs//Z"
       style={
-        Object {
+        {
           "backgroundColor": undefined,
           "height": "110%",
           "left": "-5%",
@@ -1130,7 +1130,7 @@ exports[`Image layout=intrinsic visible renders the image (relative URL) 1`] = `
         onLoad={[Function]}
         src="/205/image.png?ar=16%3A9&fit=crop&w=750"
         style={
-          Object {
+          {
             "height": "100%",
             "left": 0,
             "maxHeight": "none",
@@ -1156,7 +1156,7 @@ exports[`Image layout=intrinsic visible renders the image (relative URL) 1`] = `
 exports[`Image layout=intrinsic visible renders the image 1`] = `
 <ForwardRef
   data={
-    Object {
+    {
       "alt": "DatoCMS swag",
       "aspectRatio": 1.7777777777777777,
       "base64": "data:image/jpeg;base64,/9j/4AAQSkZJRgABAQAAAQABAAD/2wCEAAoHBwgHBgoICAgLFQoLDhgQDg0NDh0eHREYIx8lJCIrHB0dLSs7GikyKSEuKjUlKDk1MjIyHyo4PTc+PDcxPjUBCgsLDg0OHBAQHDsoIig7Ozs7Ozs7OzsvOzs7Ozs7Ozs7Lzs7Ozs7Ozs7OzsvOzs7NTsvLy87NTU1Ly8vLzsvL//AABEIAA0AGAMBIgACEQEDEQH/xAAYAAACAwAAAAAAAAAAAAAAAAAGBwABBP/EACEQAAEEAAYDAAAAAAAAAAAAAAEAAgMEBQYHESEiFWFx/8QAFQEBAQAAAAAAAAAAAAAAAAAAAwL/xAAZEQADAAMAAAAAAAAAAAAAAAAAAQIRITH/2gAMAwEAAhEDEQA/AFxLgDWTsAd1J5TGy7hEYqNAaNgECX7sjLMQAHJTEy1Zcarfia4lJMauAxqBhLY6ZlaOzDurWvUOd3jZPfCiEh4xs//Z",
@@ -1173,7 +1173,7 @@ exports[`Image layout=intrinsic visible renders the image 1`] = `
 >
   <div
     style={
-      Object {
+      {
         "maxWidth": 750,
         "overflow": "hidden",
         "position": "relative",
@@ -1186,7 +1186,7 @@ exports[`Image layout=intrinsic visible renders the image 1`] = `
       aria-hidden="true"
       src="data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHdpZHRoPSI3NTAiIGhlaWdodD0iNDIxIj48L3N2Zz4="
       style={
-        Object {
+        {
           "display": "block",
           "width": "100%",
         }
@@ -1197,7 +1197,7 @@ exports[`Image layout=intrinsic visible renders the image 1`] = `
       aria-hidden="true"
       src="data:image/jpeg;base64,/9j/4AAQSkZJRgABAQAAAQABAAD/2wCEAAoHBwgHBgoICAgLFQoLDhgQDg0NDh0eHREYIx8lJCIrHB0dLSs7GikyKSEuKjUlKDk1MjIyHyo4PTc+PDcxPjUBCgsLDg0OHBAQHDsoIig7Ozs7Ozs7OzsvOzs7Ozs7Ozs7Lzs7Ozs7Ozs7OzsvOzs7NTsvLy87NTU1Ly8vLzsvL//AABEIAA0AGAMBIgACEQEDEQH/xAAYAAACAwAAAAAAAAAAAAAAAAAGBwABBP/EACEQAAEEAAYDAAAAAAAAAAAAAAEAAgMEBQYHESEiFWFx/8QAFQEBAQAAAAAAAAAAAAAAAAAAAwL/xAAZEQADAAMAAAAAAAAAAAAAAAAAAQIRITH/2gAMAwEAAhEDEQA/AFxLgDWTsAd1J5TGy7hEYqNAaNgECX7sjLMQAHJTEy1Zcarfia4lJMauAxqBhLY6ZlaOzDurWvUOd3jZPfCiEh4xs//Z"
       style={
-        Object {
+        {
           "backgroundColor": undefined,
           "height": "110%",
           "left": "-5%",
@@ -1223,7 +1223,7 @@ exports[`Image layout=intrinsic visible renders the image 1`] = `
         onLoad={[Function]}
         src="https://www.datocms-assets.com/205/image.png?ar=16%3A9&fit=crop&w=750"
         style={
-          Object {
+          {
             "height": "100%",
             "left": 0,
             "maxHeight": "none",
@@ -1250,7 +1250,7 @@ exports[`Image layout=intrinsic visible renders the image 1`] = `
 exports[`Image layout=responsive not visible renders the blur-up thumb 1`] = `
 <ForwardRef
   data={
-    Object {
+    {
       "alt": "DatoCMS swag",
       "aspectRatio": 1.7777777777777777,
       "base64": "data:image/jpeg;base64,/9j/4AAQSkZJRgABAQAAAQABAAD/2wCEAAoHBwgHBgoICAgLFQoLDhgQDg0NDh0eHREYIx8lJCIrHB0dLSs7GikyKSEuKjUlKDk1MjIyHyo4PTc+PDcxPjUBCgsLDg0OHBAQHDsoIig7Ozs7Ozs7OzsvOzs7Ozs7Ozs7Lzs7Ozs7Ozs7OzsvOzs7NTsvLy87NTU1Ly8vLzsvL//AABEIAA0AGAMBIgACEQEDEQH/xAAYAAACAwAAAAAAAAAAAAAAAAAGBwABBP/EACEQAAEEAAYDAAAAAAAAAAAAAAEAAgMEBQYHESEiFWFx/8QAFQEBAQAAAAAAAAAAAAAAAAAAAwL/xAAZEQADAAMAAAAAAAAAAAAAAAAAAQIRITH/2gAMAwEAAhEDEQA/AFxLgDWTsAd1J5TGy7hEYqNAaNgECX7sjLMQAHJTEy1Zcarfia4lJMauAxqBhLY6ZlaOzDurWvUOd3jZPfCiEh4xs//Z",
@@ -1267,7 +1267,7 @@ exports[`Image layout=responsive not visible renders the blur-up thumb 1`] = `
 >
   <div
     style={
-      Object {
+      {
         "overflow": "hidden",
         "position": "relative",
         "width": "100%",
@@ -1279,7 +1279,7 @@ exports[`Image layout=responsive not visible renders the blur-up thumb 1`] = `
       aria-hidden="true"
       src="data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHdpZHRoPSI3NTAiIGhlaWdodD0iNDIxIj48L3N2Zz4="
       style={
-        Object {
+        {
           "display": "block",
           "width": "100%",
         }
@@ -1290,7 +1290,7 @@ exports[`Image layout=responsive not visible renders the blur-up thumb 1`] = `
       aria-hidden="true"
       src="data:image/jpeg;base64,/9j/4AAQSkZJRgABAQAAAQABAAD/2wCEAAoHBwgHBgoICAgLFQoLDhgQDg0NDh0eHREYIx8lJCIrHB0dLSs7GikyKSEuKjUlKDk1MjIyHyo4PTc+PDcxPjUBCgsLDg0OHBAQHDsoIig7Ozs7Ozs7OzsvOzs7Ozs7Ozs7Lzs7Ozs7Ozs7OzsvOzs7NTsvLy87NTU1Ly8vLzsvL//AABEIAA0AGAMBIgACEQEDEQH/xAAYAAACAwAAAAAAAAAAAAAAAAAGBwABBP/EACEQAAEEAAYDAAAAAAAAAAAAAAEAAgMEBQYHESEiFWFx/8QAFQEBAQAAAAAAAAAAAAAAAAAAAwL/xAAZEQADAAMAAAAAAAAAAAAAAAAAAQIRITH/2gAMAwEAAhEDEQA/AFxLgDWTsAd1J5TGy7hEYqNAaNgECX7sjLMQAHJTEy1Zcarfia4lJMauAxqBhLY6ZlaOzDurWvUOd3jZPfCiEh4xs//Z"
       style={
-        Object {
+        {
           "backgroundColor": undefined,
           "height": "110%",
           "left": "-5%",
@@ -1316,7 +1316,7 @@ exports[`Image layout=responsive not visible renders the blur-up thumb 1`] = `
 exports[`Image layout=responsive visible image loaded shows the image 1`] = `
 <ForwardRef
   data={
-    Object {
+    {
       "alt": "DatoCMS swag",
       "aspectRatio": 1.7777777777777777,
       "base64": "data:image/jpeg;base64,/9j/4AAQSkZJRgABAQAAAQABAAD/2wCEAAoHBwgHBgoICAgLFQoLDhgQDg0NDh0eHREYIx8lJCIrHB0dLSs7GikyKSEuKjUlKDk1MjIyHyo4PTc+PDcxPjUBCgsLDg0OHBAQHDsoIig7Ozs7Ozs7OzsvOzs7Ozs7Ozs7Lzs7Ozs7Ozs7OzsvOzs7NTsvLy87NTU1Ly8vLzsvL//AABEIAA0AGAMBIgACEQEDEQH/xAAYAAACAwAAAAAAAAAAAAAAAAAGBwABBP/EACEQAAEEAAYDAAAAAAAAAAAAAAEAAgMEBQYHESEiFWFx/8QAFQEBAQAAAAAAAAAAAAAAAAAAAwL/xAAZEQADAAMAAAAAAAAAAAAAAAAAAQIRITH/2gAMAwEAAhEDEQA/AFxLgDWTsAd1J5TGy7hEYqNAaNgECX7sjLMQAHJTEy1Zcarfia4lJMauAxqBhLY6ZlaOzDurWvUOd3jZPfCiEh4xs//Z",
@@ -1333,7 +1333,7 @@ exports[`Image layout=responsive visible image loaded shows the image 1`] = `
 >
   <div
     style={
-      Object {
+      {
         "overflow": "hidden",
         "position": "relative",
         "width": "100%",
@@ -1345,7 +1345,7 @@ exports[`Image layout=responsive visible image loaded shows the image 1`] = `
       aria-hidden="true"
       src="data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHdpZHRoPSI3NTAiIGhlaWdodD0iNDIxIj48L3N2Zz4="
       style={
-        Object {
+        {
           "display": "block",
           "width": "100%",
         }
@@ -1356,7 +1356,7 @@ exports[`Image layout=responsive visible image loaded shows the image 1`] = `
       aria-hidden="true"
       src="data:image/jpeg;base64,/9j/4AAQSkZJRgABAQAAAQABAAD/2wCEAAoHBwgHBgoICAgLFQoLDhgQDg0NDh0eHREYIx8lJCIrHB0dLSs7GikyKSEuKjUlKDk1MjIyHyo4PTc+PDcxPjUBCgsLDg0OHBAQHDsoIig7Ozs7Ozs7OzsvOzs7Ozs7Ozs7Lzs7Ozs7Ozs7OzsvOzs7NTsvLy87NTU1Ly8vLzsvL//AABEIAA0AGAMBIgACEQEDEQH/xAAYAAACAwAAAAAAAAAAAAAAAAAGBwABBP/EACEQAAEEAAYDAAAAAAAAAAAAAAEAAgMEBQYHESEiFWFx/8QAFQEBAQAAAAAAAAAAAAAAAAAAAwL/xAAZEQADAAMAAAAAAAAAAAAAAAAAAQIRITH/2gAMAwEAAhEDEQA/AFxLgDWTsAd1J5TGy7hEYqNAaNgECX7sjLMQAHJTEy1Zcarfia4lJMauAxqBhLY6ZlaOzDurWvUOd3jZPfCiEh4xs//Z"
       style={
-        Object {
+        {
           "backgroundColor": undefined,
           "height": "110%",
           "left": "-5%",
@@ -1382,7 +1382,7 @@ exports[`Image layout=responsive visible image loaded shows the image 1`] = `
         onLoad={[Function]}
         src="https://www.datocms-assets.com/205/image.png?ar=16%3A9&fit=crop&w=750"
         style={
-          Object {
+          {
             "height": "100%",
             "left": 0,
             "maxHeight": "none",
@@ -1409,7 +1409,7 @@ exports[`Image layout=responsive visible image loaded shows the image 1`] = `
 exports[`Image layout=responsive visible renders the image (minimal data) 1`] = `
 <ForwardRef
   data={
-    Object {
+    {
       "base64": "data:image/jpeg;base64,/9j/4AAQSkZJRgABAQAAAQABAAD/2wCEAAoHBwgHBgoICAgLFQoLDhgQDg0NDh0eHREYIx8lJCIrHB0dLSs7GikyKSEuKjUlKDk1MjIyHyo4PTc+PDcxPjUBCgsLDg0OHBAQHDsoIig7Ozs7Ozs7OzsvOzs7Ozs7Ozs7Lzs7Ozs7Ozs7OzsvOzs7NTsvLy87NTU1Ly8vLzsvL//AABEIAA0AGAMBIgACEQEDEQH/xAAYAAACAwAAAAAAAAAAAAAAAAAGBwABBP/EACEQAAEEAAYDAAAAAAAAAAAAAAEAAgMEBQYHESEiFWFx/8QAFQEBAQAAAAAAAAAAAAAAAAAAAwL/xAAZEQADAAMAAAAAAAAAAAAAAAAAAQIRITH/2gAMAwEAAhEDEQA/AFxLgDWTsAd1J5TGy7hEYqNAaNgECX7sjLMQAHJTEy1Zcarfia4lJMauAxqBhLY6ZlaOzDurWvUOd3jZPfCiEh4xs//Z",
       "height": 421,
       "src": "https://www.datocms-assets.com/205/image.png?ar=16%3A9&fit=crop&w=750",
@@ -1421,7 +1421,7 @@ exports[`Image layout=responsive visible renders the image (minimal data) 1`] = 
 >
   <div
     style={
-      Object {
+      {
         "overflow": "hidden",
         "position": "relative",
         "width": "100%",
@@ -1433,7 +1433,7 @@ exports[`Image layout=responsive visible renders the image (minimal data) 1`] = 
       aria-hidden="true"
       src="data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHdpZHRoPSI3NTAiIGhlaWdodD0iNDIxIj48L3N2Zz4="
       style={
-        Object {
+        {
           "display": "block",
           "width": "100%",
         }
@@ -1444,7 +1444,7 @@ exports[`Image layout=responsive visible renders the image (minimal data) 1`] = 
       aria-hidden="true"
       src="data:image/jpeg;base64,/9j/4AAQSkZJRgABAQAAAQABAAD/2wCEAAoHBwgHBgoICAgLFQoLDhgQDg0NDh0eHREYIx8lJCIrHB0dLSs7GikyKSEuKjUlKDk1MjIyHyo4PTc+PDcxPjUBCgsLDg0OHBAQHDsoIig7Ozs7Ozs7OzsvOzs7Ozs7Ozs7Lzs7Ozs7Ozs7OzsvOzs7NTsvLy87NTU1Ly8vLzsvL//AABEIAA0AGAMBIgACEQEDEQH/xAAYAAACAwAAAAAAAAAAAAAAAAAGBwABBP/EACEQAAEEAAYDAAAAAAAAAAAAAAEAAgMEBQYHESEiFWFx/8QAFQEBAQAAAAAAAAAAAAAAAAAAAwL/xAAZEQADAAMAAAAAAAAAAAAAAAAAAQIRITH/2gAMAwEAAhEDEQA/AFxLgDWTsAd1J5TGy7hEYqNAaNgECX7sjLMQAHJTEy1Zcarfia4lJMauAxqBhLY6ZlaOzDurWvUOd3jZPfCiEh4xs//Z"
       style={
-        Object {
+        {
           "backgroundColor": undefined,
           "height": "110%",
           "left": "-5%",
@@ -1469,7 +1469,7 @@ exports[`Image layout=responsive visible renders the image (minimal data) 1`] = 
         onLoad={[Function]}
         src="https://www.datocms-assets.com/205/image.png?ar=16%3A9&fit=crop&w=750"
         style={
-          Object {
+          {
             "height": "100%",
             "left": 0,
             "maxHeight": "none",
@@ -1495,7 +1495,7 @@ exports[`Image layout=responsive visible renders the image (minimal data) 1`] = 
 exports[`Image layout=responsive visible renders the image (relative URL) 1`] = `
 <ForwardRef
   data={
-    Object {
+    {
       "base64": "data:image/jpeg;base64,/9j/4AAQSkZJRgABAQAAAQABAAD/2wCEAAoHBwgHBgoICAgLFQoLDhgQDg0NDh0eHREYIx8lJCIrHB0dLSs7GikyKSEuKjUlKDk1MjIyHyo4PTc+PDcxPjUBCgsLDg0OHBAQHDsoIig7Ozs7Ozs7OzsvOzs7Ozs7Ozs7Lzs7Ozs7Ozs7OzsvOzs7NTsvLy87NTU1Ly8vLzsvL//AABEIAA0AGAMBIgACEQEDEQH/xAAYAAACAwAAAAAAAAAAAAAAAAAGBwABBP/EACEQAAEEAAYDAAAAAAAAAAAAAAEAAgMEBQYHESEiFWFx/8QAFQEBAQAAAAAAAAAAAAAAAAAAAwL/xAAZEQADAAMAAAAAAAAAAAAAAAAAAQIRITH/2gAMAwEAAhEDEQA/AFxLgDWTsAd1J5TGy7hEYqNAaNgECX7sjLMQAHJTEy1Zcarfia4lJMauAxqBhLY6ZlaOzDurWvUOd3jZPfCiEh4xs//Z",
       "height": 421,
       "src": "/205/image.png?ar=16%3A9&fit=crop&w=750",
@@ -1507,7 +1507,7 @@ exports[`Image layout=responsive visible renders the image (relative URL) 1`] = 
 >
   <div
     style={
-      Object {
+      {
         "overflow": "hidden",
         "position": "relative",
         "width": "100%",
@@ -1519,7 +1519,7 @@ exports[`Image layout=responsive visible renders the image (relative URL) 1`] = 
       aria-hidden="true"
       src="data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHdpZHRoPSI3NTAiIGhlaWdodD0iNDIxIj48L3N2Zz4="
       style={
-        Object {
+        {
           "display": "block",
           "width": "100%",
         }
@@ -1530,7 +1530,7 @@ exports[`Image layout=responsive visible renders the image (relative URL) 1`] = 
       aria-hidden="true"
       src="data:image/jpeg;base64,/9j/4AAQSkZJRgABAQAAAQABAAD/2wCEAAoHBwgHBgoICAgLFQoLDhgQDg0NDh0eHREYIx8lJCIrHB0dLSs7GikyKSEuKjUlKDk1MjIyHyo4PTc+PDcxPjUBCgsLDg0OHBAQHDsoIig7Ozs7Ozs7OzsvOzs7Ozs7Ozs7Lzs7Ozs7Ozs7OzsvOzs7NTsvLy87NTU1Ly8vLzsvL//AABEIAA0AGAMBIgACEQEDEQH/xAAYAAACAwAAAAAAAAAAAAAAAAAGBwABBP/EACEQAAEEAAYDAAAAAAAAAAAAAAEAAgMEBQYHESEiFWFx/8QAFQEBAQAAAAAAAAAAAAAAAAAAAwL/xAAZEQADAAMAAAAAAAAAAAAAAAAAAQIRITH/2gAMAwEAAhEDEQA/AFxLgDWTsAd1J5TGy7hEYqNAaNgECX7sjLMQAHJTEy1Zcarfia4lJMauAxqBhLY6ZlaOzDurWvUOd3jZPfCiEh4xs//Z"
       style={
-        Object {
+        {
           "backgroundColor": undefined,
           "height": "110%",
           "left": "-5%",
@@ -1555,7 +1555,7 @@ exports[`Image layout=responsive visible renders the image (relative URL) 1`] = 
         onLoad={[Function]}
         src="/205/image.png?ar=16%3A9&fit=crop&w=750"
         style={
-          Object {
+          {
             "height": "100%",
             "left": 0,
             "maxHeight": "none",
@@ -1581,7 +1581,7 @@ exports[`Image layout=responsive visible renders the image (relative URL) 1`] = 
 exports[`Image layout=responsive visible renders the image 1`] = `
 <ForwardRef
   data={
-    Object {
+    {
       "alt": "DatoCMS swag",
       "aspectRatio": 1.7777777777777777,
       "base64": "data:image/jpeg;base64,/9j/4AAQSkZJRgABAQAAAQABAAD/2wCEAAoHBwgHBgoICAgLFQoLDhgQDg0NDh0eHREYIx8lJCIrHB0dLSs7GikyKSEuKjUlKDk1MjIyHyo4PTc+PDcxPjUBCgsLDg0OHBAQHDsoIig7Ozs7Ozs7OzsvOzs7Ozs7Ozs7Lzs7Ozs7Ozs7OzsvOzs7NTsvLy87NTU1Ly8vLzsvL//AABEIAA0AGAMBIgACEQEDEQH/xAAYAAACAwAAAAAAAAAAAAAAAAAGBwABBP/EACEQAAEEAAYDAAAAAAAAAAAAAAEAAgMEBQYHESEiFWFx/8QAFQEBAQAAAAAAAAAAAAAAAAAAAwL/xAAZEQADAAMAAAAAAAAAAAAAAAAAAQIRITH/2gAMAwEAAhEDEQA/AFxLgDWTsAd1J5TGy7hEYqNAaNgECX7sjLMQAHJTEy1Zcarfia4lJMauAxqBhLY6ZlaOzDurWvUOd3jZPfCiEh4xs//Z",
@@ -1598,7 +1598,7 @@ exports[`Image layout=responsive visible renders the image 1`] = `
 >
   <div
     style={
-      Object {
+      {
         "overflow": "hidden",
         "position": "relative",
         "width": "100%",
@@ -1610,7 +1610,7 @@ exports[`Image layout=responsive visible renders the image 1`] = `
       aria-hidden="true"
       src="data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHdpZHRoPSI3NTAiIGhlaWdodD0iNDIxIj48L3N2Zz4="
       style={
-        Object {
+        {
           "display": "block",
           "width": "100%",
         }
@@ -1621,7 +1621,7 @@ exports[`Image layout=responsive visible renders the image 1`] = `
       aria-hidden="true"
       src="data:image/jpeg;base64,/9j/4AAQSkZJRgABAQAAAQABAAD/2wCEAAoHBwgHBgoICAgLFQoLDhgQDg0NDh0eHREYIx8lJCIrHB0dLSs7GikyKSEuKjUlKDk1MjIyHyo4PTc+PDcxPjUBCgsLDg0OHBAQHDsoIig7Ozs7Ozs7OzsvOzs7Ozs7Ozs7Lzs7Ozs7Ozs7OzsvOzs7NTsvLy87NTU1Ly8vLzsvL//AABEIAA0AGAMBIgACEQEDEQH/xAAYAAACAwAAAAAAAAAAAAAAAAAGBwABBP/EACEQAAEEAAYDAAAAAAAAAAAAAAEAAgMEBQYHESEiFWFx/8QAFQEBAQAAAAAAAAAAAAAAAAAAAwL/xAAZEQADAAMAAAAAAAAAAAAAAAAAAQIRITH/2gAMAwEAAhEDEQA/AFxLgDWTsAd1J5TGy7hEYqNAaNgECX7sjLMQAHJTEy1Zcarfia4lJMauAxqBhLY6ZlaOzDurWvUOd3jZPfCiEh4xs//Z"
       style={
-        Object {
+        {
           "backgroundColor": undefined,
           "height": "110%",
           "left": "-5%",
@@ -1647,7 +1647,7 @@ exports[`Image layout=responsive visible renders the image 1`] = `
         onLoad={[Function]}
         src="https://www.datocms-assets.com/205/image.png?ar=16%3A9&fit=crop&w=750"
         style={
-          Object {
+          {
             "height": "100%",
             "left": 0,
             "maxHeight": "none",

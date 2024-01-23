@@ -1,16 +1,16 @@
 'use client';
 
 import React, {
-  useState,
+  CSSProperties,
   forwardRef,
   useCallback,
-  CSSProperties,
-  useRef,
   useEffect,
+  useRef,
+  useState,
   version,
 } from 'react';
-import { useInView } from './useInView.js';
 import { encode } from 'universal-base64';
+import { useInView } from './useInView.js';
 
 const isSsr = typeof window === 'undefined';
 

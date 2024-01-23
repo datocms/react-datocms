@@ -1,4 +1,4 @@
-import { TitleMetaLinkTag, SeoOrFaviconTag } from './types.js';
+import { SeoOrFaviconTag, TitleMetaLinkTag } from './types.js';
 
 export function renderMetaTagsToString(
   data: TitleMetaLinkTag[] | SeoOrFaviconTag[],

@@ -1,26 +1,26 @@
 import {
+  RenderMarkRule,
+  TransformMetaFn,
+  TransformedMeta,
   defaultMetaTransformer,
   render,
-  renderNodeRule,
   renderMarkRule,
-  TransformedMeta,
-  TransformMetaFn,
-  RenderMarkRule,
+  renderNodeRule,
 } from 'datocms-structured-text-generic-html-renderer';
 import {
-  isBlock,
-  isInlineItem,
-  isItemLink,
-  Record as StructuredTextGraphQlResponseRecord,
   Document as StructuredTextDocument,
+  Node,
+  Record as StructuredTextGraphQlResponseRecord,
   RenderError,
   RenderResult,
   RenderRule,
-  Node,
   StructuredText as StructuredTextGraphQlResponse,
+  isBlock,
+  isInlineItem,
+  isItemLink,
   isStructuredText,
 } from 'datocms-structured-text-utils';
-import React, { cloneElement, isValidElement, ReactElement } from 'react';
+import React, { ReactElement, cloneElement, isValidElement } from 'react';
 
 export { renderNodeRule, renderMarkRule, RenderError };
 

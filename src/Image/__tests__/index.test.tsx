@@ -1,8 +1,8 @@
-import * as React from 'react';
 import { mount } from 'enzyme';
 import 'intersection-observer';
-import { Image } from '../index.js';
+import * as React from 'react';
 import { mockAllIsIntersecting } from 'react-intersection-observer/test-utils';
+import { Image } from '../index.js';
 
 const data = {
   alt: 'DatoCMS swag',

@@ -1,13 +1,13 @@
 'use client';
 
-import { useState } from 'react';
 import {
-  subscribeToQuery,
-  UnsubscribeFn,
   ChannelErrorData,
   ConnectionStatus,
   Options,
+  UnsubscribeFn,
+  subscribeToQuery,
 } from 'datocms-listen';
+import { useState } from 'react';
 import { useDeepCompareEffectNoCheck as useDeepCompareEffect } from 'use-deep-compare-effect';
 
 export type SubscribeToQueryOptions<QueryResult, QueryVariables> = Omit<

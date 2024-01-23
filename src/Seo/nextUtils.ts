@@ -1,6 +1,6 @@
 import {
-  type TitleMetaLinkTag,
   type SeoOrFaviconTag,
+  type TitleMetaLinkTag,
   isAppleTouchIconAttributes,
   isFaviconAttributes,
   isOgMetaAttributes,

@@ -1,32 +1,48 @@
 {
   "compilerOptions": {
-    "declaration": true,
+    // Output folders
+    //
+    // This file is meant for general Typescript configurations and
+    // it generates only type files. The generation of JS in CommonJS and ES Module
+    // is defined by two extending files.
+    //
+    //                      +----------------+
+    //                      | tsconfig.json  |< - - - - - - Generates type definitions
+    //                      +----------------+
+    //                               ^
+    //                               |
+    //                 +-------------+--------------+
+    //                 |                            |
+    // + - - - - - - - + - - - - - - - - - - - - - -|- - - - - - - +
+    // |  +------------------------+   +------------------------+  |
+    // |  | tsconfig.commonjs.json |   |  tsconfig.esnext.json  |  |<- - - - -  Generate Javascript flavours
+    // |  +------------------------+   +------------------------+  |
+    // + - - - - - - - - - - - - - - - - - - - - - - - - - - - - - +
+    //
     "declarationDir": "./dist/types",
-    "module": "commonjs",
+
+    // Output setup
+    "emitDeclarationOnly": true,
+    "declaration": true,
+    "sourceMap": true,
+
+    // TypeScript and JavaScript Compatibility
+    "target": "ES2016",
+
+    // Module resolution
+    "moduleResolution": "Node",
+    "esModuleInterop": true,
+
+    // Type-checking
+    "strict": true,
+    "skipLibCheck": false,
     "noImplicitAny": true,
-    "lib": [
-      "es2017",
-      "es7",
-      "es6",
-      "dom"
-    ],
-    "outDir": "./dist/cjs",
-    "target": "es3",
-    "moduleResolution": "NodeNext",
-    "jsx": "react",
     "resolveJsonModule": true,
     "strictNullChecks": true,
-    "esModuleInterop": true,
-    "skipLibCheck": false,
-    "sourceMap": true
+
+    // React specific
+    "jsx": "react"
   },
-  "include": [
-    "src/**/*",
-    "test/jest-dom.d.ts",
-    "react-extras.d.ts"
-  ],
-  "exclude": [
-    "node_modules",
-    "dist"
-  ]
+  "include": ["src/**/*", "test/jest-dom.d.ts", "react-extras.d.ts"],
+  "exclude": ["node_modules", "dist"]
 }

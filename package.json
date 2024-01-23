@@ -12,32 +12,32 @@
     ".": {
       "require": "./dist/cjs/index.js",
       "import": "./dist/esm/index.js",
-      "types": "./dist/esm/index.d.ts"
+      "types": "./dist/types/index.d.ts"
     },
     "./seo": {
       "require": "./dist/cjs/Seo/index.js",
       "import": "./dist/esm/Seo/index.js",
-      "types": "./dist/esm/Seo/index.d.ts"
+      "types": "./dist/types/Seo/index.d.ts"
     },
     "./image": {
       "require": "./dist/cjs/Image/index.js",
       "import": "./dist/esm/Image/index.js",
-      "types": "./dist/esm/Image/index.d.ts"
+      "types": "./dist/types/Image/index.d.ts"
     },
     "./structured-text": {
       "require": "./dist/cjs/StructuredText/index.js",
       "import": "./dist/esm/StructuredText/index.js",
-      "types": "./dist/esm/StructuredText/index.d.ts"
+      "types": "./dist/types/StructuredText/index.d.ts"
     },
     "./use-query-subscription": {
       "require": "./dist/cjs/useQuerySubscription/index.js",
       "import": "./dist/esm/useQuerySubscription/index.js",
-      "types": "./dist/esm/useQuerySubscription/index.d.ts"
+      "types": "./dist/types/useQuerySubscription/index.d.ts"
     },
     "./use-site-search": {
       "require": "./dist/cjs/useSiteSearch/index.js",
       "import": "./dist/esm/useSiteSearch/index.js",
-      "types": "./dist/esm/useSiteSearch/index.d.ts"
+      "types": "./dist/types/useSiteSearch/index.d.ts"
     }
   },
   "typesVersions": {
@@ -73,12 +73,16 @@
   },
   "license": "MIT",
   "author": "Stefano Verna <s.verna@datocms.com>",
+  "contributors": [
+    "Silvano Stralla <silvano@datocms.com>"
+  ],
   "homepage": "https://github.com/datocms/react-datocms",
   "devDependencies": {
     "@biomejs/biome": "1.2.2",
+    "@mux/mux-player-react": "*",
     "@types/enzyme": "^3.10.8",
     "@types/enzyme-to-json": "^1.5.4",
-    "@types/jest": "^26.0.22",
+    "@types/jest": "^29.5.11",
     "@types/raf": "^3.4.0",
     "@types/react": "^17.0.3",
     "@types/react-dom": "^17.0.3",
@@ -88,60 +92,29 @@
     "enzyme": "^3.11.0",
     "enzyme-to-json": "^3.6.2",
     "intersection-observer": "^0.12.0",
-    "jest": "^26.6.3",
+    "jest-environment-jsdom": "^29.7.0",
     "np": "^8.0.2",
     "raf": "^3.4.1",
     "react": "^17.0.2",
     "react-dom": "^17.0.2",
     "rimraf": "^3.0.2",
-    "ts-jest": "^26.5.5",
-    "typescript": "^4.5.5"
+    "ts-jest": "^29.1.2",
+    "typescript": "^5.0.0"
   },
   "scripts": {
-    "build": "rimraf dist && tsc && tsc --project ./tsconfig.esnext.json",
+    "build": "rimraf dist && npm run tsc:types && npm run tsc:cjs && npm run tsc:esm",
     "format": "biome format --write src",
-    "watch": "rimraf dist && tsc --watch",
+    "watch": "rimraf dist && tsc --project ./tsconfig.commonjs.json --watch",
     "prepare": "npm run test && npm run build",
     "test": "jest --coverage",
-    "toc": "doctoc --github docs"
+    "toc": "doctoc --github docs",
+    "tsc:types": "tsc",
+    "tsc:cjs": "tsc --project ./tsconfig.commonjs.json",
+    "tsc:esm": "tsc --project ./tsconfig.esnext.json"
   },
   "peerDependencies": {
+    "@mux/mux-player-react": "*",
     "react": ">= 16.12.0"
-  },
-  "jest": {
-    "moduleFileExtensions": [
-      "ts",
-      "tsx",
-      "js"
-    ],
-    "transform": {
-      "\\.(ts|tsx)$": [
-        "ts-jest",
-        {
-          "useESM": true
-        }
-      ]
-    },
-    "setupFiles": [
-      "raf/polyfill"
-    ],
-    "coverageReporters": [
-      "html",
-      "text"
-    ],
-    "roots": [
-      "src"
-    ],
-    "testRegex": "/__tests__/.*\\.(ts|tsx|js)$",
-    "setupFilesAfterEnv": [
-      "./src/setupTests.ts"
-    ],
-    "snapshotSerializers": [
-      "enzyme-to-json/serializer"
-    ],
-    "moduleNameMapper": {
-      "^(\\.\\.?\\/.+)\\.js$": "$1"
-    }
   },
   "dependencies": {
     "datocms-listen": "^0.1.9",

@@ -14,8 +14,8 @@ module.exports = {
   setupFiles: ['raf/polyfill'],
   coverageReporters: ['html', 'text'],
   roots: ['src'],
-  testRegex: '/__tests__/.*\\.(ts|tsx|js)$',
-  setupFilesAfterEnv: ['./src/setupTests.ts'],
+  testRegex: '/__tests__/.*\\.test\\.(ts|tsx|js)$',
+  setupFilesAfterEnv: ['./src/__tests__/setup.ts'],
   snapshotSerializers: ['enzyme-to-json/serializer'],
   moduleNameMapper: {
     '^(\\.\\.?\\/.+)\\.js$': '$1',

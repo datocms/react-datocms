@@ -8,6 +8,8 @@ describe('useVideoPlayer', () => {
         title: 'Title',
         width: 1080,
         height: 1920,
+        blurUpThumb:
+          'data:image/bmp;base64,Qk0eAAAAAAAAABoAAAAMAAAAAQABAAEAGAAAAP8A',
       };
 
       it('unwraps data into props ready for MUX player', () => {
@@ -19,6 +21,8 @@ describe('useVideoPlayer', () => {
           style: {
             aspectRatio: '1080 / 1920',
           },
+          placeholder:
+            'data:image/bmp;base64,Qk0eAAAAAAAAABoAAAAMAAAAAQABAAEAGAAAAP8A',
           rest: {},
         });
       });
@@ -31,6 +35,8 @@ describe('useVideoPlayer', () => {
             playbackId: 'ip028MAXF026dU900bKiyNDttjonw7A1dFY',
             title: 'Title',
             style: undefined,
+            placeholder:
+              'data:image/bmp;base64,Qk0eAAAAAAAAABoAAAAMAAAAAQABAAEAGAAAAP8A',
             rest: {},
           });
         });
@@ -48,6 +54,8 @@ describe('useVideoPlayer', () => {
                 margin: 'auto',
                 aspectRatio: '1080 / 1920',
               },
+              placeholder:
+                'data:image/bmp;base64,Qk0eAAAAAAAAABoAAAAMAAAAAQABAAEAGAAAAP8A',
               rest: {},
             });
           });
@@ -64,6 +72,8 @@ describe('useVideoPlayer', () => {
                 style: {
                   aspectRatio: undefined,
                 },
+                placeholder:
+                  'data:image/bmp;base64,Qk0eAAAAAAAAABoAAAAMAAAAAQABAAEAGAAAAP8A',
                 rest: {},
               });
             });
@@ -79,6 +89,8 @@ describe('useVideoPlayer', () => {
                 style: {
                   aspectRatio: 'auto',
                 },
+                placeholder:
+                  'data:image/bmp;base64,Qk0eAAAAAAAAABoAAAAMAAAAAQABAAEAGAAAAP8A',
                 rest: {},
               });
             });
@@ -99,6 +111,7 @@ describe('useVideoPlayer', () => {
           playbackId: 'ip028MAXF026dU900bKiyNDttjonw7A1dFY',
           rest: {},
           style: {},
+          placeholder: undefined,
           title: undefined,
         });
       });
@@ -116,6 +129,7 @@ describe('useVideoPlayer', () => {
           playbackId: 'ip028MAXF026dU900bKiyNDttjonw7A1dFY',
           rest: {},
           style: {},
+          placeholder: undefined,
           title: undefined,
         });
       });
@@ -134,6 +148,7 @@ describe('useVideoPlayer', () => {
           playbackId: 'ip028MAXF026dU900bKiyNDttjonw7A1dFY',
           title: 'Title',
           style: {},
+          placeholder: undefined,
           rest: {},
         });
       });
@@ -155,6 +170,7 @@ describe('useVideoPlayer', () => {
           style: {
             aspectRatio: '1080 / 1920',
           },
+          placeholder: undefined,
           rest: {},
         });
       });

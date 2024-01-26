@@ -9,12 +9,16 @@ const doesNotWantAspectRatio = (props: VideoPlayerPropTypes) => {
   return Object.hasOwn(props, 'style') && props.style === undefined;
 };
 
-const computedTitle = (title: Maybe<string> | undefined) => title || undefined;
+const computedTitle = (title: Maybe<string> | undefined) => {
+  return title || undefined;
+};
 
 const computedPlaybackId = (
   muxPlaybackId: Maybe<string> | undefined,
   playbackId: Maybe<string> | undefined,
-) => muxPlaybackId || playbackId || undefined;
+) => {
+  return muxPlaybackId || playbackId || undefined;
+};
 
 const computedStyle = (props: VideoPlayerPropTypes) => {
   const { data } = props;
@@ -44,16 +48,34 @@ const computedStyle = (props: VideoPlayerPropTypes) => {
   return cssAspectRatioProperty;
 };
 
-export const useVideoPlayer = ({
-  props,
-}: {
+const computedPlaceholder = (blurUpThumb: Maybe<string> | undefined) => {
+  return blurUpThumb || undefined;
+};
+
+type Style = MuxPlayerProps['style'];
+type Title = MuxPlayerProps['title'];
+type PlaybackId = MuxPlayerProps['playbackId'];
+type Placeholder = MuxPlayerProps['placeholder'];
+type Rest = Omit<
+  MuxPlayerProps,
+  'title' | 'playbackId' | 'placeholder' | 'style'
+>;
+
+type PropsForMuxPlayer = {
+  style?: Style;
+  title?: Title;
+  playbackId?: PlaybackId;
+  placeholder?: Placeholder;
+  rest: Rest;
+};
+
+type UseVideoPlayerOptions = {
   props: VideoPlayerPropTypes;
-}): {
-  title?: string;
-  playbackId?: string;
-  style?: React.CSSProperties;
-  rest: Partial<MuxPlayerProps>;
-} => {
+};
+
+type UseVideoPlayer = ({ props }: UseVideoPlayerOptions) => PropsForMuxPlayer;
+
+export const useVideoPlayer: UseVideoPlayer = ({ props }) => {
   const { data, style, ...rest } = props;
 
   if (data === undefined) {
@@ -62,12 +84,13 @@ export const useVideoPlayer = ({
     };
   }
 
-  const { title, playbackId, muxPlaybackId } = data;
+  const { title, playbackId, muxPlaybackId, blurUpThumb } = data;
 
   return {
     title: computedTitle(title),
     playbackId: computedPlaybackId(muxPlaybackId, playbackId),
     style: computedStyle(props),
+    placeholder: computedPlaceholder(blurUpThumb),
     rest,
   };
 };

@@ -20,12 +20,14 @@ export type VideoType = {
   muxPlaybackId?: Maybe<string>;
   /** The MUX playbaack ID */
   playbackId?: Maybe<string>;
+  /** A data: URI containing a blurhash for the video  */
+  blurUpThumb?: Maybe<string>;
 };
 
-export type VideoPlayerPropTypes = {
+export type VideoPlayerPropTypes = MuxPlayerProps & {
   /** The actual response you get from a DatoCMS `video` GraphQL query */
   data?: VideoType;
-} & MuxPlayerProps;
+};
 
 export const VideoPlayer: (
   props: VideoPlayerPropTypes,
@@ -33,7 +35,7 @@ export const VideoPlayer: (
   MuxPlayerElement,
   VideoPlayerPropTypes
 >((props, ref) => {
-  const { title, playbackId, style, rest } = useVideoPlayer({ props });
+  const { title, playbackId, style, placeholder, rest } = useVideoPlayer({ props });
 
   return (
     <MuxPlayer
@@ -42,6 +44,7 @@ export const VideoPlayer: (
       title={title}
       playbackId={playbackId}
       style={style}
+      placeholder={placeholder}
       {...rest}
     />
   );

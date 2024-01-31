@@ -9,6 +9,12 @@ const doesNotWantAspectRatio = (props: VideoPlayerPropTypes) => {
   return Object.hasOwn(props, 'style') && props.style === undefined;
 };
 
+const doesNotWantDisableCookies = (props: VideoPlayerPropTypes) => {
+  return (
+    Object.hasOwn(props, 'disableCookies') && props.disableCookies === undefined
+  );
+};
+
 const computedTitle = (title: Maybe<string> | undefined) => {
   return title || undefined;
 };
@@ -48,6 +54,16 @@ const computedStyle = (props: VideoPlayerPropTypes) => {
   return cssAspectRatioProperty;
 };
 
+const computedDisableCookies = (props: VideoPlayerPropTypes) => {
+  if (doesNotWantDisableCookies(props)) {
+    return undefined;
+  } else if (Object.hasOwn(props, 'disableCookies')) {
+    return props.disableCookies;
+  }
+
+  return true;
+};
+
 const computedPlaceholder = (blurUpThumb: Maybe<string> | undefined) => {
   return blurUpThumb || undefined;
 };
@@ -56,6 +72,7 @@ type Style = MuxPlayerProps['style'];
 type Title = MuxPlayerProps['title'];
 type PlaybackId = MuxPlayerProps['playbackId'];
 type Placeholder = MuxPlayerProps['placeholder'];
+type DisableCookies = MuxPlayerProps["disableCookies"];
 type Rest = Omit<
   MuxPlayerProps,
   'title' | 'playbackId' | 'placeholder' | 'style'
@@ -64,6 +81,7 @@ type Rest = Omit<
 type PropsForMuxPlayer = {
   style?: Style;
   title?: Title;
+  disableCookies: DisableCookies;
   playbackId?: PlaybackId;
   placeholder?: Placeholder;
   rest: Rest;
@@ -76,21 +94,20 @@ type UseVideoPlayerOptions = {
 type UseVideoPlayer = ({ props }: UseVideoPlayerOptions) => PropsForMuxPlayer;
 
 export const useVideoPlayer: UseVideoPlayer = ({ props }) => {
-  const { data, style, ...rest } = props;
+  const { data, style, disableCookies, ...rest } = props;
 
-  if (data === undefined) {
-    return {
-      rest,
-    };
-  }
-
-  const { title, playbackId, muxPlaybackId, blurUpThumb } = data;
+  const { title, playbackId, muxPlaybackId, blurUpThumb } = data || {};
 
   return {
-    title: computedTitle(title),
-    playbackId: computedPlaybackId(muxPlaybackId, playbackId),
-    style: computedStyle(props),
-    placeholder: computedPlaceholder(blurUpThumb),
+    ...(data === undefined
+      ? {}
+      : {
+          title: computedTitle(title),
+          playbackId: computedPlaybackId(muxPlaybackId, playbackId),
+          style: computedStyle(props),
+          placeholder: computedPlaceholder(blurUpThumb),
+        }),
+    disableCookies: computedDisableCookies(props),
     rest,
   };
 };

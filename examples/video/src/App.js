@@ -30,7 +30,7 @@ function App() {
       <VideoPlayer
         data={data}
         style={{
-          aspectRatio: '1 / 10',
+          aspectRatio: '10 / 1',
           '--controls': 'none',
           '--media-object-fit': 'cover',
         }}

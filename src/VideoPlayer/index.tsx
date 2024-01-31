@@ -35,13 +35,16 @@ export const VideoPlayer: (
   MuxPlayerElement,
   VideoPlayerPropTypes
 >((props, ref) => {
-  const { title, playbackId, style, placeholder, rest } = useVideoPlayer({ props });
+  const { title, playbackId, style, placeholder, disableCookies, rest } = useVideoPlayer({
+    props,
+  });
 
   return (
     <MuxPlayer
       ref={ref}
       streamType="on-demand"
       title={title}
+      disableCookies={disableCookies}
       playbackId={playbackId}
       style={style}
       placeholder={placeholder}

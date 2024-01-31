@@ -16,6 +16,7 @@ describe('useVideoPlayer', () => {
         const props = { data };
 
         expect(useVideoPlayer({ props })).toStrictEqual({
+          disableCookies: true,
           playbackId: 'ip028MAXF026dU900bKiyNDttjonw7A1dFY',
           title: 'Title',
           style: {
@@ -32,6 +33,7 @@ describe('useVideoPlayer', () => {
           const props = { data, style: undefined };
 
           expect(useVideoPlayer({ props })).toStrictEqual({
+            disableCookies: true,
             playbackId: 'ip028MAXF026dU900bKiyNDttjonw7A1dFY',
             title: 'Title',
             style: undefined,
@@ -48,6 +50,7 @@ describe('useVideoPlayer', () => {
             const props = { data, style: { margin: 'auto' } };
 
             expect(useVideoPlayer({ props })).toStrictEqual({
+              disableCookies: true,
               playbackId: 'ip028MAXF026dU900bKiyNDttjonw7A1dFY',
               title: 'Title',
               style: {
@@ -67,6 +70,7 @@ describe('useVideoPlayer', () => {
               const props = { data, style: { aspectRatio: undefined } };
 
               expect(useVideoPlayer({ props })).toStrictEqual({
+                disableCookies: true,
                 playbackId: 'ip028MAXF026dU900bKiyNDttjonw7A1dFY',
                 title: 'Title',
                 style: {
@@ -84,6 +88,7 @@ describe('useVideoPlayer', () => {
               const props = { data, style: { aspectRatio: 'auto' } };
 
               expect(useVideoPlayer({ props })).toStrictEqual({
+                disableCookies: true,
                 playbackId: 'ip028MAXF026dU900bKiyNDttjonw7A1dFY',
                 title: 'Title',
                 style: {
@@ -108,6 +113,7 @@ describe('useVideoPlayer', () => {
         const props = { data };
 
         expect(useVideoPlayer({ props })).toStrictEqual({
+          disableCookies: true,
           playbackId: 'ip028MAXF026dU900bKiyNDttjonw7A1dFY',
           rest: {},
           style: {},
@@ -126,6 +132,7 @@ describe('useVideoPlayer', () => {
         const props = { data };
 
         expect(useVideoPlayer({ props })).toStrictEqual({
+          disableCookies: true,
           playbackId: 'ip028MAXF026dU900bKiyNDttjonw7A1dFY',
           rest: {},
           style: {},
@@ -145,6 +152,7 @@ describe('useVideoPlayer', () => {
         const props = { data };
 
         expect(useVideoPlayer({ props })).toStrictEqual({
+          disableCookies: true,
           playbackId: 'ip028MAXF026dU900bKiyNDttjonw7A1dFY',
           title: 'Title',
           style: {},
@@ -165,6 +173,7 @@ describe('useVideoPlayer', () => {
         const props = { data };
 
         expect(useVideoPlayer({ props })).toStrictEqual({
+          disableCookies: true,
           playbackId: 'ip028MAXF026dU900bKiyNDttjonw7A1dFY',
           title: undefined,
           style: {
@@ -182,7 +191,44 @@ describe('useVideoPlayer', () => {
       const props = { autoPlay: 'muted', loading: 'page' };
 
       expect(useVideoPlayer({ props })).toStrictEqual({
+        disableCookies: true,
         rest: { autoPlay: 'muted', loading: 'page' },
+      });
+    });
+  });
+
+  describe('when `disableCookies` is passed', () => {
+    const data = {
+      muxPlaybackId: 'ip028MAXF026dU900bKiyNDttjonw7A1dFY',
+    };
+
+    describe('as `undefined`', () => {
+      const props = { data, disableCookies: undefined };
+
+      it('sets `disableCookies` to `undefined`', () => {
+        expect(useVideoPlayer({ props })).toStrictEqual({
+          disableCookies: undefined,
+          playbackId: 'ip028MAXF026dU900bKiyNDttjonw7A1dFY',
+          style: {},
+          placeholder: undefined,
+          title: undefined,
+          rest: {},
+        });
+      });
+    });
+
+    describe('as `false`', () => {
+      const props = { data, disableCookies: false };
+
+      it('sets the prop to `false`', () => {
+        expect(useVideoPlayer({ props })).toStrictEqual({
+          disableCookies: false,
+          playbackId: 'ip028MAXF026dU900bKiyNDttjonw7A1dFY',
+          style: {},
+          placeholder: undefined,
+          title: undefined,
+          rest: {},
+        });
       });
     });
   });

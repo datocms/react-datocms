@@ -75,7 +75,7 @@ type Style = MuxPlayerProps['style'];
 type Title = MuxPlayerProps['title'];
 type PlaybackId = MuxPlayerProps['playbackId'];
 type Placeholder = MuxPlayerProps['placeholder'];
-type DisableCookies = MuxPlayerProps["disableCookies"];
+type DisableCookies = MuxPlayerProps['disableCookies'];
 type Rest = Omit<
   MuxPlayerProps,
   'title' | 'playbackId' | 'placeholder' | 'style'

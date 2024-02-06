@@ -1,4 +1,4 @@
-import { useVideoPlayer } from '../useVideoPlayer';
+import { useVideoPlayer } from '..';
 
 describe('useVideoPlayer', () => {
   describe('when data object', () => {

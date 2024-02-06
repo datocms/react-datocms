@@ -43,6 +43,11 @@
       "require": "./dist/cjs/useSiteSearch/index.js",
       "import": "./dist/esm/useSiteSearch/index.js",
       "types": "./dist/types/useSiteSearch/index.d.ts"
+    },
+    "./use-video-player": {
+      "require": "./dist/cjs/useVideoPlayer/index.js",
+      "import": "./dist/esm/useVideoPlayer/index.js",
+      "types": "./dist/types/useVideoPlayer/index.d.ts"
     }
   },
   "typesVersions": {
@@ -67,6 +72,9 @@
       ],
       "use-site-search": [
         "./dist/types/useSiteSearch/index.d.ts"
+      ],
+      "use-video-player": [
+        "./dist/types/useVideoPlayer/index.d.ts"
       ]
     }
   },

@@ -1,15 +1,18 @@
 import { MuxPlayerProps } from '@mux/mux-player-react/.';
-import { Maybe, VideoPlayerPropTypes } from '.';
+
+import { VideoPlayerProp } from '../VideoPlayer';
+
+export type Maybe<T> = T | null;
 
 const isCSSProperties = (obj: unknown): obj is React.CSSProperties => {
   return typeof obj === 'object' && obj !== null;
 };
 
-const doesNotWantAspectRatio = (props: VideoPlayerPropTypes) => {
+const doesNotWantAspectRatio = (props: VideoPlayerProp) => {
   return Object.hasOwn(props, 'style') && props.style === undefined;
 };
 
-const doesNotWantDisableCookies = (props: VideoPlayerPropTypes) => {
+const doesNotWantDisableCookies = (props: VideoPlayerProp) => {
   return (
     Object.hasOwn(props, 'disableCookies') && props.disableCookies === undefined
   );
@@ -26,7 +29,7 @@ const computedPlaybackId = (
   return muxPlaybackId || playbackId || undefined;
 };
 
-const computedStyle = (props: VideoPlayerPropTypes) => {
+const computedStyle = (props: VideoPlayerProp) => {
   const { data } = props;
 
   if (data === undefined) {
@@ -54,7 +57,7 @@ const computedStyle = (props: VideoPlayerPropTypes) => {
   return cssAspectRatioProperty;
 };
 
-const computedDisableCookies = (props: VideoPlayerPropTypes) => {
+const computedDisableCookies = (props: VideoPlayerProp) => {
   if (doesNotWantDisableCookies(props)) {
     return undefined;
   } else if (Object.hasOwn(props, 'disableCookies')) {
@@ -88,7 +91,7 @@ type PropsForMuxPlayer = {
 };
 
 type UseVideoPlayerOptions = {
-  props: VideoPlayerPropTypes;
+  props: VideoPlayerProp;
 };
 
 type UseVideoPlayer = ({ props }: UseVideoPlayerOptions) => PropsForMuxPlayer;

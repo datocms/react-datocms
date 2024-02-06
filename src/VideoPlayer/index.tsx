@@ -3,7 +3,7 @@
 // This file defines a React component suitable for displaying a video player
 // for video stored as assets on DatoCMS. The component is a thin wrapper around
 // the [React component made available by MUX][1].
-// 
+//
 // The React player written by MUX is an adapter for a web component.
 //
 // [1]: https://www.mux.com/player
@@ -46,6 +46,12 @@ export type VideoType = {
   blurUpThumb?: Maybe<string>;
 };
 
+// The component supports [all the props][1] allowed by the `<MuxPlayer />`
+// component, plus the `data` prop, explicitly meant to pass data in the shape
+// returned from the DatoCMS API.
+//
+// [1]: https://github.com/muxinc/elements/blob/main/packages/mux-player-react/REFERENCE.md
+
 export type VideoPlayerProp = MuxPlayerProps & {
   /** The actual response you get from a DatoCMS `video` GraphQL query */
   data?: VideoType;
@@ -57,9 +63,10 @@ export const VideoPlayer: (
   MuxPlayerElement,
   VideoPlayerProp
 >((props, ref) => {
-  const { title, playbackId, style, placeholder, disableCookies, rest } = useVideoPlayer({
-    props,
-  });
+  const { title, playbackId, style, placeholder, disableCookies, rest } =
+    useVideoPlayer({
+      props,
+    });
 
   return (
     <MuxPlayer

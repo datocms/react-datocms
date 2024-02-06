@@ -12,12 +12,6 @@ const doesNotWantAspectRatio = (props: VideoPlayerProp) => {
   return Object.hasOwn(props, 'style') && props.style === undefined;
 };
 
-const doesNotWantDisableCookies = (props: VideoPlayerProp) => {
-  return (
-    Object.hasOwn(props, 'disableCookies') && props.disableCookies === undefined
-  );
-};
-
 const computedTitle = (title: Maybe<string> | undefined) => {
   return title || undefined;
 };
@@ -58,9 +52,7 @@ const computedStyle = (props: VideoPlayerProp) => {
 };
 
 const computedDisableCookies = (props: VideoPlayerProp) => {
-  if (doesNotWantDisableCookies(props)) {
-    return undefined;
-  } else if (Object.hasOwn(props, 'disableCookies')) {
+  if (Object.hasOwn(props, 'disableCookies') && typeof props.disableCookies === "boolean") {
     return props.disableCookies;
   }
 

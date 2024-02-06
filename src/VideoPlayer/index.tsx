@@ -28,10 +28,10 @@ import { useVideoPlayer } from '../useVideoPlayer/index.js';
 
 export type Maybe<T> = T | null;
 
-// `VideoType` represents a fragment of data regarding a video as returned from
+// `Video` represents a fragment of data regarding a video as returned from
 // DatoCMS GraphQL API.
 
-export type VideoType = {
+export type Video = {
   /** Title attribute (`title`) for the video */
   title?: Maybe<string>;
   /** The height of the video */
@@ -44,6 +44,8 @@ export type VideoType = {
   playbackId?: Maybe<string>;
   /** A data: URI containing a blurhash for the video  */
   blurUpThumb?: Maybe<string>;
+  /** Other data can be passed, but they have no effect on rendering the player */
+  [k: string]: any;
 };
 
 // The component supports [all the props][1] allowed by the `<MuxPlayer />`
@@ -54,7 +56,7 @@ export type VideoType = {
 
 export type VideoPlayerProp = MuxPlayerProps & {
   /** The actual response you get from a DatoCMS `video` GraphQL query */
-  data?: VideoType;
+  data?: Video;
 };
 
 export const VideoPlayer: (

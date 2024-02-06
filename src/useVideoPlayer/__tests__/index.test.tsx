@@ -184,6 +184,27 @@ describe('useVideoPlayer', () => {
         });
       });
     });
+
+    describe('has other keys', () => {
+      const data = {
+        muxPlaybackId: 'ip028MAXF026dU900bKiyNDttjonw7A1dFY',
+        title: 'Title',
+        something: 'Else',
+      };
+
+      it('ignores them', () => {
+        const props = { data };
+
+        expect(useVideoPlayer({ props })).toStrictEqual({
+          disableCookies: true,
+          playbackId: 'ip028MAXF026dU900bKiyNDttjonw7A1dFY',
+          title: 'Title',
+          style: {},
+          placeholder: undefined,
+          rest: {},
+        });
+      });
+    });
   });
 
   describe('when MUX player props are passed', () => {
@@ -207,7 +228,7 @@ describe('useVideoPlayer', () => {
 
       it('sets `disableCookies` to `undefined`', () => {
         expect(useVideoPlayer({ props })).toStrictEqual({
-          disableCookies: undefined,
+          disableCookies: true,
           playbackId: 'ip028MAXF026dU900bKiyNDttjonw7A1dFY',
           style: {},
           placeholder: undefined,

@@ -15,7 +15,7 @@
 npm install --save react-datocms @mux/mux-player-react
 ```
 
-`@mux/mux-player-react` is peer dependency for `react-datocms`: so you're expected to install it on your project.
+`@mux/mux-player-react` is a [peer dependency](https://docs.npmjs.com/cli/v10/configuring-npm/package-json#peerdependencies) for `react-datocms`: so you're expected to add it in your project.
 
 ## Usage
 
@@ -45,10 +45,10 @@ const query = gql`
       title
       cover {
         video {
-          # required: it's the field that identifies the video to be played
+          # required: this field identifies the video to be played
           muxPlaybackId
 
-          # the following fields are not required but:
+          # all the other fields are not required but:
 
           # if provided, title is displayed in the upper left corner of the video
           title
@@ -60,6 +60,8 @@ const query = gql`
 
           # if provided, it shows a blurred placeholder for the video
           blurUpThumb
+
+          # you can include more data here: they will be ignored by the component
         }
       }
     }
@@ -72,8 +74,11 @@ export default withQuery(query)(Page);
 ## Props
 
 The `<VideoPlayer />` components supports all the properties made available for
-`<MuxPlayer />` component from `@mux/mux-player-react` package plus `data`, that is meant to 
-pass data directly in shape they are provided by DatCMS GraphQL API.
+`<MuxPlayer />` component from `@mux/mux-player-react` package plus `data`, which is meant to 
+receive data directly in the shape they are provided by DatoCMS GraphQL API.
+
+`<Video Player />` uses the `data` prop to generate a set of props for the inner
+`<MuxPlayer />`. On this topic, also see the "Advanced usage" section below.
 
 | prop | type           | required           | description                                                      | default |
 | ---- | -------------- | ------------------ | ---------------------------------------------------------------- | ------- |
@@ -85,3 +90,8 @@ Compared to the `<MuxPlayer />`, some prop default values are different on `<Vid
 - the video height and width, when available in the `data` props, are used to set `{ aspectRatio: "[width] / [height]"}` for the `<MuxPlayer />`'s `style`
 
 All the other props are forwarded to the `<MuxPlayer />` component that is used internally.
+
+## Advanced usage
+
+Despite we try our best to make the `<VideoPlayer />` a solution suitable for most normal use cases, there are situation where you
+may need to use the `<MuxPlayer />` directly. If that's the case, fill free to use the hook we provide: `useVideoPlayer`.

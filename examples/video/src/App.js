@@ -19,7 +19,7 @@ function App() {
     <div className="App">
       <p>Video examples</p>
       <hr />
-      <VideoPlayer data={data} className="video-player" ref={ref} />
+      <VideoPlayer data={data} className="video-player" ref={ref} disableCookies={false} />
       <hr />
       <VideoPlayer
         data={data}
@@ -37,7 +37,7 @@ function App() {
         autoPlay="muted"
       />
       <hr />
-      <VideoPlayer data={data} style={undefined} autoPlay="muted" />
+      <VideoPlayer data={data} style={{ aspectRatio: undefined }} autoPlay="muted" />
       <hr />
       <VideoPlayer
         data={{ playbackId: 'ip028MAXF026dU900bKiyNDttjonw7A1dFY' }}

@@ -1,108 +1,67 @@
 import { MuxPlayerProps } from '@mux/mux-player-react/.';
 
-import { VideoPlayerProp } from '../VideoPlayer';
+import { Video } from '../VideoPlayer';
 
 export type Maybe<T> = T | null;
 
-const isCSSProperties = (obj: unknown): obj is React.CSSProperties => {
-  return typeof obj === 'object' && obj !== null;
-};
-
-const doesNotWantAspectRatio = (props: VideoPlayerProp) => {
-  return Object.hasOwn(props, 'style') && props.style === undefined;
-};
-
 const computedTitle = (title: Maybe<string> | undefined) => {
-  return title || undefined;
+  return title ? { title } : undefined;
 };
 
 const computedPlaybackId = (
   muxPlaybackId: Maybe<string> | undefined,
   playbackId: Maybe<string> | undefined,
 ) => {
-  return muxPlaybackId || playbackId || undefined;
+  if (!(muxPlaybackId || playbackId)) return undefined;
+
+  return { playbackId: `${muxPlaybackId || playbackId}` };
 };
 
-const computedStyle = (props: VideoPlayerProp) => {
-  const { data } = props;
+const computedStyle = (
+  width: Maybe<number> | undefined,
+  height: Maybe<number> | undefined,
+) => {
+  if (!(width && height)) return undefined;
 
-  if (data === undefined) {
-    return {};
-  }
-
-  const { width, height } = data;
-
-  const cssAspectRatioProperty =
-    width && height
-      ? {
-          aspectRatio: `${width} / ${height}`,
-        }
-      : {};
-
-  if (doesNotWantAspectRatio(props)) {
-    return undefined;
-  } else if (isCSSProperties(props.style)) {
-    return {
-      ...cssAspectRatioProperty,
-      ...props.style,
-    };
-  }
-
-  return cssAspectRatioProperty;
-};
-
-const computedDisableCookies = (props: VideoPlayerProp) => {
-  if (Object.hasOwn(props, 'disableCookies') && typeof props.disableCookies === "boolean") {
-    return props.disableCookies;
-  }
-
-  return true;
+  return {
+    style: {
+      aspectRatio: `${width} / ${height}`,
+    },
+  };
 };
 
 const computedPlaceholder = (blurUpThumb: Maybe<string> | undefined) => {
-  return blurUpThumb || undefined;
+  return blurUpThumb ? { placeholder: blurUpThumb } : undefined;
 };
 
 type Style = MuxPlayerProps['style'];
 type Title = MuxPlayerProps['title'];
 type PlaybackId = MuxPlayerProps['playbackId'];
 type Placeholder = MuxPlayerProps['placeholder'];
-type DisableCookies = MuxPlayerProps['disableCookies'];
-type Rest = Omit<
-  MuxPlayerProps,
-  'title' | 'playbackId' | 'placeholder' | 'style'
->;
 
 type PropsForMuxPlayer = {
   style?: Style;
   title?: Title;
-  disableCookies: DisableCookies;
   playbackId?: PlaybackId;
   placeholder?: Placeholder;
-  rest: Rest;
 };
 
 type UseVideoPlayerOptions = {
-  props: VideoPlayerProp;
+  data: Video;
 };
 
-type UseVideoPlayer = ({ props }: UseVideoPlayerOptions) => PropsForMuxPlayer;
+export const useVideoPlayer = ({
+  data,
+}: UseVideoPlayerOptions): PropsForMuxPlayer => {
+  const { title, width, height, playbackId, muxPlaybackId, blurUpThumb } =
+    data || {};
 
-export const useVideoPlayer: UseVideoPlayer = ({ props }) => {
-  const { data, style, disableCookies, ...rest } = props;
-
-  const { title, playbackId, muxPlaybackId, blurUpThumb } = data || {};
+  if (data === undefined) return {};
 
   return {
-    ...(data === undefined
-      ? {}
-      : {
-          title: computedTitle(title),
-          playbackId: computedPlaybackId(muxPlaybackId, playbackId),
-          style: computedStyle(props),
-          placeholder: computedPlaceholder(blurUpThumb),
-        }),
-    disableCookies: computedDisableCookies(props),
-    rest,
+    ...(computedTitle(title) || {}),
+    ...(computedPlaybackId(muxPlaybackId, playbackId) || {}),
+    ...(computedStyle(width, height) || {}),
+    ...(computedPlaceholder(blurUpThumb) || {}),
   };
 };

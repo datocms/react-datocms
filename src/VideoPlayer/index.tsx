@@ -65,10 +65,15 @@ export const VideoPlayer: (
   MuxPlayerElement,
   VideoPlayerProp
 >((props, ref) => {
-  const { title, playbackId, style, placeholder, disableCookies, rest } =
-    useVideoPlayer({
-      props,
-    });
+  const { data = {}, style: styleFromProps, disableCookies = true, ...rest } = props;
+  const { title, playbackId, style: styleFromHook, placeholder } = useVideoPlayer({
+    data,
+  });
+
+  const style = {
+    ...styleFromHook,
+    ...styleFromProps,
+  }
 
   return (
     <MuxPlayer

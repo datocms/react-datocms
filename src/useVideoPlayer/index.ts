@@ -2,15 +2,16 @@ import { MuxPlayerProps } from '@mux/mux-player-react/.';
 
 import { Video } from '../VideoPlayer';
 
-export type Maybe<T> = T | null;
+type Maybe<T> = T | null;
+type Possibly<T> = Maybe<T> | undefined;
 
 const computedTitle = (title: Maybe<string> | undefined) => {
   return title ? { title } : undefined;
 };
 
 const computedPlaybackId = (
-  muxPlaybackId: Maybe<string> | undefined,
-  playbackId: Maybe<string> | undefined,
+  muxPlaybackId: Possibly<string>,
+  playbackId: Possibly<string>,
 ) => {
   if (!(muxPlaybackId || playbackId)) return undefined;
 
@@ -18,8 +19,8 @@ const computedPlaybackId = (
 };
 
 const computedStyle = (
-  width: Maybe<number> | undefined,
-  height: Maybe<number> | undefined,
+  width: Possibly<number>,
+  height: Possibly<number>,
 ) => {
   if (!(width && height)) return undefined;
 
@@ -30,7 +31,7 @@ const computedStyle = (
   };
 };
 
-const computedPlaceholder = (blurUpThumb: Maybe<string> | undefined) => {
+const computedPlaceholder = (blurUpThumb: Possibly<string>) => {
   return blurUpThumb ? { placeholder: blurUpThumb } : undefined;
 };
 

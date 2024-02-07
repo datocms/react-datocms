@@ -74,7 +74,7 @@ export default withQuery(query)(Page);
 ## Props
 
 The `<VideoPlayer />` components supports all the properties made available for
-`<MuxPlayer />` component from `@mux/mux-player-react` package plus `data`, which is meant to 
+`<MuxPlayer />` component from `@mux/mux-player-react` package plus `data`, which is meant to
 receive data directly in the shape they are provided by DatoCMS GraphQL API.
 
 `<Video Player />` uses the `data` prop to generate a set of props for the inner
@@ -91,7 +91,38 @@ Compared to the `<MuxPlayer />`, some prop default values are different on `<Vid
 
 All the other props are forwarded to the `<MuxPlayer />` component that is used internally.
 
-## Advanced usage
+## Advanced usage: the `useVideoPlayer` hook
 
-Despite we try our best to make the `<VideoPlayer />` a solution suitable for most normal use cases, there are situation where you
-may need to use the `<MuxPlayer />` directly. If that's the case, fill free to use the hook we provide: `useVideoPlayer`.
+Despite we try our best to make the `<VideoPlayer />` suitable and easy to use for most normal use cases, there are situation where you may need to leverage the `<MuxPlayer />` directly. If that's the case, fill free to use the hook we provide: `useVideoPlayer`.
+
+`useVideoPlayer` takes data coming in the shape they are produced from DatoCMS API and return props that you can pass to dhe `<MuxPlayer />` component: that's pretty much what the `<VideoPlayer />` does internally.
+
+### Example
+
+```
+import 
+
+const data = {
+  muxPlaybackId: 'ip028MAXF026dU900bKiyNDttjonw7A1dFY',
+  title: 'Title',
+  width: 1080,
+  height: 1920,
+  blurUpThumb:
+    'data:image/bmp;base64,Qk0eAAAAAAAAABoAAAAMAAAAAQABAAEAGAAAAP8A',
+};
+
+// `props` is the following object:
+//
+//     {
+//        playbackId: 'ip028MAXF026dU900bKiyNDttjonw7A1dFY',
+//        title: 'Title',
+//        style: {
+//          aspectRatio: '1080 / 1920',
+//        },
+//        placeholder:
+//          'data:image/bmp;base64,Qk0eAAAAAAAAABoAAAAMAAAAAQABAAEAGAAAAP8A',
+//      }
+const props = useVideoPlayer({ data });
+
+<MuxPlayer {...props} />
+```

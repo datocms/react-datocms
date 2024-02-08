@@ -1,6 +1,8 @@
-# `<VideoPlayer/>` component for easygoing videos.
+# `<VideoPlayer/>` component for easy video integration.
 
 `<VideoPlayer />` is a React component specially designed to work seamlessly with DatoCMS’s [`video` GraphQL query](https://www.datocms.com/docs/content-delivery-api/images-and-videos#videos) that optimizes video streaming for your sites.
+
+To stream videos, DatoCMS partners with MUX, a video CDN that serves optimized streams to your users. Our component is a wrapper over MUX's video player for React. It takes care of the details for you, and this is our recommended way to serve optimal videos to your users.
 
 ## Out-of-the-box features
 
@@ -93,14 +95,14 @@ All the other props are forwarded to the `<MuxPlayer />` component that is used 
 
 ## Advanced usage: the `useVideoPlayer` hook
 
-Despite we try our best to make the `<VideoPlayer />` suitable and easy to use for most normal use cases, there are situation where you may need to leverage the `<MuxPlayer />` directly. If that's the case, fill free to use the hook we provide: `useVideoPlayer`.
+Despite we try our best to make the `<VideoPlayer />` suitable and easy to use for most normal use cases, there are situations where you may need to leverage the `<MuxPlayer />` directly (let's suppose you wrote your special wrapper component around the `<MuxPlayer />` and you need a bunch of props to pass). If that's the case, fill free to use the hook we provide: `useVideoPlayer`.
 
-`useVideoPlayer` takes data coming in the shape they are produced from DatoCMS API and return props that you can pass to dhe `<MuxPlayer />` component: that's pretty much what the `<VideoPlayer />` does internally.
+`useVideoPlayer` takes data coming in the shape they are produced from DatoCMS API and return props that you can pass to the `<MuxPlayer />` component. That's pretty much what the `<VideoPlayer />` does internally.
 
 ### Example
 
 ```
-import 
+import { useVideoPlayer } from 'react-datocms';
 
 const data = {
   muxPlaybackId: 'ip028MAXF026dU900bKiyNDttjonw7A1dFY',

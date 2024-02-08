@@ -75,9 +75,11 @@ export default withQuery(query)(Page);
 
 ## Props
 
-The `<VideoPlayer />` components supports all the properties made available for
-`<MuxPlayer />` component from `@mux/mux-player-react` package plus `data`, which is meant to
-receive data directly in the shape they are provided by DatoCMS GraphQL API.
+The `<VideoPlayer />` components supports all [the properties made
+available](https://github.com/muxinc/elements/blob/main/packages/mux-player-react/REFERENCE.md)
+for `<MuxPlayer />` component from `@mux/mux-player-react` package plus `data`,
+which is meant to receive data directly in the shape they are provided by
+DatoCMS GraphQL API.
 
 `<Video Player />` uses the `data` prop to generate a set of props for the inner
 `<MuxPlayer />`. On this topic, also see the "Advanced usage" section below.

@@ -72,6 +72,7 @@ export const VideoPlayer: (
   const {
     data = {},
     disableCookies = true,
+    preload = "metadata",
     style: styleFromProps,
     ...rest
   } = props;
@@ -94,6 +95,7 @@ export const VideoPlayer: (
     <MuxPlayer
       ref={ref}
       streamType="on-demand"
+      preload={preload}
       title={title}
       disableCookies={disableCookies}
       playbackId={playbackId}

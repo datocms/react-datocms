@@ -8,7 +8,7 @@ To stream videos, DatoCMS partners with MUX, a video CDN that serves optimized s
 
 - Offers optimized streaming so smartphones and tablets don’t request desktop-sized videos
 - Lazy loads the video component and the video to be played to speed initial page load and save bandwidth
-- Holds the video position so your page doesn’t jump while the player loads
+- Holds the video position and size so your page doesn’t jump while the player loads
 - Uses blur-up technique to show a placeholder of the video while it loads
 
 ## Installation
@@ -88,16 +88,17 @@ DatoCMS GraphQL API.
 | ---- | -------------- | ------------------ | ---------------------------------------------------------------- | ------- |
 | data | `Video` object | :white_check_mark: | The actual response you get from a DatoCMS `video` GraphQL query |         |
 
-Compared to the `<MuxPlayer />`, some prop default values are different on `<VideoPlayer />`
+Compared to the `<MuxPlayer />`, **some prop default values are different** on `<VideoPlayer />`
 
 - `disableCookies` is normally true, unless you explicitly set the prop to `false`
+- `preload` defaults to `metadata`, for an optimal UX experience together with saved bandwidth
 - the video height and width, when available in the `data` props, are used to set `{ aspectRatio: "[width] / [height]"}` for the `<MuxPlayer />`'s `style`
 
 All the other props are forwarded to the `<MuxPlayer />` component that is used internally.
 
 ## Advanced usage: the `useVideoPlayer` hook
 
-Despite we try our best to make the `<VideoPlayer />` suitable and easy to use for most normal use cases, there are situations where you may need to leverage the `<MuxPlayer />` directly (let's suppose you wrote your special wrapper component around the `<MuxPlayer />` and you need a bunch of props to pass). If that's the case, fill free to use the hook we provide: `useVideoPlayer`.
+Even though we try our best to make the `<VideoPlayer />` suitable and easy to use for most normal use cases, there are situations where you may need to leverage the `<MuxPlayer />` directly (let's suppose you wrote your special wrapper component around the `<MuxPlayer />` and you need a bunch of props to pass). If that's the case, fill free to use the hook we provide: `useVideoPlayer`.
 
 `useVideoPlayer` takes data coming in the shape they are produced from DatoCMS API and return props that you can pass to the `<MuxPlayer />` component. That's pretty much what the `<VideoPlayer />` does internally.
 

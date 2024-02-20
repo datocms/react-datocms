@@ -47,13 +47,13 @@ type PropsForMuxPlayer = {
   placeholder?: Placeholder;
 };
 
-type UseVideoPlayerOptions = {
+type UseVideoPlayerArgs = {
   data: Video;
 };
 
 export const useVideoPlayer = ({
   data,
-}: UseVideoPlayerOptions): PropsForMuxPlayer => {
+}: UseVideoPlayerArgs): PropsForMuxPlayer => {
   const { title, width, height, playbackId, muxPlaybackId, blurUpThumb } =
     data || {};
 

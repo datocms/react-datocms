@@ -123,3 +123,60 @@ const App: React.FC = () => {
   );
 };
 ```
+
+## The `fetcher` option
+
+Be careful with how you define the `fetcher` option: use a function that is
+defined as a `const` outside of the lexical scope where you're using
+`useQuerySubscription`.
+
+If you don't, you could have an infinite render loop, because the function looks
+like new at every render of the component. For more info, see
+[use-deep-compare-effect](https://github.com/kentcdodds/use-deep-compare-effect?tab=readme-ov-file#usage)
+documentation.
+
+The following example is ok:
+
+```js
+const fetcher = (baseUrl, { headers, method, body }) => {
+  return fetch(baseUrl, {
+    headers: {
+      ...headers,
+      'X-Custom-Header': "that's needed for some reason",
+    },
+    method,
+    body,
+  });
+};
+
+export default function Home() {
+  const { status, error, data } = useQuerySubscription({
+    fetcher,
+    // Other options here
+  });
+
+  return ...
+}
+```
+
+**This one is not**, because the new function that is generated every time the component is rendered triggers another render: 
+
+```js
+export default function Home() {
+  const { status, error, data } = useQuerySubscription({
+    fetcher: (baseUrl, { headers, method, body }) => {
+      return fetch(baseUrl, {
+        headers: {
+          ...headers,
+          'X-Custom-Header': "that's needed for some reason",
+        },
+        method,
+        body,
+      });
+    },
+    // Other options here
+  });
+
+  return ...
+}
+```

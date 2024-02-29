@@ -1,6 +1,6 @@
 {
   "name": "react-datocms",
-  "version": "4.1.3",
+  "version": "4.2.0",
   "engines": {
     "node": ">=8.0.0"
   },
@@ -28,7 +28,7 @@
       "require": "./dist/cjs/VideoPlayer/index.js",
       "import": "./dist/esm/VideoPlayer/index.js",
       "types": "./dist/types/VideoPlayer/index.d.ts"
-    },    
+    },
     "./structured-text": {
       "require": "./dist/cjs/StructuredText/index.js",
       "import": "./dist/esm/StructuredText/index.js",

@@ -1,14 +1,14 @@
-import { mount, shallow, render } from 'enzyme';
+import { renderMarkRule } from 'datocms-structured-text-generic-html-renderer';
+import { isHeading } from 'datocms-structured-text-utils';
+import { mount, render, shallow } from 'enzyme';
 import * as React from 'react';
 import {
-  StructuredText,
-  StructuredTextGraphQlResponse,
-  StructuredTextDocument,
   RenderError,
+  StructuredText,
+  StructuredTextDocument,
+  StructuredTextGraphQlResponse,
   renderNodeRule,
 } from '../index.js';
-import { isHeading } from 'datocms-structured-text-utils';
-import { renderMarkRule } from 'datocms-structured-text-generic-html-renderer';
 
 describe('StructuredText', () => {
   describe('with no value', () => {

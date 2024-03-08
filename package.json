@@ -133,6 +133,11 @@
     "@mux/mux-player-react": "*",
     "react": ">= 16.12.0"
   },
+  "peerDependenciesMeta": {
+    "@mux/mux-player-react": {
+      "optional": true
+    }
+  },
   "dependencies": {
     "datocms-listen": "^0.1.9",
     "datocms-structured-text-generic-html-renderer": "^2.0.1",

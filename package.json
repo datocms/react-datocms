@@ -130,13 +130,7 @@
     "tsc:esm": "tsc --project ./tsconfig.esnext.json"
   },
   "peerDependencies": {
-    "@mux/mux-player-react": "*",
     "react": ">= 16.12.0"
-  },
-  "peerDependenciesMeta": {
-    "@mux/mux-player-react": {
-      "optional": true
-    }
   },
   "dependencies": {
     "datocms-listen": "^0.1.9",
@@ -145,6 +139,7 @@
     "react-intersection-observer": "^9.4.3",
     "react-string-replace": "^1.1.0",
     "universal-base64": "^2.1.0",
-    "use-deep-compare-effect": "^1.6.1"
+    "use-deep-compare-effect": "^1.6.1",
+    "@mux/mux-player-react": "*"
   }
 }

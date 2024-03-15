@@ -8,12 +8,15 @@ Just like for the [image component](./image.md) this package offers a number of 
 <!-- DON'T EDIT THIS SECTION, INSTEAD RE-RUN doctoc TO UPDATE -->
 **Table of Contents**  *generated with [DocToc](https://github.com/thlorenz/doctoc)*
 
-- [Installation](#installation)
-- [General usage](#general-usage)
-- [`renderMetaTags()`](#rendermetatags)
-- [`renderMetaTagsToString()`](#rendermetatagstostring)
-- [`toRemixMeta()`](#toremixmeta)
-- [`toNextMetadata()`](#tonextmetadata)
+- [Social share, SEO and Favicon meta tags](#social-share-seo-and-favicon-meta-tags)
+  - [Table of Contents](#table-of-contents)
+  - [Installation](#installation)
+  - [General usage](#general-usage)
+  - [`renderMetaTags()`](#rendermetatags)
+  - [`renderMetaTagsToString()`](#rendermetatagstostring)
+  - [`toRemixMeta()`](#toremixmeta)
+    - [For Remix v1: `toRemixV1Meta()`](#for-remix-v1-toremixv1meta)
+  - [`toNextMetadata()`](#tonextmetadata)
 
 <!-- END doctoc generated TOC please keep comment here to allow auto update -->
 
@@ -97,18 +100,20 @@ const someMoreComplexHtml = `
 
 ## `toRemixMeta()`
 
-This function generates a `HtmlMetaDescriptor` object, compatibile with the [`meta`](https://remix.run/docs/en/v1.1.1/api/conventions#meta) export of the [Remix](https://remix.run/) framework:
+This function generates an array of `MetaDescriptor` objects, compatibile with the [`meta`](https://remix.run/docs/en/2.8.1/route/meta) export of the Remix framework:
 
 ```js
 import type { MetaFunction } from 'remix';
-import { toRemixMeta } from 'react-datocms';
+import { toRemixV1Meta } from 'react-datocms';
 
 export const meta: MetaFunction = ({ data: { post } }) => {
-  return toRemixMeta(post.seo);
+  return toRemixV1Meta(post.seo);
 };
 ```
 
-Please note that the [`links`](https://remix.run/docs/en/v1.1.1/api/conventions#links) export [doesn't receive any loader data](https://github.com/remix-run/remix/issues/32) for performance reasons, so you cannot use it to declare favicons meta tags! The best way to render them is using `renderMetaTags` in your root component:
+Please note that the [`links`](https://remix.run/docs/en/v1.1.1/api/conventions#links) export [doesn't receive any loader data](https://github.com/remix-run/remix/issues/32), so you cannot use it to declare favicons meta tags!
+
+The best way to render them is using the [`meta`](https://remix.run/docs/en/2.8.1/route/meta) export as the SEO meta tags, or (even better) using `renderMetaTags` in your root component:
 
 ```jsx
 import { renderMetaTags } from 'react-datocms';
@@ -142,13 +147,24 @@ export default function App() {
       </head>
       <body>
         <Outlet />
-        <ScrollRestoration />
-        <Scripts />
-        {process.env.NODE_ENV === 'development' && <LiveReload />}
+        ...
       </body>
     </html>
   );
 }
+```
+
+### For Remix v1: `toRemixV1Meta()`
+
+If you're using Remix v1, you can use `toRemixV1Meta()` to generate an object compatible with the legacy [`meta`](https://remix.run/docs/en/v1.1.1/api/conventions#meta) export:
+
+```js
+import type { MetaFunction } from 'remix';
+import { toRemixV1Meta } from 'react-datocms';
+
+export const meta: MetaFunction = ({ data: { post } }) => {
+  return toRemixV1Meta(post.seo);
+};
 ```
 
 ## `toNextMetadata()`

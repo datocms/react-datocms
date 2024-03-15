@@ -1,12 +1,12 @@
 import { SeoOrFaviconTag, TitleMetaLinkTag } from './types.js';
 
-interface RemixHtmlMetaDescriptor {
+interface RemixV1HtmlMetaDescriptor {
   [name: string]: string | string[];
 }
 
-export function toRemixMeta(
+export function toRemixV1Meta(
   metaTags: null | TitleMetaLinkTag[] | SeoOrFaviconTag[],
-): RemixHtmlMetaDescriptor {
+): RemixV1HtmlMetaDescriptor {
   if (!metaTags) {
     return {};
   }
@@ -30,5 +30,20 @@ export function toRemixMeta(
         ? tag.attributes.property
         : tag.attributes.name]: tag.attributes.content,
     };
-  }, {} as RemixHtmlMetaDescriptor);
+  }, {} as RemixV1HtmlMetaDescriptor);
+}
+
+export function toRemixMeta(
+  tags: null | TitleMetaLinkTag[] | SeoOrFaviconTag[],
+) {
+  if (!tags) {
+    return [];
+  }
+
+  return tags
+    .map((x) => {
+      if (x.tag === 'title' && x.content) return { title: x.content };
+      return x.attributes;
+    })
+    .filter((x): x is NonNullable<typeof x> => Boolean(x));
 }

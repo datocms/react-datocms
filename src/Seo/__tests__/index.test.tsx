@@ -5,6 +5,7 @@ import {
   renderMetaTagsToString,
   toNextMetadata,
   toRemixMeta,
+  toRemixV1Meta,
 } from '../index.js';
 import { TitleMetaLinkTag } from '../types.js';
 
@@ -309,6 +310,12 @@ describe('renderMetaTags', () => {
 describe('renderMetaTagsToString', () => {
   it('generates an array of meta tags', () => {
     expect(renderMetaTagsToString(metaTags)).toMatchSnapshot();
+  });
+});
+
+describe('toRemixV1Meta', () => {
+  it('generates a meta descriptor', () => {
+    expect(toRemixV1Meta(metaTags)).toMatchSnapshot();
   });
 });
 

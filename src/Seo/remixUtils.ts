@@ -43,7 +43,12 @@ export function toRemixMeta(
   return tags
     .map((x) => {
       if (x.tag === 'title' && x.content) return { title: x.content };
-      return x.attributes;
+      if (x.attributes) {
+        return {
+          tagName: x.tag,
+          ...x.attributes,
+        } as Record<string, string>;
+      }
     })
-    .filter((x): x is NonNullable<typeof x> => Boolean(x));
+    .filter(Boolean);
 }

@@ -50,5 +50,5 @@ export function toRemixMeta(
         } as Record<string, string>;
       }
     })
-    .filter(Boolean);
+    .filter((x): x is NonNullable<typeof x> => Boolean(x));
 }

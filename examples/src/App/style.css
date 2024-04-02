@@ -1,0 +1,23 @@
+nav {
+  display: flex;
+  gap: 1rem;
+
+  a {
+    color: #845ef7;
+  }
+}
+
+.example {
+  border: 1px solid #eee;
+  padding: 1rem;
+  margin-block: 2rem;
+  display: grid;
+  gap: 1rem;
+  border-radius: 5px;
+
+  &:before {
+    content: attr(data-title);
+    font-weight: bold;
+    font-size: 1.3em;
+  }
+}

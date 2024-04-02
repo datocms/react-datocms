@@ -1,3 +1,18 @@
+<!-- START doctoc generated TOC please keep comment here to allow auto update -->
+<!-- DON'T EDIT THIS SECTION, INSTEAD RE-RUN doctoc TO UPDATE -->
+**Table of Contents**  *generated with [DocToc](https://github.com/thlorenz/doctoc)*
+
+- [`<VideoPlayer/>` component for easy video integration.](#videoplayer-component-for-easy-video-integration)
+  - [Out-of-the-box features](#out-of-the-box-features)
+  - [Installation](#installation)
+  - [Usage](#usage)
+  - [Example](#example)
+  - [Props](#props)
+  - [Advanced usage: the `useVideoPlayer` hook](#advanced-usage-the-usevideoplayer-hook)
+    - [Example](#example-1)
+
+<!-- END doctoc generated TOC please keep comment here to allow auto update -->
+
 # `<VideoPlayer/>` component for easy video integration.
 
 `<VideoPlayer />` is a React component specially designed to work seamlessly with DatoCMS’s [`video` GraphQL query](https://www.datocms.com/docs/content-delivery-api/images-and-videos#videos) that optimizes video streaming for your sites.

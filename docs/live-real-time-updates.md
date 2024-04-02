@@ -13,14 +13,13 @@ Live updates are great both to get instant previews of your content while editin
 <!-- DON'T EDIT THIS SECTION, INSTEAD RE-RUN doctoc TO UPDATE -->
 **Table of Contents**  *generated with [DocToc](https://github.com/thlorenz/doctoc)*
 
-- [Live real-time updates](#live-real-time-updates)
-  - [Table of Contents](#table-of-contents)
-  - [Installation](#installation)
-  - [Reference](#reference)
-  - [Initialization options](#initialization-options)
-  - [Connection status](#connection-status)
-  - [Error object](#error-object)
-  - [Example](#example)
+- [Installation](#installation)
+- [Reference](#reference)
+- [Initialization options](#initialization-options)
+- [Connection status](#connection-status)
+- [Error object](#error-object)
+- [Example](#example)
+- [The `fetcher` option](#the-fetcher-option)
 
 <!-- END doctoc generated TOC please keep comment here to allow auto update -->
 

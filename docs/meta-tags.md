@@ -8,15 +8,13 @@ Just like for the [image component](./image.md) this package offers a number of 
 <!-- DON'T EDIT THIS SECTION, INSTEAD RE-RUN doctoc TO UPDATE -->
 **Table of Contents**  *generated with [DocToc](https://github.com/thlorenz/doctoc)*
 
-- [Social share, SEO and Favicon meta tags](#social-share-seo-and-favicon-meta-tags)
-  - [Table of Contents](#table-of-contents)
-  - [Installation](#installation)
-  - [General usage](#general-usage)
-  - [`renderMetaTags()`](#rendermetatags)
-  - [`renderMetaTagsToString()`](#rendermetatagstostring)
-  - [`toRemixMeta()`](#toremixmeta)
-    - [For Remix v1: `toRemixV1Meta()`](#for-remix-v1-toremixv1meta)
-  - [`toNextMetadata()`](#tonextmetadata)
+- [Installation](#installation)
+- [General usage](#general-usage)
+- [`renderMetaTags()`](#rendermetatags)
+- [`renderMetaTagsToString()`](#rendermetatagstostring)
+- [`toRemixMeta()`](#toremixmeta)
+  - [For Remix v1: `toRemixV1Meta()`](#for-remix-v1-toremixv1meta)
+- [`toNextMetadata()`](#tonextmetadata)
 
 <!-- END doctoc generated TOC please keep comment here to allow auto update -->
 

@@ -18,10 +18,7 @@ const computedPlaybackId = (
   return { playbackId: `${muxPlaybackId || playbackId}` };
 };
 
-const computedStyle = (
-  width: Possibly<number>,
-  height: Possibly<number>,
-) => {
+const computedStyle = (width: Possibly<number>, height: Possibly<number>) => {
   if (!(width && height)) return undefined;
 
   return {

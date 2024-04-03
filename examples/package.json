@@ -1,0 +1,33 @@
+{
+  "name": "video",
+  "version": "0.1.0",
+  "private": true,
+  "dependencies": {
+    "@babel/plugin-proposal-private-property-in-object": "^7.21.11",
+    "@datocms/cma-client-browser": "*",
+    "react": "^17.0.2",
+    "react-datocms": "file:../react-datocms.tgz",
+    "react-dom": "^17.0.2",
+    "react-helmet": "^6.1.0",
+    "react-paginate": "^8.2.0",
+    "react-scripts": "5.0.1"
+  },
+  "scripts": {
+    "setup": "npm uninstall react-datocms && rm -rf ./node_modules/.cache && cd .. && rm -f react-datocms.tgz && npm ci && npm run build && mv -f $(npm pack 2>&1 | tail -1) react-datocms.tgz && cd examples && npm install --save ../react-datocms.tgz && npm install;",
+    "start": "react-scripts start",
+    "build": "react-scripts build",
+    "eject": "react-scripts eject"
+  },
+  "browserslist": {
+    "production": [
+      ">0.2%",
+      "not dead",
+      "not op_mini all"
+    ],
+    "development": [
+      "last 1 chrome version",
+      "last 1 firefox version",
+      "last 1 safari version"
+    ]
+  }
+}

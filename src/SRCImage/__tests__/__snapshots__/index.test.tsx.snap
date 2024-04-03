@@ -1,0 +1,268 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Image explicit sizes renders correctly 1`] = `
+<SRCImage
+  data={
+    {
+      "base64": "data:image/jpeg;base64,<IMAGE-DATA>",
+      "height": 421,
+      "src": "https://www.datocms-assets.com/205/image.png?ar=16%3A9&fit=crop&w=750",
+      "width": 750,
+    }
+  }
+  sizes="(max-width: 600px) 200px, 50vw"
+>
+  <picture>
+    <source
+      sizes="(max-width: 600px) 200px, 50vw"
+      srcSet="https://www.datocms-assets.com/205/image.png?ar=16%3A9&fit=crop&w=750&dpr=0.25 187w,https://www.datocms-assets.com/205/image.png?ar=16%3A9&fit=crop&w=750&dpr=0.5 375w,https://www.datocms-assets.com/205/image.png?ar=16%3A9&fit=crop&w=750&dpr=0.75 562w,https://www.datocms-assets.com/205/image.png?ar=16%3A9&fit=crop&w=750 750w,https://www.datocms-assets.com/205/image.png?ar=16%3A9&fit=crop&w=750&dpr=1.5 1125w,https://www.datocms-assets.com/205/image.png?ar=16%3A9&fit=crop&w=750&dpr=2 1500w,https://www.datocms-assets.com/205/image.png?ar=16%3A9&fit=crop&w=750&dpr=3 2250w,https://www.datocms-assets.com/205/image.png?ar=16%3A9&fit=crop&w=750&dpr=4 3000w"
+    />
+    <img
+      loading="lazy"
+      src="https://www.datocms-assets.com/205/image.png?ar=16%3A9&fit=crop&w=750"
+      style={
+        {
+          "aspectRatio": "750 / 421",
+          "backgroundImage": "url(data:image/jpeg;base64,<IMAGE-DATA>)",
+          "backgroundPosition": "50% 50%",
+          "backgroundRepeat": "no-repeat",
+          "backgroundSize": "cover",
+          "color": "transparent",
+          "height": "auto",
+          "maxWidth": "750px",
+          "width": "100%",
+        }
+      }
+    />
+  </picture>
+</SRCImage>
+`;
+
+exports[`Image full data renders correctly 1`] = `
+<SRCImage
+  data={
+    {
+      "alt": "DatoCMS swag",
+      "aspectRatio": 1.7777777777777777,
+      "base64": "data:image/jpeg;base64,<IMAGE-DATA>",
+      "height": 421,
+      "sizes": "(max-width: 750px) 100vw, 750px",
+      "src": "https://www.datocms-assets.com/205/image.png?ar=16%3A9&fit=crop&w=750",
+      "srcSet": "https://www.datocms-assets.com/205/image.png?ar=16%3A9&dpr=0.25&fit=crop&w=750 187w,↵https://www.datocms-assets.com/205/image.png?ar=16%3A9&dpr=0.5&fit=crop&w=750 375w,↵https://www.datocms-assets.com/205/image.png?ar=16%3A9&dpr=0.75&fit=crop&w=750 562w,↵https://www.datocms-assets.com/205/image.png?ar=16%3A9&dpr=1&fit=crop&w=750 750w,↵https://www.datocms-assets.com/205/image.png?ar=16%3A9&dpr=1.5&fit=crop&w=750 1125w,↵https://www.datocms-assets.com/205/image.png?ar=16%3A9&dpr=2&fit=crop&w=750 1500w,↵https://www.datocms-assets.com/205/image.png?ar=16%3A9&dpr=3&fit=crop&w=750 2250w,↵https://www.datocms-assets.com/205/image.png?ar=16%3A9&dpr=4&fit=crop&w=750 3000w",
+      "title": "These are awesome, we know that.",
+      "width": 750,
+    }
+  }
+>
+  <picture>
+    <source
+      sizes="(max-width: 750px) 100vw, 750px"
+      srcSet="https://www.datocms-assets.com/205/image.png?ar=16%3A9&dpr=0.25&fit=crop&w=750 187w,↵https://www.datocms-assets.com/205/image.png?ar=16%3A9&dpr=0.5&fit=crop&w=750 375w,↵https://www.datocms-assets.com/205/image.png?ar=16%3A9&dpr=0.75&fit=crop&w=750 562w,↵https://www.datocms-assets.com/205/image.png?ar=16%3A9&dpr=1&fit=crop&w=750 750w,↵https://www.datocms-assets.com/205/image.png?ar=16%3A9&dpr=1.5&fit=crop&w=750 1125w,↵https://www.datocms-assets.com/205/image.png?ar=16%3A9&dpr=2&fit=crop&w=750 1500w,↵https://www.datocms-assets.com/205/image.png?ar=16%3A9&dpr=3&fit=crop&w=750 2250w,↵https://www.datocms-assets.com/205/image.png?ar=16%3A9&dpr=4&fit=crop&w=750 3000w"
+    />
+    <img
+      alt="DatoCMS swag"
+      loading="lazy"
+      src="https://www.datocms-assets.com/205/image.png?ar=16%3A9&fit=crop&w=750"
+      style={
+        {
+          "aspectRatio": "750 / 421",
+          "backgroundImage": "url(data:image/jpeg;base64,<IMAGE-DATA>)",
+          "backgroundPosition": "50% 50%",
+          "backgroundRepeat": "no-repeat",
+          "backgroundSize": "cover",
+          "color": "transparent",
+          "height": "auto",
+          "maxWidth": "750px",
+          "width": "100%",
+        }
+      }
+      title="These are awesome, we know that."
+    />
+  </picture>
+</SRCImage>
+`;
+
+exports[`Image minimal data renders correctly 1`] = `
+<SRCImage
+  data={
+    {
+      "base64": "data:image/jpeg;base64,<IMAGE-DATA>",
+      "height": 421,
+      "src": "https://www.datocms-assets.com/205/image.png?ar=16%3A9&fit=crop&w=750",
+      "width": 750,
+    }
+  }
+>
+  <picture>
+    <source
+      srcSet="https://www.datocms-assets.com/205/image.png?ar=16%3A9&fit=crop&w=750&dpr=0.25 187w,https://www.datocms-assets.com/205/image.png?ar=16%3A9&fit=crop&w=750&dpr=0.5 375w,https://www.datocms-assets.com/205/image.png?ar=16%3A9&fit=crop&w=750&dpr=0.75 562w,https://www.datocms-assets.com/205/image.png?ar=16%3A9&fit=crop&w=750 750w,https://www.datocms-assets.com/205/image.png?ar=16%3A9&fit=crop&w=750&dpr=1.5 1125w,https://www.datocms-assets.com/205/image.png?ar=16%3A9&fit=crop&w=750&dpr=2 1500w,https://www.datocms-assets.com/205/image.png?ar=16%3A9&fit=crop&w=750&dpr=3 2250w,https://www.datocms-assets.com/205/image.png?ar=16%3A9&fit=crop&w=750&dpr=4 3000w"
+    />
+    <img
+      loading="lazy"
+      src="https://www.datocms-assets.com/205/image.png?ar=16%3A9&fit=crop&w=750"
+      style={
+        {
+          "aspectRatio": "750 / 421",
+          "backgroundImage": "url(data:image/jpeg;base64,<IMAGE-DATA>)",
+          "backgroundPosition": "50% 50%",
+          "backgroundRepeat": "no-repeat",
+          "backgroundSize": "cover",
+          "color": "transparent",
+          "height": "auto",
+          "maxWidth": "750px",
+          "width": "100%",
+        }
+      }
+    />
+  </picture>
+</SRCImage>
+`;
+
+exports[`Image minimalDataWithRelativeUrl renders correctly 1`] = `
+<SRCImage
+  data={
+    {
+      "base64": "data:image/jpeg;base64,<IMAGE-DATA>",
+      "height": 421,
+      "src": "/205/image.png?ar=16%3A9&fit=crop&w=750",
+      "width": 750,
+    }
+  }
+>
+  <picture>
+    <source
+      srcSet="/205/image.png?ar=16%3A9&fit=crop&w=750&dpr=0.25 187w,/205/image.png?ar=16%3A9&fit=crop&w=750&dpr=0.5 375w,/205/image.png?ar=16%3A9&fit=crop&w=750&dpr=0.75 562w,/205/image.png?ar=16%3A9&fit=crop&w=750 750w,/205/image.png?ar=16%3A9&fit=crop&w=750&dpr=1.5 1125w,/205/image.png?ar=16%3A9&fit=crop&w=750&dpr=2 1500w,/205/image.png?ar=16%3A9&fit=crop&w=750&dpr=3 2250w,/205/image.png?ar=16%3A9&fit=crop&w=750&dpr=4 3000w"
+    />
+    <img
+      loading="lazy"
+      src="/205/image.png?ar=16%3A9&fit=crop&w=750"
+      style={
+        {
+          "aspectRatio": "750 / 421",
+          "backgroundImage": "url(data:image/jpeg;base64,<IMAGE-DATA>)",
+          "backgroundPosition": "50% 50%",
+          "backgroundRepeat": "no-repeat",
+          "backgroundSize": "cover",
+          "color": "transparent",
+          "height": "auto",
+          "maxWidth": "750px",
+          "width": "100%",
+        }
+      }
+    />
+  </picture>
+</SRCImage>
+`;
+
+exports[`Image passing className and/or style renders correctly 1`] = `
+<SRCImage
+  className="class-name"
+  data={
+    {
+      "base64": "data:image/jpeg;base64,<IMAGE-DATA>",
+      "height": 421,
+      "src": "https://www.datocms-assets.com/205/image.png?ar=16%3A9&fit=crop&w=750",
+      "width": 750,
+    }
+  }
+  style={
+    {
+      "border": "1px solid red",
+    }
+  }
+>
+  <picture>
+    <source
+      srcSet="https://www.datocms-assets.com/205/image.png?ar=16%3A9&fit=crop&w=750&dpr=0.25 187w,https://www.datocms-assets.com/205/image.png?ar=16%3A9&fit=crop&w=750&dpr=0.5 375w,https://www.datocms-assets.com/205/image.png?ar=16%3A9&fit=crop&w=750&dpr=0.75 562w,https://www.datocms-assets.com/205/image.png?ar=16%3A9&fit=crop&w=750 750w,https://www.datocms-assets.com/205/image.png?ar=16%3A9&fit=crop&w=750&dpr=1.5 1125w,https://www.datocms-assets.com/205/image.png?ar=16%3A9&fit=crop&w=750&dpr=2 1500w,https://www.datocms-assets.com/205/image.png?ar=16%3A9&fit=crop&w=750&dpr=3 2250w,https://www.datocms-assets.com/205/image.png?ar=16%3A9&fit=crop&w=750&dpr=4 3000w"
+    />
+    <img
+      className="class-name"
+      loading="lazy"
+      src="https://www.datocms-assets.com/205/image.png?ar=16%3A9&fit=crop&w=750"
+      style={
+        {
+          "aspectRatio": "750 / 421",
+          "backgroundImage": "url(data:image/jpeg;base64,<IMAGE-DATA>)",
+          "backgroundPosition": "50% 50%",
+          "backgroundRepeat": "no-repeat",
+          "backgroundSize": "cover",
+          "border": "1px solid red",
+          "color": "transparent",
+          "height": "auto",
+          "maxWidth": "750px",
+          "width": "100%",
+        }
+      }
+    />
+  </picture>
+</SRCImage>
+`;
+
+exports[`Image priority=true renders correctly 1`] = `
+<SRCImage
+  data={
+    {
+      "base64": "data:image/jpeg;base64,<IMAGE-DATA>",
+      "height": 421,
+      "src": "https://www.datocms-assets.com/205/image.png?ar=16%3A9&fit=crop&w=750",
+      "width": 750,
+    }
+  }
+  priority={true}
+>
+  <picture>
+    <source
+      srcSet="https://www.datocms-assets.com/205/image.png?ar=16%3A9&fit=crop&w=750&dpr=0.25 187w,https://www.datocms-assets.com/205/image.png?ar=16%3A9&fit=crop&w=750&dpr=0.5 375w,https://www.datocms-assets.com/205/image.png?ar=16%3A9&fit=crop&w=750&dpr=0.75 562w,https://www.datocms-assets.com/205/image.png?ar=16%3A9&fit=crop&w=750 750w,https://www.datocms-assets.com/205/image.png?ar=16%3A9&fit=crop&w=750&dpr=1.5 1125w,https://www.datocms-assets.com/205/image.png?ar=16%3A9&fit=crop&w=750&dpr=2 1500w,https://www.datocms-assets.com/205/image.png?ar=16%3A9&fit=crop&w=750&dpr=3 2250w,https://www.datocms-assets.com/205/image.png?ar=16%3A9&fit=crop&w=750&dpr=4 3000w"
+    />
+    <img
+      fetchpriority="high"
+      src="https://www.datocms-assets.com/205/image.png?ar=16%3A9&fit=crop&w=750"
+      style={
+        {
+          "aspectRatio": "750 / 421",
+          "backgroundImage": "url(data:image/jpeg;base64,<IMAGE-DATA>)",
+          "backgroundPosition": "50% 50%",
+          "backgroundRepeat": "no-repeat",
+          "backgroundSize": "cover",
+          "color": "transparent",
+          "height": "auto",
+          "maxWidth": "750px",
+          "width": "100%",
+        }
+      }
+    />
+  </picture>
+</SRCImage>
+`;
+
+exports[`Image usePlaceholder=false renders correctly 1`] = `
+<SRCImage
+  data={
+    {
+      "base64": "data:image/jpeg;base64,<IMAGE-DATA>",
+      "height": 421,
+      "src": "https://www.datocms-assets.com/205/image.png?ar=16%3A9&fit=crop&w=750",
+      "width": 750,
+    }
+  }
+  usePlaceholder={false}
+>
+  <picture>
+    <source
+      srcSet="https://www.datocms-assets.com/205/image.png?ar=16%3A9&fit=crop&w=750&dpr=0.25 187w,https://www.datocms-assets.com/205/image.png?ar=16%3A9&fit=crop&w=750&dpr=0.5 375w,https://www.datocms-assets.com/205/image.png?ar=16%3A9&fit=crop&w=750&dpr=0.75 562w,https://www.datocms-assets.com/205/image.png?ar=16%3A9&fit=crop&w=750 750w,https://www.datocms-assets.com/205/image.png?ar=16%3A9&fit=crop&w=750&dpr=1.5 1125w,https://www.datocms-assets.com/205/image.png?ar=16%3A9&fit=crop&w=750&dpr=2 1500w,https://www.datocms-assets.com/205/image.png?ar=16%3A9&fit=crop&w=750&dpr=3 2250w,https://www.datocms-assets.com/205/image.png?ar=16%3A9&fit=crop&w=750&dpr=4 3000w"
+    />
+    <img
+      loading="lazy"
+      src="https://www.datocms-assets.com/205/image.png?ar=16%3A9&fit=crop&w=750"
+      style={
+        {
+          "aspectRatio": "750 / 421",
+          "height": "auto",
+          "maxWidth": "750px",
+          "width": "100%",
+        }
+      }
+    />
+  </picture>
+</SRCImage>
+`;

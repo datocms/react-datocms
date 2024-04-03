@@ -243,32 +243,32 @@ export function useSiteSearch<Client extends GenericClient>(
             totalPages: 0,
           }
         : response
-        ? {
-            pageResults: response.data.map((rawSearchResult) => ({
-              id: rawSearchResult.id,
-              url: rawSearchResult.attributes.url,
-              title: rawSearchResult.attributes.highlight.title ? (
-                <MatchHighlighter highlighter={highlighter} context="title">
-                  {rawSearchResult.attributes.highlight.title[0]}
-                </MatchHighlighter>
-              ) : (
-                rawSearchResult.attributes.title
-              ),
-              bodyExcerpt: rawSearchResult.attributes.highlight.body ? (
-                <MatchHighlighter
-                  highlighter={highlighter}
-                  context="bodyExcerpt"
-                >
-                  {rawSearchResult.attributes.highlight.body[0]}
-                </MatchHighlighter>
-              ) : (
-                rawSearchResult.attributes.body_excerpt
-              ),
-              raw: rawSearchResult,
-            })),
-            totalResults: response.meta.total_count,
-            totalPages: Math.ceil(response.meta.total_count / resultsPerPage),
-          }
-        : undefined,
+          ? {
+              pageResults: response.data.map((rawSearchResult) => ({
+                id: rawSearchResult.id,
+                url: rawSearchResult.attributes.url,
+                title: rawSearchResult.attributes.highlight.title ? (
+                  <MatchHighlighter highlighter={highlighter} context="title">
+                    {rawSearchResult.attributes.highlight.title[0]}
+                  </MatchHighlighter>
+                ) : (
+                  rawSearchResult.attributes.title
+                ),
+                bodyExcerpt: rawSearchResult.attributes.highlight.body ? (
+                  <MatchHighlighter
+                    highlighter={highlighter}
+                    context="bodyExcerpt"
+                  >
+                    {rawSearchResult.attributes.highlight.body[0]}
+                  </MatchHighlighter>
+                ) : (
+                  rawSearchResult.attributes.body_excerpt
+                ),
+                raw: rawSearchResult,
+              })),
+              totalResults: response.meta.total_count,
+              totalPages: Math.ceil(response.meta.total_count / resultsPerPage),
+            }
+          : undefined,
   };
 }

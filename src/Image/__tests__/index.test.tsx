@@ -1,14 +1,13 @@
 import { mount } from 'enzyme';
 import 'intersection-observer';
-import * as React from 'react';
+import React from 'react';
 import { mockAllIsIntersecting } from 'react-intersection-observer/test-utils';
 import { Image } from '../index.js';
 
 const data = {
   alt: 'DatoCMS swag',
   aspectRatio: 1.7777777777777777,
-  base64:
-    'data:image/jpeg;base64,/9j/4AAQSkZJRgABAQAAAQABAAD/2wCEAAoHBwgHBgoICAgLFQoLDhgQDg0NDh0eHREYIx8lJCIrHB0dLSs7GikyKSEuKjUlKDk1MjIyHyo4PTc+PDcxPjUBCgsLDg0OHBAQHDsoIig7Ozs7Ozs7OzsvOzs7Ozs7Ozs7Lzs7Ozs7Ozs7OzsvOzs7NTsvLy87NTU1Ly8vLzsvL//AABEIAA0AGAMBIgACEQEDEQH/xAAYAAACAwAAAAAAAAAAAAAAAAAGBwABBP/EACEQAAEEAAYDAAAAAAAAAAAAAAEAAgMEBQYHESEiFWFx/8QAFQEBAQAAAAAAAAAAAAAAAAAAAwL/xAAZEQADAAMAAAAAAAAAAAAAAAAAAQIRITH/2gAMAwEAAhEDEQA/AFxLgDWTsAd1J5TGy7hEYqNAaNgECX7sjLMQAHJTEy1Zcarfia4lJMauAxqBhLY6ZlaOzDurWvUOd3jZPfCiEh4xs//Z',
+  base64: 'data:image/jpeg;base64,<IMAGE-DATA>',
   height: 421,
   sizes: '(max-width: 750px) 100vw, 750px',
   src: 'https://www.datocms-assets.com/205/image.png?ar=16%3A9&fit=crop&w=750',
@@ -19,16 +18,14 @@ const data = {
 };
 
 const minimalData = {
-  base64:
-    'data:image/jpeg;base64,/9j/4AAQSkZJRgABAQAAAQABAAD/2wCEAAoHBwgHBgoICAgLFQoLDhgQDg0NDh0eHREYIx8lJCIrHB0dLSs7GikyKSEuKjUlKDk1MjIyHyo4PTc+PDcxPjUBCgsLDg0OHBAQHDsoIig7Ozs7Ozs7OzsvOzs7Ozs7Ozs7Lzs7Ozs7Ozs7OzsvOzs7NTsvLy87NTU1Ly8vLzsvL//AABEIAA0AGAMBIgACEQEDEQH/xAAYAAACAwAAAAAAAAAAAAAAAAAGBwABBP/EACEQAAEEAAYDAAAAAAAAAAAAAAEAAgMEBQYHESEiFWFx/8QAFQEBAQAAAAAAAAAAAAAAAAAAAwL/xAAZEQADAAMAAAAAAAAAAAAAAAAAAQIRITH/2gAMAwEAAhEDEQA/AFxLgDWTsAd1J5TGy7hEYqNAaNgECX7sjLMQAHJTEy1Zcarfia4lJMauAxqBhLY6ZlaOzDurWvUOd3jZPfCiEh4xs//Z',
+  base64: 'data:image/jpeg;base64,<IMAGE-DATA>',
   height: 421,
   src: 'https://www.datocms-assets.com/205/image.png?ar=16%3A9&fit=crop&w=750',
   width: 750,
 };
 
 const minimalDataWithRelativeUrl = {
-  base64:
-    'data:image/jpeg;base64,/9j/4AAQSkZJRgABAQAAAQABAAD/2wCEAAoHBwgHBgoICAgLFQoLDhgQDg0NDh0eHREYIx8lJCIrHB0dLSs7GikyKSEuKjUlKDk1MjIyHyo4PTc+PDcxPjUBCgsLDg0OHBAQHDsoIig7Ozs7Ozs7OzsvOzs7Ozs7Ozs7Lzs7Ozs7Ozs7OzsvOzs7NTsvLy87NTU1Ly8vLzsvL//AABEIAA0AGAMBIgACEQEDEQH/xAAYAAACAwAAAAAAAAAAAAAAAAAGBwABBP/EACEQAAEEAAYDAAAAAAAAAAAAAAEAAgMEBQYHESEiFWFx/8QAFQEBAQAAAAAAAAAAAAAAAAAAAwL/xAAZEQADAAMAAAAAAAAAAAAAAAAAAQIRITH/2gAMAwEAAhEDEQA/AFxLgDWTsAd1J5TGy7hEYqNAaNgECX7sjLMQAHJTEy1Zcarfia4lJMauAxqBhLY6ZlaOzDurWvUOd3jZPfCiEh4xs//Z',
+  base64: 'data:image/jpeg;base64,<IMAGE-DATA>',
   height: 421,
   src: '/205/image.png?ar=16%3A9&fit=crop&w=750',
   width: 750,
@@ -39,7 +36,7 @@ describe('Image', () => {
   // we need the library to generate a different IntersectionObserver for each test
   // otherwise the IntersectionObserver mocking won't work
 
-  (['intrinsic', 'fixed', 'responsive', 'fill'] as const).forEach((layout) => {
+  for (const layout of ['intrinsic', 'fixed', 'responsive', 'fill'] as const) {
     describe(`layout=${layout}`, () => {
       describe('not visible', () => {
         it('renders the blur-up thumb', () => {
@@ -99,6 +96,56 @@ describe('Image', () => {
           });
         });
       });
+    });
+  }
+
+  describe('passing className and/or style', () => {
+    it('renders correctly', () => {
+      const wrapper = mount(
+        <Image
+          data={minimalData}
+          className="class-name"
+          style={{ border: '1px solid red' }}
+          pictureClassName="picture-class-name"
+          pictureStyle={{ border: '1px solid yellow ' }}
+          placeholderClassName="placeholder-class-name"
+          placeholderStyle={{ border: '1px solid green ' }}
+        />,
+      );
+      mockAllIsIntersecting(true);
+      wrapper.update();
+      expect(wrapper).toMatchSnapshot();
+    });
+  });
+
+  describe('priority=true', () => {
+    it('renders correctly', () => {
+      const wrapper = mount(<Image data={minimalData} priority={true} />);
+      mockAllIsIntersecting(true);
+      wrapper.update();
+      expect(wrapper).toMatchSnapshot();
+    });
+  });
+
+  describe('usePlaceholder=false', () => {
+    it('renders correctly', () => {
+      const wrapper = mount(
+        <Image data={minimalData} usePlaceholder={false} />,
+      );
+      mockAllIsIntersecting(true);
+      wrapper.update();
+      expect(wrapper).toMatchSnapshot();
+    });
+  });
+
+  describe('explicit sizes', () => {
+    it('renders correctly', () => {
+      const wrapper = mount(
+        <Image data={minimalData} sizes="(max-width: 600px) 200px, 50vw" />,
+      );
+      mockAllIsIntersecting(true);
+      wrapper.update();
+      expect(wrapper).toMatchSnapshot();
     });
   });
 });

@@ -72,7 +72,7 @@ export const VideoPlayer: (
   const {
     data = {},
     disableCookies = true,
-    preload = "metadata",
+    preload = 'metadata',
     style: styleFromProps,
     ...rest
   } = props;

@@ -20,7 +20,7 @@ npm install react-datocms
 
 This package offers different components and hooks. Please refer to one of the following pages to learn more about a specific area of interest:
 
-* [`<Image />` component for responsive/progressive images](./docs/image.md)
+* [`<SRCImage />` and `<Image />` components for responsive/progressive images](./docs/image.md)
 * [`<StructuredText />` component](./docs/structured-text.md)
 * [`<VideoPlayer />` component](./docs/video-player.md)
 * [`useQuerySubscription()` hook for live, real-time updates of content](./docs/live-real-time-updates.md)
@@ -35,22 +35,13 @@ Live demo: [https://react-datocms-example.netlify.com/](https://react-datocms-ex
 
 # Development
 
-This repository contains a number of demos/examples. You can use them to locally test your changes to the package with `npm link`:
+This repository contains a number of demos/examples. You can use them to locally test your changes.
 
 ```
-npm link
-cd examples/images-and-seo/vanilla-react
-npm link react-datocms
+cd examples
+npm setup
 npm run start
 ```
-
-Now on another terminal you can run:
-
-```
-npm run watch
-```
-
-This will re-compile the package everytime you make a change, and the example project will pick those changes instantly.
 
 <!--datocms-autoinclude-footer start-->
 -----------------

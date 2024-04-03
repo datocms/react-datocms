@@ -1,12 +1,98 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
+exports[`Image explicit sizes renders correctly 1`] = `
+<ForwardRef
+  data={
+    {
+      "base64": "data:image/jpeg;base64,<IMAGE-DATA>",
+      "height": 421,
+      "src": "https://www.datocms-assets.com/205/image.png?ar=16%3A9&fit=crop&w=750",
+      "width": 750,
+    }
+  }
+  sizes="(max-width: 600px) 200px, 50vw"
+>
+  <div
+    style={
+      {
+        "maxWidth": 750,
+        "overflow": "hidden",
+        "position": "relative",
+        "width": "100%",
+      }
+    }
+  >
+    <img
+      alt=""
+      aria-hidden="true"
+      src="data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHdpZHRoPSI3NTAiIGhlaWdodD0iNDIxIj48L3N2Zz4="
+      style={
+        {
+          "display": "block",
+          "width": "100%",
+        }
+      }
+    />
+    <img
+      alt=""
+      aria-hidden="true"
+      src="data:image/jpeg;base64,<IMAGE-DATA>"
+      style={
+        {
+          "height": "110%",
+          "left": "-5%",
+          "maxHeight": "none",
+          "maxWidth": "none",
+          "objectFit": undefined,
+          "objectPosition": undefined,
+          "opacity": 1,
+          "position": "absolute",
+          "top": "-5%",
+          "transition": "opacity 500ms",
+          "width": "110%",
+        }
+      }
+    />
+    <picture>
+      <source
+        sizes="(max-width: 600px) 200px, 50vw"
+        srcSet="https://www.datocms-assets.com/205/image.png?ar=16%3A9&fit=crop&w=750&dpr=0.25 187w,https://www.datocms-assets.com/205/image.png?ar=16%3A9&fit=crop&w=750&dpr=0.5 375w,https://www.datocms-assets.com/205/image.png?ar=16%3A9&fit=crop&w=750&dpr=0.75 562w,https://www.datocms-assets.com/205/image.png?ar=16%3A9&fit=crop&w=750 750w,https://www.datocms-assets.com/205/image.png?ar=16%3A9&fit=crop&w=750&dpr=1.5 1125w,https://www.datocms-assets.com/205/image.png?ar=16%3A9&fit=crop&w=750&dpr=2 1500w,https://www.datocms-assets.com/205/image.png?ar=16%3A9&fit=crop&w=750&dpr=3 2250w,https://www.datocms-assets.com/205/image.png?ar=16%3A9&fit=crop&w=750&dpr=4 3000w"
+      />
+      <img
+        alt=""
+        onLoad={[Function]}
+        src="https://www.datocms-assets.com/205/image.png?ar=16%3A9&fit=crop&w=750"
+        style={
+          {
+            "height": "100%",
+            "left": 0,
+            "maxHeight": "none",
+            "maxWidth": "none",
+            "objectFit": undefined,
+            "objectPosition": undefined,
+            "opacity": 0,
+            "position": "absolute",
+            "top": 0,
+            "transition": "opacity 500ms",
+            "width": "100%",
+          }
+        }
+      />
+    </picture>
+    <noscript>
+      <picture />
+    </noscript>
+  </div>
+</ForwardRef>
+`;
+
 exports[`Image layout=fill not visible renders the blur-up thumb 1`] = `
 <ForwardRef
   data={
     {
       "alt": "DatoCMS swag",
       "aspectRatio": 1.7777777777777777,
-      "base64": "data:image/jpeg;base64,/9j/4AAQSkZJRgABAQAAAQABAAD/2wCEAAoHBwgHBgoICAgLFQoLDhgQDg0NDh0eHREYIx8lJCIrHB0dLSs7GikyKSEuKjUlKDk1MjIyHyo4PTc+PDcxPjUBCgsLDg0OHBAQHDsoIig7Ozs7Ozs7OzsvOzs7Ozs7Ozs7Lzs7Ozs7Ozs7OzsvOzs7NTsvLy87NTU1Ly8vLzsvL//AABEIAA0AGAMBIgACEQEDEQH/xAAYAAACAwAAAAAAAAAAAAAAAAAGBwABBP/EACEQAAEEAAYDAAAAAAAAAAAAAAEAAgMEBQYHESEiFWFx/8QAFQEBAQAAAAAAAAAAAAAAAAAAAwL/xAAZEQADAAMAAAAAAAAAAAAAAAAAAQIRITH/2gAMAwEAAhEDEQA/AFxLgDWTsAd1J5TGy7hEYqNAaNgECX7sjLMQAHJTEy1Zcarfia4lJMauAxqBhLY6ZlaOzDurWvUOd3jZPfCiEh4xs//Z",
+      "base64": "data:image/jpeg;base64,<IMAGE-DATA>",
       "height": 421,
       "sizes": "(max-width: 750px) 100vw, 750px",
       "src": "https://www.datocms-assets.com/205/image.png?ar=16%3A9&fit=crop&w=750",
@@ -35,10 +121,9 @@ exports[`Image layout=fill not visible renders the blur-up thumb 1`] = `
     <img
       alt=""
       aria-hidden="true"
-      src="data:image/jpeg;base64,/9j/4AAQSkZJRgABAQAAAQABAAD/2wCEAAoHBwgHBgoICAgLFQoLDhgQDg0NDh0eHREYIx8lJCIrHB0dLSs7GikyKSEuKjUlKDk1MjIyHyo4PTc+PDcxPjUBCgsLDg0OHBAQHDsoIig7Ozs7Ozs7OzsvOzs7Ozs7Ozs7Lzs7Ozs7Ozs7OzsvOzs7NTsvLy87NTU1Ly8vLzsvL//AABEIAA0AGAMBIgACEQEDEQH/xAAYAAACAwAAAAAAAAAAAAAAAAAGBwABBP/EACEQAAEEAAYDAAAAAAAAAAAAAAEAAgMEBQYHESEiFWFx/8QAFQEBAQAAAAAAAAAAAAAAAAAAAwL/xAAZEQADAAMAAAAAAAAAAAAAAAAAAQIRITH/2gAMAwEAAhEDEQA/AFxLgDWTsAd1J5TGy7hEYqNAaNgECX7sjLMQAHJTEy1Zcarfia4lJMauAxqBhLY6ZlaOzDurWvUOd3jZPfCiEh4xs//Z"
+      src="data:image/jpeg;base64,<IMAGE-DATA>"
       style={
         {
-          "backgroundColor": undefined,
           "height": "110%",
           "left": "-5%",
           "maxHeight": "none",
@@ -66,7 +151,7 @@ exports[`Image layout=fill visible image loaded shows the image 1`] = `
     {
       "alt": "DatoCMS swag",
       "aspectRatio": 1.7777777777777777,
-      "base64": "data:image/jpeg;base64,/9j/4AAQSkZJRgABAQAAAQABAAD/2wCEAAoHBwgHBgoICAgLFQoLDhgQDg0NDh0eHREYIx8lJCIrHB0dLSs7GikyKSEuKjUlKDk1MjIyHyo4PTc+PDcxPjUBCgsLDg0OHBAQHDsoIig7Ozs7Ozs7OzsvOzs7Ozs7Ozs7Lzs7Ozs7Ozs7OzsvOzs7NTsvLy87NTU1Ly8vLzsvL//AABEIAA0AGAMBIgACEQEDEQH/xAAYAAACAwAAAAAAAAAAAAAAAAAGBwABBP/EACEQAAEEAAYDAAAAAAAAAAAAAAEAAgMEBQYHESEiFWFx/8QAFQEBAQAAAAAAAAAAAAAAAAAAAwL/xAAZEQADAAMAAAAAAAAAAAAAAAAAAQIRITH/2gAMAwEAAhEDEQA/AFxLgDWTsAd1J5TGy7hEYqNAaNgECX7sjLMQAHJTEy1Zcarfia4lJMauAxqBhLY6ZlaOzDurWvUOd3jZPfCiEh4xs//Z",
+      "base64": "data:image/jpeg;base64,<IMAGE-DATA>",
       "height": 421,
       "sizes": "(max-width: 750px) 100vw, 750px",
       "src": "https://www.datocms-assets.com/205/image.png?ar=16%3A9&fit=crop&w=750",
@@ -95,10 +180,9 @@ exports[`Image layout=fill visible image loaded shows the image 1`] = `
     <img
       alt=""
       aria-hidden="true"
-      src="data:image/jpeg;base64,/9j/4AAQSkZJRgABAQAAAQABAAD/2wCEAAoHBwgHBgoICAgLFQoLDhgQDg0NDh0eHREYIx8lJCIrHB0dLSs7GikyKSEuKjUlKDk1MjIyHyo4PTc+PDcxPjUBCgsLDg0OHBAQHDsoIig7Ozs7Ozs7OzsvOzs7Ozs7Ozs7Lzs7Ozs7Ozs7OzsvOzs7NTsvLy87NTU1Ly8vLzsvL//AABEIAA0AGAMBIgACEQEDEQH/xAAYAAACAwAAAAAAAAAAAAAAAAAGBwABBP/EACEQAAEEAAYDAAAAAAAAAAAAAAEAAgMEBQYHESEiFWFx/8QAFQEBAQAAAAAAAAAAAAAAAAAAAwL/xAAZEQADAAMAAAAAAAAAAAAAAAAAAQIRITH/2gAMAwEAAhEDEQA/AFxLgDWTsAd1J5TGy7hEYqNAaNgECX7sjLMQAHJTEy1Zcarfia4lJMauAxqBhLY6ZlaOzDurWvUOd3jZPfCiEh4xs//Z"
+      src="data:image/jpeg;base64,<IMAGE-DATA>"
       style={
         {
-          "backgroundColor": undefined,
           "height": "110%",
           "left": "-5%",
           "maxHeight": "none",
@@ -151,7 +235,7 @@ exports[`Image layout=fill visible renders the image (minimal data) 1`] = `
 <ForwardRef
   data={
     {
-      "base64": "data:image/jpeg;base64,/9j/4AAQSkZJRgABAQAAAQABAAD/2wCEAAoHBwgHBgoICAgLFQoLDhgQDg0NDh0eHREYIx8lJCIrHB0dLSs7GikyKSEuKjUlKDk1MjIyHyo4PTc+PDcxPjUBCgsLDg0OHBAQHDsoIig7Ozs7Ozs7OzsvOzs7Ozs7Ozs7Lzs7Ozs7Ozs7OzsvOzs7NTsvLy87NTU1Ly8vLzsvL//AABEIAA0AGAMBIgACEQEDEQH/xAAYAAACAwAAAAAAAAAAAAAAAAAGBwABBP/EACEQAAEEAAYDAAAAAAAAAAAAAAEAAgMEBQYHESEiFWFx/8QAFQEBAQAAAAAAAAAAAAAAAAAAAwL/xAAZEQADAAMAAAAAAAAAAAAAAAAAAQIRITH/2gAMAwEAAhEDEQA/AFxLgDWTsAd1J5TGy7hEYqNAaNgECX7sjLMQAHJTEy1Zcarfia4lJMauAxqBhLY6ZlaOzDurWvUOd3jZPfCiEh4xs//Z",
+      "base64": "data:image/jpeg;base64,<IMAGE-DATA>",
       "height": 421,
       "src": "https://www.datocms-assets.com/205/image.png?ar=16%3A9&fit=crop&w=750",
       "width": 750,
@@ -177,10 +261,9 @@ exports[`Image layout=fill visible renders the image (minimal data) 1`] = `
     <img
       alt=""
       aria-hidden="true"
-      src="data:image/jpeg;base64,/9j/4AAQSkZJRgABAQAAAQABAAD/2wCEAAoHBwgHBgoICAgLFQoLDhgQDg0NDh0eHREYIx8lJCIrHB0dLSs7GikyKSEuKjUlKDk1MjIyHyo4PTc+PDcxPjUBCgsLDg0OHBAQHDsoIig7Ozs7Ozs7OzsvOzs7Ozs7Ozs7Lzs7Ozs7Ozs7OzsvOzs7NTsvLy87NTU1Ly8vLzsvL//AABEIAA0AGAMBIgACEQEDEQH/xAAYAAACAwAAAAAAAAAAAAAAAAAGBwABBP/EACEQAAEEAAYDAAAAAAAAAAAAAAEAAgMEBQYHESEiFWFx/8QAFQEBAQAAAAAAAAAAAAAAAAAAAwL/xAAZEQADAAMAAAAAAAAAAAAAAAAAAQIRITH/2gAMAwEAAhEDEQA/AFxLgDWTsAd1J5TGy7hEYqNAaNgECX7sjLMQAHJTEy1Zcarfia4lJMauAxqBhLY6ZlaOzDurWvUOd3jZPfCiEh4xs//Z"
+      src="data:image/jpeg;base64,<IMAGE-DATA>"
       style={
         {
-          "backgroundColor": undefined,
           "height": "110%",
           "left": "-5%",
           "maxHeight": "none",
@@ -231,7 +314,7 @@ exports[`Image layout=fill visible renders the image (relative URL) 1`] = `
 <ForwardRef
   data={
     {
-      "base64": "data:image/jpeg;base64,/9j/4AAQSkZJRgABAQAAAQABAAD/2wCEAAoHBwgHBgoICAgLFQoLDhgQDg0NDh0eHREYIx8lJCIrHB0dLSs7GikyKSEuKjUlKDk1MjIyHyo4PTc+PDcxPjUBCgsLDg0OHBAQHDsoIig7Ozs7Ozs7OzsvOzs7Ozs7Ozs7Lzs7Ozs7Ozs7OzsvOzs7NTsvLy87NTU1Ly8vLzsvL//AABEIAA0AGAMBIgACEQEDEQH/xAAYAAACAwAAAAAAAAAAAAAAAAAGBwABBP/EACEQAAEEAAYDAAAAAAAAAAAAAAEAAgMEBQYHESEiFWFx/8QAFQEBAQAAAAAAAAAAAAAAAAAAAwL/xAAZEQADAAMAAAAAAAAAAAAAAAAAAQIRITH/2gAMAwEAAhEDEQA/AFxLgDWTsAd1J5TGy7hEYqNAaNgECX7sjLMQAHJTEy1Zcarfia4lJMauAxqBhLY6ZlaOzDurWvUOd3jZPfCiEh4xs//Z",
+      "base64": "data:image/jpeg;base64,<IMAGE-DATA>",
       "height": 421,
       "src": "/205/image.png?ar=16%3A9&fit=crop&w=750",
       "width": 750,
@@ -257,10 +340,9 @@ exports[`Image layout=fill visible renders the image (relative URL) 1`] = `
     <img
       alt=""
       aria-hidden="true"
-      src="data:image/jpeg;base64,/9j/4AAQSkZJRgABAQAAAQABAAD/2wCEAAoHBwgHBgoICAgLFQoLDhgQDg0NDh0eHREYIx8lJCIrHB0dLSs7GikyKSEuKjUlKDk1MjIyHyo4PTc+PDcxPjUBCgsLDg0OHBAQHDsoIig7Ozs7Ozs7OzsvOzs7Ozs7Ozs7Lzs7Ozs7Ozs7OzsvOzs7NTsvLy87NTU1Ly8vLzsvL//AABEIAA0AGAMBIgACEQEDEQH/xAAYAAACAwAAAAAAAAAAAAAAAAAGBwABBP/EACEQAAEEAAYDAAAAAAAAAAAAAAEAAgMEBQYHESEiFWFx/8QAFQEBAQAAAAAAAAAAAAAAAAAAAwL/xAAZEQADAAMAAAAAAAAAAAAAAAAAAQIRITH/2gAMAwEAAhEDEQA/AFxLgDWTsAd1J5TGy7hEYqNAaNgECX7sjLMQAHJTEy1Zcarfia4lJMauAxqBhLY6ZlaOzDurWvUOd3jZPfCiEh4xs//Z"
+      src="data:image/jpeg;base64,<IMAGE-DATA>"
       style={
         {
-          "backgroundColor": undefined,
           "height": "110%",
           "left": "-5%",
           "maxHeight": "none",
@@ -313,7 +395,7 @@ exports[`Image layout=fill visible renders the image 1`] = `
     {
       "alt": "DatoCMS swag",
       "aspectRatio": 1.7777777777777777,
-      "base64": "data:image/jpeg;base64,/9j/4AAQSkZJRgABAQAAAQABAAD/2wCEAAoHBwgHBgoICAgLFQoLDhgQDg0NDh0eHREYIx8lJCIrHB0dLSs7GikyKSEuKjUlKDk1MjIyHyo4PTc+PDcxPjUBCgsLDg0OHBAQHDsoIig7Ozs7Ozs7OzsvOzs7Ozs7Ozs7Lzs7Ozs7Ozs7OzsvOzs7NTsvLy87NTU1Ly8vLzsvL//AABEIAA0AGAMBIgACEQEDEQH/xAAYAAACAwAAAAAAAAAAAAAAAAAGBwABBP/EACEQAAEEAAYDAAAAAAAAAAAAAAEAAgMEBQYHESEiFWFx/8QAFQEBAQAAAAAAAAAAAAAAAAAAAwL/xAAZEQADAAMAAAAAAAAAAAAAAAAAAQIRITH/2gAMAwEAAhEDEQA/AFxLgDWTsAd1J5TGy7hEYqNAaNgECX7sjLMQAHJTEy1Zcarfia4lJMauAxqBhLY6ZlaOzDurWvUOd3jZPfCiEh4xs//Z",
+      "base64": "data:image/jpeg;base64,<IMAGE-DATA>",
       "height": 421,
       "sizes": "(max-width: 750px) 100vw, 750px",
       "src": "https://www.datocms-assets.com/205/image.png?ar=16%3A9&fit=crop&w=750",
@@ -342,10 +424,9 @@ exports[`Image layout=fill visible renders the image 1`] = `
     <img
       alt=""
       aria-hidden="true"
-      src="data:image/jpeg;base64,/9j/4AAQSkZJRgABAQAAAQABAAD/2wCEAAoHBwgHBgoICAgLFQoLDhgQDg0NDh0eHREYIx8lJCIrHB0dLSs7GikyKSEuKjUlKDk1MjIyHyo4PTc+PDcxPjUBCgsLDg0OHBAQHDsoIig7Ozs7Ozs7OzsvOzs7Ozs7Ozs7Lzs7Ozs7Ozs7OzsvOzs7NTsvLy87NTU1Ly8vLzsvL//AABEIAA0AGAMBIgACEQEDEQH/xAAYAAACAwAAAAAAAAAAAAAAAAAGBwABBP/EACEQAAEEAAYDAAAAAAAAAAAAAAEAAgMEBQYHESEiFWFx/8QAFQEBAQAAAAAAAAAAAAAAAAAAAwL/xAAZEQADAAMAAAAAAAAAAAAAAAAAAQIRITH/2gAMAwEAAhEDEQA/AFxLgDWTsAd1J5TGy7hEYqNAaNgECX7sjLMQAHJTEy1Zcarfia4lJMauAxqBhLY6ZlaOzDurWvUOd3jZPfCiEh4xs//Z"
+      src="data:image/jpeg;base64,<IMAGE-DATA>"
       style={
         {
-          "backgroundColor": undefined,
           "height": "110%",
           "left": "-5%",
           "maxHeight": "none",
@@ -400,7 +481,7 @@ exports[`Image layout=fixed not visible renders the blur-up thumb 1`] = `
     {
       "alt": "DatoCMS swag",
       "aspectRatio": 1.7777777777777777,
-      "base64": "data:image/jpeg;base64,/9j/4AAQSkZJRgABAQAAAQABAAD/2wCEAAoHBwgHBgoICAgLFQoLDhgQDg0NDh0eHREYIx8lJCIrHB0dLSs7GikyKSEuKjUlKDk1MjIyHyo4PTc+PDcxPjUBCgsLDg0OHBAQHDsoIig7Ozs7Ozs7OzsvOzs7Ozs7Ozs7Lzs7Ozs7Ozs7OzsvOzs7NTsvLy87NTU1Ly8vLzsvL//AABEIAA0AGAMBIgACEQEDEQH/xAAYAAACAwAAAAAAAAAAAAAAAAAGBwABBP/EACEQAAEEAAYDAAAAAAAAAAAAAAEAAgMEBQYHESEiFWFx/8QAFQEBAQAAAAAAAAAAAAAAAAAAAwL/xAAZEQADAAMAAAAAAAAAAAAAAAAAAQIRITH/2gAMAwEAAhEDEQA/AFxLgDWTsAd1J5TGy7hEYqNAaNgECX7sjLMQAHJTEy1Zcarfia4lJMauAxqBhLY6ZlaOzDurWvUOd3jZPfCiEh4xs//Z",
+      "base64": "data:image/jpeg;base64,<IMAGE-DATA>",
       "height": 421,
       "sizes": "(max-width: 750px) 100vw, 750px",
       "src": "https://www.datocms-assets.com/205/image.png?ar=16%3A9&fit=crop&w=750",
@@ -435,10 +516,9 @@ exports[`Image layout=fixed not visible renders the blur-up thumb 1`] = `
     <img
       alt=""
       aria-hidden="true"
-      src="data:image/jpeg;base64,/9j/4AAQSkZJRgABAQAAAQABAAD/2wCEAAoHBwgHBgoICAgLFQoLDhgQDg0NDh0eHREYIx8lJCIrHB0dLSs7GikyKSEuKjUlKDk1MjIyHyo4PTc+PDcxPjUBCgsLDg0OHBAQHDsoIig7Ozs7Ozs7OzsvOzs7Ozs7Ozs7Lzs7Ozs7Ozs7OzsvOzs7NTsvLy87NTU1Ly8vLzsvL//AABEIAA0AGAMBIgACEQEDEQH/xAAYAAACAwAAAAAAAAAAAAAAAAAGBwABBP/EACEQAAEEAAYDAAAAAAAAAAAAAAEAAgMEBQYHESEiFWFx/8QAFQEBAQAAAAAAAAAAAAAAAAAAAwL/xAAZEQADAAMAAAAAAAAAAAAAAAAAAQIRITH/2gAMAwEAAhEDEQA/AFxLgDWTsAd1J5TGy7hEYqNAaNgECX7sjLMQAHJTEy1Zcarfia4lJMauAxqBhLY6ZlaOzDurWvUOd3jZPfCiEh4xs//Z"
+      src="data:image/jpeg;base64,<IMAGE-DATA>"
       style={
         {
-          "backgroundColor": undefined,
           "height": "110%",
           "left": "-5%",
           "maxHeight": "none",
@@ -466,7 +546,7 @@ exports[`Image layout=fixed visible image loaded shows the image 1`] = `
     {
       "alt": "DatoCMS swag",
       "aspectRatio": 1.7777777777777777,
-      "base64": "data:image/jpeg;base64,/9j/4AAQSkZJRgABAQAAAQABAAD/2wCEAAoHBwgHBgoICAgLFQoLDhgQDg0NDh0eHREYIx8lJCIrHB0dLSs7GikyKSEuKjUlKDk1MjIyHyo4PTc+PDcxPjUBCgsLDg0OHBAQHDsoIig7Ozs7Ozs7OzsvOzs7Ozs7Ozs7Lzs7Ozs7Ozs7OzsvOzs7NTsvLy87NTU1Ly8vLzsvL//AABEIAA0AGAMBIgACEQEDEQH/xAAYAAACAwAAAAAAAAAAAAAAAAAGBwABBP/EACEQAAEEAAYDAAAAAAAAAAAAAAEAAgMEBQYHESEiFWFx/8QAFQEBAQAAAAAAAAAAAAAAAAAAAwL/xAAZEQADAAMAAAAAAAAAAAAAAAAAAQIRITH/2gAMAwEAAhEDEQA/AFxLgDWTsAd1J5TGy7hEYqNAaNgECX7sjLMQAHJTEy1Zcarfia4lJMauAxqBhLY6ZlaOzDurWvUOd3jZPfCiEh4xs//Z",
+      "base64": "data:image/jpeg;base64,<IMAGE-DATA>",
       "height": 421,
       "sizes": "(max-width: 750px) 100vw, 750px",
       "src": "https://www.datocms-assets.com/205/image.png?ar=16%3A9&fit=crop&w=750",
@@ -501,10 +581,9 @@ exports[`Image layout=fixed visible image loaded shows the image 1`] = `
     <img
       alt=""
       aria-hidden="true"
-      src="data:image/jpeg;base64,/9j/4AAQSkZJRgABAQAAAQABAAD/2wCEAAoHBwgHBgoICAgLFQoLDhgQDg0NDh0eHREYIx8lJCIrHB0dLSs7GikyKSEuKjUlKDk1MjIyHyo4PTc+PDcxPjUBCgsLDg0OHBAQHDsoIig7Ozs7Ozs7OzsvOzs7Ozs7Ozs7Lzs7Ozs7Ozs7OzsvOzs7NTsvLy87NTU1Ly8vLzsvL//AABEIAA0AGAMBIgACEQEDEQH/xAAYAAACAwAAAAAAAAAAAAAAAAAGBwABBP/EACEQAAEEAAYDAAAAAAAAAAAAAAEAAgMEBQYHESEiFWFx/8QAFQEBAQAAAAAAAAAAAAAAAAAAAwL/xAAZEQADAAMAAAAAAAAAAAAAAAAAAQIRITH/2gAMAwEAAhEDEQA/AFxLgDWTsAd1J5TGy7hEYqNAaNgECX7sjLMQAHJTEy1Zcarfia4lJMauAxqBhLY6ZlaOzDurWvUOd3jZPfCiEh4xs//Z"
+      src="data:image/jpeg;base64,<IMAGE-DATA>"
       style={
         {
-          "backgroundColor": undefined,
           "height": "110%",
           "left": "-5%",
           "maxHeight": "none",
@@ -557,7 +636,7 @@ exports[`Image layout=fixed visible renders the image (minimal data) 1`] = `
 <ForwardRef
   data={
     {
-      "base64": "data:image/jpeg;base64,/9j/4AAQSkZJRgABAQAAAQABAAD/2wCEAAoHBwgHBgoICAgLFQoLDhgQDg0NDh0eHREYIx8lJCIrHB0dLSs7GikyKSEuKjUlKDk1MjIyHyo4PTc+PDcxPjUBCgsLDg0OHBAQHDsoIig7Ozs7Ozs7OzsvOzs7Ozs7Ozs7Lzs7Ozs7Ozs7OzsvOzs7NTsvLy87NTU1Ly8vLzsvL//AABEIAA0AGAMBIgACEQEDEQH/xAAYAAACAwAAAAAAAAAAAAAAAAAGBwABBP/EACEQAAEEAAYDAAAAAAAAAAAAAAEAAgMEBQYHESEiFWFx/8QAFQEBAQAAAAAAAAAAAAAAAAAAAwL/xAAZEQADAAMAAAAAAAAAAAAAAAAAAQIRITH/2gAMAwEAAhEDEQA/AFxLgDWTsAd1J5TGy7hEYqNAaNgECX7sjLMQAHJTEy1Zcarfia4lJMauAxqBhLY6ZlaOzDurWvUOd3jZPfCiEh4xs//Z",
+      "base64": "data:image/jpeg;base64,<IMAGE-DATA>",
       "height": 421,
       "src": "https://www.datocms-assets.com/205/image.png?ar=16%3A9&fit=crop&w=750",
       "width": 750,
@@ -589,10 +668,9 @@ exports[`Image layout=fixed visible renders the image (minimal data) 1`] = `
     <img
       alt=""
       aria-hidden="true"
-      src="data:image/jpeg;base64,/9j/4AAQSkZJRgABAQAAAQABAAD/2wCEAAoHBwgHBgoICAgLFQoLDhgQDg0NDh0eHREYIx8lJCIrHB0dLSs7GikyKSEuKjUlKDk1MjIyHyo4PTc+PDcxPjUBCgsLDg0OHBAQHDsoIig7Ozs7Ozs7OzsvOzs7Ozs7Ozs7Lzs7Ozs7Ozs7OzsvOzs7NTsvLy87NTU1Ly8vLzsvL//AABEIAA0AGAMBIgACEQEDEQH/xAAYAAACAwAAAAAAAAAAAAAAAAAGBwABBP/EACEQAAEEAAYDAAAAAAAAAAAAAAEAAgMEBQYHESEiFWFx/8QAFQEBAQAAAAAAAAAAAAAAAAAAAwL/xAAZEQADAAMAAAAAAAAAAAAAAAAAAQIRITH/2gAMAwEAAhEDEQA/AFxLgDWTsAd1J5TGy7hEYqNAaNgECX7sjLMQAHJTEy1Zcarfia4lJMauAxqBhLY6ZlaOzDurWvUOd3jZPfCiEh4xs//Z"
+      src="data:image/jpeg;base64,<IMAGE-DATA>"
       style={
         {
-          "backgroundColor": undefined,
           "height": "110%",
           "left": "-5%",
           "maxHeight": "none",
@@ -643,7 +721,7 @@ exports[`Image layout=fixed visible renders the image (relative URL) 1`] = `
 <ForwardRef
   data={
     {
-      "base64": "data:image/jpeg;base64,/9j/4AAQSkZJRgABAQAAAQABAAD/2wCEAAoHBwgHBgoICAgLFQoLDhgQDg0NDh0eHREYIx8lJCIrHB0dLSs7GikyKSEuKjUlKDk1MjIyHyo4PTc+PDcxPjUBCgsLDg0OHBAQHDsoIig7Ozs7Ozs7OzsvOzs7Ozs7Ozs7Lzs7Ozs7Ozs7OzsvOzs7NTsvLy87NTU1Ly8vLzsvL//AABEIAA0AGAMBIgACEQEDEQH/xAAYAAACAwAAAAAAAAAAAAAAAAAGBwABBP/EACEQAAEEAAYDAAAAAAAAAAAAAAEAAgMEBQYHESEiFWFx/8QAFQEBAQAAAAAAAAAAAAAAAAAAAwL/xAAZEQADAAMAAAAAAAAAAAAAAAAAAQIRITH/2gAMAwEAAhEDEQA/AFxLgDWTsAd1J5TGy7hEYqNAaNgECX7sjLMQAHJTEy1Zcarfia4lJMauAxqBhLY6ZlaOzDurWvUOd3jZPfCiEh4xs//Z",
+      "base64": "data:image/jpeg;base64,<IMAGE-DATA>",
       "height": 421,
       "src": "/205/image.png?ar=16%3A9&fit=crop&w=750",
       "width": 750,
@@ -675,10 +753,9 @@ exports[`Image layout=fixed visible renders the image (relative URL) 1`] = `
     <img
       alt=""
       aria-hidden="true"
-      src="data:image/jpeg;base64,/9j/4AAQSkZJRgABAQAAAQABAAD/2wCEAAoHBwgHBgoICAgLFQoLDhgQDg0NDh0eHREYIx8lJCIrHB0dLSs7GikyKSEuKjUlKDk1MjIyHyo4PTc+PDcxPjUBCgsLDg0OHBAQHDsoIig7Ozs7Ozs7OzsvOzs7Ozs7Ozs7Lzs7Ozs7Ozs7OzsvOzs7NTsvLy87NTU1Ly8vLzsvL//AABEIAA0AGAMBIgACEQEDEQH/xAAYAAACAwAAAAAAAAAAAAAAAAAGBwABBP/EACEQAAEEAAYDAAAAAAAAAAAAAAEAAgMEBQYHESEiFWFx/8QAFQEBAQAAAAAAAAAAAAAAAAAAAwL/xAAZEQADAAMAAAAAAAAAAAAAAAAAAQIRITH/2gAMAwEAAhEDEQA/AFxLgDWTsAd1J5TGy7hEYqNAaNgECX7sjLMQAHJTEy1Zcarfia4lJMauAxqBhLY6ZlaOzDurWvUOd3jZPfCiEh4xs//Z"
+      src="data:image/jpeg;base64,<IMAGE-DATA>"
       style={
         {
-          "backgroundColor": undefined,
           "height": "110%",
           "left": "-5%",
           "maxHeight": "none",
@@ -731,7 +808,7 @@ exports[`Image layout=fixed visible renders the image 1`] = `
     {
       "alt": "DatoCMS swag",
       "aspectRatio": 1.7777777777777777,
-      "base64": "data:image/jpeg;base64,/9j/4AAQSkZJRgABAQAAAQABAAD/2wCEAAoHBwgHBgoICAgLFQoLDhgQDg0NDh0eHREYIx8lJCIrHB0dLSs7GikyKSEuKjUlKDk1MjIyHyo4PTc+PDcxPjUBCgsLDg0OHBAQHDsoIig7Ozs7Ozs7OzsvOzs7Ozs7Ozs7Lzs7Ozs7Ozs7OzsvOzs7NTsvLy87NTU1Ly8vLzsvL//AABEIAA0AGAMBIgACEQEDEQH/xAAYAAACAwAAAAAAAAAAAAAAAAAGBwABBP/EACEQAAEEAAYDAAAAAAAAAAAAAAEAAgMEBQYHESEiFWFx/8QAFQEBAQAAAAAAAAAAAAAAAAAAAwL/xAAZEQADAAMAAAAAAAAAAAAAAAAAAQIRITH/2gAMAwEAAhEDEQA/AFxLgDWTsAd1J5TGy7hEYqNAaNgECX7sjLMQAHJTEy1Zcarfia4lJMauAxqBhLY6ZlaOzDurWvUOd3jZPfCiEh4xs//Z",
+      "base64": "data:image/jpeg;base64,<IMAGE-DATA>",
       "height": 421,
       "sizes": "(max-width: 750px) 100vw, 750px",
       "src": "https://www.datocms-assets.com/205/image.png?ar=16%3A9&fit=crop&w=750",
@@ -766,10 +843,9 @@ exports[`Image layout=fixed visible renders the image 1`] = `
     <img
       alt=""
       aria-hidden="true"
-      src="data:image/jpeg;base64,/9j/4AAQSkZJRgABAQAAAQABAAD/2wCEAAoHBwgHBgoICAgLFQoLDhgQDg0NDh0eHREYIx8lJCIrHB0dLSs7GikyKSEuKjUlKDk1MjIyHyo4PTc+PDcxPjUBCgsLDg0OHBAQHDsoIig7Ozs7Ozs7OzsvOzs7Ozs7Ozs7Lzs7Ozs7Ozs7OzsvOzs7NTsvLy87NTU1Ly8vLzsvL//AABEIAA0AGAMBIgACEQEDEQH/xAAYAAACAwAAAAAAAAAAAAAAAAAGBwABBP/EACEQAAEEAAYDAAAAAAAAAAAAAAEAAgMEBQYHESEiFWFx/8QAFQEBAQAAAAAAAAAAAAAAAAAAAwL/xAAZEQADAAMAAAAAAAAAAAAAAAAAAQIRITH/2gAMAwEAAhEDEQA/AFxLgDWTsAd1J5TGy7hEYqNAaNgECX7sjLMQAHJTEy1Zcarfia4lJMauAxqBhLY6ZlaOzDurWvUOd3jZPfCiEh4xs//Z"
+      src="data:image/jpeg;base64,<IMAGE-DATA>"
       style={
         {
-          "backgroundColor": undefined,
           "height": "110%",
           "left": "-5%",
           "maxHeight": "none",
@@ -824,7 +900,7 @@ exports[`Image layout=intrinsic not visible renders the blur-up thumb 1`] = `
     {
       "alt": "DatoCMS swag",
       "aspectRatio": 1.7777777777777777,
-      "base64": "data:image/jpeg;base64,/9j/4AAQSkZJRgABAQAAAQABAAD/2wCEAAoHBwgHBgoICAgLFQoLDhgQDg0NDh0eHREYIx8lJCIrHB0dLSs7GikyKSEuKjUlKDk1MjIyHyo4PTc+PDcxPjUBCgsLDg0OHBAQHDsoIig7Ozs7Ozs7OzsvOzs7Ozs7Ozs7Lzs7Ozs7Ozs7OzsvOzs7NTsvLy87NTU1Ly8vLzsvL//AABEIAA0AGAMBIgACEQEDEQH/xAAYAAACAwAAAAAAAAAAAAAAAAAGBwABBP/EACEQAAEEAAYDAAAAAAAAAAAAAAEAAgMEBQYHESEiFWFx/8QAFQEBAQAAAAAAAAAAAAAAAAAAAwL/xAAZEQADAAMAAAAAAAAAAAAAAAAAAQIRITH/2gAMAwEAAhEDEQA/AFxLgDWTsAd1J5TGy7hEYqNAaNgECX7sjLMQAHJTEy1Zcarfia4lJMauAxqBhLY6ZlaOzDurWvUOd3jZPfCiEh4xs//Z",
+      "base64": "data:image/jpeg;base64,<IMAGE-DATA>",
       "height": 421,
       "sizes": "(max-width: 750px) 100vw, 750px",
       "src": "https://www.datocms-assets.com/205/image.png?ar=16%3A9&fit=crop&w=750",
@@ -860,10 +936,9 @@ exports[`Image layout=intrinsic not visible renders the blur-up thumb 1`] = `
     <img
       alt=""
       aria-hidden="true"
-      src="data:image/jpeg;base64,/9j/4AAQSkZJRgABAQAAAQABAAD/2wCEAAoHBwgHBgoICAgLFQoLDhgQDg0NDh0eHREYIx8lJCIrHB0dLSs7GikyKSEuKjUlKDk1MjIyHyo4PTc+PDcxPjUBCgsLDg0OHBAQHDsoIig7Ozs7Ozs7OzsvOzs7Ozs7Ozs7Lzs7Ozs7Ozs7OzsvOzs7NTsvLy87NTU1Ly8vLzsvL//AABEIAA0AGAMBIgACEQEDEQH/xAAYAAACAwAAAAAAAAAAAAAAAAAGBwABBP/EACEQAAEEAAYDAAAAAAAAAAAAAAEAAgMEBQYHESEiFWFx/8QAFQEBAQAAAAAAAAAAAAAAAAAAAwL/xAAZEQADAAMAAAAAAAAAAAAAAAAAAQIRITH/2gAMAwEAAhEDEQA/AFxLgDWTsAd1J5TGy7hEYqNAaNgECX7sjLMQAHJTEy1Zcarfia4lJMauAxqBhLY6ZlaOzDurWvUOd3jZPfCiEh4xs//Z"
+      src="data:image/jpeg;base64,<IMAGE-DATA>"
       style={
         {
-          "backgroundColor": undefined,
           "height": "110%",
           "left": "-5%",
           "maxHeight": "none",
@@ -891,7 +966,7 @@ exports[`Image layout=intrinsic visible image loaded shows the image 1`] = `
     {
       "alt": "DatoCMS swag",
       "aspectRatio": 1.7777777777777777,
-      "base64": "data:image/jpeg;base64,/9j/4AAQSkZJRgABAQAAAQABAAD/2wCEAAoHBwgHBgoICAgLFQoLDhgQDg0NDh0eHREYIx8lJCIrHB0dLSs7GikyKSEuKjUlKDk1MjIyHyo4PTc+PDcxPjUBCgsLDg0OHBAQHDsoIig7Ozs7Ozs7OzsvOzs7Ozs7Ozs7Lzs7Ozs7Ozs7OzsvOzs7NTsvLy87NTU1Ly8vLzsvL//AABEIAA0AGAMBIgACEQEDEQH/xAAYAAACAwAAAAAAAAAAAAAAAAAGBwABBP/EACEQAAEEAAYDAAAAAAAAAAAAAAEAAgMEBQYHESEiFWFx/8QAFQEBAQAAAAAAAAAAAAAAAAAAAwL/xAAZEQADAAMAAAAAAAAAAAAAAAAAAQIRITH/2gAMAwEAAhEDEQA/AFxLgDWTsAd1J5TGy7hEYqNAaNgECX7sjLMQAHJTEy1Zcarfia4lJMauAxqBhLY6ZlaOzDurWvUOd3jZPfCiEh4xs//Z",
+      "base64": "data:image/jpeg;base64,<IMAGE-DATA>",
       "height": 421,
       "sizes": "(max-width: 750px) 100vw, 750px",
       "src": "https://www.datocms-assets.com/205/image.png?ar=16%3A9&fit=crop&w=750",
@@ -927,10 +1002,9 @@ exports[`Image layout=intrinsic visible image loaded shows the image 1`] = `
     <img
       alt=""
       aria-hidden="true"
-      src="data:image/jpeg;base64,/9j/4AAQSkZJRgABAQAAAQABAAD/2wCEAAoHBwgHBgoICAgLFQoLDhgQDg0NDh0eHREYIx8lJCIrHB0dLSs7GikyKSEuKjUlKDk1MjIyHyo4PTc+PDcxPjUBCgsLDg0OHBAQHDsoIig7Ozs7Ozs7OzsvOzs7Ozs7Ozs7Lzs7Ozs7Ozs7OzsvOzs7NTsvLy87NTU1Ly8vLzsvL//AABEIAA0AGAMBIgACEQEDEQH/xAAYAAACAwAAAAAAAAAAAAAAAAAGBwABBP/EACEQAAEEAAYDAAAAAAAAAAAAAAEAAgMEBQYHESEiFWFx/8QAFQEBAQAAAAAAAAAAAAAAAAAAAwL/xAAZEQADAAMAAAAAAAAAAAAAAAAAAQIRITH/2gAMAwEAAhEDEQA/AFxLgDWTsAd1J5TGy7hEYqNAaNgECX7sjLMQAHJTEy1Zcarfia4lJMauAxqBhLY6ZlaOzDurWvUOd3jZPfCiEh4xs//Z"
+      src="data:image/jpeg;base64,<IMAGE-DATA>"
       style={
         {
-          "backgroundColor": undefined,
           "height": "110%",
           "left": "-5%",
           "maxHeight": "none",
@@ -983,7 +1057,7 @@ exports[`Image layout=intrinsic visible renders the image (minimal data) 1`] = `
 <ForwardRef
   data={
     {
-      "base64": "data:image/jpeg;base64,/9j/4AAQSkZJRgABAQAAAQABAAD/2wCEAAoHBwgHBgoICAgLFQoLDhgQDg0NDh0eHREYIx8lJCIrHB0dLSs7GikyKSEuKjUlKDk1MjIyHyo4PTc+PDcxPjUBCgsLDg0OHBAQHDsoIig7Ozs7Ozs7OzsvOzs7Ozs7Ozs7Lzs7Ozs7Ozs7OzsvOzs7NTsvLy87NTU1Ly8vLzsvL//AABEIAA0AGAMBIgACEQEDEQH/xAAYAAACAwAAAAAAAAAAAAAAAAAGBwABBP/EACEQAAEEAAYDAAAAAAAAAAAAAAEAAgMEBQYHESEiFWFx/8QAFQEBAQAAAAAAAAAAAAAAAAAAAwL/xAAZEQADAAMAAAAAAAAAAAAAAAAAAQIRITH/2gAMAwEAAhEDEQA/AFxLgDWTsAd1J5TGy7hEYqNAaNgECX7sjLMQAHJTEy1Zcarfia4lJMauAxqBhLY6ZlaOzDurWvUOd3jZPfCiEh4xs//Z",
+      "base64": "data:image/jpeg;base64,<IMAGE-DATA>",
       "height": 421,
       "src": "https://www.datocms-assets.com/205/image.png?ar=16%3A9&fit=crop&w=750",
       "width": 750,
@@ -1016,10 +1090,9 @@ exports[`Image layout=intrinsic visible renders the image (minimal data) 1`] = `
     <img
       alt=""
       aria-hidden="true"
-      src="data:image/jpeg;base64,/9j/4AAQSkZJRgABAQAAAQABAAD/2wCEAAoHBwgHBgoICAgLFQoLDhgQDg0NDh0eHREYIx8lJCIrHB0dLSs7GikyKSEuKjUlKDk1MjIyHyo4PTc+PDcxPjUBCgsLDg0OHBAQHDsoIig7Ozs7Ozs7OzsvOzs7Ozs7Ozs7Lzs7Ozs7Ozs7OzsvOzs7NTsvLy87NTU1Ly8vLzsvL//AABEIAA0AGAMBIgACEQEDEQH/xAAYAAACAwAAAAAAAAAAAAAAAAAGBwABBP/EACEQAAEEAAYDAAAAAAAAAAAAAAEAAgMEBQYHESEiFWFx/8QAFQEBAQAAAAAAAAAAAAAAAAAAAwL/xAAZEQADAAMAAAAAAAAAAAAAAAAAAQIRITH/2gAMAwEAAhEDEQA/AFxLgDWTsAd1J5TGy7hEYqNAaNgECX7sjLMQAHJTEy1Zcarfia4lJMauAxqBhLY6ZlaOzDurWvUOd3jZPfCiEh4xs//Z"
+      src="data:image/jpeg;base64,<IMAGE-DATA>"
       style={
         {
-          "backgroundColor": undefined,
           "height": "110%",
           "left": "-5%",
           "maxHeight": "none",
@@ -1070,7 +1143,7 @@ exports[`Image layout=intrinsic visible renders the image (relative URL) 1`] = `
 <ForwardRef
   data={
     {
-      "base64": "data:image/jpeg;base64,/9j/4AAQSkZJRgABAQAAAQABAAD/2wCEAAoHBwgHBgoICAgLFQoLDhgQDg0NDh0eHREYIx8lJCIrHB0dLSs7GikyKSEuKjUlKDk1MjIyHyo4PTc+PDcxPjUBCgsLDg0OHBAQHDsoIig7Ozs7Ozs7OzsvOzs7Ozs7Ozs7Lzs7Ozs7Ozs7OzsvOzs7NTsvLy87NTU1Ly8vLzsvL//AABEIAA0AGAMBIgACEQEDEQH/xAAYAAACAwAAAAAAAAAAAAAAAAAGBwABBP/EACEQAAEEAAYDAAAAAAAAAAAAAAEAAgMEBQYHESEiFWFx/8QAFQEBAQAAAAAAAAAAAAAAAAAAAwL/xAAZEQADAAMAAAAAAAAAAAAAAAAAAQIRITH/2gAMAwEAAhEDEQA/AFxLgDWTsAd1J5TGy7hEYqNAaNgECX7sjLMQAHJTEy1Zcarfia4lJMauAxqBhLY6ZlaOzDurWvUOd3jZPfCiEh4xs//Z",
+      "base64": "data:image/jpeg;base64,<IMAGE-DATA>",
       "height": 421,
       "src": "/205/image.png?ar=16%3A9&fit=crop&w=750",
       "width": 750,
@@ -1103,10 +1176,9 @@ exports[`Image layout=intrinsic visible renders the image (relative URL) 1`] = `
     <img
       alt=""
       aria-hidden="true"
-      src="data:image/jpeg;base64,/9j/4AAQSkZJRgABAQAAAQABAAD/2wCEAAoHBwgHBgoICAgLFQoLDhgQDg0NDh0eHREYIx8lJCIrHB0dLSs7GikyKSEuKjUlKDk1MjIyHyo4PTc+PDcxPjUBCgsLDg0OHBAQHDsoIig7Ozs7Ozs7OzsvOzs7Ozs7Ozs7Lzs7Ozs7Ozs7OzsvOzs7NTsvLy87NTU1Ly8vLzsvL//AABEIAA0AGAMBIgACEQEDEQH/xAAYAAACAwAAAAAAAAAAAAAAAAAGBwABBP/EACEQAAEEAAYDAAAAAAAAAAAAAAEAAgMEBQYHESEiFWFx/8QAFQEBAQAAAAAAAAAAAAAAAAAAAwL/xAAZEQADAAMAAAAAAAAAAAAAAAAAAQIRITH/2gAMAwEAAhEDEQA/AFxLgDWTsAd1J5TGy7hEYqNAaNgECX7sjLMQAHJTEy1Zcarfia4lJMauAxqBhLY6ZlaOzDurWvUOd3jZPfCiEh4xs//Z"
+      src="data:image/jpeg;base64,<IMAGE-DATA>"
       style={
         {
-          "backgroundColor": undefined,
           "height": "110%",
           "left": "-5%",
           "maxHeight": "none",
@@ -1159,7 +1231,7 @@ exports[`Image layout=intrinsic visible renders the image 1`] = `
     {
       "alt": "DatoCMS swag",
       "aspectRatio": 1.7777777777777777,
-      "base64": "data:image/jpeg;base64,/9j/4AAQSkZJRgABAQAAAQABAAD/2wCEAAoHBwgHBgoICAgLFQoLDhgQDg0NDh0eHREYIx8lJCIrHB0dLSs7GikyKSEuKjUlKDk1MjIyHyo4PTc+PDcxPjUBCgsLDg0OHBAQHDsoIig7Ozs7Ozs7OzsvOzs7Ozs7Ozs7Lzs7Ozs7Ozs7OzsvOzs7NTsvLy87NTU1Ly8vLzsvL//AABEIAA0AGAMBIgACEQEDEQH/xAAYAAACAwAAAAAAAAAAAAAAAAAGBwABBP/EACEQAAEEAAYDAAAAAAAAAAAAAAEAAgMEBQYHESEiFWFx/8QAFQEBAQAAAAAAAAAAAAAAAAAAAwL/xAAZEQADAAMAAAAAAAAAAAAAAAAAAQIRITH/2gAMAwEAAhEDEQA/AFxLgDWTsAd1J5TGy7hEYqNAaNgECX7sjLMQAHJTEy1Zcarfia4lJMauAxqBhLY6ZlaOzDurWvUOd3jZPfCiEh4xs//Z",
+      "base64": "data:image/jpeg;base64,<IMAGE-DATA>",
       "height": 421,
       "sizes": "(max-width: 750px) 100vw, 750px",
       "src": "https://www.datocms-assets.com/205/image.png?ar=16%3A9&fit=crop&w=750",
@@ -1195,10 +1267,9 @@ exports[`Image layout=intrinsic visible renders the image 1`] = `
     <img
       alt=""
       aria-hidden="true"
-      src="data:image/jpeg;base64,/9j/4AAQSkZJRgABAQAAAQABAAD/2wCEAAoHBwgHBgoICAgLFQoLDhgQDg0NDh0eHREYIx8lJCIrHB0dLSs7GikyKSEuKjUlKDk1MjIyHyo4PTc+PDcxPjUBCgsLDg0OHBAQHDsoIig7Ozs7Ozs7OzsvOzs7Ozs7Ozs7Lzs7Ozs7Ozs7OzsvOzs7NTsvLy87NTU1Ly8vLzsvL//AABEIAA0AGAMBIgACEQEDEQH/xAAYAAACAwAAAAAAAAAAAAAAAAAGBwABBP/EACEQAAEEAAYDAAAAAAAAAAAAAAEAAgMEBQYHESEiFWFx/8QAFQEBAQAAAAAAAAAAAAAAAAAAAwL/xAAZEQADAAMAAAAAAAAAAAAAAAAAAQIRITH/2gAMAwEAAhEDEQA/AFxLgDWTsAd1J5TGy7hEYqNAaNgECX7sjLMQAHJTEy1Zcarfia4lJMauAxqBhLY6ZlaOzDurWvUOd3jZPfCiEh4xs//Z"
+      src="data:image/jpeg;base64,<IMAGE-DATA>"
       style={
         {
-          "backgroundColor": undefined,
           "height": "110%",
           "left": "-5%",
           "maxHeight": "none",
@@ -1253,7 +1324,7 @@ exports[`Image layout=responsive not visible renders the blur-up thumb 1`] = `
     {
       "alt": "DatoCMS swag",
       "aspectRatio": 1.7777777777777777,
-      "base64": "data:image/jpeg;base64,/9j/4AAQSkZJRgABAQAAAQABAAD/2wCEAAoHBwgHBgoICAgLFQoLDhgQDg0NDh0eHREYIx8lJCIrHB0dLSs7GikyKSEuKjUlKDk1MjIyHyo4PTc+PDcxPjUBCgsLDg0OHBAQHDsoIig7Ozs7Ozs7OzsvOzs7Ozs7Ozs7Lzs7Ozs7Ozs7OzsvOzs7NTsvLy87NTU1Ly8vLzsvL//AABEIAA0AGAMBIgACEQEDEQH/xAAYAAACAwAAAAAAAAAAAAAAAAAGBwABBP/EACEQAAEEAAYDAAAAAAAAAAAAAAEAAgMEBQYHESEiFWFx/8QAFQEBAQAAAAAAAAAAAAAAAAAAAwL/xAAZEQADAAMAAAAAAAAAAAAAAAAAAQIRITH/2gAMAwEAAhEDEQA/AFxLgDWTsAd1J5TGy7hEYqNAaNgECX7sjLMQAHJTEy1Zcarfia4lJMauAxqBhLY6ZlaOzDurWvUOd3jZPfCiEh4xs//Z",
+      "base64": "data:image/jpeg;base64,<IMAGE-DATA>",
       "height": 421,
       "sizes": "(max-width: 750px) 100vw, 750px",
       "src": "https://www.datocms-assets.com/205/image.png?ar=16%3A9&fit=crop&w=750",
@@ -1288,10 +1359,9 @@ exports[`Image layout=responsive not visible renders the blur-up thumb 1`] = `
     <img
       alt=""
       aria-hidden="true"
-      src="data:image/jpeg;base64,/9j/4AAQSkZJRgABAQAAAQABAAD/2wCEAAoHBwgHBgoICAgLFQoLDhgQDg0NDh0eHREYIx8lJCIrHB0dLSs7GikyKSEuKjUlKDk1MjIyHyo4PTc+PDcxPjUBCgsLDg0OHBAQHDsoIig7Ozs7Ozs7OzsvOzs7Ozs7Ozs7Lzs7Ozs7Ozs7OzsvOzs7NTsvLy87NTU1Ly8vLzsvL//AABEIAA0AGAMBIgACEQEDEQH/xAAYAAACAwAAAAAAAAAAAAAAAAAGBwABBP/EACEQAAEEAAYDAAAAAAAAAAAAAAEAAgMEBQYHESEiFWFx/8QAFQEBAQAAAAAAAAAAAAAAAAAAAwL/xAAZEQADAAMAAAAAAAAAAAAAAAAAAQIRITH/2gAMAwEAAhEDEQA/AFxLgDWTsAd1J5TGy7hEYqNAaNgECX7sjLMQAHJTEy1Zcarfia4lJMauAxqBhLY6ZlaOzDurWvUOd3jZPfCiEh4xs//Z"
+      src="data:image/jpeg;base64,<IMAGE-DATA>"
       style={
         {
-          "backgroundColor": undefined,
           "height": "110%",
           "left": "-5%",
           "maxHeight": "none",
@@ -1319,7 +1389,7 @@ exports[`Image layout=responsive visible image loaded shows the image 1`] = `
     {
       "alt": "DatoCMS swag",
       "aspectRatio": 1.7777777777777777,
-      "base64": "data:image/jpeg;base64,/9j/4AAQSkZJRgABAQAAAQABAAD/2wCEAAoHBwgHBgoICAgLFQoLDhgQDg0NDh0eHREYIx8lJCIrHB0dLSs7GikyKSEuKjUlKDk1MjIyHyo4PTc+PDcxPjUBCgsLDg0OHBAQHDsoIig7Ozs7Ozs7OzsvOzs7Ozs7Ozs7Lzs7Ozs7Ozs7OzsvOzs7NTsvLy87NTU1Ly8vLzsvL//AABEIAA0AGAMBIgACEQEDEQH/xAAYAAACAwAAAAAAAAAAAAAAAAAGBwABBP/EACEQAAEEAAYDAAAAAAAAAAAAAAEAAgMEBQYHESEiFWFx/8QAFQEBAQAAAAAAAAAAAAAAAAAAAwL/xAAZEQADAAMAAAAAAAAAAAAAAAAAAQIRITH/2gAMAwEAAhEDEQA/AFxLgDWTsAd1J5TGy7hEYqNAaNgECX7sjLMQAHJTEy1Zcarfia4lJMauAxqBhLY6ZlaOzDurWvUOd3jZPfCiEh4xs//Z",
+      "base64": "data:image/jpeg;base64,<IMAGE-DATA>",
       "height": 421,
       "sizes": "(max-width: 750px) 100vw, 750px",
       "src": "https://www.datocms-assets.com/205/image.png?ar=16%3A9&fit=crop&w=750",
@@ -1354,10 +1424,9 @@ exports[`Image layout=responsive visible image loaded shows the image 1`] = `
     <img
       alt=""
       aria-hidden="true"
-      src="data:image/jpeg;base64,/9j/4AAQSkZJRgABAQAAAQABAAD/2wCEAAoHBwgHBgoICAgLFQoLDhgQDg0NDh0eHREYIx8lJCIrHB0dLSs7GikyKSEuKjUlKDk1MjIyHyo4PTc+PDcxPjUBCgsLDg0OHBAQHDsoIig7Ozs7Ozs7OzsvOzs7Ozs7Ozs7Lzs7Ozs7Ozs7OzsvOzs7NTsvLy87NTU1Ly8vLzsvL//AABEIAA0AGAMBIgACEQEDEQH/xAAYAAACAwAAAAAAAAAAAAAAAAAGBwABBP/EACEQAAEEAAYDAAAAAAAAAAAAAAEAAgMEBQYHESEiFWFx/8QAFQEBAQAAAAAAAAAAAAAAAAAAAwL/xAAZEQADAAMAAAAAAAAAAAAAAAAAAQIRITH/2gAMAwEAAhEDEQA/AFxLgDWTsAd1J5TGy7hEYqNAaNgECX7sjLMQAHJTEy1Zcarfia4lJMauAxqBhLY6ZlaOzDurWvUOd3jZPfCiEh4xs//Z"
+      src="data:image/jpeg;base64,<IMAGE-DATA>"
       style={
         {
-          "backgroundColor": undefined,
           "height": "110%",
           "left": "-5%",
           "maxHeight": "none",
@@ -1410,7 +1479,7 @@ exports[`Image layout=responsive visible renders the image (minimal data) 1`] = 
 <ForwardRef
   data={
     {
-      "base64": "data:image/jpeg;base64,/9j/4AAQSkZJRgABAQAAAQABAAD/2wCEAAoHBwgHBgoICAgLFQoLDhgQDg0NDh0eHREYIx8lJCIrHB0dLSs7GikyKSEuKjUlKDk1MjIyHyo4PTc+PDcxPjUBCgsLDg0OHBAQHDsoIig7Ozs7Ozs7OzsvOzs7Ozs7Ozs7Lzs7Ozs7Ozs7OzsvOzs7NTsvLy87NTU1Ly8vLzsvL//AABEIAA0AGAMBIgACEQEDEQH/xAAYAAACAwAAAAAAAAAAAAAAAAAGBwABBP/EACEQAAEEAAYDAAAAAAAAAAAAAAEAAgMEBQYHESEiFWFx/8QAFQEBAQAAAAAAAAAAAAAAAAAAAwL/xAAZEQADAAMAAAAAAAAAAAAAAAAAAQIRITH/2gAMAwEAAhEDEQA/AFxLgDWTsAd1J5TGy7hEYqNAaNgECX7sjLMQAHJTEy1Zcarfia4lJMauAxqBhLY6ZlaOzDurWvUOd3jZPfCiEh4xs//Z",
+      "base64": "data:image/jpeg;base64,<IMAGE-DATA>",
       "height": 421,
       "src": "https://www.datocms-assets.com/205/image.png?ar=16%3A9&fit=crop&w=750",
       "width": 750,
@@ -1442,10 +1511,9 @@ exports[`Image layout=responsive visible renders the image (minimal data) 1`] = 
     <img
       alt=""
       aria-hidden="true"
-      src="data:image/jpeg;base64,/9j/4AAQSkZJRgABAQAAAQABAAD/2wCEAAoHBwgHBgoICAgLFQoLDhgQDg0NDh0eHREYIx8lJCIrHB0dLSs7GikyKSEuKjUlKDk1MjIyHyo4PTc+PDcxPjUBCgsLDg0OHBAQHDsoIig7Ozs7Ozs7OzsvOzs7Ozs7Ozs7Lzs7Ozs7Ozs7OzsvOzs7NTsvLy87NTU1Ly8vLzsvL//AABEIAA0AGAMBIgACEQEDEQH/xAAYAAACAwAAAAAAAAAAAAAAAAAGBwABBP/EACEQAAEEAAYDAAAAAAAAAAAAAAEAAgMEBQYHESEiFWFx/8QAFQEBAQAAAAAAAAAAAAAAAAAAAwL/xAAZEQADAAMAAAAAAAAAAAAAAAAAAQIRITH/2gAMAwEAAhEDEQA/AFxLgDWTsAd1J5TGy7hEYqNAaNgECX7sjLMQAHJTEy1Zcarfia4lJMauAxqBhLY6ZlaOzDurWvUOd3jZPfCiEh4xs//Z"
+      src="data:image/jpeg;base64,<IMAGE-DATA>"
       style={
         {
-          "backgroundColor": undefined,
           "height": "110%",
           "left": "-5%",
           "maxHeight": "none",
@@ -1496,7 +1564,7 @@ exports[`Image layout=responsive visible renders the image (relative URL) 1`] = 
 <ForwardRef
   data={
     {
-      "base64": "data:image/jpeg;base64,/9j/4AAQSkZJRgABAQAAAQABAAD/2wCEAAoHBwgHBgoICAgLFQoLDhgQDg0NDh0eHREYIx8lJCIrHB0dLSs7GikyKSEuKjUlKDk1MjIyHyo4PTc+PDcxPjUBCgsLDg0OHBAQHDsoIig7Ozs7Ozs7OzsvOzs7Ozs7Ozs7Lzs7Ozs7Ozs7OzsvOzs7NTsvLy87NTU1Ly8vLzsvL//AABEIAA0AGAMBIgACEQEDEQH/xAAYAAACAwAAAAAAAAAAAAAAAAAGBwABBP/EACEQAAEEAAYDAAAAAAAAAAAAAAEAAgMEBQYHESEiFWFx/8QAFQEBAQAAAAAAAAAAAAAAAAAAAwL/xAAZEQADAAMAAAAAAAAAAAAAAAAAAQIRITH/2gAMAwEAAhEDEQA/AFxLgDWTsAd1J5TGy7hEYqNAaNgECX7sjLMQAHJTEy1Zcarfia4lJMauAxqBhLY6ZlaOzDurWvUOd3jZPfCiEh4xs//Z",
+      "base64": "data:image/jpeg;base64,<IMAGE-DATA>",
       "height": 421,
       "src": "/205/image.png?ar=16%3A9&fit=crop&w=750",
       "width": 750,
@@ -1528,10 +1596,9 @@ exports[`Image layout=responsive visible renders the image (relative URL) 1`] = 
     <img
       alt=""
       aria-hidden="true"
-      src="data:image/jpeg;base64,/9j/4AAQSkZJRgABAQAAAQABAAD/2wCEAAoHBwgHBgoICAgLFQoLDhgQDg0NDh0eHREYIx8lJCIrHB0dLSs7GikyKSEuKjUlKDk1MjIyHyo4PTc+PDcxPjUBCgsLDg0OHBAQHDsoIig7Ozs7Ozs7OzsvOzs7Ozs7Ozs7Lzs7Ozs7Ozs7OzsvOzs7NTsvLy87NTU1Ly8vLzsvL//AABEIAA0AGAMBIgACEQEDEQH/xAAYAAACAwAAAAAAAAAAAAAAAAAGBwABBP/EACEQAAEEAAYDAAAAAAAAAAAAAAEAAgMEBQYHESEiFWFx/8QAFQEBAQAAAAAAAAAAAAAAAAAAAwL/xAAZEQADAAMAAAAAAAAAAAAAAAAAAQIRITH/2gAMAwEAAhEDEQA/AFxLgDWTsAd1J5TGy7hEYqNAaNgECX7sjLMQAHJTEy1Zcarfia4lJMauAxqBhLY6ZlaOzDurWvUOd3jZPfCiEh4xs//Z"
+      src="data:image/jpeg;base64,<IMAGE-DATA>"
       style={
         {
-          "backgroundColor": undefined,
           "height": "110%",
           "left": "-5%",
           "maxHeight": "none",
@@ -1584,7 +1651,7 @@ exports[`Image layout=responsive visible renders the image 1`] = `
     {
       "alt": "DatoCMS swag",
       "aspectRatio": 1.7777777777777777,
-      "base64": "data:image/jpeg;base64,/9j/4AAQSkZJRgABAQAAAQABAAD/2wCEAAoHBwgHBgoICAgLFQoLDhgQDg0NDh0eHREYIx8lJCIrHB0dLSs7GikyKSEuKjUlKDk1MjIyHyo4PTc+PDcxPjUBCgsLDg0OHBAQHDsoIig7Ozs7Ozs7OzsvOzs7Ozs7Ozs7Lzs7Ozs7Ozs7OzsvOzs7NTsvLy87NTU1Ly8vLzsvL//AABEIAA0AGAMBIgACEQEDEQH/xAAYAAACAwAAAAAAAAAAAAAAAAAGBwABBP/EACEQAAEEAAYDAAAAAAAAAAAAAAEAAgMEBQYHESEiFWFx/8QAFQEBAQAAAAAAAAAAAAAAAAAAAwL/xAAZEQADAAMAAAAAAAAAAAAAAAAAAQIRITH/2gAMAwEAAhEDEQA/AFxLgDWTsAd1J5TGy7hEYqNAaNgECX7sjLMQAHJTEy1Zcarfia4lJMauAxqBhLY6ZlaOzDurWvUOd3jZPfCiEh4xs//Z",
+      "base64": "data:image/jpeg;base64,<IMAGE-DATA>",
       "height": 421,
       "sizes": "(max-width: 750px) 100vw, 750px",
       "src": "https://www.datocms-assets.com/205/image.png?ar=16%3A9&fit=crop&w=750",
@@ -1619,10 +1686,9 @@ exports[`Image layout=responsive visible renders the image 1`] = `
     <img
       alt=""
       aria-hidden="true"
-      src="data:image/jpeg;base64,/9j/4AAQSkZJRgABAQAAAQABAAD/2wCEAAoHBwgHBgoICAgLFQoLDhgQDg0NDh0eHREYIx8lJCIrHB0dLSs7GikyKSEuKjUlKDk1MjIyHyo4PTc+PDcxPjUBCgsLDg0OHBAQHDsoIig7Ozs7Ozs7OzsvOzs7Ozs7Ozs7Lzs7Ozs7Ozs7OzsvOzs7NTsvLy87NTU1Ly8vLzsvL//AABEIAA0AGAMBIgACEQEDEQH/xAAYAAACAwAAAAAAAAAAAAAAAAAGBwABBP/EACEQAAEEAAYDAAAAAAAAAAAAAAEAAgMEBQYHESEiFWFx/8QAFQEBAQAAAAAAAAAAAAAAAAAAAwL/xAAZEQADAAMAAAAAAAAAAAAAAAAAAQIRITH/2gAMAwEAAhEDEQA/AFxLgDWTsAd1J5TGy7hEYqNAaNgECX7sjLMQAHJTEy1Zcarfia4lJMauAxqBhLY6ZlaOzDurWvUOd3jZPfCiEh4xs//Z"
+      src="data:image/jpeg;base64,<IMAGE-DATA>"
       style={
         {
-          "backgroundColor": undefined,
           "height": "110%",
           "left": "-5%",
           "maxHeight": "none",
@@ -1662,6 +1728,267 @@ exports[`Image layout=responsive visible renders the image 1`] = `
           }
         }
         title="These are awesome, we know that."
+      />
+    </picture>
+    <noscript>
+      <picture />
+    </noscript>
+  </div>
+</ForwardRef>
+`;
+
+exports[`Image passing className and/or style renders correctly 1`] = `
+<ForwardRef
+  className="class-name"
+  data={
+    {
+      "base64": "data:image/jpeg;base64,<IMAGE-DATA>",
+      "height": 421,
+      "src": "https://www.datocms-assets.com/205/image.png?ar=16%3A9&fit=crop&w=750",
+      "width": 750,
+    }
+  }
+  pictureClassName="picture-class-name"
+  pictureStyle={
+    {
+      "border": "1px solid yellow ",
+    }
+  }
+  placeholderClassName="placeholder-class-name"
+  placeholderStyle={
+    {
+      "border": "1px solid green ",
+    }
+  }
+  style={
+    {
+      "border": "1px solid red",
+    }
+  }
+>
+  <div
+    className="class-name"
+    style={
+      {
+        "border": "1px solid red",
+        "maxWidth": 750,
+        "overflow": "hidden",
+        "position": "relative",
+        "width": "100%",
+      }
+    }
+  >
+    <img
+      alt=""
+      aria-hidden="true"
+      className="picture-class-name"
+      src="data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHdpZHRoPSI3NTAiIGhlaWdodD0iNDIxIj48L3N2Zz4="
+      style={
+        {
+          "border": "1px solid yellow ",
+          "display": "block",
+          "width": "100%",
+        }
+      }
+    />
+    <img
+      alt=""
+      aria-hidden="true"
+      className="placeholder-class-name"
+      src="data:image/jpeg;base64,<IMAGE-DATA>"
+      style={
+        {
+          "border": "1px solid green ",
+          "height": "110%",
+          "left": "-5%",
+          "maxHeight": "none",
+          "maxWidth": "none",
+          "objectFit": undefined,
+          "objectPosition": undefined,
+          "opacity": 1,
+          "position": "absolute",
+          "top": "-5%",
+          "transition": "opacity 500ms",
+          "width": "110%",
+        }
+      }
+    />
+    <picture>
+      <source
+        srcSet="https://www.datocms-assets.com/205/image.png?ar=16%3A9&fit=crop&w=750&dpr=0.25 187w,https://www.datocms-assets.com/205/image.png?ar=16%3A9&fit=crop&w=750&dpr=0.5 375w,https://www.datocms-assets.com/205/image.png?ar=16%3A9&fit=crop&w=750&dpr=0.75 562w,https://www.datocms-assets.com/205/image.png?ar=16%3A9&fit=crop&w=750 750w,https://www.datocms-assets.com/205/image.png?ar=16%3A9&fit=crop&w=750&dpr=1.5 1125w,https://www.datocms-assets.com/205/image.png?ar=16%3A9&fit=crop&w=750&dpr=2 1500w,https://www.datocms-assets.com/205/image.png?ar=16%3A9&fit=crop&w=750&dpr=3 2250w,https://www.datocms-assets.com/205/image.png?ar=16%3A9&fit=crop&w=750&dpr=4 3000w"
+      />
+      <img
+        alt=""
+        className="picture-class-name"
+        onLoad={[Function]}
+        src="https://www.datocms-assets.com/205/image.png?ar=16%3A9&fit=crop&w=750"
+        style={
+          {
+            "border": "1px solid yellow ",
+            "height": "100%",
+            "left": 0,
+            "maxHeight": "none",
+            "maxWidth": "none",
+            "objectFit": undefined,
+            "objectPosition": undefined,
+            "opacity": 0,
+            "position": "absolute",
+            "top": 0,
+            "transition": "opacity 500ms",
+            "width": "100%",
+          }
+        }
+      />
+    </picture>
+    <noscript>
+      <picture />
+    </noscript>
+  </div>
+</ForwardRef>
+`;
+
+exports[`Image priority=true renders correctly 1`] = `
+<ForwardRef
+  data={
+    {
+      "base64": "data:image/jpeg;base64,<IMAGE-DATA>",
+      "height": 421,
+      "src": "https://www.datocms-assets.com/205/image.png?ar=16%3A9&fit=crop&w=750",
+      "width": 750,
+    }
+  }
+  priority={true}
+>
+  <div
+    style={
+      {
+        "maxWidth": 750,
+        "overflow": "hidden",
+        "position": "relative",
+        "width": "100%",
+      }
+    }
+  >
+    <img
+      alt=""
+      aria-hidden="true"
+      src="data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHdpZHRoPSI3NTAiIGhlaWdodD0iNDIxIj48L3N2Zz4="
+      style={
+        {
+          "display": "block",
+          "width": "100%",
+        }
+      }
+    />
+    <img
+      alt=""
+      aria-hidden="true"
+      src="data:image/jpeg;base64,<IMAGE-DATA>"
+      style={
+        {
+          "height": "110%",
+          "left": "-5%",
+          "maxHeight": "none",
+          "maxWidth": "none",
+          "objectFit": undefined,
+          "objectPosition": undefined,
+          "opacity": 0,
+          "position": "absolute",
+          "top": "-5%",
+          "transition": "opacity 500ms",
+          "width": "110%",
+        }
+      }
+    />
+    <picture>
+      <source
+        srcSet="https://www.datocms-assets.com/205/image.png?ar=16%3A9&fit=crop&w=750&dpr=0.25 187w,https://www.datocms-assets.com/205/image.png?ar=16%3A9&fit=crop&w=750&dpr=0.5 375w,https://www.datocms-assets.com/205/image.png?ar=16%3A9&fit=crop&w=750&dpr=0.75 562w,https://www.datocms-assets.com/205/image.png?ar=16%3A9&fit=crop&w=750 750w,https://www.datocms-assets.com/205/image.png?ar=16%3A9&fit=crop&w=750&dpr=1.5 1125w,https://www.datocms-assets.com/205/image.png?ar=16%3A9&fit=crop&w=750&dpr=2 1500w,https://www.datocms-assets.com/205/image.png?ar=16%3A9&fit=crop&w=750&dpr=3 2250w,https://www.datocms-assets.com/205/image.png?ar=16%3A9&fit=crop&w=750&dpr=4 3000w"
+      />
+      <img
+        alt=""
+        fetchpriority="high"
+        onLoad={[Function]}
+        src="https://www.datocms-assets.com/205/image.png?ar=16%3A9&fit=crop&w=750"
+        style={
+          {
+            "height": "100%",
+            "left": 0,
+            "maxHeight": "none",
+            "maxWidth": "none",
+            "objectFit": undefined,
+            "objectPosition": undefined,
+            "opacity": 1,
+            "position": "absolute",
+            "top": 0,
+            "transition": "opacity 500ms",
+            "width": "100%",
+          }
+        }
+      />
+    </picture>
+    <noscript>
+      <picture />
+    </noscript>
+  </div>
+</ForwardRef>
+`;
+
+exports[`Image usePlaceholder=false renders correctly 1`] = `
+<ForwardRef
+  data={
+    {
+      "base64": "data:image/jpeg;base64,<IMAGE-DATA>",
+      "height": 421,
+      "src": "https://www.datocms-assets.com/205/image.png?ar=16%3A9&fit=crop&w=750",
+      "width": 750,
+    }
+  }
+  usePlaceholder={false}
+>
+  <div
+    style={
+      {
+        "maxWidth": 750,
+        "overflow": "hidden",
+        "position": "relative",
+        "width": "100%",
+      }
+    }
+  >
+    <img
+      alt=""
+      aria-hidden="true"
+      src="data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHdpZHRoPSI3NTAiIGhlaWdodD0iNDIxIj48L3N2Zz4="
+      style={
+        {
+          "display": "block",
+          "width": "100%",
+        }
+      }
+    />
+    <picture>
+      <source
+        srcSet="https://www.datocms-assets.com/205/image.png?ar=16%3A9&fit=crop&w=750&dpr=0.25 187w,https://www.datocms-assets.com/205/image.png?ar=16%3A9&fit=crop&w=750&dpr=0.5 375w,https://www.datocms-assets.com/205/image.png?ar=16%3A9&fit=crop&w=750&dpr=0.75 562w,https://www.datocms-assets.com/205/image.png?ar=16%3A9&fit=crop&w=750 750w,https://www.datocms-assets.com/205/image.png?ar=16%3A9&fit=crop&w=750&dpr=1.5 1125w,https://www.datocms-assets.com/205/image.png?ar=16%3A9&fit=crop&w=750&dpr=2 1500w,https://www.datocms-assets.com/205/image.png?ar=16%3A9&fit=crop&w=750&dpr=3 2250w,https://www.datocms-assets.com/205/image.png?ar=16%3A9&fit=crop&w=750&dpr=4 3000w"
+      />
+      <img
+        alt=""
+        onLoad={[Function]}
+        src="https://www.datocms-assets.com/205/image.png?ar=16%3A9&fit=crop&w=750"
+        style={
+          {
+            "height": "100%",
+            "left": 0,
+            "maxHeight": "none",
+            "maxWidth": "none",
+            "objectFit": undefined,
+            "objectPosition": undefined,
+            "opacity": 0,
+            "position": "absolute",
+            "top": 0,
+            "transition": "opacity 500ms",
+            "width": "100%",
+          }
+        }
       />
     </picture>
     <noscript>

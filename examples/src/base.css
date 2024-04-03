@@ -1,0 +1,17 @@
+html {
+  font-family: system-ui, sans-serif;
+
+  @media (prefers-reduced-motion: no-preference) {
+    scroll-behavior: smooth;
+  }
+}
+
+body {
+  padding: 1rem;
+  max-inline-size: 800px;
+  margin: auto;
+}
+
+img {
+  display: block;
+}

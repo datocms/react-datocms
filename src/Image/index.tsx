@@ -1,39 +1,21 @@
 'use client';
 
-import React, {
-  CSSProperties,
-  forwardRef,
-  useCallback,
-  useEffect,
-  useRef,
-  useState,
-  version,
-} from 'react';
-import { encode } from 'universal-base64';
+import React from 'react';
+import { type CSSProperties, forwardRef, useRef } from 'react';
+import {
+  buildRegularSource,
+  buildWebpSource,
+  priorityProp,
+} from '../SRCImage/utils.js';
 import { useInView } from './useInView.js';
-
-const isSsr = typeof window === 'undefined';
-
-const isIntersectionObserverAvailable = isSsr
-  ? false
-  : !!window.IntersectionObserver;
-
-function fetchPriorityProp(
-  fetchPriority?: string,
-): Record<string, string | undefined> {
-  const [majorStr, minorStr] = version.split('.');
-  const major = parseInt(majorStr, 10);
-  const minor = parseInt(minorStr, 10);
-  if (major > 18 || (major === 18 && minor >= 3)) {
-    // In React 18.3.0 or newer, we must use camelCase
-    // prop to avoid "Warning: Invalid DOM property".
-    // See https://github.com/facebook/react/pull/25927
-    return { fetchPriority };
-  }
-  // In React 18.2.0 or older, we must use lowercase prop
-  // to avoid "Warning: Invalid DOM property".
-  return { fetchpriority: fetchPriority };
-}
+import {
+  absolutePositioning,
+  isIntersectionObserverAvailable,
+  isSsr,
+  universalBtoa,
+  useImageLoad,
+  useMergedRef,
+} from './utils.js';
 
 type Maybe<T> = T | null;
 
@@ -71,7 +53,7 @@ export type ImagePropTypes = {
   pictureClassName?: string;
   /** Additional CSS class for the placeholder image */
   placeholderClassName?: string;
-  /** Duration (in ms) of the fade-in transition effect upoad image loading */
+  /** Duration (in ms) of the fade-in transition effect upon image loading */
   fadeInDuration?: number;
   /** @deprecated Use the intersectionThreshold prop */
   intersectionTreshold?: number;
@@ -79,8 +61,6 @@ export type ImagePropTypes = {
   intersectionThreshold?: number;
   /** Margin around the placeholder. Can have values similar to the CSS margin property (top, right, bottom, left). The values can be percentages. This set of values serves to grow or shrink each side of the placeholder element's bounding box before computing intersections */
   intersectionMargin?: string;
-  /** Whether enable lazy loading or not */
-  lazyLoad?: boolean;
   /** Additional CSS rules to add to the root node */
   style?: React.CSSProperties;
   /** Additional CSS rules to add to the image inside the `<picture />` tag */
@@ -129,13 +109,13 @@ export type ImagePropTypes = {
 };
 
 type State = {
-  lazyLoad: boolean;
+  priority: boolean;
   inView: boolean;
   loaded: boolean;
 };
 
-const imageAddStrategy = ({ lazyLoad, inView, loaded }: State) => {
-  if (!lazyLoad) {
+const imageAddStrategy = ({ priority, inView, loaded }: State) => {
+  if (priority) {
     return true;
   }
 
@@ -150,8 +130,8 @@ const imageAddStrategy = ({ lazyLoad, inView, loaded }: State) => {
   return true;
 };
 
-const imageShowStrategy = ({ lazyLoad, loaded }: State) => {
-  if (!lazyLoad) {
+const imageShowStrategy = ({ priority, loaded }: State) => {
+  if (priority) {
     return true;
   }
 
@@ -166,51 +146,6 @@ const imageShowStrategy = ({ lazyLoad, loaded }: State) => {
   return true;
 };
 
-const bogusBaseUrl = 'https://example.com/';
-
-const buildSrcSet = (
-  src: string | null | undefined,
-  width: number | undefined,
-  candidateMultipliers: number[],
-) => {
-  if (!(src && width)) {
-    return undefined;
-  }
-
-  return candidateMultipliers
-    .map((multiplier) => {
-      const url = new URL(src, bogusBaseUrl);
-
-      if (multiplier !== 1) {
-        url.searchParams.set('dpr', `${multiplier}`);
-        const maxH = url.searchParams.get('max-h');
-        const maxW = url.searchParams.get('max-w');
-        if (maxH) {
-          url.searchParams.set(
-            'max-h',
-            `${Math.floor(parseInt(maxH) * multiplier)}`,
-          );
-        }
-        if (maxW) {
-          url.searchParams.set(
-            'max-w',
-            `${Math.floor(parseInt(maxW) * multiplier)}`,
-          );
-        }
-      }
-
-      const finalWidth = Math.floor(width * multiplier);
-
-      if (finalWidth < 50) {
-        return null;
-      }
-
-      return `${url.toString().replace(bogusBaseUrl, '/')} ${finalWidth}w`;
-    })
-    .filter(Boolean)
-    .join(',');
-};
-
 export const Image = forwardRef<HTMLDivElement, ImagePropTypes>(
   (
     {
@@ -220,7 +155,6 @@ export const Image = forwardRef<HTMLDivElement, ImagePropTypes>(
       intersectionThreshold,
       intersectionMargin,
       pictureClassName,
-      lazyLoad: rawLazyLoad = true,
       style,
       pictureStyle,
       layout = 'intrinsic',
@@ -237,27 +171,9 @@ export const Image = forwardRef<HTMLDivElement, ImagePropTypes>(
     },
     ref,
   ) => {
-    const lazyLoad = priority ? false : rawLazyLoad;
-
-    const [loaded, setLoaded] = useState(false);
-
     const imageRef = useRef<HTMLImageElement>(null);
 
-    const handleLoad = () => {
-      onLoad?.();
-      setLoaded(true);
-    };
-
-    // https://stackoverflow.com/q/39777833/266535
-    useEffect(() => {
-      if (!imageRef.current) {
-        return;
-      }
-
-      if (imageRef.current.complete && imageRef.current.naturalWidth) {
-        handleLoad();
-      }
-    }, []);
+    const [loaded, handleLoad] = useImageLoad(imageRef, onLoad);
 
     const [viewRef, inView] = useInView({
       threshold: intersectionThreshold || intersectionTreshold || 0,
@@ -266,82 +182,53 @@ export const Image = forwardRef<HTMLDivElement, ImagePropTypes>(
       fallbackInView: true,
     });
 
-    const callbackRef = useCallback(
-      (_ref: HTMLDivElement) => {
-        viewRef(_ref);
-        if (ref) {
-          (ref as React.MutableRefObject<HTMLDivElement>).current = _ref;
-        }
-      },
-      [viewRef],
-    );
+    const rootRef = useMergedRef(ref, viewRef);
 
-    const absolutePositioning: React.CSSProperties = {
-      position: 'absolute',
-      left: 0,
-      top: 0,
-      width: '100%',
-      height: '100%',
-      maxWidth: 'none',
-      maxHeight: 'none',
-    };
+    const addImage = imageAddStrategy({ priority, inView, loaded });
+    const showImage = imageShowStrategy({ priority, inView, loaded });
 
-    const addImage = imageAddStrategy({
-      lazyLoad,
-      inView,
-      loaded,
-    });
-    const showImage = imageShowStrategy({
-      lazyLoad,
-      inView,
-      loaded,
-    });
-
-    const webpSource = data.webpSrcSet && (
-      <source
-        srcSet={data.webpSrcSet}
-        sizes={sizes ?? data.sizes ?? undefined}
-        type="image/webp"
-      />
-    );
-
-    const regularSource = (
-      <source
-        srcSet={
-          data.srcSet ?? buildSrcSet(data.src, data.width, srcSetCandidates)
-        }
-        sizes={sizes ?? data.sizes ?? undefined}
-      />
-    );
+    const webpSource = buildWebpSource(data, sizes);
+    const regularSource = buildRegularSource(data, sizes, srcSetCandidates);
 
     const transition =
       fadeInDuration > 0 ? `opacity ${fadeInDuration}ms` : undefined;
 
+    const basePlaceholderStyle: React.CSSProperties = {
+      transition,
+      opacity: showImage ? 0 : 1,
+      // During the opacity transition of the placeholder to the definitive version,
+      // hardware acceleration is triggered. This results in the browser trying to render the
+      // placeholder with your GPU, causing blurred edges. Solution: style the placeholder
+      // so the edges overflow the container
+      position: 'absolute',
+      left: '-5%',
+      top: '-5%',
+      width: '110%',
+      height: '110%',
+      maxWidth: 'none',
+      maxHeight: 'none',
+      ...placeholderStyle,
+    };
+
     const placeholder =
-      usePlaceholder && (data.bgColor || data.base64) ? (
+      usePlaceholder && data.base64 ? (
         <img
           aria-hidden="true"
           alt=""
-          src={data.base64 ?? undefined}
+          src={data.base64}
           className={placeholderClassName}
           style={{
-            backgroundColor: data.bgColor ?? undefined,
             objectFit,
             objectPosition,
-            transition,
-            opacity: showImage ? 0 : 1,
-            // During the opacity transition of the placeholder to the definitive version,
-            // hardware acceleration is triggered. This results in the browser trying to render the
-            // placeholder with your GPU, causing blurred edges. Solution: style the placeholder
-            // so the edges overflow the container
-            position: 'absolute',
-            left: '-5%',
-            top: '-5%',
-            width: '110%',
-            height: '110%',
-            maxWidth: 'none',
-            maxHeight: 'none',
-            ...placeholderStyle,
+            ...basePlaceholderStyle,
+          }}
+        />
+      ) : usePlaceholder && data.bgColor ? (
+        <div
+          className={placeholderClassName}
+          style={{
+            backgroundColor: data.bgColor,
+            ...basePlaceholderStyle,
           }}
         />
       ) : null;
@@ -360,7 +247,7 @@ export const Image = forwardRef<HTMLDivElement, ImagePropTypes>(
             width: '100%',
             ...pictureStyle,
           }}
-          src={`data:image/svg+xml;base64,${encode(svg)}`}
+          src={`data:image/svg+xml;base64,${universalBtoa(svg)}`}
           aria-hidden="true"
           alt=""
         />
@@ -368,17 +255,17 @@ export const Image = forwardRef<HTMLDivElement, ImagePropTypes>(
 
     return (
       <div
-        ref={callbackRef}
+        ref={rootRef}
         className={className}
         style={{
           overflow: 'hidden',
           ...(layout === 'fill'
             ? absolutePositioning
             : layout === 'intrinsic'
-            ? { position: 'relative', width: '100%', maxWidth: width }
-            : layout === 'fixed'
-            ? { position: 'relative', width }
-            : { position: 'relative', width: '100%' }),
+              ? { position: 'relative', width: '100%', maxWidth: width }
+              : layout === 'fixed'
+                ? { position: 'relative', width }
+                : { position: 'relative', width: '100%' }),
           ...style,
         }}
       >
@@ -396,7 +283,7 @@ export const Image = forwardRef<HTMLDivElement, ImagePropTypes>(
                 alt={data.alt ?? ''}
                 title={data.title ?? undefined}
                 onLoad={handleLoad}
-                {...fetchPriorityProp(priority ? 'high' : undefined)}
+                {...priorityProp(priority ? 'high' : undefined)}
                 className={pictureClassName}
                 style={{
                   opacity: showImage ? 1 : 0,
@@ -427,8 +314,8 @@ export const Image = forwardRef<HTMLDivElement, ImagePropTypes>(
                   objectPosition,
                   ...pictureStyle,
                 }}
-                loading={lazyLoad ? 'lazy' : undefined}
-                {...fetchPriorityProp(priority ? 'high' : undefined)}
+                loading={priority ? undefined : 'lazy'}
+                {...priorityProp(priority ? 'high' : undefined)}
               />
             )}
           </picture>

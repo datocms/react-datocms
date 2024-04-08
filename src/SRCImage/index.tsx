@@ -48,7 +48,7 @@ export function SRCImage({
   const placeholderStyle: React.CSSProperties | undefined =
     usePlaceholder && data.base64
       ? {
-          backgroundImage: `url(${data.base64})`,
+          backgroundImage: `url("${data.base64}")`,
           backgroundSize: 'cover',
           backgroundRepeat: 'no-repeat',
           backgroundPosition: '50% 50%',

@@ -26,10 +26,12 @@
 - [`<SRCImage />` vs `<Image />`](#srcimage--vs-image-)
 - [Usage](#usage)
 - [Example](#example)
-- [`<SRCImage>` Props](#srcimage-props)
-- [`<Image>` Props](#image-props)
-  - [Layout mode](#layout-mode)
   - [The `ResponsiveImage` object](#the-responsiveimage-object)
+- [`<SRCImage>`](#srcimage)
+  - [Props](#props)
+- [`<Image>`](#image)
+  - [Props](#props-1)
+  - [Layout mode](#layout-mode)
 
 <!-- END doctoc generated TOC please keep comment here to allow auto update -->
 
@@ -107,7 +109,36 @@ const query = gql`
 export default withQuery(query)(Page);
 ```
 
-## `<SRCImage>` Props
+### The `ResponsiveImage` object
+
+The `data` prop of both components expects an object with the same shape as the one returned by `responsiveImage` GraphQL call. It's up to you to make a GraphQL query that will return the properties you need for a specific use of the `<Image>` component.
+
+- The minimum required properties for `data` are: `src`, `width` and `height`;
+- `alt` and `title`, while not mandatory, are all highly suggested, so remember to use them!
+- If you don't request `srcSet`, the component will auto-generate an `srcset` based on `src` + the `srcSetCandidates` prop (it can help reducing the GraphQL response size drammatically when many images are returned);
+- We strongly to suggest to always specify [`{ auto: format }`](https://docs.imgix.com/apis/rendering/auto/auto#format) in your `imgixParams`, instead of requesting `webpSrcSet`, so that you can also take advantage of more performant optimizations (AVIF), without increasing GraphQL response size;
+- If you request both the `bgColor` and `base64` property, the latter will take precedence, so just avoid querying both fields at the same time, as it will only make the GraphQL response bigger :wink:;
+- You can avoid requesting `sizes` and directly pass a `sizes` prop to the component to reduce the GraphQL response size;
+
+Here's a complete recap of what `responsiveImage` offers:
+
+| property   | type    | required           | description                                                                                                                                                                                    |
+| ---------- | ------- | ------------------ | ---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| src        | string  | :white_check_mark: | The `src` attribute for the image                                                                                                                                                              |
+| width      | integer | :white_check_mark: | The width of the image                                                                                                                                                                         |
+| height     | integer | :white_check_mark: | The height of the image                                                                                                                                                                        |
+| alt        | string  | :x:                | Alternate text (`alt`) for the image (not required, but strongly suggested!)                                                                                                                   |
+| title      | string  | :x:                | Title attribute (`title`) for the image (not required, but strongly suggested!)                                                                                                                |
+| sizes      | string  | :x:                | The HTML5 `sizes` attribute for the image (omit it if you're already passing a `sizes` prop to the Image component)                                                                            |
+| base64     | string  | :x:                | A base64-encoded thumbnail to offer during image loading                                                                                                                                       |
+| bgColor    | string  | :x:                | The background color for the image placeholder (omit it if you're already requesting `base64`)                                                                                                 |
+| srcSet     | string  | :x:                | The HTML5 `srcSet` attribute for the image (can be omitted, the Image component knows how to build it based on `src`)                                                                          |
+| webpSrcSet | string  | :x:                | The HTML5 `srcSet` attribute for the image in WebP format (deprecated, it's better to use the [`auto=format`](https://docs.imgix.com/apis/rendering/auto/auto#format) Imgix transform instead) |
+
+
+## `<SRCImage>`
+
+### Props
 
 | prop             | type                     | required           | description                                                                                                                                          | default                            |
 | ---------------- | ------------------------ | ------------------ | ---------------------------------------------------------------------------------------------------------------------------------------------------- | ---------------------------------- |
@@ -119,7 +150,9 @@ export default withQuery(query)(Page);
 | usePlaceholder   | Boolean                  | :x:                | Whether the image should use a blurred image placeholder                                                                                             | true                               |
 | srcSetCandidates | Array<number>            | :x:                | If `data` does not contain `srcSet`, the candidates for the `srcset` attribute of the image will be auto-generated based on these width multipliers  | [0.25, 0.5, 0.75, 1, 1.5, 2, 3, 4] |
 
-## `<Image>` Props
+## `<Image>`
+
+### Props
 
 | prop                  | type                                             | required           | description                                                                                                                                                                                                                                                                                   | default                            |
 | --------------------- | ------------------------------------------------ | ------------------ | --------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | ---------------------------------- |
@@ -163,29 +196,3 @@ Example for `layout="fill"` (useful also for background images):
   />
 </div>
 ```
-
-### The `ResponsiveImage` object
-
-The `data` prop expects an object with the same shape as the one returned by `responsiveImage` GraphQL call. It's up to you to make a GraphQL query that will return the properties you need for a specific use of the `<Image>` component.
-
-- The minimum required properties for `data` are: `src`, `width` and `height`;
-- `alt` and `title`, while not mandatory, are all highly suggested, so remember to use them!
-- If you don't request `srcSet`, the component will auto-generate an `srcset` based on `src` + the `srcSetCandidates` prop (it can help reducing the GraphQL response size drammatically when many images are returned);
-- We strongly to suggest to always specify [`{ auto: format }`](https://docs.imgix.com/apis/rendering/auto/auto#format) in your `imgixParams`, instead of requesting `webpSrcSet`, so that you can also take advantage of more performant optimizations (AVIF), without increasing GraphQL response size;
-- If you request both the `bgColor` and `base64` property, the latter will take precedence, so just avoid querying both fields at the same time, as it will only make the GraphQL response bigger :wink:;
-- You can avoid requesting `sizes` and directly pass a `sizes` prop to the component to reduce the GraphQL response size;
-
-Here's a complete recap of what `responsiveImage` offers:
-
-| property   | type    | required           | description                                                                                                                                                                                    |
-| ---------- | ------- | ------------------ | ---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| src        | string  | :white_check_mark: | The `src` attribute for the image                                                                                                                                                              |
-| width      | integer | :white_check_mark: | The width of the image                                                                                                                                                                         |
-| height     | integer | :white_check_mark: | The height of the image                                                                                                                                                                        |
-| alt        | string  | :x:                | Alternate text (`alt`) for the image (not required, but strongly suggested!)                                                                                                                   |
-| title      | string  | :x:                | Title attribute (`title`) for the image (not required, but strongly suggested!)                                                                                                                |
-| sizes      | string  | :x:                | The HTML5 `sizes` attribute for the image (omit it if you're already passing a `sizes` prop to the Image component)                                                                            |
-| base64     | string  | :x:                | A base64-encoded thumbnail to offer during image loading                                                                                                                                       |
-| bgColor    | string  | :x:                | The background color for the image placeholder (omit it if you're already requesting `base64`)                                                                                                 |
-| srcSet     | string  | :x:                | The HTML5 `srcSet` attribute for the image (can be omitted, the Image component knows how to build it based on `src`)                                                                          |
-| webpSrcSet | string  | :x:                | The HTML5 `srcSet` attribute for the image in WebP format (deprecated, it's better to use the [`auto=format`](https://docs.imgix.com/apis/rendering/auto/auto#format) Imgix transform instead) |

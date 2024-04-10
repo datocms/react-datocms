@@ -120,7 +120,7 @@
   },
   "scripts": {
     "build": "rimraf dist && npm run tsc:types && npm run tsc:cjs && npm run tsc:esm",
-    "format": "npm run toc && biome format --write src examples/src",
+    "format": "npm run toc && biome check --apply src && biome format --write src examples/src",
     "watch": "rimraf dist && tsc --project ./tsconfig.commonjs.json --watch",
     "prepare": "npm run test && npm run build",
     "test": "jest --coverage",

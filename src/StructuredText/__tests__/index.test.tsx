@@ -5,8 +5,8 @@ import * as React from 'react';
 import {
   RenderError,
   StructuredText,
-  StructuredTextDocument,
-  StructuredTextGraphQlResponse,
+  type StructuredTextDocument,
+  type StructuredTextGraphQlResponse,
   renderNodeRule,
 } from '../index.js';
 

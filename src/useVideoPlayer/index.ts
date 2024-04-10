@@ -1,6 +1,6 @@
-import { MuxPlayerProps } from '@mux/mux-player-react/.';
+import type { MuxPlayerProps } from '@mux/mux-player-react/.';
 
-import { Video } from '../VideoPlayer';
+import type { Video } from '../VideoPlayer';
 
 type Maybe<T> = T | null;
 type Possibly<T> = Maybe<T> | undefined;

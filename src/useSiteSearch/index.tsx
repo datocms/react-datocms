@@ -1,6 +1,7 @@
 'use client';
 
-import React, { useCallback, useEffect, useState } from 'react';
+import React from 'react';
+import { useCallback, useEffect, useState } from 'react';
 import reactStringReplace from 'react-string-replace';
 
 type SearchResultInstancesHrefSchema = {

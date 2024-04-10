@@ -1,10 +1,10 @@
 'use client';
 
 import {
-  ChannelErrorData,
-  ConnectionStatus,
-  Options,
-  UnsubscribeFn,
+  type ChannelErrorData,
+  type ConnectionStatus,
+  type Options,
+  type UnsubscribeFn,
   subscribeToQuery,
 } from 'datocms-listen';
 import { useState } from 'react';

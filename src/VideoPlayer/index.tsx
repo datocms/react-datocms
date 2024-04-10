@@ -13,7 +13,7 @@ import React, { forwardRef } from 'react';
 // We use and extend Typescript types defined in the MUX player.
 
 import type MuxPlayerElement from '@mux/mux-player';
-import { type MuxPlayerProps } from '@mux/mux-player-react/.';
+import type { MuxPlayerProps } from '@mux/mux-player-react';
 
 // React MUX player is made available in two flavours: eager and lazy loaded. We
 // choose to use the lazy version to avoid loading the web component uselessly.

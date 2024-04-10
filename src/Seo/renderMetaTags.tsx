@@ -1,11 +1,11 @@
 import React from 'react';
-import { SeoOrFaviconTag, TitleMetaLinkTag } from './types.js';
+import type { SeoOrFaviconTag, TitleMetaLinkTag } from './types.js';
 
 export function renderMetaTags(
   data: TitleMetaLinkTag[] | SeoOrFaviconTag[],
 ): JSX.Element[] {
   return data.map(({ tag, attributes, content }) => {
-    let key: string[] = [tag];
+    const key: string[] = [tag];
 
     if (attributes && 'property' in attributes) {
       key.push(attributes.property);

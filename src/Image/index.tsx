@@ -1,5 +1,6 @@
 'use client';
 
+// biome-ignore lint/style/useImportType: wrong warning
 import React from 'react';
 import { type CSSProperties, forwardRef, useRef } from 'react';
 import {

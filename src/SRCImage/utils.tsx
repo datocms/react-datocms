@@ -1,12 +1,12 @@
 import React, { version } from 'react';
-import { ResponsiveImageType } from '../Image';
+import type { ResponsiveImageType } from '../Image';
 
 export function priorityProp(
   fetchPriority?: string,
 ): Record<string, string | undefined> {
   const [majorStr, minorStr] = version.split('.');
-  const major = parseInt(majorStr, 10);
-  const minor = parseInt(minorStr, 10);
+  const major = Number.parseInt(majorStr, 10);
+  const minor = Number.parseInt(minorStr, 10);
   if (major > 18 || (major === 18 && minor >= 3)) {
     // In React 18.3.0 or newer, we must use camelCase
     // prop to avoid "Warning: Invalid DOM property".
@@ -40,13 +40,13 @@ export const buildSrcSetFromSrc = (
         if (maxH) {
           url.searchParams.set(
             'max-h',
-            `${Math.floor(parseInt(maxH) * multiplier)}`,
+            `${Math.floor(Number.parseInt(maxH) * multiplier)}`,
           );
         }
         if (maxW) {
           url.searchParams.set(
             'max-w',
-            `${Math.floor(parseInt(maxW) * multiplier)}`,
+            `${Math.floor(Number.parseInt(maxW) * multiplier)}`,
           );
         }
       }

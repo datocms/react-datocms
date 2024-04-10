@@ -76,7 +76,7 @@ export function toNextMetadata(
     const { tag, attributes, content } = datum;
 
     if (tag === 'title') {
-      metadata['title'] = content;
+      metadata.title = content;
     }
 
     if (isSeoOrFaviconTag(datum) && isSeoMetaTag(datum)) {
@@ -88,15 +88,15 @@ export function toNextMetadata(
 
           if (parts?.length === 1) {
             if (parts[0] === 'image') {
-              metadata['openGraph'] ||= {};
+              metadata.openGraph ||= {};
 
-              metadata['openGraph']['images'] = {
-                ...metadata['openGraph']['images'],
+              metadata.openGraph.images = {
+                ...metadata.openGraph.images,
                 url: content,
               };
             } else {
-              metadata['openGraph'] = {
-                ...metadata['openGraph'],
+              metadata.openGraph = {
+                ...metadata.openGraph,
                 [camelize(parts[0])]: content,
               };
             }
@@ -104,17 +104,17 @@ export function toNextMetadata(
 
           if (parts?.length === 2) {
             if (parts[0] === 'image' && parts[1] === 'width') {
-              metadata['openGraph'] ||= {};
+              metadata.openGraph ||= {};
 
-              metadata['openGraph']['images'] = {
-                ...metadata['openGraph']['images'],
+              metadata.openGraph.images = {
+                ...metadata.openGraph.images,
                 width: content,
               };
             } else if (parts[0] === 'image' && parts[1] === 'height') {
-              metadata['openGraph'] ||= {};
+              metadata.openGraph ||= {};
 
-              metadata['openGraph']['images'] = {
-                ...metadata['openGraph']['images'],
+              metadata.openGraph.images = {
+                ...metadata.openGraph.images,
                 height: content,
               };
             }
@@ -131,8 +131,8 @@ export function toNextMetadata(
           const [_, ...parts] = name.split(':');
 
           if (parts?.length === 1) {
-            metadata['twitter'] = {
-              ...metadata['twitter'],
+            metadata.twitter = {
+              ...metadata.twitter,
               [camelize(parts[0])]: content,
             };
           }
@@ -146,10 +146,10 @@ export function toNextMetadata(
       if (isAppleTouchIconAttributes(datum.attributes)) {
         const { sizes, href } = datum.attributes;
 
-        metadata['icons'] ||= {};
+        metadata.icons ||= {};
 
-        metadata['icons']['apple'] = [
-          ...(metadata['icons']['apple'] || []),
+        metadata.icons.apple = [
+          ...(metadata.icons.apple || []),
           { url: href, sizes },
         ];
       }
@@ -157,10 +157,10 @@ export function toNextMetadata(
       if (isFaviconAttributes(datum.attributes)) {
         const { sizes, type, rel, href } = datum.attributes;
 
-        metadata['icons'] ||= {};
+        metadata.icons ||= {};
 
-        metadata['icons']['icon'] = [
-          ...(metadata['icons']['icon'] || []),
+        metadata.icons.icon = [
+          ...(metadata.icons.icon || []),
           { url: href, sizes, type, rel },
         ];
       }

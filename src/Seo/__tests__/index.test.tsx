@@ -7,7 +7,7 @@ import {
   toRemixMeta,
   toRemixV1Meta,
 } from '../index.js';
-import { TitleMetaLinkTag } from '../types.js';
+import type { TitleMetaLinkTag } from '../types.js';
 
 const metaTags: TitleMetaLinkTag[] = [
   {

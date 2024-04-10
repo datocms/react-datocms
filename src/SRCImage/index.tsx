@@ -1,3 +1,4 @@
+// biome-ignore lint/style/useImportType: wrong warning
 import React from 'react';
 import type { ResponsiveImageType } from '../Image';
 import { buildRegularSource, buildWebpSource, priorityProp } from './utils.js';

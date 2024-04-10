@@ -82,7 +82,7 @@ export function SRCImage({
         // biome-ignore lint/a11y/useAltText: We do with alt the best we can
         <img
           src={data.src}
-          alt={data.alt ?? undefined}
+          alt={data.alt ?? ''}
           title={data.title ?? undefined}
           {...loadingBehaviourProps}
           className={className}

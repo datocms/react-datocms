@@ -31,7 +31,7 @@ This package offers different components and hooks. Please refer to one of the f
 
 For fully working examples take a look at our [examples directory](https://github.com/datocms/react-datocms/tree/master/examples).
 
-Live demo: [https://react-datocms-example.netlify.com/](https://react-datocms-example.netlify.com/)
+Live demo: [https://react-datocms-example.netlify.app/](https://react-datocms-example.netlify.app/)
 
 # Development
 

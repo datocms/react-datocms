@@ -205,7 +205,7 @@ export const Image = forwardRef<HTMLDivElement, ImagePropTypes>(
       left: '-5%',
       top: '-5%',
       width: '110%',
-      height: '110%',
+      height: 'auto',
       maxWidth: 'none',
       maxHeight: 'none',
       ...placeholderStyle,

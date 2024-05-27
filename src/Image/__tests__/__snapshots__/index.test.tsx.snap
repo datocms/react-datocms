@@ -39,7 +39,7 @@ exports[`Image explicit sizes renders correctly 1`] = `
       src="data:image/jpeg;base64,<IMAGE-DATA>"
       style={
         {
-          "height": "110%",
+          "height": "auto",
           "left": "-5%",
           "maxHeight": "none",
           "maxWidth": "none",
@@ -124,7 +124,7 @@ exports[`Image layout=fill not visible renders the blur-up thumb 1`] = `
       src="data:image/jpeg;base64,<IMAGE-DATA>"
       style={
         {
-          "height": "110%",
+          "height": "auto",
           "left": "-5%",
           "maxHeight": "none",
           "maxWidth": "none",
@@ -183,7 +183,7 @@ exports[`Image layout=fill visible image loaded shows the image 1`] = `
       src="data:image/jpeg;base64,<IMAGE-DATA>"
       style={
         {
-          "height": "110%",
+          "height": "auto",
           "left": "-5%",
           "maxHeight": "none",
           "maxWidth": "none",
@@ -264,7 +264,7 @@ exports[`Image layout=fill visible renders the image (minimal data) 1`] = `
       src="data:image/jpeg;base64,<IMAGE-DATA>"
       style={
         {
-          "height": "110%",
+          "height": "auto",
           "left": "-5%",
           "maxHeight": "none",
           "maxWidth": "none",
@@ -343,7 +343,7 @@ exports[`Image layout=fill visible renders the image (relative URL) 1`] = `
       src="data:image/jpeg;base64,<IMAGE-DATA>"
       style={
         {
-          "height": "110%",
+          "height": "auto",
           "left": "-5%",
           "maxHeight": "none",
           "maxWidth": "none",
@@ -427,7 +427,7 @@ exports[`Image layout=fill visible renders the image 1`] = `
       src="data:image/jpeg;base64,<IMAGE-DATA>"
       style={
         {
-          "height": "110%",
+          "height": "auto",
           "left": "-5%",
           "maxHeight": "none",
           "maxWidth": "none",
@@ -519,7 +519,7 @@ exports[`Image layout=fixed not visible renders the blur-up thumb 1`] = `
       src="data:image/jpeg;base64,<IMAGE-DATA>"
       style={
         {
-          "height": "110%",
+          "height": "auto",
           "left": "-5%",
           "maxHeight": "none",
           "maxWidth": "none",
@@ -584,7 +584,7 @@ exports[`Image layout=fixed visible image loaded shows the image 1`] = `
       src="data:image/jpeg;base64,<IMAGE-DATA>"
       style={
         {
-          "height": "110%",
+          "height": "auto",
           "left": "-5%",
           "maxHeight": "none",
           "maxWidth": "none",
@@ -671,7 +671,7 @@ exports[`Image layout=fixed visible renders the image (minimal data) 1`] = `
       src="data:image/jpeg;base64,<IMAGE-DATA>"
       style={
         {
-          "height": "110%",
+          "height": "auto",
           "left": "-5%",
           "maxHeight": "none",
           "maxWidth": "none",
@@ -756,7 +756,7 @@ exports[`Image layout=fixed visible renders the image (relative URL) 1`] = `
       src="data:image/jpeg;base64,<IMAGE-DATA>"
       style={
         {
-          "height": "110%",
+          "height": "auto",
           "left": "-5%",
           "maxHeight": "none",
           "maxWidth": "none",
@@ -846,7 +846,7 @@ exports[`Image layout=fixed visible renders the image 1`] = `
       src="data:image/jpeg;base64,<IMAGE-DATA>"
       style={
         {
-          "height": "110%",
+          "height": "auto",
           "left": "-5%",
           "maxHeight": "none",
           "maxWidth": "none",
@@ -939,7 +939,7 @@ exports[`Image layout=intrinsic not visible renders the blur-up thumb 1`] = `
       src="data:image/jpeg;base64,<IMAGE-DATA>"
       style={
         {
-          "height": "110%",
+          "height": "auto",
           "left": "-5%",
           "maxHeight": "none",
           "maxWidth": "none",
@@ -1005,7 +1005,7 @@ exports[`Image layout=intrinsic visible image loaded shows the image 1`] = `
       src="data:image/jpeg;base64,<IMAGE-DATA>"
       style={
         {
-          "height": "110%",
+          "height": "auto",
           "left": "-5%",
           "maxHeight": "none",
           "maxWidth": "none",
@@ -1093,7 +1093,7 @@ exports[`Image layout=intrinsic visible renders the image (minimal data) 1`] = `
       src="data:image/jpeg;base64,<IMAGE-DATA>"
       style={
         {
-          "height": "110%",
+          "height": "auto",
           "left": "-5%",
           "maxHeight": "none",
           "maxWidth": "none",
@@ -1179,7 +1179,7 @@ exports[`Image layout=intrinsic visible renders the image (relative URL) 1`] = `
       src="data:image/jpeg;base64,<IMAGE-DATA>"
       style={
         {
-          "height": "110%",
+          "height": "auto",
           "left": "-5%",
           "maxHeight": "none",
           "maxWidth": "none",
@@ -1270,7 +1270,7 @@ exports[`Image layout=intrinsic visible renders the image 1`] = `
       src="data:image/jpeg;base64,<IMAGE-DATA>"
       style={
         {
-          "height": "110%",
+          "height": "auto",
           "left": "-5%",
           "maxHeight": "none",
           "maxWidth": "none",
@@ -1362,7 +1362,7 @@ exports[`Image layout=responsive not visible renders the blur-up thumb 1`] = `
       src="data:image/jpeg;base64,<IMAGE-DATA>"
       style={
         {
-          "height": "110%",
+          "height": "auto",
           "left": "-5%",
           "maxHeight": "none",
           "maxWidth": "none",
@@ -1427,7 +1427,7 @@ exports[`Image layout=responsive visible image loaded shows the image 1`] = `
       src="data:image/jpeg;base64,<IMAGE-DATA>"
       style={
         {
-          "height": "110%",
+          "height": "auto",
           "left": "-5%",
           "maxHeight": "none",
           "maxWidth": "none",
@@ -1514,7 +1514,7 @@ exports[`Image layout=responsive visible renders the image (minimal data) 1`] = 
       src="data:image/jpeg;base64,<IMAGE-DATA>"
       style={
         {
-          "height": "110%",
+          "height": "auto",
           "left": "-5%",
           "maxHeight": "none",
           "maxWidth": "none",
@@ -1599,7 +1599,7 @@ exports[`Image layout=responsive visible renders the image (relative URL) 1`] = 
       src="data:image/jpeg;base64,<IMAGE-DATA>"
       style={
         {
-          "height": "110%",
+          "height": "auto",
           "left": "-5%",
           "maxHeight": "none",
           "maxWidth": "none",
@@ -1689,7 +1689,7 @@ exports[`Image layout=responsive visible renders the image 1`] = `
       src="data:image/jpeg;base64,<IMAGE-DATA>"
       style={
         {
-          "height": "110%",
+          "height": "auto",
           "left": "-5%",
           "maxHeight": "none",
           "maxWidth": "none",
@@ -1799,7 +1799,7 @@ exports[`Image passing className and/or style renders correctly 1`] = `
       style={
         {
           "border": "1px solid green ",
-          "height": "110%",
+          "height": "auto",
           "left": "-5%",
           "maxHeight": "none",
           "maxWidth": "none",
@@ -1886,7 +1886,7 @@ exports[`Image priority=true renders correctly 1`] = `
       src="data:image/jpeg;base64,<IMAGE-DATA>"
       style={
         {
-          "height": "110%",
+          "height": "auto",
           "left": "-5%",
           "maxHeight": "none",
           "maxWidth": "none",

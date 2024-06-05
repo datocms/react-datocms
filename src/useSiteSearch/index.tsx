@@ -1,5 +1,6 @@
 'use client';
 
+// biome-ignore lint/style/useImportType: This is needed!
 import React from 'react';
 import { useCallback, useEffect, useState } from 'react';
 import reactStringReplace from 'react-string-replace';

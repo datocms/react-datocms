@@ -7,10 +7,9 @@ export function priorityProp(
   const [majorStr, minorStr] = version.split('.');
   const major = Number.parseInt(majorStr, 10);
   const minor = Number.parseInt(minorStr, 10);
-  if (major > 18 || (major === 18 && minor >= 3)) {
-    // In React 18.3.0 or newer, we must use camelCase
-    // prop to avoid "Warning: Invalid DOM property".
-    // See https://github.com/facebook/react/pull/25927
+
+  // https://github.com/vercel/next.js/commit/68d5a3892b4edf1b62e3ece4ada324065a96b6f3
+  if (major > 18) {
     return { fetchPriority };
   }
   // In React 18.2.0 or older, we must use lowercase prop

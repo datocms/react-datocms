@@ -52,46 +52,27 @@
   },
   "typesVersions": {
     "*": {
-      "*": [
-        "dist/types/index.d.ts"
-      ],
-      "seo": [
-        "./dist/types/Seo/index.d.ts"
-      ],
-      "image": [
-        "./dist/types/Image/index.d.ts"
-      ],
-      "video-player": [
-        "./dist/types/VideoPlayer/index.d.ts"
-      ],
-      "structured-text": [
-        "./dist/types/StructuredText/index.d.ts"
-      ],
+      "*": ["dist/types/index.d.ts"],
+      "seo": ["./dist/types/Seo/index.d.ts"],
+      "image": ["./dist/types/Image/index.d.ts"],
+      "video-player": ["./dist/types/VideoPlayer/index.d.ts"],
+      "structured-text": ["./dist/types/StructuredText/index.d.ts"],
       "use-query-subscription": [
         "./dist/types/useQuerySubscription/index.d.ts"
       ],
-      "use-site-search": [
-        "./dist/types/useSiteSearch/index.d.ts"
-      ],
-      "use-video-player": [
-        "./dist/types/useVideoPlayer/index.d.ts"
-      ]
+      "use-site-search": ["./dist/types/useSiteSearch/index.d.ts"],
+      "use-video-player": ["./dist/types/useVideoPlayer/index.d.ts"]
     }
   },
   "sideEffects": false,
-  "files": [
-    "dist",
-    "src"
-  ],
+  "files": ["dist", "src"],
   "repository": {
     "type": "git",
     "url": "git://github.com/datocms/react-datocms.git"
   },
   "license": "MIT",
   "author": "Stefano Verna <s.verna@datocms.com>",
-  "contributors": [
-    "Silvano Stralla <silvano@datocms.com>"
-  ],
+  "contributors": ["Silvano Stralla <silvano@datocms.com>"],
   "homepage": "https://github.com/datocms/react-datocms",
   "devDependencies": {
     "@biomejs/biome": "^1.6.3",
@@ -134,8 +115,8 @@
   },
   "dependencies": {
     "datocms-listen": "^0.1.9",
-    "datocms-structured-text-generic-html-renderer": "^2.0.1",
-    "datocms-structured-text-utils": "^2.0.1",
+    "datocms-structured-text-generic-html-renderer": "^4.0.1",
+    "datocms-structured-text-utils": "^4.0.1",
     "react-intersection-observer": "^9.4.3",
     "react-string-replace": "^1.1.0",
     "use-deep-compare-effect": "^1.6.1",

@@ -14,6 +14,7 @@ import {
   type RenderRule,
   type Document as StructuredTextDocument,
   type StructuredText as StructuredTextGraphQlResponse,
+  type TypesafeStructuredText as TypesafeStructuredTextGraphQlResponse,
   type Record as StructuredTextGraphQlResponseRecord,
   isBlock,
   isInlineItem,
@@ -29,6 +30,7 @@ export { renderNodeRule as renderRule };
 
 export type {
   StructuredTextGraphQlResponse,
+  TypesafeStructuredTextGraphQlResponse,
   StructuredTextDocument,
   StructuredTextGraphQlResponseRecord,
 };

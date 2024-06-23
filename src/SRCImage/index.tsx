@@ -6,10 +6,14 @@ import { buildRegularSource, buildWebpSource, priorityProp } from './utils.js';
 export type SRCImagePropTypes = {
   /** The actual response you get from a DatoCMS `responsiveImage` GraphQL query */
   data: ResponsiveImageType;
-  /** Additional CSS className for root node */
-  className?: string;
-  /** Additional CSS rules to add to the root node */
-  style?: React.CSSProperties;
+  /** Additional CSS className for the root <picture> tag */
+  pictureClassName?: string;
+  /** Additional CSS rules to add to the root <picture> tag */
+  pictureStyle?: React.CSSProperties;
+  /** Additional CSS className for the <img> tag */
+  imgClassName?: string;
+  /** Additional CSS rules to add to the <img> tag */
+  imgStyle?: React.CSSProperties;
   /**
    * When true, the image will be considered high priority. Lazy loading is automatically disabled, and fetchpriority="high" is added to the image.
    * You should use the priority property on any image detected as the Largest Contentful Paint (LCP) element. It may be appropriate to have multiple priority images, as different images may be the LCP element for different viewport sizes.
@@ -35,8 +39,10 @@ export type SRCImagePropTypes = {
 };
 
 export function SRCImage({
-  className,
-  style,
+  pictureClassName,
+  pictureStyle,
+  imgClassName,
+  imgStyle,
   data,
   usePlaceholder = true,
   priority = false,
@@ -76,7 +82,7 @@ export function SRCImage({
     : { loading: 'lazy' };
 
   return (
-    <picture>
+    <picture className={pictureClassName} style={pictureStyle}>
       {webpSource}
       {regularSource}
       {data.src && (
@@ -86,11 +92,11 @@ export function SRCImage({
           alt={data.alt ?? ''}
           title={data.title ?? undefined}
           {...loadingBehaviourProps}
-          className={className}
+          className={imgClassName}
           style={{
             ...placeholderStyle,
             ...sizingStyle,
-            ...style,
+            ...imgStyle,
           }}
         />
       )}

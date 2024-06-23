@@ -22,6 +22,8 @@
 <!-- START doctoc generated TOC please keep comment here to allow auto update -->
 <!-- DON'T EDIT THIS SECTION, INSTEAD RE-RUN doctoc TO UPDATE -->
 
+- [Out-of-the-box features](#out-of-the-box-features)
+- [Table of Contents](#table-of-contents)
 - [Installation](#installation)
 - [`<SRCImage />` vs `<Image />`](#srcimage--vs-image-)
 - [Usage](#usage)
@@ -143,8 +145,10 @@ Here's a complete recap of what `responsiveImage` offers:
 | prop             | type                     | required           | description                                                                                                                                          | default                            |
 | ---------------- | ------------------------ | ------------------ | ---------------------------------------------------------------------------------------------------------------------------------------------------- | ---------------------------------- |
 | data             | `ResponsiveImage` object | :white_check_mark: | The actual response you get from a DatoCMS `responsiveImage` GraphQL query                            ****                                           |                                    |
-| className        | string                   | :x:                | Additional className for image                                                                                                                       | null                               |
-| style            | CSS properties           | :x:                | Additional CSS rules to add to the image                                                                                                             | null                               |
+| pictureClassName | string                   | :x:                | Additional className for the root `<picture>` tag                                                                                                    | null                               |
+| pictureStyle     | CSS properties           | :x:                | Additional CSS rules to add to the root `<picture>` tag                                                                                              | null                               |
+| imgClassName     | string                   | :x:                | Additional className for the `<img>` tag                                                                                                             | null                               |
+| imgStyle         | CSS properties           | :x:                | Additional CSS rules to add to the `<img>` tag                                                                                                       | null                               |
 | priority         | Boolean                  | :x:                | Disables lazy loading, and sets the image [fetchPriority](https://developer.mozilla.org/en-US/docs/Web/API/HTMLImageElement/fetchPriority) to "high" | false                              |
 | sizes            | string                   | :x:                | The HTML5 [`sizes`](https://web.dev/learn/design/responsive-images/#sizes) attribute for the image (will be used `data.sizes` as a fallback)         | undefined                          |
 | usePlaceholder   | Boolean                  | :x:                | Whether the image should use a blurred image placeholder                                                                                             | true                               |

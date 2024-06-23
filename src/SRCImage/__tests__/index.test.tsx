@@ -56,8 +56,10 @@ describe('Image', () => {
       const wrapper = mount(
         <SRCImage
           data={minimalData}
-          className="class-name"
-          style={{ border: '1px solid red' }}
+          pictureClassName="picture-class-name"
+          pictureStyle={{ border: '1px solid green' }}
+          imgClassName="class-name"
+          imgStyle={{ border: '1px solid red' }}
         />,
       );
       expect(wrapper).toMatchSnapshot();

@@ -1748,16 +1748,22 @@ exports[`Image passing className and/or style renders correctly 1`] = `
       "width": 750,
     }
   }
+  imgClassName="img-class-name"
+  imgStyle={
+    {
+      "border": "1px solid yellow",
+    }
+  }
   pictureClassName="picture-class-name"
   pictureStyle={
     {
-      "border": "1px solid yellow ",
+      "border": "1px solid pink",
     }
   }
   placeholderClassName="placeholder-class-name"
   placeholderStyle={
     {
-      "border": "1px solid green ",
+      "border": "1px solid green",
     }
   }
   style={
@@ -1781,11 +1787,11 @@ exports[`Image passing className and/or style renders correctly 1`] = `
     <img
       alt=""
       aria-hidden="true"
-      className="picture-class-name"
+      className="img-class-name"
       src="data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHdpZHRoPSI3NTAiIGhlaWdodD0iNDIxIj48L3N2Zz4="
       style={
         {
-          "border": "1px solid yellow ",
+          "border": "1px solid yellow",
           "display": "block",
           "width": "100%",
         }
@@ -1798,7 +1804,7 @@ exports[`Image passing className and/or style renders correctly 1`] = `
       src="data:image/jpeg;base64,<IMAGE-DATA>"
       style={
         {
-          "border": "1px solid green ",
+          "border": "1px solid green",
           "height": "auto",
           "left": "-5%",
           "maxHeight": "none",
@@ -1813,18 +1819,25 @@ exports[`Image passing className and/or style renders correctly 1`] = `
         }
       }
     />
-    <picture>
+    <picture
+      className="picture-class-name"
+      style={
+        {
+          "border": "1px solid pink",
+        }
+      }
+    >
       <source
         srcSet="https://www.datocms-assets.com/205/image.png?ar=16%3A9&fit=crop&w=750&dpr=0.25 187w,https://www.datocms-assets.com/205/image.png?ar=16%3A9&fit=crop&w=750&dpr=0.5 375w,https://www.datocms-assets.com/205/image.png?ar=16%3A9&fit=crop&w=750&dpr=0.75 562w,https://www.datocms-assets.com/205/image.png?ar=16%3A9&fit=crop&w=750 750w,https://www.datocms-assets.com/205/image.png?ar=16%3A9&fit=crop&w=750&dpr=1.5 1125w,https://www.datocms-assets.com/205/image.png?ar=16%3A9&fit=crop&w=750&dpr=2 1500w,https://www.datocms-assets.com/205/image.png?ar=16%3A9&fit=crop&w=750&dpr=3 2250w,https://www.datocms-assets.com/205/image.png?ar=16%3A9&fit=crop&w=750&dpr=4 3000w"
       />
       <img
         alt=""
-        className="picture-class-name"
+        className="img-class-name"
         onLoad={[Function]}
         src="https://www.datocms-assets.com/205/image.png?ar=16%3A9&fit=crop&w=750"
         style={
           {
-            "border": "1px solid yellow ",
+            "border": "1px solid yellow",
             "height": "100%",
             "left": 0,
             "maxHeight": "none",
@@ -1841,7 +1854,14 @@ exports[`Image passing className and/or style renders correctly 1`] = `
       />
     </picture>
     <noscript>
-      <picture />
+      <picture
+        className="picture-class-name"
+        style={
+          {
+            "border": "1px solid pink",
+          }
+        }
+      />
     </noscript>
   </div>
 </ForwardRef>

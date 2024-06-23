@@ -107,9 +107,11 @@ describe('Image', () => {
           className="class-name"
           style={{ border: '1px solid red' }}
           pictureClassName="picture-class-name"
-          pictureStyle={{ border: '1px solid yellow ' }}
+          pictureStyle={{ border: '1px solid pink' }}
+          imgClassName="img-class-name"
+          imgStyle={{ border: '1px solid yellow' }}
           placeholderClassName="placeholder-class-name"
-          placeholderStyle={{ border: '1px solid green ' }}
+          placeholderStyle={{ border: '1px solid green' }}
         />,
       );
       mockAllIsIntersecting(true);

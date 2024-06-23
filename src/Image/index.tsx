@@ -50,8 +50,10 @@ export type ImagePropTypes = {
   data: ResponsiveImageType;
   /** Additional CSS className for root node */
   className?: string;
-  /** Additional CSS class for the image inside the `<picture />` tag */
+  /** Additional CSS class for the `<picture />` tag */
   pictureClassName?: string;
+  /** Additional CSS class for the image inside the `<picture />` tag */
+  imgClassName?: string;
   /** Additional CSS class for the placeholder image */
   placeholderClassName?: string;
   /** Duration (in ms) of the fade-in transition effect upon image loading */
@@ -64,8 +66,10 @@ export type ImagePropTypes = {
   intersectionMargin?: string;
   /** Additional CSS rules to add to the root node */
   style?: React.CSSProperties;
-  /** Additional CSS rules to add to the image inside the `<picture />` tag */
+  /** Additional CSS rules to add to the `<picture />` tag */
   pictureStyle?: React.CSSProperties;
+  /** Additional CSS rules to add to the image inside the `<picture />` tag */
+  imgStyle?: React.CSSProperties;
   /** Additional CSS rules to add to the placeholder image */
   placeholderStyle?: React.CSSProperties;
   /**
@@ -156,8 +160,10 @@ export const Image = forwardRef<HTMLDivElement, ImagePropTypes>(
       intersectionThreshold,
       intersectionMargin,
       pictureClassName,
+      imgClassName,
       style,
       pictureStyle,
+      imgStyle,
       layout = 'intrinsic',
       objectFit,
       objectPosition,
@@ -242,11 +248,11 @@ export const Image = forwardRef<HTMLDivElement, ImagePropTypes>(
     const sizer =
       layout !== 'fill' ? (
         <img
-          className={pictureClassName}
+          className={imgClassName}
           style={{
             display: 'block',
             width: '100%',
-            ...pictureStyle,
+            ...imgStyle,
           }}
           src={`data:image/svg+xml;base64,${universalBtoa(svg)}`}
           aria-hidden="true"
@@ -273,7 +279,7 @@ export const Image = forwardRef<HTMLDivElement, ImagePropTypes>(
         {sizer}
         {placeholder}
         {addImage && (
-          <picture>
+          <picture className={pictureClassName} style={pictureStyle}>
             {webpSource}
             {regularSource}
             {data.src && (
@@ -285,21 +291,21 @@ export const Image = forwardRef<HTMLDivElement, ImagePropTypes>(
                 title={data.title ?? undefined}
                 onLoad={handleLoad}
                 {...priorityProp(priority ? 'high' : undefined)}
-                className={pictureClassName}
+                className={imgClassName}
                 style={{
                   opacity: showImage ? 1 : 0,
                   transition,
                   ...absolutePositioning,
                   objectFit,
                   objectPosition,
-                  ...pictureStyle,
+                  ...imgStyle,
                 }}
               />
             )}
           </picture>
         )}
         <noscript>
-          <picture>
+          <picture className={pictureClassName} style={pictureStyle}>
             {webpSource}
             {regularSource}
             {data.src && (
@@ -308,12 +314,12 @@ export const Image = forwardRef<HTMLDivElement, ImagePropTypes>(
                 src={data.src}
                 alt={data.alt ?? ''}
                 title={data.title ?? undefined}
-                className={pictureClassName}
+                className={imgClassName}
                 style={{
                   ...absolutePositioning,
                   objectFit,
                   objectPosition,
-                  ...pictureStyle,
+                  ...imgStyle,
                 }}
                 loading={priority ? undefined : 'lazy'}
                 {...priorityProp(priority ? 'high' : undefined)}

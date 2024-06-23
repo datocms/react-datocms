@@ -36,7 +36,7 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ### Added
 
-- You can now specify `style` and `pictureStyle` props;
+- You can now specify `style` and `imgStyle` props;
 
 ### Fixed
 

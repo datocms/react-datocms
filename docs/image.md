@@ -22,8 +22,6 @@
 <!-- START doctoc generated TOC please keep comment here to allow auto update -->
 <!-- DON'T EDIT THIS SECTION, INSTEAD RE-RUN doctoc TO UPDATE -->
 
-- [Out-of-the-box features](#out-of-the-box-features)
-- [Table of Contents](#table-of-contents)
 - [Installation](#installation)
 - [`<SRCImage />` vs `<Image />`](#srcimage--vs-image-)
 - [Usage](#usage)

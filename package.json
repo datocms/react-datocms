@@ -109,7 +109,7 @@
     "enzyme-to-json": "^3.6.2",
     "intersection-observer": "^0.12.0",
     "jest-environment-jsdom": "^29.7.0",
-    "np": "^8.0.2",
+    "np": "^10.0.7",
     "raf": "^3.4.1",
     "react": "^17.0.2",
     "react-dom": "^17.0.2",

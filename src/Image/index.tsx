@@ -262,6 +262,7 @@ export const Image = forwardRef<HTMLDivElement, ImagePropTypes>(
 
     return (
       <div
+        key={data.src}
         ref={rootRef}
         className={className}
         style={{

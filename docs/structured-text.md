@@ -10,6 +10,7 @@
 <!-- START doctoc generated TOC please keep comment here to allow auto update -->
 <!-- DON'T EDIT THIS SECTION, INSTEAD RE-RUN doctoc TO UPDATE -->
 
+- [Table of Contents](#table-of-contents)
 - [Installation](#installation)
 - [Basic usage](#basic-usage)
 - [Custom renderers for inline records, blocks, and links](#custom-renderers-for-inline-records-blocks-and-links)
@@ -138,10 +139,9 @@ const Page = ({ data }) => {
   //   blocks: [
   //     {
   //       id: "324321",
-  //       __typename: "ImageRecord",
-  //       image: {
-  //         responsiveImage: { ... },
-  //       },
+  //       __typename: "CtaRecord",
+  //       title: "Call to action",
+  //       url: "https://google.com"
   //     },
   //   ],
   // }
@@ -173,8 +173,12 @@ const Page = ({ data }) => {
         }}
         renderBlock={({ record }) => {
           switch (record.__typename) {
-            case 'ImageRecord':
-              return <Image data={record.image.responsiveImage} />;
+            case 'CtaRecord':
+              return (
+                <a className="button" href={record.url}>
+                  {record.title}
+                </a>
+              );
             default:
               return null;
           }
@@ -198,33 +202,23 @@ const query = gql`
       content {
         value
         links {
-          __typename
-          ... on TeamMemberRecord {
+          ... on RecordInterface {
             id
+            __typename
+          }
+          ... on TeamMemberRecord {
             firstName
             slug
           }
         }
         blocks {
-          __typename
-          ... on ImageRecord {
+          ... on RecordInterface {
             id
-            image {
-              responsiveImage(
-                imgixParams: { fit: crop, w: 300, h: 300, auto: format }
-              ) {
-                srcSet
-                webpSrcSet
-                sizes
-                src
-                width
-                height
-                aspectRatio
-                alt
-                title
-                base64
-              }
-            }
+            __typename
+          }
+          ... on CtaRecord {
+            title
+            url
           }
         }
       }

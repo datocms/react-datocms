@@ -32,6 +32,7 @@
 - [`<Image>`](#image)
   - [Props](#props-1)
   - [Layout mode](#layout-mode)
+  - [Changing `data`](#changing-data)
 
 <!-- END doctoc generated TOC please keep comment here to allow auto update -->
 
@@ -199,4 +200,15 @@ Example for `layout="fill"` (useful also for background images):
     objectPosition="50% 50%"
   />
 </div>
+```
+
+### Changing `data`
+
+If the `data` prop changes over time, this component works like a regular `<img />` in a browser: the new image won't appear until it loads, while the old image stays visible. If you want the old image to disappear while loading, you can use a `key=` so that React sees the changing image as a new `<img />` instead of just changing the src attribute:
+
+```jsx
+<Image
+  key={imageData.src}
+  data={imageData}
+/>
 ```

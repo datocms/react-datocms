@@ -13,7 +13,6 @@ exports[`Image explicit sizes renders correctly 1`] = `
   sizes="(max-width: 600px) 200px, 50vw"
 >
   <div
-    key="https://www.datocms-assets.com/205/image.png?ar=16%3A9&fit=crop&w=750"
     style={
       {
         "maxWidth": 750,
@@ -106,7 +105,6 @@ exports[`Image layout=fill not visible renders the blur-up thumb 1`] = `
   layout="fill"
 >
   <div
-    key="https://www.datocms-assets.com/205/image.png?ar=16%3A9&fit=crop&w=750"
     style={
       {
         "height": "100%",
@@ -166,7 +164,6 @@ exports[`Image layout=fill visible image loaded shows the image 1`] = `
   layout="fill"
 >
   <div
-    key="https://www.datocms-assets.com/205/image.png?ar=16%3A9&fit=crop&w=750"
     style={
       {
         "height": "100%",
@@ -248,7 +245,6 @@ exports[`Image layout=fill visible renders the image (minimal data) 1`] = `
   layout="fill"
 >
   <div
-    key="https://www.datocms-assets.com/205/image.png?ar=16%3A9&fit=crop&w=750"
     style={
       {
         "height": "100%",
@@ -328,7 +324,6 @@ exports[`Image layout=fill visible renders the image (relative URL) 1`] = `
   layout="fill"
 >
   <div
-    key="/205/image.png?ar=16%3A9&fit=crop&w=750"
     style={
       {
         "height": "100%",
@@ -413,7 +408,6 @@ exports[`Image layout=fill visible renders the image 1`] = `
   layout="fill"
 >
   <div
-    key="https://www.datocms-assets.com/205/image.png?ar=16%3A9&fit=crop&w=750"
     style={
       {
         "height": "100%",
@@ -500,7 +494,6 @@ exports[`Image layout=fixed not visible renders the blur-up thumb 1`] = `
   layout="fixed"
 >
   <div
-    key="https://www.datocms-assets.com/205/image.png?ar=16%3A9&fit=crop&w=750"
     style={
       {
         "overflow": "hidden",
@@ -566,7 +559,6 @@ exports[`Image layout=fixed visible image loaded shows the image 1`] = `
   layout="fixed"
 >
   <div
-    key="https://www.datocms-assets.com/205/image.png?ar=16%3A9&fit=crop&w=750"
     style={
       {
         "overflow": "hidden",
@@ -654,7 +646,6 @@ exports[`Image layout=fixed visible renders the image (minimal data) 1`] = `
   layout="fixed"
 >
   <div
-    key="https://www.datocms-assets.com/205/image.png?ar=16%3A9&fit=crop&w=750"
     style={
       {
         "overflow": "hidden",
@@ -740,7 +731,6 @@ exports[`Image layout=fixed visible renders the image (relative URL) 1`] = `
   layout="fixed"
 >
   <div
-    key="/205/image.png?ar=16%3A9&fit=crop&w=750"
     style={
       {
         "overflow": "hidden",
@@ -831,7 +821,6 @@ exports[`Image layout=fixed visible renders the image 1`] = `
   layout="fixed"
 >
   <div
-    key="https://www.datocms-assets.com/205/image.png?ar=16%3A9&fit=crop&w=750"
     style={
       {
         "overflow": "hidden",
@@ -924,7 +913,6 @@ exports[`Image layout=intrinsic not visible renders the blur-up thumb 1`] = `
   layout="intrinsic"
 >
   <div
-    key="https://www.datocms-assets.com/205/image.png?ar=16%3A9&fit=crop&w=750"
     style={
       {
         "maxWidth": 750,
@@ -991,7 +979,6 @@ exports[`Image layout=intrinsic visible image loaded shows the image 1`] = `
   layout="intrinsic"
 >
   <div
-    key="https://www.datocms-assets.com/205/image.png?ar=16%3A9&fit=crop&w=750"
     style={
       {
         "maxWidth": 750,
@@ -1080,7 +1067,6 @@ exports[`Image layout=intrinsic visible renders the image (minimal data) 1`] = `
   layout="intrinsic"
 >
   <div
-    key="https://www.datocms-assets.com/205/image.png?ar=16%3A9&fit=crop&w=750"
     style={
       {
         "maxWidth": 750,
@@ -1167,7 +1153,6 @@ exports[`Image layout=intrinsic visible renders the image (relative URL) 1`] = `
   layout="intrinsic"
 >
   <div
-    key="/205/image.png?ar=16%3A9&fit=crop&w=750"
     style={
       {
         "maxWidth": 750,
@@ -1259,7 +1244,6 @@ exports[`Image layout=intrinsic visible renders the image 1`] = `
   layout="intrinsic"
 >
   <div
-    key="https://www.datocms-assets.com/205/image.png?ar=16%3A9&fit=crop&w=750"
     style={
       {
         "maxWidth": 750,
@@ -1353,7 +1337,6 @@ exports[`Image layout=responsive not visible renders the blur-up thumb 1`] = `
   layout="responsive"
 >
   <div
-    key="https://www.datocms-assets.com/205/image.png?ar=16%3A9&fit=crop&w=750"
     style={
       {
         "overflow": "hidden",
@@ -1419,7 +1402,6 @@ exports[`Image layout=responsive visible image loaded shows the image 1`] = `
   layout="responsive"
 >
   <div
-    key="https://www.datocms-assets.com/205/image.png?ar=16%3A9&fit=crop&w=750"
     style={
       {
         "overflow": "hidden",
@@ -1507,7 +1489,6 @@ exports[`Image layout=responsive visible renders the image (minimal data) 1`] = 
   layout="responsive"
 >
   <div
-    key="https://www.datocms-assets.com/205/image.png?ar=16%3A9&fit=crop&w=750"
     style={
       {
         "overflow": "hidden",
@@ -1593,7 +1574,6 @@ exports[`Image layout=responsive visible renders the image (relative URL) 1`] = 
   layout="responsive"
 >
   <div
-    key="/205/image.png?ar=16%3A9&fit=crop&w=750"
     style={
       {
         "overflow": "hidden",
@@ -1684,7 +1664,6 @@ exports[`Image layout=responsive visible renders the image 1`] = `
   layout="responsive"
 >
   <div
-    key="https://www.datocms-assets.com/205/image.png?ar=16%3A9&fit=crop&w=750"
     style={
       {
         "overflow": "hidden",
@@ -1795,7 +1774,6 @@ exports[`Image passing className and/or style renders correctly 1`] = `
 >
   <div
     className="class-name"
-    key="https://www.datocms-assets.com/205/image.png?ar=16%3A9&fit=crop&w=750"
     style={
       {
         "border": "1px solid red",
@@ -1902,7 +1880,6 @@ exports[`Image priority=true renders correctly 1`] = `
   priority={true}
 >
   <div
-    key="https://www.datocms-assets.com/205/image.png?ar=16%3A9&fit=crop&w=750"
     style={
       {
         "maxWidth": 750,
@@ -1989,7 +1966,6 @@ exports[`Image usePlaceholder=false renders correctly 1`] = `
   usePlaceholder={false}
 >
   <div
-    key="https://www.datocms-assets.com/205/image.png?ar=16%3A9&fit=crop&w=750"
     style={
       {
         "maxWidth": 750,

@@ -3,9 +3,9 @@ import {
   StructuredText,
   renderMetaTags,
   useQuerySubscription,
-} from 'react-datocms';
-import { Helmet } from 'react-helmet';
-import './style.css';
+} from "react-datocms";
+import { Helmet } from "react-helmet";
+import "./style.css";
 
 const RESPONSIVE_IMAGE_FRAGMENT = `
   aspectRatio
@@ -66,22 +66,22 @@ export default function QuerySubscriptionExample() {
   const { status, error, data } = useQuerySubscription({
     query,
     variables: { first: 4 },
-    token: 'faeb9172e232a75339242faafb9e56de8c8f13b735f7090964',
+    token: "faeb9172e232a75339242faafb9e56de8c8f13b735f7090964",
   });
 
   const metaTags = data ? [...data.page.seo, ...data.site.favicon] : [];
 
   const statusMessage = {
-    connecting: 'Connecting to DatoCMS...',
-    connected: 'Connected to DatoCMS, receiving live updates!',
-    closed: 'Connection closed',
+    connecting: "Connecting to DatoCMS...",
+    connected: "Connected to DatoCMS, receiving live updates!",
+    closed: "Connection closed",
   };
 
   return (
     <div className="example" data-title="Full-blown example">
       <Helmet>{renderMetaTags(metaTags)}</Helmet>
       <div className="status">
-        {status === 'connected' && <div className="connected-badge" />}
+        {status === "connected" && <div className="connected-badge" />}
         {statusMessage[status]}
       </div>
       {error && (
@@ -96,10 +96,13 @@ export default function QuerySubscriptionExample() {
       <div className="blogPosts">
         {data?.blogPosts.map((blogPost) => (
           <article key={blogPost.id} className="blogPost">
-            <Image
-              className="blogPost-image"
-              data={blogPost.coverImage.responsiveImage}
-            />
+            {blogPost.coverImage?.responsiveImage && (
+              <Image
+                className="blogPost-image"
+                data={blogPost.coverImage.responsiveImage}
+              />
+            )}
+
             <div className="blogPost-content">
               <h6 className="blogPost-title">
                 <a
@@ -114,10 +117,12 @@ export default function QuerySubscriptionExample() {
                 <StructuredText data={blogPost.excerpt} />
               </div>
               <footer className="blogPost-author">
-                <Image
-                  className="blogPost-author-image"
-                  data={blogPost.author.avatar.responsiveImage}
-                />
+                {blogPost.author?.avatar?.responsiveImage && (
+                  <Image
+                    className="blogPost-author-image"
+                    data={blogPost.author.avatar.responsiveImage}
+                  />
+                )}
                 Written by {blogPost.author.name}
               </footer>
             </div>

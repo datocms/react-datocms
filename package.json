@@ -24,6 +24,11 @@
       "import": "./dist/esm/Image/index.js",
       "types": "./dist/types/Image/index.d.ts"
     },
+    "./video-player/lazy": {
+      "require": "./dist/cjs/VideoPlayer/lazy.js",
+      "import": "./dist/esm/VideoPlayer/lazy.js",
+      "types": "./dist/types/VideoPlayer/lazy.d.ts"
+    },
     "./video-player": {
       "require": "./dist/cjs/VideoPlayer/index.js",
       "import": "./dist/esm/VideoPlayer/index.js",
@@ -63,6 +68,9 @@
       ],
       "video-player": [
         "./dist/types/VideoPlayer/index.d.ts"
+      ],
+      "video-player/lazy": [
+        "./dist/types/VideoPlayer/lazy.d.ts"
       ],
       "structured-text": [
         "./dist/types/StructuredText/index.d.ts"

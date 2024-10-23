@@ -29,6 +29,8 @@
     // TypeScript and JavaScript Compatibility
     "target": "ES2016",
 
+    "module": "ESNext",
+
     // Module resolution
     "moduleResolution": "Node",
     "esModuleInterop": true,

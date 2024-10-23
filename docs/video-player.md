@@ -7,6 +7,7 @@
   - [Usage](#usage)
   - [Example](#example)
   - [Props](#props)
+  - [Lazy version](#lazy-version)
   - [Advanced usage: the `useVideoPlayer` hook](#advanced-usage-the-usevideoplayer-hook)
     - [Example](#example-1)
 
@@ -21,17 +22,15 @@ To stream videos, DatoCMS partners with MUX, a video CDN that serves optimized s
 ## Out-of-the-box features
 
 - Offers optimized streaming so smartphones and tablets don’t request desktop-sized videos
-- Lazy loads the video component and the video to be played to speed initial page load and save bandwidth
 - Holds the video position and size so your page doesn’t jump while the player loads
 - Uses blur-up technique to show a placeholder of the video while it loads
+- Optionally lazy loads the video component and the video to be played to speed initial page load and save bandwidth
 
 ## Installation
 
 ```
 npm install --save react-datocms @mux/mux-player-react
 ```
-
-`@mux/mux-player-react` is a [peer dependency](https://docs.npmjs.com/cli/v10/configuring-npm/package-json#peerdependencies) for `react-datocms`: so you're expected to add it in your project.
 
 ## Usage
 
@@ -109,6 +108,23 @@ Compared to the `<MuxPlayer />`, **some prop default values are different** on `
 - the video height and width, when available in the `data` props, are used to set `{ aspectRatio: "[width] / [height]"}` for the `<MuxPlayer />`'s `style`
 
 All the other props are forwarded to the `<MuxPlayer />` component that is used internally.
+
+## Lazy version
+
+For an optimized bundle, we provide a lazy version too. To use it, you need to change
+the way to import the component. From:
+
+```js
+import { VideoPlayer } from 'react-datocms';
+````
+
+to:
+
+```js
+import VideoPlayer from 'react-datocms/video-player/lazy';
+```
+
+The lazy version is based on `React.lazy()` method.
 
 ## Advanced usage: the `useVideoPlayer` hook
 

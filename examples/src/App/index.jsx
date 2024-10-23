@@ -3,6 +3,7 @@ import QuerySubscriptionExample from '../QuerySubscriptionExample';
 import SRCImageExamples from '../SRCImageExample';
 import SiteSearchExamples from '../SiteSearchExamples';
 import VideoExamples from '../VideoExamples';
+import LazyVideoExamples from '../LazyVideoExamples';
 import './style.css';
 
 export default function App() {
@@ -14,27 +15,26 @@ export default function App() {
         <a href="#subscriptions">Query Subscription</a>
         <a href="#site-search">Site Search</a>
         <a href="#video">Video</a>
+        <a href="#lazy-video">Lazy Video</a>
       </nav>
 
-      <a id="native-image" />
-      <h1>SRCImage examples</h1>
+      <h1 id="native-image">SRCImage examples</h1>
       <SRCImageExamples />
 
-      <a id="image" />
-      <h1>Image examples</h1>
+      <h1 id="image">Image examples</h1>
       <ImageExamples />
 
-      <a id="subscriptions" />
-      <h1>Query subscription example</h1>
+      <h1 id="subscriptions">Query subscription example</h1>
       <QuerySubscriptionExample />
 
-      <a id="site-search" />
-      <h1>Site Search example</h1>
+      <h1 id="site-search">Site Search example</h1>
       <SiteSearchExamples />
 
-      <a id="video" />
-      <h1>Video examples</h1>
+      <h1 id="video">Video examples</h1>
       <VideoExamples />
+
+      <h1 id="lazy-video">Lazy Video examples</h1>
+      <LazyVideoExamples />
     </>
   );
 }

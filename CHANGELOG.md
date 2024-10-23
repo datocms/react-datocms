@@ -5,11 +5,18 @@ All notable changes to this project will be documented in this file.
 The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/),
 and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0.html).
 
+## [Unreleased]
+
+### Changed
+
+- `<VideoPlayer>` component now is eager by default (the lazy version is available via `import VideoPlayer from 'react-datocms/video-player/lazy';`)
+
 ## [2.0.1] - 2022-01-05
 
 ### Added
 
 - `layout` property to Image component
+
 ### Changed
 
 - Default layout is now `intrinsic`, so the image the image will scale the dimensions down for smaller viewports, but maintain the original dimensions for larger viewports

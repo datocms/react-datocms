@@ -73,6 +73,7 @@ export const VideoPlayer: VideoPlayerType = forwardRef<
   const {
     data = {},
     disableCookies = true,
+    disableTracking = true,
     preload = "metadata",
     style: styleFromProps,
     ...rest
@@ -99,6 +100,7 @@ export const VideoPlayer: VideoPlayerType = forwardRef<
       preload={preload}
       title={title}
       disableCookies={disableCookies}
+      disableTracking={disableTracking}
       playbackId={playbackId}
       style={style}
       placeholder={placeholder}

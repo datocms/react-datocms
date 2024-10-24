@@ -1,4 +1,4 @@
-'use client';
+"use client";
 
 // This file defines a React component that easily displays a video player using
 // data stored on DatoCMS and retrieved via DatoCMS GraphQL API. The component
@@ -8,25 +8,24 @@
 //
 // [1]: https://www.mux.com/player
 
-import React, { forwardRef } from 'react';
+import React, { forwardRef } from "react";
 
 // We use and extend Typescript types defined in the MUX player.
 
-import type MuxPlayerElement from '@mux/mux-player';
-import type { MuxPlayerProps } from '@mux/mux-player-react';
+import type MuxPlayerElement from "@mux/mux-player";
+import type { MuxPlayerProps } from "@mux/mux-player-react";
 
 // React MUX player is made available in two flavours: eager and lazy loaded. We
-// choose to use the lazy version to avoid loading the web component uselessly.
-// MUX player lazy version loads internally the eager version using
-// `React.lazy()`.
+// choose to use the eager loading version as the default approch, but
+// we also provide a lazy loading version..
 
-import MuxPlayer from '@mux/mux-player-react/lazy';
+import MuxPlayer from "@mux/mux-player-react";
 
 // The core of this component is the `useVideoPlayer` hook: it takes
 // data from DatoCMS GraphQL API and returns props as expected by the
 // `<MuxPlayer />` component.
 
-import { useVideoPlayer } from '../useVideoPlayer/index.js';
+import { useVideoPlayer } from "../useVideoPlayer/index.js";
 
 type Maybe<T> = T | null;
 type Possibly<T> = Maybe<T> | undefined;
@@ -63,16 +62,19 @@ export type VideoPlayerProps = MuxPlayerProps & {
   data?: Video;
 };
 
-export const VideoPlayer: (
-  props: VideoPlayerProps,
-) => ReturnType<typeof MuxPlayer> = forwardRef<
+type VideoPlayerType = React.ForwardRefExoticComponent<
+  VideoPlayerProps & React.RefAttributes<MuxPlayerElement>
+>;
+
+export const VideoPlayer: VideoPlayerType = forwardRef<
   MuxPlayerElement,
   VideoPlayerProps
->((props, ref) => {
+>((props: VideoPlayerProps, ref) => {
   const {
     data = {},
     disableCookies = true,
-    preload = 'metadata',
+    disableTracking = true,
+    preload = "metadata",
     style: styleFromProps,
     ...rest
   } = props;
@@ -98,6 +100,7 @@ export const VideoPlayer: (
       preload={preload}
       title={title}
       disableCookies={disableCookies}
+      disableTracking={disableTracking}
       playbackId={playbackId}
       style={style}
       placeholder={placeholder}
@@ -105,3 +108,5 @@ export const VideoPlayer: (
     />
   );
 });
+
+export default VideoPlayer;

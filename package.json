@@ -1,6 +1,6 @@
 {
   "name": "react-datocms",
-  "version": "7.0.3",
+  "version": "8.0.0-0",
   "engines": {
     "node": ">=8.0.0"
   },
@@ -23,6 +23,11 @@
       "require": "./dist/cjs/Image/index.js",
       "import": "./dist/esm/Image/index.js",
       "types": "./dist/types/Image/index.d.ts"
+    },
+    "./video-player/lazy": {
+      "require": "./dist/cjs/VideoPlayer/lazy.js",
+      "import": "./dist/esm/VideoPlayer/lazy.js",
+      "types": "./dist/types/VideoPlayer/lazy.d.ts"
     },
     "./video-player": {
       "require": "./dist/cjs/VideoPlayer/index.js",
@@ -64,6 +69,9 @@
       "video-player": [
         "./dist/types/VideoPlayer/index.d.ts"
       ],
+      "video-player/lazy": [
+        "./dist/types/VideoPlayer/lazy.d.ts"
+      ],
       "structured-text": [
         "./dist/types/StructuredText/index.d.ts"
       ],
@@ -95,7 +103,7 @@
   "homepage": "https://github.com/datocms/react-datocms",
   "devDependencies": {
     "@biomejs/biome": "^1.6.3",
-    "@mux/mux-player-react": "*",
+    "@mux/mux-player-react": "^2.0.0",
     "@types/enzyme": "^3.10.8",
     "@types/enzyme-to-json": "^1.5.4",
     "@types/jest": "^29.5.11",
@@ -139,6 +147,6 @@
     "react-intersection-observer": "^9.4.3",
     "react-string-replace": "^1.1.0",
     "use-deep-compare-effect": "^1.6.1",
-    "@mux/mux-player-react": "*"
+    "@mux/mux-player-react": "^2.0.0"
   }
 }

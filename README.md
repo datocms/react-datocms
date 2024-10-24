@@ -26,7 +26,7 @@ This package offers different components and hooks. Please refer to one of the f
 
 * [`<SRCImage />` and `<Image />` components for responsive/progressive images](./docs/image.md)
 * [`<StructuredText />` component](./docs/structured-text.md)
-* [`<VideoPlayer />` component](./docs/video-player.md)
+* [`<VideoPlayer />` component](./docs/video-player.md) (lazy version available)
 * [`useQuerySubscription()` hook for live, real-time updates of content](./docs/live-real-time-updates.md)
 * [`useSiteSearch()` hook to render a DatoCMS Site Search form widget](./docs/site-search.md)
 * [`renderMetaTags()` and other helpers to render social share, SEO and Favicon meta tags](./docs/meta-tags.md)

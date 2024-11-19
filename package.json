@@ -130,7 +130,7 @@
     "tsc:esm": "tsc --project ./tsconfig.esnext.json"
   },
   "peerDependencies": {
-    "react": ">= 16.12.0"
+    "react": ">= 16.12.0 || ^19.0.0-rc"
   },
   "dependencies": {
     "datocms-listen": "^0.1.9",

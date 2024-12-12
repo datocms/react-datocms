@@ -72,6 +72,7 @@ export const VideoPlayer: (
   const {
     data = {},
     disableCookies = true,
+    disableTracking = true,
     preload = 'metadata',
     style: styleFromProps,
     ...rest
@@ -98,6 +99,7 @@ export const VideoPlayer: (
       preload={preload}
       title={title}
       disableCookies={disableCookies}
+      disableTracking={disableTracking}
       playbackId={playbackId}
       style={style}
       placeholder={placeholder}

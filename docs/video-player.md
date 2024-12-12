@@ -105,6 +105,7 @@ DatoCMS GraphQL API.
 Compared to the `<MuxPlayer />`, **some prop default values are different** on `<VideoPlayer />`
 
 - `disableCookies` is normally true, unless you explicitly set the prop to `false`
+- `disableTracking` is normally true, unless you explicitly set it to `false`
 - `preload` defaults to `metadata`, for an optimal UX experience together with saved bandwidth
 - the video height and width, when available in the `data` props, are used to set `{ aspectRatio: "[width] / [height]"}` for the `<MuxPlayer />`'s `style`
 

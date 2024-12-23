@@ -161,16 +161,13 @@ export function useSiteSearch<Client extends GenericClient>(
             query: state.query,
             locale: state.locale,
             build_trigger_id: config.buildTriggerId,
+            ...(config.fuzzySearch === true ? { fuzzy: true } : {}),
           },
           page: {
             limit: resultsPerPage,
             offset: resultsPerPage * state.page,
           },
         };
-
-        if (config.fuzzySearch) {
-          request.fuzzy = 'true';
-        }
 
         const response = await config.client.searchResults.rawList(request);
 

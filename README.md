@@ -52,26 +52,45 @@ npm run start
 ---
 
 # What is DatoCMS?
-<a href="https://www.datocms.com/"><img src="https://www.datocms.com/images/full_logo.svg" height="60"></a>
+
+<a href="https://www.datocms.com/"><img src="https://www.datocms.com/images/full_logo.svg" height="60" alt="DatoCMS - The Headless CMS for the Modern Web"></a>
 
 [DatoCMS](https://www.datocms.com/) is the REST & GraphQL Headless CMS for the modern web.
 
-Trusted by over 25,000 enterprise businesses, agency partners, and individuals across the world, DatoCMS users create online content at scale from a central hub and distribute it via API. We ❤️ our [developers](https://www.datocms.com/team/best-cms-for-developers), [content editors](https://www.datocms.com/team/content-creators) and [marketers](https://www.datocms.com/team/cms-digital-marketing)!
+Trusted by over 25,000 enterprise businesses, agencies, and individuals across the world, DatoCMS users create online content at scale from a central hub and distribute it via API. We ❤️ our [developers](https://www.datocms.com/team/best-cms-for-developers), [content editors](https://www.datocms.com/team/content-creators) and [marketers](https://www.datocms.com/team/cms-digital-marketing)!
 
-**Quick links:**
+**Why DatoCMS?**
 
-- ⚡️ Get started with a [free DatoCMS account](https://dashboard.datocms.com/signup)
-- 🔖 Go through the [docs](https://www.datocms.com/docs)
-- ⚙️ Get [support from us and the community](https://community.datocms.com/)
-- 🆕 Stay up to date on new features and fixes on the [changelog](https://www.datocms.com/product-updates)
+- **API-First Architecture**: Built for both REST and GraphQL, enabling flexible content delivery
+- **Just Enough Features**: We believe in keeping things simple, and giving you [the right feature-set tools](https://www.datocms.com/features) to get the job done
+- **Developer Experience**: First-class TypeScript support with powerful developer tools
 
-**Our featured repos:**
-- [datocms/react-datocms](https://github.com/datocms/react-datocms): React helper components for images, Structured Text rendering, and more
-- [datocms/js-rest-api-clients](https://github.com/datocms/js-rest-api-clients): Node and browser JavaScript clients for updating and administering your content. For frontend fetches, we recommend using our [GraphQL Content Delivery API](https://www.datocms.com/docs/content-delivery-api) instead.
-- [datocms/cli](https://github.com/datocms/cli): Command-line interface that includes our [Contentful importer](https://github.com/datocms/cli/tree/main/packages/cli-plugin-contentful) and [Wordpress importer](https://github.com/datocms/cli/tree/main/packages/cli-plugin-wordpress)
-- [datocms/plugins](https://github.com/datocms/plugins): Example plugins we've made that extend the editor/admin dashboard
-- [DatoCMS Starters](https://www.datocms.com/marketplace/starters) has examples for various Javascript frontend frameworks
+**Getting Started:**
 
-Or see [all our public repos](https://github.com/orgs/datocms/repositories?q=&type=public&language=&sort=stargazers)
+- ⚡️ [Create Free Account](https://dashboard.datocms.com/signup) - Get started with DatoCMS in minutes
+- 🔖 [Documentation](https://www.datocms.com/docs) - Comprehensive guides and API references
+- ⚙️ [Community Support](https://community.datocms.com/) - Get help from our team and community
+- 🆕 [Changelog](https://www.datocms.com/product-updates) - Latest features and improvements
+
+**Official Libraries:**
+
+- [**Content Delivery Client**](https://github.com/datocms/cda-client) - TypeScript GraphQL client for content fetching
+- [**REST API Clients**](https://github.com/datocms/js-rest-api-clients) - Node.js/Browser clients for content management
+- [**CLI Tools**](https://github.com/datocms/cli) - Command-line utilities for schema migrations (includes [Contentful](https://github.com/datocms/cli/tree/main/packages/cli-plugin-contentful) and [WordPress](https://github.com/datocms/cli/tree/main/packages/cli-plugin-wordpress) importers)
+
+**Official Framework Integrations**
+
+Helpers to manage SEO, images, video and Structured Text coming from your DatoCMS projects:
+
+- [**React Components**](https://github.com/datocms/react-datocms)
+- [**Vue Components**](https://github.com/datocms/vue-datocms)
+- [**Svelte Components**](https://github.com/datocms/datocms-svelte)
+- [**Astro Components**](https://github.com/datocms/astro-datocms)
+
+**Additional Resources:**
+
+- [**Plugin Examples**](https://github.com/datocms/plugins) - Example plugins we've made that extend the editor/admin dashboard
+- [**Starter Projects**](https://www.datocms.com/marketplace/starters) - Example website implementations for popular frameworks
+- [**All Public Repositories**](https://github.com/orgs/datocms/repositories?q=&type=public&language=&sort=stargazers)
 
 <!--datocms-autoinclude-footer end-->

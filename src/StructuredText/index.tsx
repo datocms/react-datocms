@@ -17,6 +17,7 @@ import {
   type Record as StructuredTextGraphQlResponseRecord,
   type TypesafeStructuredText as TypesafeStructuredTextGraphQlResponse,
   isBlock,
+  isInlineBlock,
   isInlineItem,
   isItemLink,
   isStructuredText,
@@ -104,6 +105,8 @@ export type StructuredTextPropTypes<
   ) => ReactElement | null;
   /** Fuction that converts a 'block' node into React **/
   renderBlock?: (context: RenderBlockContext<R1>) => ReactElement | null;
+  /** Fuction that converts an 'inlineBlock' node into React **/
+  renderInlineBlock?: (context: RenderBlockContext<R1>) => ReactElement | null;
   /** Function that converts 'link' and 'itemLink' `meta` into HTML props */
   metaTransformer?: TransformMetaFn;
   /** Fuction that converts a simple string text into React **/
@@ -124,6 +127,7 @@ export function StructuredText<
   renderInlineRecord,
   renderLinkToRecord,
   renderBlock,
+  renderInlineBlock,
   renderText,
   renderNode,
   renderFragment,
@@ -233,6 +237,32 @@ export function StructuredText<
         }
 
         return appendKeyToValidElement(renderBlock({ record: item }), key);
+      }),
+      renderNodeRule(isInlineBlock, ({ node, key }) => {
+        if (!renderInlineBlock) {
+          throw new RenderError(
+            `The Structured Text document contains an 'inlineBlock' node, but no 'renderInlineBlock' prop is specified!`,
+            node,
+          );
+        }
+
+        if (!(isStructuredText(data) && data.blocks)) {
+          throw new RenderError(
+            `The document contains an 'inlineBlock' node, but the passed data prop is not a Structured Text GraphQL response, or data.blocks is not present!`,
+            node,
+          );
+        }
+
+        const item = data.blocks.find((item) => item.id === node.item);
+
+        if (!item) {
+          throw new RenderError(
+            `The Structured Text document contains an 'inlineBlock' node, but cannot find a record with ID ${node.item} inside data.blocks!`,
+            node,
+          );
+        }
+
+        return appendKeyToValidElement(renderInlineBlock({ record: item }), key);
       }),
       ...(customNodeRules || customRules || []),
     ],

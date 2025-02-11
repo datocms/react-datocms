@@ -224,6 +224,11 @@ exports[`StructuredText with links/blocks with default rules renders the documen
           "id": "456",
           "quote": "Foo bar.",
         },
+        {
+          "__typename": "MentionRecord",
+          "id": "789",
+          "name": "Jane Doe",
+        },
       ],
       "links": [
         {
@@ -269,6 +274,10 @@ exports[`StructuredText with links/blocks with default rules renders the documen
                   ],
                   "type": "itemLink",
                 },
+                {
+                  "item": "789",
+                  "type": "inlineBlock",
+                },
               ],
               "level": 1,
               "type": "heading",
@@ -285,6 +294,7 @@ exports[`StructuredText with links/blocks with default rules renders the documen
     }
   }
   renderBlock={[Function]}
+  renderInlineBlock={[Function]}
   renderInlineRecord={[Function]}
   renderLinkToRecord={[Function]}
 >
@@ -310,6 +320,11 @@ exports[`StructuredText with links/blocks with default rules renders the documen
     >
       here!
     </a>
+    <em
+      key="t-4"
+    >
+      Jane Doe
+    </em>
   </h1>
   <figure
     key="t-1"

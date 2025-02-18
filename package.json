@@ -24,6 +24,11 @@
       "import": "./dist/esm/Image/index.js",
       "types": "./dist/types/Image/index.d.ts"
     },
+    "./src-image": {
+      "require": "./dist/cjs/SRCImage/index.js",
+      "import": "./dist/esm/SRCImage/index.js",
+      "types": "./dist/types/SRCImage/index.d.ts"
+    },
     "./video-player": {
       "require": "./dist/cjs/VideoPlayer/index.js",
       "import": "./dist/esm/VideoPlayer/index.js",
@@ -60,6 +65,9 @@
       ],
       "image": [
         "./dist/types/Image/index.d.ts"
+      ],
+      "src-image": [
+        "./dist/types/SRCImage/index.d.ts"
       ],
       "video-player": [
         "./dist/types/VideoPlayer/index.d.ts"

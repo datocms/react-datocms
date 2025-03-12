@@ -3,9 +3,9 @@ import {
   StructuredText,
   renderMetaTags,
   useQuerySubscription,
-} from "react-datocms";
-import { Helmet } from "react-helmet";
-import "./style.css";
+} from 'react-datocms';
+import { Helmet } from 'react-helmet';
+import './style.css';
 
 const RESPONSIVE_IMAGE_FRAGMENT = `
   aspectRatio
@@ -66,22 +66,22 @@ export default function QuerySubscriptionExample() {
   const { status, error, data } = useQuerySubscription({
     query,
     variables: { first: 4 },
-    token: "faeb9172e232a75339242faafb9e56de8c8f13b735f7090964",
+    token: 'faeb9172e232a75339242faafb9e56de8c8f13b735f7090964',
   });
 
   const metaTags = data ? [...data.page.seo, ...data.site.favicon] : [];
 
   const statusMessage = {
-    connecting: "Connecting to DatoCMS...",
-    connected: "Connected to DatoCMS, receiving live updates!",
-    closed: "Connection closed",
+    connecting: 'Connecting to DatoCMS...',
+    connected: 'Connected to DatoCMS, receiving live updates!',
+    closed: 'Connection closed',
   };
 
   return (
     <div className="example" data-title="Full-blown example">
       <Helmet>{renderMetaTags(metaTags)}</Helmet>
       <div className="status">
-        {status === "connected" && <div className="connected-badge" />}
+        {status === 'connected' && <div className="connected-badge" />}
         {statusMessage[status]}
       </div>
       {error && (

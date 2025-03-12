@@ -61,6 +61,7 @@ exports[`Image explicit sizes renders correctly 1`] = `
       <img
         alt=""
         onLoad={[Function]}
+        referrerPolicy="no-referrer-when-downgrade"
         src="https://www.datocms-assets.com/205/image.png?ar=16%3A9&fit=crop&w=750"
         style={
           {
@@ -205,6 +206,7 @@ exports[`Image layout=fill visible image loaded shows the image 1`] = `
       <img
         alt="DatoCMS swag"
         onLoad={[Function]}
+        referrerPolicy="no-referrer-when-downgrade"
         src="https://www.datocms-assets.com/205/image.png?ar=16%3A9&fit=crop&w=750"
         style={
           {
@@ -285,6 +287,7 @@ exports[`Image layout=fill visible renders the image (minimal data) 1`] = `
       <img
         alt=""
         onLoad={[Function]}
+        referrerPolicy="no-referrer-when-downgrade"
         src="https://www.datocms-assets.com/205/image.png?ar=16%3A9&fit=crop&w=750"
         style={
           {
@@ -364,6 +367,7 @@ exports[`Image layout=fill visible renders the image (relative URL) 1`] = `
       <img
         alt=""
         onLoad={[Function]}
+        referrerPolicy="no-referrer-when-downgrade"
         src="/205/image.png?ar=16%3A9&fit=crop&w=750"
         style={
           {
@@ -449,6 +453,7 @@ exports[`Image layout=fill visible renders the image 1`] = `
       <img
         alt="DatoCMS swag"
         onLoad={[Function]}
+        referrerPolicy="no-referrer-when-downgrade"
         src="https://www.datocms-assets.com/205/image.png?ar=16%3A9&fit=crop&w=750"
         style={
           {
@@ -606,6 +611,7 @@ exports[`Image layout=fixed visible image loaded shows the image 1`] = `
       <img
         alt="DatoCMS swag"
         onLoad={[Function]}
+        referrerPolicy="no-referrer-when-downgrade"
         src="https://www.datocms-assets.com/205/image.png?ar=16%3A9&fit=crop&w=750"
         style={
           {
@@ -692,6 +698,7 @@ exports[`Image layout=fixed visible renders the image (minimal data) 1`] = `
       <img
         alt=""
         onLoad={[Function]}
+        referrerPolicy="no-referrer-when-downgrade"
         src="https://www.datocms-assets.com/205/image.png?ar=16%3A9&fit=crop&w=750"
         style={
           {
@@ -777,6 +784,7 @@ exports[`Image layout=fixed visible renders the image (relative URL) 1`] = `
       <img
         alt=""
         onLoad={[Function]}
+        referrerPolicy="no-referrer-when-downgrade"
         src="/205/image.png?ar=16%3A9&fit=crop&w=750"
         style={
           {
@@ -868,6 +876,7 @@ exports[`Image layout=fixed visible renders the image 1`] = `
       <img
         alt="DatoCMS swag"
         onLoad={[Function]}
+        referrerPolicy="no-referrer-when-downgrade"
         src="https://www.datocms-assets.com/205/image.png?ar=16%3A9&fit=crop&w=750"
         style={
           {
@@ -1027,6 +1036,7 @@ exports[`Image layout=intrinsic visible image loaded shows the image 1`] = `
       <img
         alt="DatoCMS swag"
         onLoad={[Function]}
+        referrerPolicy="no-referrer-when-downgrade"
         src="https://www.datocms-assets.com/205/image.png?ar=16%3A9&fit=crop&w=750"
         style={
           {
@@ -1114,6 +1124,7 @@ exports[`Image layout=intrinsic visible renders the image (minimal data) 1`] = `
       <img
         alt=""
         onLoad={[Function]}
+        referrerPolicy="no-referrer-when-downgrade"
         src="https://www.datocms-assets.com/205/image.png?ar=16%3A9&fit=crop&w=750"
         style={
           {
@@ -1200,6 +1211,7 @@ exports[`Image layout=intrinsic visible renders the image (relative URL) 1`] = `
       <img
         alt=""
         onLoad={[Function]}
+        referrerPolicy="no-referrer-when-downgrade"
         src="/205/image.png?ar=16%3A9&fit=crop&w=750"
         style={
           {
@@ -1292,6 +1304,7 @@ exports[`Image layout=intrinsic visible renders the image 1`] = `
       <img
         alt="DatoCMS swag"
         onLoad={[Function]}
+        referrerPolicy="no-referrer-when-downgrade"
         src="https://www.datocms-assets.com/205/image.png?ar=16%3A9&fit=crop&w=750"
         style={
           {
@@ -1449,6 +1462,7 @@ exports[`Image layout=responsive visible image loaded shows the image 1`] = `
       <img
         alt="DatoCMS swag"
         onLoad={[Function]}
+        referrerPolicy="no-referrer-when-downgrade"
         src="https://www.datocms-assets.com/205/image.png?ar=16%3A9&fit=crop&w=750"
         style={
           {
@@ -1535,6 +1549,7 @@ exports[`Image layout=responsive visible renders the image (minimal data) 1`] = 
       <img
         alt=""
         onLoad={[Function]}
+        referrerPolicy="no-referrer-when-downgrade"
         src="https://www.datocms-assets.com/205/image.png?ar=16%3A9&fit=crop&w=750"
         style={
           {
@@ -1620,6 +1635,7 @@ exports[`Image layout=responsive visible renders the image (relative URL) 1`] = 
       <img
         alt=""
         onLoad={[Function]}
+        referrerPolicy="no-referrer-when-downgrade"
         src="/205/image.png?ar=16%3A9&fit=crop&w=750"
         style={
           {
@@ -1711,6 +1727,7 @@ exports[`Image layout=responsive visible renders the image 1`] = `
       <img
         alt="DatoCMS swag"
         onLoad={[Function]}
+        referrerPolicy="no-referrer-when-downgrade"
         src="https://www.datocms-assets.com/205/image.png?ar=16%3A9&fit=crop&w=750"
         style={
           {
@@ -1834,6 +1851,7 @@ exports[`Image passing className and/or style renders correctly 1`] = `
         alt=""
         className="img-class-name"
         onLoad={[Function]}
+        referrerPolicy="no-referrer-when-downgrade"
         src="https://www.datocms-assets.com/205/image.png?ar=16%3A9&fit=crop&w=750"
         style={
           {
@@ -1928,6 +1946,7 @@ exports[`Image priority=true renders correctly 1`] = `
         alt=""
         fetchpriority="high"
         onLoad={[Function]}
+        referrerPolicy="no-referrer-when-downgrade"
         src="https://www.datocms-assets.com/205/image.png?ar=16%3A9&fit=crop&w=750"
         style={
           {
@@ -1993,6 +2012,7 @@ exports[`Image usePlaceholder=false renders correctly 1`] = `
       <img
         alt=""
         onLoad={[Function]}
+        referrerPolicy="no-referrer-when-downgrade"
         src="https://www.datocms-assets.com/205/image.png?ar=16%3A9&fit=crop&w=750"
         style={
           {

@@ -20,6 +20,7 @@ exports[`Image explicit sizes renders correctly 1`] = `
     <img
       alt=""
       loading="lazy"
+      referrerPolicy="no-referrer-when-downgrade"
       src="https://www.datocms-assets.com/205/image.png?ar=16%3A9&fit=crop&w=750"
       style={
         {
@@ -63,6 +64,7 @@ exports[`Image full data renders correctly 1`] = `
     <img
       alt="DatoCMS swag"
       loading="lazy"
+      referrerPolicy="no-referrer-when-downgrade"
       src="https://www.datocms-assets.com/205/image.png?ar=16%3A9&fit=crop&w=750"
       style={
         {
@@ -101,6 +103,7 @@ exports[`Image minimal data renders correctly 1`] = `
     <img
       alt=""
       loading="lazy"
+      referrerPolicy="no-referrer-when-downgrade"
       src="https://www.datocms-assets.com/205/image.png?ar=16%3A9&fit=crop&w=750"
       style={
         {
@@ -138,6 +141,7 @@ exports[`Image minimalDataWithRelativeUrl renders correctly 1`] = `
     <img
       alt=""
       loading="lazy"
+      referrerPolicy="no-referrer-when-downgrade"
       src="/205/image.png?ar=16%3A9&fit=crop&w=750"
       style={
         {
@@ -195,6 +199,7 @@ exports[`Image passing className and/or style renders correctly 1`] = `
       alt=""
       className="class-name"
       loading="lazy"
+      referrerPolicy="no-referrer-when-downgrade"
       src="https://www.datocms-assets.com/205/image.png?ar=16%3A9&fit=crop&w=750"
       style={
         {
@@ -234,6 +239,7 @@ exports[`Image priority=true renders correctly 1`] = `
     <img
       alt=""
       fetchpriority="high"
+      referrerPolicy="no-referrer-when-downgrade"
       src="https://www.datocms-assets.com/205/image.png?ar=16%3A9&fit=crop&w=750"
       style={
         {
@@ -272,6 +278,7 @@ exports[`Image usePlaceholder=false renders correctly 1`] = `
     <img
       alt=""
       loading="lazy"
+      referrerPolicy="no-referrer-when-downgrade"
       src="https://www.datocms-assets.com/205/image.png?ar=16%3A9&fit=crop&w=750"
       style={
         {

@@ -262,7 +262,10 @@ export function StructuredText<
           );
         }
 
-        return appendKeyToValidElement(renderInlineBlock({ record: item }), key);
+        return appendKeyToValidElement(
+          renderInlineBlock({ record: item }),
+          key,
+        );
       }),
       ...(customNodeRules || customRules || []),
     ],

@@ -1,5 +1,5 @@
 // biome-ignore lint/style/useImportType: wrong warning
-import React from 'react';
+import React, { HTMLAttributeReferrerPolicy } from 'react';
 import type { ResponsiveImageType } from '../Image';
 import { buildRegularSource, buildWebpSource, priorityProp } from './utils.js';
 
@@ -36,6 +36,13 @@ export type SRCImagePropTypes = {
    * Default candidate multipliers are [0.25, 0.5, 0.75, 1, 1.5, 2, 3, 4]
    **/
   srcSetCandidates?: number[];
+  /**
+   * Defines which referrer is sent when fetching the image
+   * Read more: https://developer.mozilla.org/en-US/docs/Web/HTML/Element/img#referrerpolicy
+   *
+   * Defaults to `no-referrer-when-downgrade` to give more useful stats in DatoCMS Project Usages
+   **/
+  referrerPolicy?: HTMLAttributeReferrerPolicy;
 };
 
 export function SRCImage({
@@ -48,6 +55,7 @@ export function SRCImage({
   priority = false,
   sizes,
   srcSetCandidates = [0.25, 0.5, 0.75, 1, 1.5, 2, 3, 4],
+  referrerPolicy = 'no-referrer-when-downgrade',
 }: SRCImagePropTypes) {
   const webpSource = buildWebpSource(data, sizes);
   const regularSource = buildRegularSource(data, sizes, srcSetCandidates);
@@ -98,6 +106,7 @@ export function SRCImage({
             ...sizingStyle,
             ...imgStyle,
           }}
+          referrerPolicy={referrerPolicy}
         />
       )}
     </picture>

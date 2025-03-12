@@ -1,7 +1,7 @@
 'use client';
 
 // biome-ignore lint/style/useImportType: wrong warning
-import React from 'react';
+import React, { HTMLAttributeReferrerPolicy } from 'react';
 import { type CSSProperties, forwardRef, useRef } from 'react';
 import {
   buildRegularSource,
@@ -111,6 +111,13 @@ export type ImagePropTypes = {
    * Default candidate multipliers are [0.25, 0.5, 0.75, 1, 1.5, 2, 3, 4]
    **/
   srcSetCandidates?: number[];
+  /**
+   * Defines which referrer is sent when fetching the image
+   * Read more: https://developer.mozilla.org/en-US/docs/Web/HTML/Element/img#referrerpolicy
+   *
+   * Defaults to `no-referrer-when-downgrade` to give more useful stats in DatoCMS Project Usages
+   **/
+  referrerPolicy?: HTMLAttributeReferrerPolicy;
 };
 
 type State = {
@@ -175,6 +182,7 @@ export const Image = forwardRef<HTMLDivElement, ImagePropTypes>(
       srcSetCandidates = [0.25, 0.5, 0.75, 1, 1.5, 2, 3, 4],
       placeholderClassName,
       placeholderStyle,
+      referrerPolicy = 'no-referrer-when-downgrade',
     },
     ref,
   ) => {
@@ -300,6 +308,7 @@ export const Image = forwardRef<HTMLDivElement, ImagePropTypes>(
                   objectPosition,
                   ...imgStyle,
                 }}
+                referrerPolicy={referrerPolicy}
               />
             )}
           </picture>
@@ -323,6 +332,7 @@ export const Image = forwardRef<HTMLDivElement, ImagePropTypes>(
                 }}
                 loading={priority ? undefined : 'lazy'}
                 {...priorityProp(priority ? 'high' : undefined)}
+                referrerPolicy={referrerPolicy}
               />
             )}
           </picture>

@@ -1,41 +1,41 @@
-import { renderMarkRule } from "datocms-structured-text-generic-html-renderer";
-import { isHeading } from "datocms-structured-text-utils";
-import { mount, render, shallow } from "enzyme";
-import * as React from "react";
+import { renderMarkRule } from 'datocms-structured-text-generic-html-renderer';
+import { isHeading } from 'datocms-structured-text-utils';
+import { mount, render, shallow } from 'enzyme';
+import * as React from 'react';
 import {
   RenderError,
   StructuredText,
   type StructuredTextDocument,
   type StructuredTextGraphQlResponse,
   renderNodeRule,
-} from "../index.js";
+} from '../index.js';
 
-describe("StructuredText", () => {
-  describe("with no value", () => {
-    it("renders null", () => {
+describe('StructuredText', () => {
+  describe('with no value', () => {
+    it('renders null', () => {
       const wrapper = mount(<StructuredText data={null} />);
       expect(wrapper).toMatchSnapshot();
     });
   });
 
-  describe("simple dast /2", () => {
+  describe('simple dast /2', () => {
     const structuredText: StructuredTextDocument = {
-      schema: "dast",
+      schema: 'dast',
       document: {
-        type: "root",
+        type: 'root',
         children: [
           {
-            type: "heading",
+            type: 'heading',
             level: 1,
             children: [
               {
-                type: "span",
-                value: "This\nis a ",
+                type: 'span',
+                value: 'This\nis a ',
               },
               {
-                type: "span",
-                marks: ["strong"],
-                value: "title",
+                type: 'span',
+                marks: ['strong'],
+                value: 'title',
               },
             ],
           },
@@ -43,49 +43,49 @@ describe("StructuredText", () => {
       },
     };
 
-    describe("with default rules", () => {
-      it("renders the document", () => {
+    describe('with default rules', () => {
+      it('renders the document', () => {
         const wrapper = mount(<StructuredText data={structuredText} />);
         expect(wrapper).toMatchSnapshot();
       });
     });
 
-    describe("with custom mark rules", () => {
-      it("renders the document", () => {
+    describe('with custom mark rules', () => {
+      it('renders the document', () => {
         const wrapper = mount(
           <StructuredText
             data={structuredText}
             customMarkRules={[
-              renderMarkRule("strong", ({ children, key }) => (
+              renderMarkRule('strong', ({ children, key }) => (
                 <b key={key}>{children}</b>
               )),
             ]}
-          />
+          />,
         );
         expect(wrapper).toMatchSnapshot();
       });
     });
   });
 
-  describe("simple dast with no links/blocks", () => {
+  describe('simple dast with no links/blocks', () => {
     const structuredText: StructuredTextGraphQlResponse = {
       value: {
-        schema: "dast",
+        schema: 'dast',
         document: {
-          type: "root",
+          type: 'root',
           children: [
             {
-              type: "heading",
+              type: 'heading',
               level: 1,
               children: [
                 {
-                  type: "span",
-                  value: "This\nis a ",
+                  type: 'span',
+                  value: 'This\nis a ',
                 },
                 {
-                  type: "span",
-                  marks: ["strong"],
-                  value: "title",
+                  type: 'span',
+                  marks: ['strong'],
+                  value: 'title',
                 },
               ],
             },
@@ -94,22 +94,22 @@ describe("StructuredText", () => {
       },
     };
 
-    describe("with default rules", () => {
-      it("renders the document", () => {
+    describe('with default rules', () => {
+      it('renders the document', () => {
         const wrapper = mount(<StructuredText data={structuredText} />);
         expect(wrapper).toMatchSnapshot();
       });
     });
 
-    describe("with custom rules", () => {
-      it("renders the document", () => {
+    describe('with custom rules', () => {
+      it('renders the document', () => {
         const wrapper = mount(
           <StructuredText
             data={structuredText}
             renderText={(text, key) => {
               return (
                 <React.Fragment key={key}>
-                  {text.replace(/This/, "That")}
+                  {text.replace(/This/, 'That')}
                 </React.Fragment>
               );
             }}
@@ -118,33 +118,33 @@ describe("StructuredText", () => {
                 isHeading,
                 ({ adapter: { renderNode }, node, children, key }) => {
                   return renderNode(`h${node.level + 1}`, { key }, children);
-                }
+                },
               ),
             ]}
-          />
+          />,
         );
         expect(wrapper).toMatchSnapshot();
       });
     });
   });
 
-  describe("with links/blocks", () => {
+  describe('with links/blocks', () => {
     type QuoteRecord = {
       id: string;
-      __typename: "QuoteRecord";
+      __typename: 'QuoteRecord';
       quote: string;
       author: string;
     };
 
     type MentionRecord = {
       id: string;
-      __typename: "MentionRecord";
+      __typename: 'MentionRecord';
       name: string;
     };
 
     type DocPageRecord = {
       id: string;
-      __typename: "DocPageRecord";
+      __typename: 'DocPageRecord';
       slug: string;
       title: string;
     };
@@ -154,77 +154,77 @@ describe("StructuredText", () => {
       DocPageRecord
     > = {
       value: {
-        schema: "dast",
+        schema: 'dast',
         document: {
-          type: "root",
+          type: 'root',
           children: [
             {
-              type: "heading",
+              type: 'heading',
               level: 1,
               children: [
                 {
-                  type: "span",
-                  value: "This is a",
+                  type: 'span',
+                  value: 'This is a',
                 },
                 {
-                  type: "span",
-                  marks: ["highlight"],
-                  value: "title",
+                  type: 'span',
+                  marks: ['highlight'],
+                  value: 'title',
                 },
                 {
-                  type: "inlineItem",
-                  item: "123",
+                  type: 'inlineItem',
+                  item: '123',
                 },
                 {
-                  type: "itemLink",
-                  item: "123",
-                  meta: [{ id: "target", value: "_blank" }],
-                  children: [{ type: "span", value: "here!" }],
+                  type: 'itemLink',
+                  item: '123',
+                  meta: [{ id: 'target', value: '_blank' }],
+                  children: [{ type: 'span', value: 'here!' }],
                 },
                 {
-                  type: "inlineBlock",
-                  item: "789",
+                  type: 'inlineBlock',
+                  item: '789',
                 },
               ],
             },
             {
-              type: "block",
-              item: "456",
+              type: 'block',
+              item: '456',
             },
           ],
         },
       },
       blocks: [
         {
-          id: "456",
-          __typename: "QuoteRecord",
-          quote: "Foo bar.",
-          author: "Mark Smith",
+          id: '456',
+          __typename: 'QuoteRecord',
+          quote: 'Foo bar.',
+          author: 'Mark Smith',
         },
         {
-          id: "789",
-          __typename: "MentionRecord",
-          name: "Jane Doe",
+          id: '789',
+          __typename: 'MentionRecord',
+          name: 'Jane Doe',
         },
       ],
       links: [
         {
-          id: "123",
-          __typename: "DocPageRecord",
-          title: "How to code",
-          slug: "how-to-code",
+          id: '123',
+          __typename: 'DocPageRecord',
+          title: 'How to code',
+          slug: 'how-to-code',
         },
       ],
     };
 
-    describe("with default rules", () => {
-      it("renders the document", () => {
+    describe('with default rules', () => {
+      it('renders the document', () => {
         const wrapper = mount(
           <StructuredText
             data={structuredText}
             renderInlineRecord={({ record }) => {
               switch (record.__typename) {
-                case "DocPageRecord":
+                case 'DocPageRecord':
                   return <a href={`/docs/${record.slug}`}>{record.title}</a>;
                 default:
                   return null;
@@ -232,7 +232,7 @@ describe("StructuredText", () => {
             }}
             renderLinkToRecord={({ record, children, transformedMeta }) => {
               switch (record.__typename) {
-                case "DocPageRecord":
+                case 'DocPageRecord':
                   return (
                     <a {...transformedMeta} href={`/docs/${record.slug}`}>
                       {children}
@@ -244,7 +244,7 @@ describe("StructuredText", () => {
             }}
             renderBlock={({ record }) => {
               switch (record.__typename) {
-                case "QuoteRecord":
+                case 'QuoteRecord':
                   return (
                     <figure>
                       <blockquote>{record.quote}</blockquote>
@@ -257,28 +257,28 @@ describe("StructuredText", () => {
             }}
             renderInlineBlock={({ record }) => {
               switch (record.__typename) {
-                case "MentionRecord":
+                case 'MentionRecord':
                   return <em>{record.name}</em>;
                 default:
                   return null;
               }
             }}
-          />
+          />,
         );
         expect(wrapper).toMatchSnapshot();
       });
     });
 
-    describe("with missing renderInlineRecord prop", () => {
-      it("raises an error", () => {
+    describe('with missing renderInlineRecord prop', () => {
+      it('raises an error', () => {
         expect(() => {
           shallow(<StructuredText data={structuredText} />);
         }).toThrow(RenderError);
       });
     });
 
-    describe("with missing record", () => {
-      it("raises an error", () => {
+    describe('with missing record', () => {
+      it('raises an error', () => {
         expect(() => {
           shallow(
             <StructuredText
@@ -286,7 +286,7 @@ describe("StructuredText", () => {
               renderInlineRecord={() => {
                 return null;
               }}
-            />
+            />,
           );
         }).toThrow(RenderError);
       });

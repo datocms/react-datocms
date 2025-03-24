@@ -121,7 +121,7 @@ const Page = ({ data }) => {
   //               ]
   //             },
   //             { type: "span", value: " in our team! We call him " },
-  //             { type: "block", item: "1984560" }
+  //             { type: "inlineBlock", item: "1984560" }
   //           ]
   //         },
   //         { type: "block", item: "1984559" }
@@ -259,7 +259,7 @@ export default withQuery(query)(Page);
 
 ## Override default rendering of nodes
 
-This component automatically renders all nodes (except for `inline_item`, `item_link`, `block` and `inline_block`) using a set of default rules, but you might want to customize those. For example:
+This component automatically renders all nodes (except for `inlineItem`, `itemLink`, `block` and `inlineBlock`) using a set of default rules, but you might want to customize those. For example:
 
 For example:
 
@@ -338,18 +338,18 @@ import SyntaxHighlight from 'components/SyntaxHighlight';
 />;
 ```
 
-Note: if you override the rules for `inline_item`, `item_link`, `block` or `inline_block` nodes, then the `renderInlineRecord`, `renderLinkToRecord`, `renderBlock` and `renderInlineBlock` props won't be considered!
+Note: if you override the rules for `inlineItem`, `itemLink`, `block` or `inlineBlock` nodes, then the `renderInlineRecord`, `renderLinkToRecord`, `renderBlock` and `renderInlineBlock` props won't be considered!
 
 ## Props
 
-| prop               | type                                                            | required                                                | description                                                                                      | default                                                                                                              |
-| ------------------ | --------------------------------------------------------------- | ------------------------------------------------------- | ------------------------------------------------------------------------------------------------ | -------------------------------------------------------------------------------------------------------------------- |
-| data               | `StructuredTextGraphQlResponse \| DastNode`                     | :white_check_mark:                                      | The actual [field value](https://www.datocms.com/docs/structured-text/dast) you get from DatoCMS |                                                                                                                      |
-| renderInlineRecord | `({ record }) => ReactElement \| null`                          | Only required if document contains `inline_item` nodes  | Convert an `inline_item` DAST node into React                                                    | `[]`                                                                                                                 |
-| renderLinkToRecord | `({ record, children }) => ReactElement \| null`                | Only required if document contains `item_link` nodes    | Convert an `item_link` DAST node into React                                                      | `null`                                                                                                               |
-| renderBlock        | `({ record }) => ReactElement \| null`                          | Only required if document contains `block` nodes        | Convert a `block` DAST node into React                                                           | `null`                                                                                                               |
-| renderInlineBlock  | `({ record }) => ReactElement \| null`                          | Only required if document contains `inline_block` nodes | Convert an `inline_block` DAST node into React                                                   | `null`                                                                                                               |
-| metaTransformer    | `({ node, meta }) => Object \| null`                            | :x:                                                     | Transform `link` and `itemLink` meta property into HTML props                                    | [See function](https://github.com/datocms/structured-text/blob/main/packages/generic-html-renderer/src/index.ts#L61) |
-| customNodeRules    | `Array<RenderRule>`                                             | :x:                                                     | Customize how nodes are converted in JSX (use `renderNodeRule()` to generate rules)              | `null`                                                                                                               |
-| customMarkRules    | `Array<RenderMarkRule>`                                         | :x:                                                     | Customize how marks are converted in JSX (use `renderMarkRule()` to generate rules)              | `null`                                                                                                               |
-| renderText         | `(text: string, key: string) => ReactElement \| string \| null` | :x:                                                     | Convert a simple string text into React                                                          | `(text) => text`                                                                                                     |
+| prop               | type                                                            | required                                               | description                                                                                      | default                                                                                                              |
+| ------------------ | --------------------------------------------------------------- | ------------------------------------------------------ | ------------------------------------------------------------------------------------------------ | -------------------------------------------------------------------------------------------------------------------- |
+| data               | `StructuredTextGraphQlResponse \| DastNode`                     | :white_check_mark:                                     | The actual [field value](https://www.datocms.com/docs/structured-text/dast) you get from DatoCMS |                                                                                                                      |
+| renderInlineRecord | `({ record }) => ReactElement \| null`                          | Only required if document contains `inlineItem` nodes  | Convert an `inlineItem` DAST node into React                                                     | `[]`                                                                                                                 |
+| renderLinkToRecord | `({ record, children }) => ReactElement \| null`                | Only required if document contains `itemLink` nodes    | Convert an `itemLink` DAST node into React                                                       | `null`                                                                                                               |
+| renderBlock        | `({ record }) => ReactElement \| null`                          | Only required if document contains `block` nodes       | Convert a `block` DAST node into React                                                           | `null`                                                                                                               |
+| renderInlineBlock  | `({ record }) => ReactElement \| null`                          | Only required if document contains `inlineBlock` nodes | Convert an `inlineBlock` DAST node into React                                                    | `null`                                                                                                               |
+| metaTransformer    | `({ node, meta }) => Object \| null`                            | :x:                                                    | Transform `link` and `itemLink` meta property into HTML props                                    | [See function](https://github.com/datocms/structured-text/blob/main/packages/generic-html-renderer/src/index.ts#L61) |
+| customNodeRules    | `Array<RenderRule>`                                             | :x:                                                    | Customize how nodes are converted in JSX (use `renderNodeRule()` to generate rules)              | `null`                                                                                                               |
+| customMarkRules    | `Array<RenderMarkRule>`                                         | :x:                                                    | Customize how marks are converted in JSX (use `renderMarkRule()` to generate rules)              | `null`                                                                                                               |
+| renderText         | `(text: string, key: string) => ReactElement \| string \| null` | :x:                                                    | Convert a simple string text into React                                                          | `(text) => text`                                                                                                     |

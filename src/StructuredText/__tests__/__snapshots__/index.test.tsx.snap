@@ -224,6 +224,8 @@ exports[`StructuredText with links/blocks with default rules renders the documen
           "id": "456",
           "quote": "Foo bar.",
         },
+      ],
+      "inlineBlocks": [
         {
           "__typename": "MentionRecord",
           "id": "789",

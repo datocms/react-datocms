@@ -81,12 +81,16 @@ export type RenderBlockContext<R extends StructuredTextGraphQlResponseRecord> =
   };
 
 export type StructuredTextPropTypes<
-  R1 extends StructuredTextGraphQlResponseRecord,
-  R2 extends StructuredTextGraphQlResponseRecord = R1,
+  BlockRecord extends
+    StructuredTextGraphQlResponseRecord = StructuredTextGraphQlResponseRecord,
+  LinkRecord extends
+    StructuredTextGraphQlResponseRecord = StructuredTextGraphQlResponseRecord,
+  InlineBlockRecord extends
+    StructuredTextGraphQlResponseRecord = StructuredTextGraphQlResponseRecord,
 > = {
   /** The actual field value you get from DatoCMS **/
   data:
-    | StructuredTextGraphQlResponse<R1, R2>
+    | StructuredTextGraphQlResponse<BlockRecord, LinkRecord, InlineBlockRecord>
     | StructuredTextDocument
     | Node
     | null
@@ -97,16 +101,20 @@ export type StructuredTextPropTypes<
   customMarkRules?: RenderMarkRule<H, T, F>[];
   /** Fuction that converts an 'inlineItem' node into React **/
   renderInlineRecord?: (
-    context: RenderInlineRecordContext<R2>,
+    context: RenderInlineRecordContext<LinkRecord>,
   ) => ReactElement | null;
   /** Fuction that converts an 'itemLink' node into React **/
   renderLinkToRecord?: (
-    context: RenderRecordLinkContext<R2>,
+    context: RenderRecordLinkContext<LinkRecord>,
   ) => ReactElement | null;
   /** Fuction that converts a 'block' node into React **/
-  renderBlock?: (context: RenderBlockContext<R1>) => ReactElement | null;
+  renderBlock?: (
+    context: RenderBlockContext<BlockRecord>,
+  ) => ReactElement | null;
   /** Fuction that converts an 'inlineBlock' node into React **/
-  renderInlineBlock?: (context: RenderBlockContext<R1>) => ReactElement | null;
+  renderInlineBlock?: (
+    context: RenderBlockContext<InlineBlockRecord>,
+  ) => ReactElement | null;
   /** Function that converts 'link' and 'itemLink' `meta` into HTML props */
   metaTransformer?: TransformMetaFn;
   /** Fuction that converts a simple string text into React **/
@@ -120,8 +128,12 @@ export type StructuredTextPropTypes<
 };
 
 export function StructuredText<
-  R1 extends StructuredTextGraphQlResponseRecord,
-  R2 extends StructuredTextGraphQlResponseRecord = R1,
+  BlockRecord extends
+    StructuredTextGraphQlResponseRecord = StructuredTextGraphQlResponseRecord,
+  LinkRecord extends
+    StructuredTextGraphQlResponseRecord = StructuredTextGraphQlResponseRecord,
+  InlineBlockRecord extends
+    StructuredTextGraphQlResponseRecord = StructuredTextGraphQlResponseRecord,
 >({
   data,
   renderInlineRecord,
@@ -135,7 +147,11 @@ export function StructuredText<
   customRules,
   customNodeRules,
   metaTransformer,
-}: StructuredTextPropTypes<R1, R2>): ReactElement | null {
+}: StructuredTextPropTypes<
+  BlockRecord,
+  LinkRecord,
+  InlineBlockRecord
+>): ReactElement | null {
   const result = render(data, {
     adapter: {
       renderText: renderText || defaultAdapter.renderText,
@@ -246,18 +262,18 @@ export function StructuredText<
           );
         }
 
-        if (!(isStructuredText(data) && data.blocks)) {
+        if (!(isStructuredText(data) && data.inlineBlocks)) {
           throw new RenderError(
-            `The document contains an 'inlineBlock' node, but the passed data prop is not a Structured Text GraphQL response, or data.blocks is not present!`,
+            `The document contains an 'inlineBlock' node, but the passed data prop is not a Structured Text GraphQL response, or data.inlineBlocks is not present!`,
             node,
           );
         }
 
-        const item = data.blocks.find((item) => item.id === node.item);
+        const item = data.inlineBlocks.find((item) => item.id === node.item);
 
         if (!item) {
           throw new RenderError(
-            `The Structured Text document contains an 'inlineBlock' node, but cannot find a record with ID ${node.item} inside data.blocks!`,
+            `The Structured Text document contains an 'inlineBlock' node, but cannot find a record with ID ${node.item} inside data.inlineBlocks!`,
             node,
           );
         }

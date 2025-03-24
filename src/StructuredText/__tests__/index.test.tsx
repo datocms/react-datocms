@@ -150,8 +150,9 @@ describe('StructuredText', () => {
     };
 
     const structuredText: StructuredTextGraphQlResponse<
-      QuoteRecord | MentionRecord,
-      DocPageRecord
+      QuoteRecord,
+      DocPageRecord,
+      MentionRecord
     > = {
       value: {
         schema: 'dast',
@@ -201,6 +202,8 @@ describe('StructuredText', () => {
           quote: 'Foo bar.',
           author: 'Mark Smith',
         },
+      ],
+      inlineBlocks: [
         {
           id: '789',
           __typename: 'MentionRecord',

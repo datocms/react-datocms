@@ -9,6 +9,7 @@
   - [Props](#props)
   - [Advanced usage: the `useVideoPlayer` hook](#advanced-usage-the-usevideoplayer-hook)
     - [Example](#example-1)
+  - [Opt-in Viewer Analytics](#opt-in-viewer-analytics)
 
 <!-- END doctoc generated TOC please keep comment here to allow auto update -->
 
@@ -146,3 +147,11 @@ const props = useVideoPlayer({ data });
 
 <MuxPlayer {...props} />
 ```
+
+## Opt-in Viewer Analytics
+
+This `<VideoPlayer/>` component can OPTIONALLY collect clientside [playback and engagement metrics](https://www.mux.com/data#TechSpecs) such as playback percentages, user agents, and geography.
+
+These analytics are **disabled** by default. To enable them, you must opt in to [Mux Data](https://www.mux.com/data) integration by creating a Mux Data account (free) and providing its `envKey` to the component.
+
+For details and setup instructions, please see our on documentation on **[Streaming Video Analytics with Mux Data](https://www.datocms.com/docs/streaming-videos/streaming-video-analytics-with-mux-data)**.

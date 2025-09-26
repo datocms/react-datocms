@@ -154,4 +154,4 @@ This `<VideoPlayer/>` component can OPTIONALLY collect clientside [playback and 
 
 These analytics are **disabled** by default. To enable them, you must opt in to [Mux Data](https://www.mux.com/data) integration by creating a Mux Data account (free) and providing its `envKey` to the component.
 
-For details and setup instructions, please see our on documentation on **[Streaming Video Analytics with Mux Data](https://www.datocms.com/docs/streaming-videos/streaming-video-analytics-with-mux-data)**.
+For details and setup instructions, please see our documentation on **[Streaming Video Analytics with Mux Data](https://www.datocms.com/docs/streaming-videos/streaming-video-analytics-with-mux-data)**.

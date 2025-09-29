@@ -43,10 +43,12 @@ type PlaybackIdSources =
 /**
  * Video data as returned by the DatoCMS GraphQL Content Delivery API.
  *
- * You MUST provide `muxPlaybackId`. The `streamingUrl` property is not used.
+ * You MUST provide `muxPlaybackId` (which is a field in your GraphQL query). The `streamingUrl` property is not used here.
+ *
+ * As long as you provide `muxPlaybackId`, you can safely ignore the `playbackId` param. If you accidentally provide both, `muxPlaybackId` takes precedence.
  *
  * @property muxPlaybackId - Mux playback ID
- * @property playbackId - (Optional, fallback only) A playback ID alias for backward compatibility.
+ * @property playbackId - (Optional, fallback only) Alias for the `muxPlaybackId` param, for backward compatibility
  * @property title - Title attribute (`title`) for the video.
  * @property height - The height of the video in pixels.
  * @property width - The width of the video in pixels.

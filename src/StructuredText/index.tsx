@@ -13,6 +13,9 @@ import {
   type RenderResult,
   type RenderRule,
   type Document as StructuredTextDocument,
+  type CdaStructuredTextValue,
+  type CdaStructuredTextRecord,
+  type TypesafeCdaStructuredTextValue,
   type StructuredText as StructuredTextGraphQlResponse,
   type Record as StructuredTextGraphQlResponseRecord,
   type TypesafeStructuredText as TypesafeStructuredTextGraphQlResponse,
@@ -26,14 +29,11 @@ import React, { type ReactElement, cloneElement, isValidElement } from 'react';
 
 export { renderNodeRule, renderMarkRule, RenderError };
 
-// deprecated
-export { renderNodeRule as renderRule };
-
 export type {
-  StructuredTextGraphQlResponse,
-  TypesafeStructuredTextGraphQlResponse,
   StructuredTextDocument,
-  StructuredTextGraphQlResponseRecord,
+  CdaStructuredTextValue,
+  TypesafeCdaStructuredTextValue,
+  CdaStructuredTextRecord,
 };
 
 type AdapterReturn = ReactElement | string | null;
@@ -293,3 +293,19 @@ export function StructuredText<
 
   return result || null;
 }
+
+// ============================================================================
+// DEPRECATED EXPORTS - kept for backward compatibility
+// ============================================================================
+
+/**
+ * @deprecated Use renderNodeRule instead
+ */
+export { renderNodeRule as renderRule };
+
+/** @deprecated Use CdaStructuredTextValue */
+export type { StructuredTextGraphQlResponse };
+/** @deprecated Use TypesafeCdaStructuredTextValue */
+export type { TypesafeStructuredTextGraphQlResponse };
+/** @deprecated Use CdaStructuredTextRecord */
+export type { StructuredTextGraphQlResponseRecord };

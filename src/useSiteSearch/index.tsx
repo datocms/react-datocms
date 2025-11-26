@@ -63,8 +63,8 @@ type Highlighter = (
 
 export type UseSiteSearchConfig<Client extends GenericClient> = {
   client: Client;
-  buildTriggerId: string;
-  searchIndexId: string;
+  buildTriggerId?: string;
+  searchIndexId?: string;
   fuzzySearch?: boolean;
   resultsPerPage?: number;
   highlightMatch?: Highlighter;

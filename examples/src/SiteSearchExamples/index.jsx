@@ -12,7 +12,7 @@ export default function SiteSearchExamples() {
   const [query, setQuery] = useState('');
   const { state, error, data } = useSiteSearch({
     client,
-    buildTriggerId: '7497',
+    searchIndexId: '34759',
     // optional: you can omit it you only have one locale, or you want to find results in every locale
     initialState: { locale: 'en' },
     // optional: by default fuzzy-search is not active

@@ -1,4 +1,4 @@
-// Jest Snapshot v1, https://goo.gl/fbAQLP
+// Jest Snapshot v1, https://jestjs.io/docs/snapshot-testing
 
 exports[`StructuredText simple dast /2 with custom mark rules renders the document 1`] = `
 <StructuredText

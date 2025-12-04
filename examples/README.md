@@ -1,6 +1,43 @@
-# Getting Started with Create React App
+# react-datocms Examples
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+This is an example application demonstrating the usage of `react-datocms` library.
+
+This project uses [npm workspaces](https://docs.npmjs.com/cli/v7/using-npm/workspaces) to link to the parent `react-datocms` package.
+
+## Local Development
+
+From the **repository root**, run:
+
+```bash
+npm install         # Installs dependencies for both root and examples
+npm run build       # Builds the react-datocms library
+cd examples
+npm start           # Runs the example app
+```
+
+## Deployment Options
+
+### Option 1: Deploy with Local/Unreleased Changes (from repository root)
+
+Use this to showcase features that haven't been published to npm yet.
+
+**Netlify/Vercel Configuration:**
+- **Base directory:** (leave empty / root)
+- **Build command:** `npm run build:examples`
+- **Publish directory:** `examples/build`
+
+This builds the local version of `react-datocms` and uses it in the examples.
+
+### Option 2: Deploy with Published npm Version (from examples folder only)
+
+Use this to showcase the latest published version from npm.
+
+**Netlify/Vercel Configuration:**
+- **Base directory:** `examples`
+- **Build command:** `npm install && npm run build`
+- **Publish directory:** `build`
+
+This installs `react-datocms` from the npm registry and uses it in the examples.
 
 ## Available Scripts
 

@@ -1,6 +1,9 @@
 {
   "name": "react-datocms",
   "version": "7.2.4",
+  "workspaces": [
+    "examples"
+  ],
   "engines": {
     "node": ">=8.0.0"
   },
@@ -120,6 +123,7 @@
   },
   "scripts": {
     "build": "rimraf dist && npm run tsc:types && npm run tsc:cjs && npm run tsc:esm",
+    "build:examples": "npm run build && cd examples && npm run build",
     "format": "npm run toc && biome check --apply src && biome format --write src examples/src",
     "watch": "rimraf dist && tsc --project ./tsconfig.commonjs.json --watch",
     "prepare": "npm run test && npm run build",
@@ -140,5 +144,8 @@
     "react-intersection-observer": "^9.4.3",
     "react-string-replace": "^1.1.0",
     "use-deep-compare-effect": "^1.6.1"
+  },
+  "overrides": {
+    "cheerio": "1.0.0-rc.12"
   }
 }

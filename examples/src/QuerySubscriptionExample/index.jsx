@@ -4,7 +4,6 @@ import {
   renderMetaTags,
   useQuerySubscription,
 } from 'react-datocms';
-import { Helmet } from 'react-helmet';
 import './style.css';
 
 const RESPONSIVE_IMAGE_FRAGMENT = `
@@ -79,7 +78,7 @@ export default function QuerySubscriptionExample() {
 
   return (
     <div className="example" data-title="Full-blown example">
-      <Helmet>{renderMetaTags(metaTags)}</Helmet>
+      {renderMetaTags(metaTags)}
       <div className="status">
         {status === 'connected' && <div className="connected-badge" />}
         {statusMessage[status]}

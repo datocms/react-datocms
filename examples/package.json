@@ -5,6 +5,7 @@
   "engines": {
     "node": "22.x"
   },
+  "type": "module",
   "dependencies": {
     "@datocms/cma-client-browser": "^5.2.1",
     "react": "^19.2.3",

@@ -2,6 +2,9 @@
   "name": "datocms-react-examples",
   "version": "0.2.0",
   "private": true,
+  "engines": {
+    "node": "22.x"
+  },
   "dependencies": {
     "@datocms/cma-client-browser": "^5.2.1",
     "react": "^19.2.3",

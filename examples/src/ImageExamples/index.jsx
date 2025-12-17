@@ -37,9 +37,6 @@ const dataWithAlpha = {
 };
 
 export default function ImageExamples() {
-  const ref = useRef(null);
-  const [log, setLog] = useState([]);
-
   return (
     <>
       <div
@@ -48,16 +45,8 @@ export default function ImageExamples() {
       >
         <Image
           data={data}
-          ref={ref}
-          onLoad={() =>
-            setLog((log) => [
-              ...log,
-              `Triggered onLoad() for element ${ref.current}`,
-            ])
-          }
         />
       </div>
-      <pre>{log.join('\n')}</pre>
 
       <div className="example" data-title="Image with transparency">
         <Image data={dataWithAlpha} />

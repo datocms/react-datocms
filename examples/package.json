@@ -15,7 +15,8 @@
   },
   "scripts": {
     "start": "vite",
-    "build": "vite build"
+    "build": "vite build",
+    "setup": "echo 'Setup is no longer necessary in this version, skipping...'"
   },
   "browserslist": {
     "production": [

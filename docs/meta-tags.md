@@ -62,11 +62,10 @@ renderMetaTags([...data.page.seo, ...data.site.favicon]);
 
 This function generates React `<meta>` and `<link />` elements, so it is compatible with React packages like [`react-helmet`](https://www.npmjs.com/package/react-helmet).
 
-For a complete example take a look at our [examples directory](https://github.com/datocms/react-datocms/tree/master/examples).
-
 ```js
 import React from 'react';
 import { renderMetaTags } from 'react-datocms';
+import { Helmet } from 'react-helmet';
 
 function Page({ data }) {
   return (
@@ -78,6 +77,28 @@ function Page({ data }) {
   );
 }
 ```
+
+In React 19+, you can also directly use meta tags in JSX without any external libraries: https://react.dev/blog/2024/12/05/react-19#support-for-metadata-tags
+
+```js
+import React from 'react';
+import { renderMetaTags } from 'react-datocms';
+
+function Page({ data }) {
+  return (
+    <div>
+        {
+            renderMetaTags([...data.page.seo, ...data.site.favicon])
+            // returns an array of JSX elements like
+            // <title/>, <link/>, <meta/>, etc.
+        } 
+    </div>
+  );
+}
+```
+
+For a complete React 19 example, take a look at our [examples directory](https://github.com/datocms/react-datocms/tree/master/examples).
+
 
 ## `renderMetaTagsToString()`
 

@@ -11,7 +11,6 @@
 import React, { forwardRef } from 'react';
 
 // We use and extend Typescript types defined in the MUX player.
-
 import type MuxPlayerElement from '@mux/mux-player';
 import type { MuxPlayerProps } from '@mux/mux-player-react';
 
@@ -19,32 +18,62 @@ import type { MuxPlayerProps } from '@mux/mux-player-react';
 // choose to use the lazy version to avoid loading the web component uselessly.
 // MUX player lazy version loads internally the eager version using
 // `React.lazy()`.
-
 import MuxPlayer from '@mux/mux-player-react/lazy';
 
 // The core of this component is the `useVideoPlayer` hook: it takes
 // data from DatoCMS GraphQL API and returns props as expected by the
 // `<MuxPlayer />` component.
-
 import { useVideoPlayer } from '../useVideoPlayer/index.js';
 
 type Maybe<T> = T | null;
 type Possibly<T> = Maybe<T> | undefined;
 
+/**
+ * The playback ID is how the player knows which video to play.
+ * At least one of these is required.
+ * If both are provided, `muxPlaybackId` takes precedence.
+ * This is for backward compatibility.
+ */
+type PlaybackIdSources =
+  | { muxPlaybackId: Possibly<string> }
+  | { playbackId: Possibly<string> };
+
 // `Video` represents a fragment of data regarding a video as returned from
 // DatoCMS GraphQL API.
-
-export type Video = {
+/**
+ * Video data as returned by the DatoCMS GraphQL Content Delivery API.
+ *
+ * You MUST provide `muxPlaybackId` (which is a field in your GraphQL query). The `streamingUrl` property is not used here.
+ *
+ * As long as you provide `muxPlaybackId`, you can safely ignore the `playbackId` param. If you accidentally provide both, `muxPlaybackId` takes precedence.
+ *
+ * @property muxPlaybackId - Mux playback ID
+ * @property playbackId - (Optional, fallback only) Alias for the `muxPlaybackId` param, for backward compatibility
+ * @property title - Title attribute (`title`) for the video.
+ * @property height - The height of the video in pixels.
+ * @property width - The width of the video in pixels.
+ * @property blurUpThumb - A `data:` URI containing a blurhash placeholder image.
+ * @property [k: string] - Any additional properties are accepted but not used
+ *   by the renderer.
+ *
+ * @example
+ * ```ts
+ * const video: Video = {
+ *   muxPlaybackId: "abcdef123456",
+ *   title: "Example video",
+ *   width: 1920,
+ *   height: 1080,
+ *   blurUpThumb: "data:image/png;base64,..."
+ * };
+ * ```
+ */
+export type Video = PlaybackIdSources & {
   /** Title attribute (`title`) for the video */
   title?: Possibly<string>;
   /** The height of the video */
   height?: Possibly<number>;
   /** The width of the video */
   width?: Possibly<number>;
-  /** The MUX playbaack ID */
-  muxPlaybackId?: Possibly<string>;
-  /** The MUX playbaack ID */
-  playbackId?: Possibly<string>;
   /** A data: URI containing a blurhash for the video  */
   blurUpThumb?: Possibly<string>;
   /** Other data can be passed, but they have no effect on rendering the player */
@@ -70,7 +99,7 @@ export const VideoPlayer: (
   VideoPlayerProps
 >((props, ref) => {
   const {
-    data = {},
+    data = { muxPlaybackId: undefined },
     disableCookies = true,
     disableTracking = true,
     preload = 'metadata',

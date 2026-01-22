@@ -43,9 +43,7 @@ export default function ImageExamples() {
         className="example"
         data-title="Standard behaviour: scale the dimensions down for smaller viewports, but maintain the original dimensions for larger viewports"
       >
-        <Image
-          data={data}
-        />
+        <Image data={data} />
       </div>
 
       <div className="example" data-title="Image with transparency">

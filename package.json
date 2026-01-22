@@ -48,6 +48,16 @@
       "require": "./dist/cjs/useVideoPlayer/index.js",
       "import": "./dist/esm/useVideoPlayer/index.js",
       "types": "./dist/types/useVideoPlayer/index.d.ts"
+    },
+    "./use-content-link": {
+      "require": "./dist/cjs/useContentLink/index.js",
+      "import": "./dist/esm/useContentLink/index.js",
+      "types": "./dist/types/useContentLink/index.d.ts"
+    },
+    "./content-link": {
+      "require": "./dist/cjs/ContentLink/index.js",
+      "import": "./dist/esm/ContentLink/index.js",
+      "types": "./dist/types/ContentLink/index.d.ts"
     }
   },
   "typesVersions": {
@@ -75,6 +85,12 @@
       ],
       "use-video-player": [
         "./dist/types/useVideoPlayer/index.d.ts"
+      ],
+      "use-content-link": [
+        "./dist/types/useContentLink/index.d.ts"
+      ],
+      "content-link": [
+        "./dist/types/ContentLink/index.d.ts"
       ]
     }
   },
@@ -133,6 +149,7 @@
     "react": ">= 16.12.0 || ^19.0.0-rc"
   },
   "dependencies": {
+    "@datocms/content-link": "^0.3.6",
     "@mux/mux-player-react": "*",
     "datocms-listen": "^0.1.9",
     "datocms-structured-text-generic-html-renderer": "^5.0.0",

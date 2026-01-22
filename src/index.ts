@@ -7,3 +7,6 @@ export * from './VideoPlayer/index.js';
 export * from './useQuerySubscription/index.js';
 export * from './useSiteSearch/index.js';
 export * from './useVideoPlayer/index.js';
+
+export * from './ContentLink/index.js';
+export * from './useContentLink/index.js';

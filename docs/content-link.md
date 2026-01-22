@@ -1,42 +1,4 @@
-<!-- START doctoc generated TOC please keep comment here to allow auto update -->
-<!-- DON'T EDIT THIS SECTION, INSTEAD RE-RUN doctoc TO UPDATE -->
-**Table of Contents**  *generated with [DocToc](https://github.com/thlorenz/doctoc)*
-
-- [`<ContentLink/>` component for Visual Editing with click-to-edit overlays](#contentlink-component-for-visual-editing-with-click-to-edit-overlays)
-  - [What is Visual Editing?](#what-is-visual-editing)
-  - [Out-of-the-box features](#out-of-the-box-features)
-  - [Installation](#installation)
-  - [Basic Setup](#basic-setup)
-    - [1. Fetch content with stega encoding](#1-fetch-content-with-stega-encoding)
-    - [2. Add the ContentLink component](#2-add-the-contentlink-component)
-  - [Framework integrations](#framework-integrations)
-    - [Next.js App Router](#nextjs-app-router)
-    - [React Router](#react-router)
-  - [Enabling click-to-edit](#enabling-click-to-edit)
-    - [1. Via prop (persistent)](#1-via-prop-persistent)
-    - [2. Via keyboard shortcut (temporary)](#2-via-keyboard-shortcut-temporary)
-  - [Flash-all highlighting](#flash-all-highlighting)
-  - [Props](#props)
-  - [Advanced usage: the `useContentLink` hook](#advanced-usage-the-usecontentlink-hook)
-    - [Hook API](#hook-api)
-    - [Example: Custom editing toolbar](#example-custom-editing-toolbar)
-    - [Example: Conditional editing in different environments](#example-conditional-editing-in-different-environments)
-  - [StructuredText integration](#structuredtext-integration)
-    - [Edit groups](#edit-groups)
-    - [Edit boundaries for embedded blocks](#edit-boundaries-for-embedded-blocks)
-    - [Complete example with both attributes](#complete-example-with-both-attributes)
-  - [Manual overlays](#manual-overlays)
-  - [Low-level utilities](#low-level-utilities)
-    - [`decodeStega`](#decodestega)
-    - [`stripStega`](#stripstega)
-  - [Troubleshooting](#troubleshooting)
-    - [Click-to-edit overlays not appearing](#click-to-edit-overlays-not-appearing)
-    - [Navigation not syncing with Web Previews plugin](#navigation-not-syncing-with-web-previews-plugin)
-    - [StructuredText blocks not clickable](#structuredtext-blocks-not-clickable)
-
-<!-- END doctoc generated TOC please keep comment here to allow auto update -->
-
-# `<ContentLink/>` component for Visual Editing with click-to-edit overlays
+# ContentLink component for Visual Editing
 
 `<ContentLink />` is a React component that enables **Visual Editing** for your DatoCMS content. It allows content editors to click directly on content in your website preview to edit it in the DatoCMS interface, making content management intuitive and efficient.
 
@@ -46,6 +8,42 @@ Visual Editing works by:
 - Integrating with the DatoCMS [Web Previews plugin](https://www.datocms.com/marketplace/plugins/i/datocms-plugin-web-previews) for seamless editing
 - Supporting keyboard shortcuts (Alt/Option key) for temporary click-to-edit mode
 - Providing bidirectional communication between your preview and the DatoCMS editor
+
+<!-- START doctoc generated TOC please keep comment here to allow auto update -->
+<!-- DON'T EDIT THIS SECTION, INSTEAD RE-RUN doctoc TO UPDATE -->
+
+- [What is Visual Editing?](#what-is-visual-editing)
+- [Out-of-the-box features](#out-of-the-box-features)
+- [Installation](#installation)
+- [Basic Setup](#basic-setup)
+  - [1. Fetch content with stega encoding](#1-fetch-content-with-stega-encoding)
+  - [2. Add the ContentLink component](#2-add-the-contentlink-component)
+- [Framework integrations](#framework-integrations)
+  - [Next.js App Router](#nextjs-app-router)
+  - [React Router](#react-router)
+- [Enabling click-to-edit](#enabling-click-to-edit)
+  - [1. Via prop (persistent)](#1-via-prop-persistent)
+  - [2. Via keyboard shortcut (temporary)](#2-via-keyboard-shortcut-temporary)
+- [Flash-all highlighting](#flash-all-highlighting)
+- [Props](#props)
+- [Advanced usage: the `useContentLink` hook](#advanced-usage-the-usecontentlink-hook)
+  - [Hook API](#hook-api)
+  - [Example: Custom editing toolbar](#example-custom-editing-toolbar)
+  - [Example: Conditional editing in different environments](#example-conditional-editing-in-different-environments)
+- [StructuredText integration](#structuredtext-integration)
+  - [Edit groups](#edit-groups)
+  - [Edit boundaries for embedded blocks](#edit-boundaries-for-embedded-blocks)
+  - [Complete example with both attributes](#complete-example-with-both-attributes)
+- [Manual overlays](#manual-overlays)
+- [Low-level utilities](#low-level-utilities)
+  - [`decodeStega`](#decodestega)
+  - [`stripStega`](#stripstega)
+- [Troubleshooting](#troubleshooting)
+  - [Click-to-edit overlays not appearing](#click-to-edit-overlays-not-appearing)
+  - [Navigation not syncing with Web Previews plugin](#navigation-not-syncing-with-web-previews-plugin)
+  - [StructuredText blocks not clickable](#structuredtext-blocks-not-clickable)
+
+<!-- END doctoc generated TOC please keep comment here to allow auto update -->
 
 ## What is Visual Editing?
 

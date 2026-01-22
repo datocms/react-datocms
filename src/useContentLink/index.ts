@@ -64,8 +64,16 @@ export function useContentLink(
   const { enabled = true, onNavigateTo, root } = options;
 
   const controllerRef = useRef<Controller | null>(null);
+  // Store the callback in a ref to avoid recreating the controller when it changes
+  const onNavigateToRef = useRef(onNavigateTo);
 
-  // Create/dispose controller based on enabled flag and dependencies
+  // Keep the callback ref up to date
+  useEffect(() => {
+    onNavigateToRef.current = onNavigateTo;
+  }, [onNavigateTo]);
+
+  // Create/dispose controller based on enabled flag and root only
+  // The onNavigateTo callback is accessed via ref, so changes don't trigger recreation
   useEffect(() => {
     if (!enabled) {
       if (controllerRef.current) {
@@ -76,7 +84,7 @@ export function useContentLink(
     }
 
     const controller = createController({
-      onNavigateTo,
+      onNavigateTo: (path: string) => onNavigateToRef.current?.(path),
       root: root?.current || undefined,
     });
 
@@ -86,7 +94,7 @@ export function useContentLink(
       controller.dispose();
       controllerRef.current = null;
     };
-  }, [enabled, onNavigateTo, root]);
+  }, [enabled, root]);
 
   // Stable method references that call through to the controller
   const enableClickToEdit = useCallback(

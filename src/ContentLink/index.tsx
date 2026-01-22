@@ -6,7 +6,7 @@ import {
   useContentLink,
 } from '../useContentLink/index.js';
 
-export type ContentLinkProps = UseContentLinkOptions & {
+export type ContentLinkProps = Omit<UseContentLinkOptions, 'enabled'> & {
   /** Current pathname to sync with Web Previews plugin */
   currentPath?: string;
   /** Enable click-to-edit on mount. Pass true for default behavior or an object with scrollToNearestTarget. If undefined, click-to-edit is disabled. */
@@ -84,9 +84,11 @@ export function ContentLink(props: ContentLinkProps): null {
     ...useContentLinkOptions
   } = props;
 
-  const { enableClickToEdit, setCurrentPath } = useContentLink(
-    useContentLinkOptions,
-  );
+  const { enableClickToEdit, setCurrentPath } = useContentLink({
+    ...useContentLinkOptions,
+    // Always strip stega encoding in the component for clean DOM
+    enabled: { stripStega: true },
+  });
 
   // Sync current path when it changes
   useEffect(() => {
@@ -95,7 +97,7 @@ export function ContentLink(props: ContentLinkProps): null {
     }
   }, [currentPath, setCurrentPath]);
 
-  // Optionally enable click-to-edit on mount
+  // Enable click-to-edit on mount if requested
   useEffect(() => {
     if (enableClickToEditOptions !== undefined) {
       enableClickToEdit(

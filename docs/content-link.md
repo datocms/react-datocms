@@ -241,11 +241,10 @@ The `<ContentLink />` component accepts the following props:
 
 | Prop                | Type                                           | Default | Description                                                                                                                                            |
 | ------------------- | ---------------------------------------------- | ------- | ------------------------------------------------------------------------------------------------------------------------------------------------------ |
-| `enabled`           | `boolean`                                      | `true`  | Whether the controller is enabled                                                                                                                      |
 | `onNavigateTo`      | `(path: string) => void`                       | -       | Callback when [Web Previews plugin](https://www.datocms.com/marketplace/plugins/i/datocms-plugin-web-previews) requests navigation to a different page |
 | `currentPath`       | `string`                                       | -       | Current pathname to sync with [Web Previews plugin](https://www.datocms.com/marketplace/plugins/i/datocms-plugin-web-previews)                         |
 | `enableClickToEdit` | `true \| { scrollToNearestTarget: true }`      | -       | Enable click-to-edit overlays on mount. Pass `true` or an object with options. If undefined, click-to-edit is disabled                                |
-| `root`              | `React.RefObject<ParentNode>`                  | -       | Ref to limit scanning to this root element instead of the entire document                                                                              |
+| `root`              | `React.RefObject<HTMLElement>`                 | -       | Ref to limit scanning to this root element instead of the entire document                                                                              |
 
 ## Advanced usage: the `useContentLink` hook
 
@@ -268,11 +267,26 @@ const {
   flashAll,                // Highlight all editable elements
   setCurrentPath,          // Notify Web Previews plugin of current path
 } = useContentLink({
+  // enabled can be:
+  // - true (default): Enable with default settings (stega encoding preserved)
+  // - false: Disable the controller
+  // - { stripStega: true }: Enable and strip stega encoding for clean DOM
   enabled: true,
   onNavigateTo: (path) => { /* handle navigation */ },
   root: elementRef,
 });
 ```
+
+**Options:**
+
+- `enabled?: boolean | { stripStega: boolean }` - Controls whether the controller is enabled and how it handles stega encoding:
+  - `true` (default): Enables the controller with stega encoding preserved in the DOM (allows controller recreation)
+  - `false`: Disables the controller completely
+  - `{ stripStega: true }`: Enables the controller and permanently removes stega encoding from text nodes for clean `textContent` access
+- `onNavigateTo?: (path: string) => void` - Callback when Web Previews plugin requests navigation
+- `root?: React.RefObject<HTMLElement>` - Ref to limit scanning to this root element
+
+**Note:** The `<ContentLink />` component always uses `stripStega: true` for clean DOM output.
 
 ### Example: Custom editing toolbar
 

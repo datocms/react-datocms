@@ -8,12 +8,25 @@ export type { Controller } from '@datocms/content-link';
 export { decodeStega, stripStega } from '@datocms/content-link';
 
 export type UseContentLinkOptions = {
-  /** Whether the controller is enabled (default: true) */
-  enabled?: boolean;
+  /**
+   * Whether the controller is enabled, or an options object.
+   * - Pass `true` (default): Enables the controller with stega encoding preserved (allows controller recreation)
+   * - Pass `false`: Disables the controller completely
+   * - Pass `{ stripStega: true }`: Enables the controller and strips stega encoding after stamping
+   *
+   * When stripStega is false (default): Stega encoding remains in the DOM, allowing controllers
+   * to be disposed and recreated on the same page. The invisible characters don't affect display
+   * but preserve the source of truth.
+   *
+   * When stripStega is true: Stega encoding is permanently removed from text nodes, providing
+   * clean textContent for programmatic access. However, recreating a controller on the same page
+   * won't detect elements since the encoding is lost.
+   */
+  enabled?: boolean | { stripStega: boolean };
   /** Callback when Web Previews plugin requests navigation */
   onNavigateTo?: (path: string) => void;
   /** Ref to limit scanning to this root instead of document */
-  root?: React.RefObject<ParentNode>;
+  root?: React.RefObject<HTMLElement>;
 };
 
 export type UseContentLinkResult = {
@@ -75,7 +88,10 @@ export function useContentLink(
   // Create/dispose controller based on enabled flag and root only
   // The onNavigateTo callback is accessed via ref, so changes don't trigger recreation
   useEffect(() => {
-    if (!enabled) {
+    // Check if controller is disabled
+    const isEnabled = enabled === true || (typeof enabled === 'object' && enabled !== null);
+
+    if (!isEnabled) {
       if (controllerRef.current) {
         controllerRef.current.dispose();
         controllerRef.current = null;
@@ -83,9 +99,13 @@ export function useContentLink(
       return;
     }
 
+    // Extract stripStega option if enabled is an object
+    const stripStega = typeof enabled === 'object' ? enabled.stripStega : false;
+
     const controller = createController({
       onNavigateTo: (path: string) => onNavigateToRef.current?.(path),
       root: root?.current || undefined,
+      stripStega,
     });
 
     controllerRef.current = controller;

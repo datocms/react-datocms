@@ -1,6 +1,6 @@
 {
   "name": "react-datocms",
-  "version": "7.2.6",
+  "version": "7.2.7",
   "engines": {
     "node": ">=8.0.0"
   },

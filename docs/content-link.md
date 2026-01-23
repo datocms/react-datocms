@@ -244,6 +244,7 @@ The `<ContentLink />` component accepts the following props:
 | `onNavigateTo`      | `(path: string) => void`                       | -       | Callback when [Web Previews plugin](https://www.datocms.com/marketplace/plugins/i/datocms-plugin-web-previews) requests navigation to a different page |
 | `currentPath`       | `string`                                       | -       | Current pathname to sync with [Web Previews plugin](https://www.datocms.com/marketplace/plugins/i/datocms-plugin-web-previews)                         |
 | `enableClickToEdit` | `true \| { scrollToNearestTarget: true }`      | -       | Enable click-to-edit overlays on mount. Pass `true` or an object with options. If undefined, click-to-edit is disabled                                |
+| `stripStega`        | `boolean`                                      | -       | Whether to strip stega encoding from text nodes after stamping                                                                                         |
 | `root`              | `React.RefObject<HTMLElement>`                 | -       | Ref to limit scanning to this root element instead of the entire document                                                                              |
 
 ## Advanced usage: the `useContentLink` hook
@@ -286,7 +287,7 @@ const {
 - `onNavigateTo?: (path: string) => void` - Callback when Web Previews plugin requests navigation
 - `root?: React.RefObject<HTMLElement>` - Ref to limit scanning to this root element
 
-**Note:** The `<ContentLink />` component always uses `stripStega: true` for clean DOM output.
+**Note:** The `<ContentLink />` component allows controlling stega stripping through the `stripStega` prop. When undefined, the underlying library's default behavior is used.
 
 ### Example: Custom editing toolbar
 

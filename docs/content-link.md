@@ -239,13 +239,13 @@ The `true` parameter scrolls to the nearest editable element, useful on long pag
 
 The `<ContentLink />` component accepts the following props:
 
-| Prop                | Type                                           | Default | Description                                                                                                                                            |
-| ------------------- | ---------------------------------------------- | ------- | ------------------------------------------------------------------------------------------------------------------------------------------------------ |
-| `onNavigateTo`      | `(path: string) => void`                       | -       | Callback when [Web Previews plugin](https://www.datocms.com/marketplace/plugins/i/datocms-plugin-web-previews) requests navigation to a different page |
-| `currentPath`       | `string`                                       | -       | Current pathname to sync with [Web Previews plugin](https://www.datocms.com/marketplace/plugins/i/datocms-plugin-web-previews)                         |
-| `enableClickToEdit` | `true \| { scrollToNearestTarget: true }`      | -       | Enable click-to-edit overlays on mount. Pass `true` or an object with options. If undefined, click-to-edit is disabled                                |
-| `stripStega`        | `boolean`                                      | -       | Whether to strip stega encoding from text nodes after stamping                                                                                         |
-| `root`              | `React.RefObject<HTMLElement>`                 | -       | Ref to limit scanning to this root element instead of the entire document                                                                              |
+| Prop                | Type                                      | Default | Description                                                                                                                                            |
+| ------------------- | ----------------------------------------- | ------- | ------------------------------------------------------------------------------------------------------------------------------------------------------ |
+| `onNavigateTo`      | `(path: string) => void`                  | -       | Callback when [Web Previews plugin](https://www.datocms.com/marketplace/plugins/i/datocms-plugin-web-previews) requests navigation to a different page |
+| `currentPath`       | `string`                                  | -       | Current pathname to sync with [Web Previews plugin](https://www.datocms.com/marketplace/plugins/i/datocms-plugin-web-previews)                         |
+| `enableClickToEdit` | `true \| { scrollToNearestTarget: true }` | -       | Enable click-to-edit overlays on mount. Pass `true` or an object with options. If undefined, click-to-edit is disabled                                 |
+| `stripStega`        | `boolean`                                 | -       | Whether to strip stega encoding from text nodes after stamping                                                                                         |
+| `root`              | `React.RefObject<HTMLElement>`            | -       | Ref to limit scanning to this root element instead of the entire document                                                                              |
 
 ## Advanced usage: the `useContentLink` hook
 
@@ -524,7 +524,7 @@ if (decoded) {
 
 ### `stripStega`
 
-Removes stega encoding from any data type (strings, objects, arrays, primitives) by converting to JSON, removing all stega-encoded segments using the global VERCEL_STEGA_REGEX, and parsing back to the original type:
+Removes stega encoding from any data type (strings, objects, arrays, primitives):
 
 ```typescript
 import { stripStega } from 'react-datocms';

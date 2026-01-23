@@ -11,6 +11,8 @@ export type ContentLinkProps = Omit<UseContentLinkOptions, 'enabled'> & {
   currentPath?: string;
   /** Enable click-to-edit on mount. Pass true for default behavior or an object with scrollToNearestTarget. If undefined, click-to-edit is disabled. */
   enableClickToEdit?: true | { scrollToNearestTarget: true };
+  /** Whether to strip stega encoding from text nodes after stamping. */
+  stripStega?: boolean;
 };
 
 /**
@@ -81,13 +83,13 @@ export function ContentLink(props: ContentLinkProps): null {
   const {
     currentPath,
     enableClickToEdit: enableClickToEditOptions,
+    stripStega,
     ...useContentLinkOptions
   } = props;
 
   const { enableClickToEdit, setCurrentPath } = useContentLink({
     ...useContentLinkOptions,
-    // Always strip stega encoding in the component for clean DOM
-    enabled: { stripStega: true },
+    enabled: stripStega !== undefined ? { stripStega } : true,
   });
 
   // Sync current path when it changes
@@ -101,7 +103,9 @@ export function ContentLink(props: ContentLinkProps): null {
   useEffect(() => {
     if (enableClickToEditOptions !== undefined) {
       enableClickToEdit(
-        enableClickToEditOptions === true ? undefined : enableClickToEditOptions
+        enableClickToEditOptions === true
+          ? undefined
+          : enableClickToEditOptions,
       );
     }
   }, [enableClickToEditOptions, enableClickToEdit]);

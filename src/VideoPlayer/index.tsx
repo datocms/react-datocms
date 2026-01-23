@@ -37,6 +37,8 @@ type Possibly<T> = Maybe<T> | undefined;
 export type Video = {
   /** Title attribute (`title`) for the video */
   title?: Possibly<string>;
+  /** Alt attribute used for content link integration (passed as data-datocms-content-link-source) */
+  alt?: Possibly<string>;
   /** The height of the video */
   height?: Possibly<number>;
   /** The width of the video */
@@ -92,6 +94,26 @@ export const VideoPlayer: (
     ...styleFromProps,
   };
 
+  // Extract alt for DatoCMS Content Link integration
+  // See: https://github.com/datocms/content-link
+  const { alt } = data;
+
+  // Note: Custom data-* attributes can be passed to the underlying <mux-player> web component
+  // in two ways:
+  //
+  // 1. Kebab-case (passes through as-is):
+  //    <VideoPlayer data-player-id="my-player" />
+  //
+  // 2. CamelCase (auto-converts to kebab-case):
+  //    <VideoPlayer dataPlayerId="my-player" />
+  //
+  // Both result in: <mux-player data-player-id="my-player">
+  //
+  // The MuxPlayer React component transforms camelCase props to kebab-case to match
+  // web component attribute conventions. Any props not explicitly handled by VideoPlayer
+  // are spread via {...rest} and forwarded to MuxPlayer, which then applies them to
+  // the underlying <mux-player> element.
+
   return (
     <MuxPlayer
       ref={ref}
@@ -103,6 +125,7 @@ export const VideoPlayer: (
       playbackId={playbackId}
       style={style}
       placeholder={placeholder}
+      data-datocms-content-link-source={alt}
       {...rest}
     />
   );

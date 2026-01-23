@@ -35,6 +35,8 @@ Visual Editing works by:
   - [Edit boundaries for embedded blocks](#edit-boundaries-for-embedded-blocks)
   - [Complete example with both attributes](#complete-example-with-both-attributes)
 - [Manual overlays](#manual-overlays)
+  - [Using `data-datocms-content-link-url`](#using-data-datocms-content-link-url)
+  - [Using `data-datocms-content-link-source`](#using-data-datocms-content-link-source)
 - [Low-level utilities](#low-level-utilities)
   - [`decodeStega`](#decodestega)
   - [`stripStega`](#stripstega)
@@ -474,7 +476,11 @@ function BlogPost({ post }) {
 
 ## Manual overlays
 
-In some cases, you may want to manually create click-to-edit overlays for content that doesn't have stega encoding. You can do this by adding the `data-datocms-content-link-url` attribute with a DatoCMS editing URL:
+In some cases, you may want to manually create click-to-edit overlays for content that doesn't have stega encoding.
+
+### Using `data-datocms-content-link-url`
+
+You can add the `data-datocms-content-link-url` attribute with a DatoCMS editing URL:
 
 ```jsx
 function ManualOverlay({ record }) {
@@ -500,7 +506,20 @@ query {
 }
 ```
 
-This creates a clickable overlay even if the `title` and `description` fields don't have stega encoding.
+### Using `data-datocms-content-link-source`
+
+For elements without visible stega-encoded content, use the [`data-datocms-content-link-source`](https://github.com/datocms/content-link?tab=readme-ov-file#stamping-elements-via-data-datocms-content-link-source) attribute to attach stega metadata directly:
+
+```jsx
+// product.asset.video.alt contains stega-encoded info
+<video
+  src={product.asset.video.url}
+  data-datocms-content-link-source={product.asset.video.alt}
+  controls
+/>
+```
+
+This is useful for structural elements like `<video>`, `<audio>`, or `<iframe>` where stega encoding in visible text would be problematic.
 
 ## Low-level utilities
 

@@ -78,6 +78,9 @@ const query = gql`
           # if provided, it shows a blurred placeholder for the video
           blurUpThumb
 
+          # if provided, it enables DatoCMS Content Link for click-to-edit overlays
+          alt
+
           # you can include more data here: they will be ignored by the component
         }
       }

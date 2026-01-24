@@ -27,6 +27,7 @@ import MuxPlayer from '@mux/mux-player-react/lazy';
 // `<MuxPlayer />` component.
 
 import { useVideoPlayer } from '../useVideoPlayer/index.js';
+import { decodeStega } from '@datocms/content-link';
 
 type Maybe<T> = T | null;
 type Possibly<T> = Maybe<T> | undefined;
@@ -98,6 +99,9 @@ export const VideoPlayer: (
   // See: https://github.com/datocms/content-link
   const { alt } = data;
 
+  // Only include data-datocms-content-link-source if alt contains stega encoding
+  const contentLinkSource = alt && decodeStega(alt) ? alt : undefined;
+
   // Note: Custom data-* attributes can be passed to the underlying <mux-player> web component
   // in two ways:
   //
@@ -125,7 +129,7 @@ export const VideoPlayer: (
       playbackId={playbackId}
       style={style}
       placeholder={placeholder}
-      data-datocms-content-link-source={alt}
+      data-datocms-content-link-source={contentLinkSource}
       {...rest}
     />
   );

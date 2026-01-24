@@ -26,8 +26,8 @@ import MuxPlayer from '@mux/mux-player-react/lazy';
 // data from DatoCMS GraphQL API and returns props as expected by the
 // `<MuxPlayer />` component.
 
-import { useVideoPlayer } from '../useVideoPlayer/index.js';
 import { decodeStega } from '@datocms/content-link';
+import { useVideoPlayer } from '../useVideoPlayer/index.js';
 
 type Maybe<T> = T | null;
 type Possibly<T> = Maybe<T> | undefined;

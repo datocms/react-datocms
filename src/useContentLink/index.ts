@@ -89,7 +89,8 @@ export function useContentLink(
   // The onNavigateTo callback is accessed via ref, so changes don't trigger recreation
   useEffect(() => {
     // Check if controller is disabled
-    const isEnabled = enabled === true || (typeof enabled === 'object' && enabled !== null);
+    const isEnabled =
+      enabled === true || (typeof enabled === 'object' && enabled !== null);
 
     if (!isEnabled) {
       if (controllerRef.current) {

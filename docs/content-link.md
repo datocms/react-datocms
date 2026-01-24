@@ -137,15 +137,15 @@ For full [Web Previews plugin](https://www.datocms.com/marketplace/plugins/i/dat
 ```jsx
 'use client';
 
-import { ContentLink } from 'react-datocms';
+import { ContentLink as DatoContentLink } from 'react-datocms';
 import { useRouter, usePathname } from 'next/navigation';
 
-export function VisualEditing() {
+export function ContentLink() {
   const router = useRouter();
   const pathname = usePathname();
 
   return (
-    <ContentLink
+    <DatoContentLink
       onNavigateTo={(path) => router.push(path)}
       currentPath={pathname}
     />
@@ -157,13 +157,13 @@ Then include this in your root layout:
 
 ```jsx
 // app/layout.tsx
-import { VisualEditing } from './VisualEditing';
+import { ContentLink } from './ContentLink';
 
 export default function RootLayout({ children }) {
   return (
     <html>
       <body>
-        <VisualEditing />
+        <ContentLink />
         {children}
       </body>
     </html>
@@ -174,15 +174,15 @@ export default function RootLayout({ children }) {
 ### React Router
 
 ```jsx
-import { ContentLink } from 'react-datocms';
+import { ContentLink as DatoContentLink } from 'react-datocms';
 import { useNavigate, useLocation } from 'react-router-dom';
 
-export function VisualEditing() {
+export function ContentLink() {
   const navigate = useNavigate();
   const location = useLocation();
 
   return (
-    <ContentLink
+    <DatoContentLink
       onNavigateTo={(path) => navigate(path)}
       currentPath={location.pathname}
     />

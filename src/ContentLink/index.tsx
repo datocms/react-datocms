@@ -9,8 +9,8 @@ import {
 export type ContentLinkProps = Omit<UseContentLinkOptions, 'enabled'> & {
   /** Current pathname to sync with Web Previews plugin */
   currentPath?: string;
-  /** Enable click-to-edit on mount. Pass true for default behavior or an object with scrollToNearestTarget. If undefined, click-to-edit is disabled. */
-  enableClickToEdit?: true | { scrollToNearestTarget: true };
+  /** Enable click-to-edit on mount. Pass true for default behavior or an object with scrollToNearestTarget. If undefined or false, click-to-edit is disabled. */
+  enableClickToEdit?: boolean | { scrollToNearestTarget: true };
   /** Whether to strip stega encoding from text nodes after stamping. */
   stripStega?: boolean;
 };
@@ -101,7 +101,10 @@ export function ContentLink(props: ContentLinkProps): null {
 
   // Enable click-to-edit on mount if requested
   useEffect(() => {
-    if (enableClickToEditOptions !== undefined) {
+    if (
+      enableClickToEditOptions !== undefined &&
+      enableClickToEditOptions !== false
+    ) {
       enableClickToEdit(
         enableClickToEditOptions === true
           ? undefined

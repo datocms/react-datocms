@@ -144,7 +144,20 @@ export function useContentLink(
 
   // Stable method references that call through to the controller
   const enableClickToEdit = useCallback((opts?: ClickToEditOptions) => {
-    controllerRef.current?.enableClickToEdit(opts);
+    // If hoverOnly is true, check if the device supports hover
+    if (opts?.hoverOnly) {
+      const supportsHover =
+        typeof window !== 'undefined' &&
+        window.matchMedia('(hover: hover)').matches;
+      if (!supportsHover) {
+        // Don't enable click-to-edit on touch-only devices
+        return;
+      }
+    }
+
+    controllerRef.current?.enableClickToEdit(
+      opts?.scrollToNearestTarget ? { scrollToNearestTarget: true } : undefined,
+    );
   }, []);
 
   const disableClickToEdit = useCallback(() => {

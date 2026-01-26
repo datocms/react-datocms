@@ -2,6 +2,7 @@
 
 import { useEffect } from 'react';
 import {
+  type ClickToEditOptions,
   type UseContentLinkOptions,
   useContentLink,
 } from '../useContentLink/index.js';
@@ -9,8 +10,22 @@ import {
 export type ContentLinkProps = Omit<UseContentLinkOptions, 'enabled'> & {
   /** Current pathname to sync with Web Previews plugin */
   currentPath?: string;
-  /** Enable click-to-edit on mount. Pass true for default behavior or an object with scrollToNearestTarget. If undefined or false, click-to-edit is disabled. */
-  enableClickToEdit?: boolean | { scrollToNearestTarget: true };
+  /**
+   * Whether to enable click-to-edit overlays on mount, or options to configure them.
+   *
+   * - `true`: Enable click-to-edit mode immediately
+   * - `{ scrollToNearestTarget: true }`: Enable and scroll to nearest editable if none visible
+   * - `{ hoverOnly: true }`: Only enable on devices with hover capability (non-touch)
+   * - `false`/`undefined`: Don't enable automatically (use Alt/Option key to toggle)
+   *
+   * @example
+   * ```tsx
+   * <ContentLink enableClickToEdit={true} />
+   * <ContentLink enableClickToEdit={{ scrollToNearestTarget: true }} />
+   * <ContentLink enableClickToEdit={{ hoverOnly: true, scrollToNearestTarget: true }} />
+   * ```
+   */
+  enableClickToEdit?: boolean | ClickToEditOptions;
   /** Whether to strip stega encoding from text nodes after stamping. */
   stripStega?: boolean;
 };

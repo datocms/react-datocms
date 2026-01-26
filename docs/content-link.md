@@ -200,11 +200,25 @@ There are two ways to enable click-to-edit mode:
 <ContentLink enableClickToEdit={true} />
 ```
 
-Or with scroll-to-nearest option:
+Or with additional options:
 
 ```jsx
+// Scroll to nearest editable element if none is visible
 <ContentLink enableClickToEdit={{ scrollToNearestTarget: true }} />
+
+// Only enable on devices with hover capability (non-touch)
+<ContentLink enableClickToEdit={{ hoverOnly: true }} />
+
+// Combine both options
+<ContentLink enableClickToEdit={{ hoverOnly: true, scrollToNearestTarget: true }} />
 ```
+
+**Available options (`ClickToEditOptions`):**
+
+| Option | Type | Default | Description |
+| ------ | ---- | ------- | ----------- |
+| `scrollToNearestTarget` | `boolean` | `false` | Automatically scroll to the nearest editable element if none is currently visible in the viewport |
+| `hoverOnly` | `boolean` | `false` | Only enable click-to-edit on devices that support hover (non-touch). Uses `window.matchMedia('(hover: hover)')` to detect hover capability. On touch-only devices, users can still toggle manually with Alt/Option key |
 
 This enables click-to-edit overlays immediately and keeps them visible.
 
@@ -245,7 +259,7 @@ The `<ContentLink />` component accepts the following props:
 | ------------------- | ----------------------------------------- | ------- | ------------------------------------------------------------------------------------------------------------------------------------------------------ |
 | `onNavigateTo`      | `(path: string) => void`                  | -       | Callback when [Web Previews plugin](https://www.datocms.com/marketplace/plugins/i/datocms-plugin-web-previews) requests navigation to a different page |
 | `currentPath`       | `string`                                  | -       | Current pathname to sync with [Web Previews plugin](https://www.datocms.com/marketplace/plugins/i/datocms-plugin-web-previews)                         |
-| `enableClickToEdit` | `true \| { scrollToNearestTarget: true }` | -       | Enable click-to-edit overlays on mount. Pass `true` or an object with options. If undefined, click-to-edit is disabled                                 |
+| `enableClickToEdit` | `boolean \| ClickToEditOptions` | -       | Enable click-to-edit overlays on mount. Pass `true` or an object with options. If `false`/`undefined`, click-to-edit is disabled (use Alt/Option key to toggle) |
 | `stripStega`        | `boolean`                                 | -       | Whether to strip stega encoding from text nodes after stamping                                                                                         |
 | `root`              | `React.RefObject<HTMLElement>`            | -       | Ref to limit scanning to this root element instead of the entire document                                                                              |
 

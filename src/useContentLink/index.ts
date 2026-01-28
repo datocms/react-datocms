@@ -4,8 +4,8 @@ import { type Controller, createController } from '@datocms/content-link';
 import { useCallback, useEffect, useRef } from 'react';
 
 // Re-export types and utilities from @datocms/content-link for convenience
-export type { Controller } from '@datocms/content-link';
 export { decodeStega, stripStega } from '@datocms/content-link';
+export type { Controller } from '@datocms/content-link';
 
 export type UseContentLinkOptions = {
   /**
@@ -144,24 +144,19 @@ export function useContentLink(
 
   // Stable method references that call through to the controller
   const enableClickToEdit = useCallback((opts?: ClickToEditOptions) => {
-    // Never enable click-to-edit inside an iframe
-    if (typeof window !== 'undefined' && window.parent !== window) {
+    // If hoverOnly is true, check if the device supports hover
+    if (
+      opts?.hoverOnly &&
+      (typeof window === 'undefined' ||
+        !window.matchMedia('(hover: hover)').matches)
+    ) {
       return;
     }
 
-    // If hoverOnly is true, check if the device supports hover
-    if (opts?.hoverOnly) {
-      const supportsHover =
-        typeof window !== 'undefined' &&
-        window.matchMedia('(hover: hover)').matches;
-      if (!supportsHover) {
-        // Don't enable click-to-edit on touch-only devices
-        return;
-      }
-    }
-
     controllerRef.current?.enableClickToEdit(
-      opts?.scrollToNearestTarget ? { scrollToNearestTarget: true } : undefined,
+      opts?.scrollToNearestTarget
+        ? { scrollToNearestTarget: opts.scrollToNearestTarget }
+        : undefined,
     );
   }, []);
 

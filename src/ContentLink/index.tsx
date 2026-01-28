@@ -116,16 +116,18 @@ export function ContentLink(props: ContentLinkProps): null {
 
   // Enable click-to-edit on mount if requested
   useEffect(() => {
-    if (
-      enableClickToEditOptions !== undefined &&
-      enableClickToEditOptions !== false
-    ) {
-      enableClickToEdit(
-        enableClickToEditOptions === true
-          ? undefined
-          : enableClickToEditOptions,
-      );
+    if (!enableClickToEditOptions) {
+      return;
     }
+
+    // Never enable click-to-edit inside an iframe
+    if (typeof window === 'undefined' || window.parent !== window) {
+      return;
+    }
+
+    enableClickToEdit(
+      enableClickToEditOptions === true ? undefined : enableClickToEditOptions,
+    );
   }, [enableClickToEditOptions, enableClickToEdit]);
 
   return null;

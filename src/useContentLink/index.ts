@@ -144,6 +144,11 @@ export function useContentLink(
 
   // Stable method references that call through to the controller
   const enableClickToEdit = useCallback((opts?: ClickToEditOptions) => {
+    // Never enable click-to-edit inside an iframe
+    if (typeof window !== 'undefined' && window.parent !== window) {
+      return;
+    }
+
     // If hoverOnly is true, check if the device supports hover
     if (opts?.hoverOnly) {
       const supportsHover =

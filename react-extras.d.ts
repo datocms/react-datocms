@@ -5,3 +5,4 @@ declare module 'react' {
     fetchPriority?: 'auto' | 'low' | 'high';
   }
 }
+

@@ -111,7 +111,7 @@
   "homepage": "https://github.com/datocms/react-datocms",
   "devDependencies": {
     "@biomejs/biome": "^1.6.3",
-    "@mux/mux-player-react": ">=2.5.0 <3",
+    "@mux/mux-player-react": "^3.11.4",
     "@types/enzyme": "^3.10.8",
     "@types/enzyme-to-json": "^1.5.4",
     "@types/jest": "^29.5.11",
@@ -147,11 +147,16 @@
     "tsc:esm": "tsc --project ./tsconfig.esnext.json"
   },
   "peerDependencies": {
+    "@mux/mux-player-react": ">=2.5.0",
     "react": ">= 16.12.0"
+  },
+  "peerDependenciesMeta": {
+    "@mux/mux-player-react": {
+      "optional": true
+    }
   },
   "dependencies": {
     "@datocms/content-link": "^0.3.13",
-    "@mux/mux-player-react": "*",
     "datocms-listen": "^1.0.2",
     "datocms-structured-text-generic-html-renderer": "^5.0.0",
     "datocms-structured-text-utils": "^5.1.6",

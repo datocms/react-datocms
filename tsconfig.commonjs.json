@@ -8,6 +8,13 @@
     "declaration": false,
 
     "module": "CommonJS",
+    "moduleResolution": "Node",
+    "paths": {
+      "@mux/mux-player-react": ["./node_modules/@mux/mux-player-react/dist/types/index.d.ts"],
+      "@mux/mux-player-react/lazy": ["./node_modules/@mux/mux-player-react/dist/types/lazy.d.ts"],
+      "@mux/mux-player": ["./node_modules/@mux/mux-player/dist/types/index.d.ts"]
+    },
+    "skipLibCheck": true,
 
     "isolatedModules": true
   }

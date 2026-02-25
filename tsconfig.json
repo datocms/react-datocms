@@ -30,12 +30,12 @@
     "target": "ES2016",
 
     // Module resolution
-    "moduleResolution": "Node",
+    "moduleResolution": "Bundler",
     "esModuleInterop": true,
 
     // Type-checking
     "strict": true,
-    "skipLibCheck": false,
+    "skipLibCheck": true,
     "noImplicitAny": true,
     "resolveJsonModule": true,
     "strictNullChecks": true,

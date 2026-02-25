@@ -1,5 +1,5 @@
 import React from 'react';
-import type { ResponsiveImageType } from '../Image';
+import type { ResponsiveImageType } from '../Image/index.js';
 
 export function priorityProp(
   fetchPriority?: string,

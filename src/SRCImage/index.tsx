@@ -1,6 +1,6 @@
 // biome-ignore lint/style/useImportType: wrong warning
 import React, { HTMLAttributeReferrerPolicy } from 'react';
-import type { ResponsiveImageType } from '../Image';
+import type { ResponsiveImageType } from '../Image/index.js';
 import { buildRegularSource, buildWebpSource, priorityProp } from './utils.js';
 
 export type SRCImagePropTypes = {

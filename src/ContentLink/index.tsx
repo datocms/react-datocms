@@ -28,6 +28,11 @@ export type ContentLinkProps = Omit<UseContentLinkOptions, 'enabled'> & {
   enableClickToEdit?: boolean | ClickToEditOptions;
   /** Whether to strip stega encoding from text nodes after stamping. */
   stripStega?: boolean;
+  /**
+   * Hue (0–359) of the overlay accent color.
+   * @default 17 (orange)
+   */
+  hue?: number;
 };
 
 /**
@@ -99,12 +104,14 @@ export function ContentLink(props: ContentLinkProps): null {
     currentPath,
     enableClickToEdit: enableClickToEditOptions,
     stripStega,
+    hue,
     ...useContentLinkOptions
   } = props;
 
   const { enableClickToEdit, setCurrentPath } = useContentLink({
     ...useContentLinkOptions,
     enabled: stripStega !== undefined ? { stripStega } : true,
+    hue,
   });
 
   // Sync current path when it changes

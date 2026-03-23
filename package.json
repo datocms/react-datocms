@@ -156,7 +156,7 @@
     }
   },
   "dependencies": {
-    "@datocms/content-link": "^0.3.13",
+    "@datocms/content-link": "^0.3.19",
     "datocms-listen": "^1.0.2",
     "datocms-structured-text-generic-html-renderer": "^5.0.0",
     "datocms-structured-text-utils": "^5.1.6",

@@ -27,6 +27,11 @@ export type UseContentLinkOptions = {
   onNavigateTo?: (path: string) => void;
   /** Ref to limit scanning to this root instead of document */
   root?: React.RefObject<HTMLElement>;
+  /**
+   * Hue (0–359) of the overlay accent color.
+   * @default 17 (orange)
+   */
+  hue?: number;
 };
 
 export interface ClickToEditOptions {
@@ -99,7 +104,7 @@ export type UseContentLinkResult = {
 export function useContentLink(
   options: UseContentLinkOptions = {},
 ): UseContentLinkResult {
-  const { enabled = true, onNavigateTo, root } = options;
+  const { enabled = true, onNavigateTo, root, hue } = options;
 
   const controllerRef = useRef<Controller | null>(null);
   // Store the callback in a ref to avoid recreating the controller when it changes
@@ -132,6 +137,7 @@ export function useContentLink(
       onNavigateTo: (path: string) => onNavigateToRef.current?.(path),
       root: root?.current || undefined,
       stripStega,
+      hue,
     });
 
     controllerRef.current = controller;
@@ -140,7 +146,7 @@ export function useContentLink(
       controller.dispose();
       controllerRef.current = null;
     };
-  }, [enabled, root]);
+  }, [enabled, root, hue]);
 
   // Stable method references that call through to the controller
   const enableClickToEdit = useCallback((opts?: ClickToEditOptions) => {

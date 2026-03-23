@@ -269,6 +269,7 @@ The `<ContentLink />` component accepts the following props:
 | `enableClickToEdit` | `boolean \| ClickToEditOptions` | -       | Enable click-to-edit overlays on mount. Pass `true` or an object with options. If `false`/`undefined`, click-to-edit is disabled (use Alt/Option key to toggle) |
 | `stripStega`        | `boolean`                       | -       | Whether to strip stega encoding from text nodes after stamping                                                                                                  |
 | `root`              | `React.RefObject<HTMLElement>`  | -       | Ref to limit scanning to this root element instead of the entire document                                                                                       |
+| `hue`               | `number`                        | `17`    | Hue (0–359) of the overlay accent color. Default is the DatoCMS hue (`17`). Use this to match your brand or project colors                                      |
 
 ## Advanced usage: the `useContentLink` hook
 
@@ -309,6 +310,7 @@ const {
   - `{ stripStega: true }`: Enables the controller and permanently removes stega encoding from text nodes for clean `textContent` access
 - `onNavigateTo?: (path: string) => void` - Callback when Web Previews plugin requests navigation
 - `root?: React.RefObject<HTMLElement>` - Ref to limit scanning to this root element
+- `hue?: number` - Hue (0–359) of the overlay accent color (default: `17`, the DatoCMS hue)
 
 **Note:** The `<ContentLink />` component allows controlling stega stripping through the `stripStega` prop. When undefined, the underlying library's default behavior is used.
 

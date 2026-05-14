@@ -4,7 +4,7 @@ import { type Controller, createController } from '@datocms/content-link';
 import { useCallback, useEffect, useRef } from 'react';
 
 // Re-export types and utilities from @datocms/content-link for convenience
-export { decodeStega, stripStega } from '@datocms/content-link';
+export { decodeStega, revealStega, stripStega } from '@datocms/content-link';
 export type { Controller } from '@datocms/content-link';
 
 export type UseContentLinkOptions = {

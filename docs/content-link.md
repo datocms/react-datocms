@@ -46,6 +46,7 @@ Visual Editing works by:
 - [Low-level utilities](#low-level-utilities)
   - [`decodeStega`](#decodestega)
   - [`stripStega`](#stripstega)
+  - [`revealStega`](#revealstega)
 - [Troubleshooting](#troubleshooting)
   - [Click-to-edit overlays not appearing](#click-to-edit-overlays-not-appearing)
   - [Navigation not syncing with Web Previews plugin](#navigation-not-syncing-with-web-previews-plugin)
@@ -659,6 +660,20 @@ stripStega({
 
 // Works with arrays
 stripStega(["First‎", "Second‎", "Third‎"])
+```
+
+### `revealStega`
+
+Like `stripStega`, but instead of silently removing the invisible characters it replaces each occurrence with a human-readable `[STEGA:/editor/...]` tag — useful for debugging or logging what stega encoding is actually present in a value:
+
+```typescript
+import { revealStega } from 'react-datocms';
+
+revealStega("Hello‎world")
+// "Hello[STEGA:/editor/item_types/123/items/456]world"
+
+// Works on entire GraphQL responses
+revealStega(graphqlResponse)
 ```
 
 These utilities are useful when you need to:

@@ -3,7 +3,7 @@ import React, { HTMLAttributeReferrerPolicy } from 'react';
 import type { ResponsiveImageType } from '../Image/index.js';
 import { buildRegularSource, buildWebpSource, priorityProp } from './utils.js';
 
-export type SRCImagePropTypes = {
+export type RSCImagePropTypes = {
   /** The actual response you get from a DatoCMS `responsiveImage` GraphQL query */
   data: ResponsiveImageType;
   /** Additional CSS className for the root <picture> tag */
@@ -45,7 +45,7 @@ export type SRCImagePropTypes = {
   referrerPolicy?: HTMLAttributeReferrerPolicy;
 };
 
-export function SRCImage({
+export function RSCImage({
   pictureClassName,
   pictureStyle,
   imgClassName,
@@ -56,7 +56,7 @@ export function SRCImage({
   sizes,
   srcSetCandidates = [0.25, 0.5, 0.75, 1, 1.5, 2, 3, 4],
   referrerPolicy = 'no-referrer-when-downgrade',
-}: SRCImagePropTypes) {
+}: RSCImagePropTypes) {
   const webpSource = buildWebpSource(data, sizes);
   const regularSource = buildRegularSource(data, sizes, srcSetCandidates);
 
@@ -112,3 +112,13 @@ export function SRCImage({
     </picture>
   );
 }
+
+/**
+ * @deprecated Use `RSCImagePropTypes` instead. `SRCImagePropTypes` is kept as an alias for backwards compatibility.
+ */
+export type SRCImagePropTypes = RSCImagePropTypes;
+
+/**
+ * @deprecated Use `RSCImage` instead. `SRCImage` is kept as an alias for backwards compatibility.
+ */
+export const SRCImage = RSCImage;

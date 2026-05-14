@@ -24,7 +24,7 @@ npm install react-datocms
 
 This package offers different components and hooks. Please refer to one of the following pages to learn more about a specific area of interest:
 
-* [`<SRCImage />` and `<Image />` components for responsive/progressive images](./docs/image.md)
+* [`<RSCImage />` and `<Image />` components for responsive/progressive images](./docs/image.md)
 * [`<StructuredText />` component](./docs/structured-text.md)
 * [`<VideoPlayer />` component](./docs/video-player.md)
 * [`<ContentLink />` component and `useContentLink()` hook for Visual Editing with click-to-edit overlays](./docs/content-link.md)

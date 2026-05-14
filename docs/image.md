@@ -1,6 +1,6 @@
 # Image components for progressive/responsive images
 
-`<SRCImage />` and `<Image />` are React components specifically designed to work flawlessly with DatoCMS's [`responsiveImage` GraphQL query](https://www.datocms.com/docs/content-delivery-api/uploads#responsive-images) which optimizes image loading for your websites.
+`<RSCImage />` and `<Image />` are React components specifically designed to work flawlessly with DatoCMS's [`responsiveImage` GraphQL query](https://www.datocms.com/docs/content-delivery-api/uploads#responsive-images) which optimizes image loading for your websites.
 
 - TypeScript ready;
 - CSS-in-JS ready;
@@ -23,11 +23,11 @@
 <!-- DON'T EDIT THIS SECTION, INSTEAD RE-RUN doctoc TO UPDATE -->
 
 - [Installation](#installation)
-- [`<SRCImage />` vs `<Image />`](#srcimage--vs-image-)
+- [`<RSCImage />` vs `<Image />`](#rscimage--vs-image-)
 - [Usage](#usage)
 - [Example](#example)
   - [The `ResponsiveImage` object](#the-responsiveimage-object)
-- [`<SRCImage>`](#srcimage)
+- [`<RSCImage>`](#rscimage)
   - [Props](#props)
 - [`<Image>`](#image)
   - [Props](#props-1)
@@ -43,17 +43,17 @@
 npm install --save react-datocms
 ```
 
-## `<SRCImage />` vs `<Image />`
+## `<RSCImage />` vs `<Image />`
 
 Even though their purpose is the same, there are some significant differences between these two components. Depending on your specific needs, you can choose to use one or the other:
 
-* `<SRCImage />` is a [React Server Component](https://nextjs.org/docs/app/building-your-application/rendering/server-components), so it can be rendered and optionally cached on the server. It doesn't create any JS footprint. It generates a single `<picture />` element and implements lazy-loading using the native [`loading="lazy"` attribute](https://web.dev/articles/browser-level-image-lazy-loading). The placeholder is set as the background to the image itself. Be careful: the placeholder is not removed when the image loads, so it's not recommended to use this component if you anticipate that the image may have an alpha channel with transparencies.
+* `<RSCImage />` is a [React Server Component](https://nextjs.org/docs/app/building-your-application/rendering/server-components), so it can be rendered and optionally cached on the server. It doesn't create any JS footprint. It generates a single `<picture />` element and implements lazy-loading using the native [`loading="lazy"` attribute](https://web.dev/articles/browser-level-image-lazy-loading). The placeholder is set as the background to the image itself. Be careful: the placeholder is not removed when the image loads, so it's not recommended to use this component if you anticipate that the image may have an alpha channel with transparencies.
 * `<Image />` is a [Client Component](https://nextjs.org/docs/app/building-your-application/rendering/client-components). Since it runs on the browser, it has the ability to set a cross-fade effect between the placeholder and the original image, but at the cost of generating more complex HTML output composed of multiple elements around the main `<picture />` element. It also implements lazy-loading through `IntersectionObserver`, which allows customization of the thresholds at which lazy loading occurs.
 
 
 ## Usage
 
-1. Import `Image` or `SRCImage` from `react-datocms` and use it in place of a regular `<img />` tag
+1. Import `Image` or `RSCImage` from `react-datocms` and use it in place of a regular `<img />` tag
 2. Write a GraphQL query to your DatoCMS project using the [`responsiveImage` query](https://www.datocms.com/docs/content-delivery-api/images-and-videos#responsive-images)
 
 The GraphQL query returns multiple thumbnails with optimized compression. The image components automatically set up the “blur-up” effect as well as lazy loading of images further down the screen.
@@ -64,13 +64,13 @@ For a fully working example take a look at our [examples directory](https://gith
 
 ```jsx
 import React from 'react';
-import { Image, SRCImage } from 'react-datocms';
+import { Image, RSCImage } from 'react-datocms';
 
 const Page = ({ data }) => (
   <div>
     <h1>{data.blogPost.title}</h1>
     {/* uses native loading="lazy" */}
-    <SRCImage data={data.blogPost.cover.responsiveImage} />
+    <RSCImage data={data.blogPost.cover.responsiveImage} />
     {/* custom lazy-loading via IntersectionObserver */}
     <Image data={data.blogPost.cover.responsiveImage} />
   </div>
@@ -137,7 +137,7 @@ Here's a complete recap of what `responsiveImage` offers:
 | webpSrcSet | string  | :x:                | The HTML5 `srcSet` attribute for the image in WebP format (deprecated, it's better to use the [`auto=format`](https://docs.imgix.com/apis/rendering/auto/auto#format) Imgix transform instead) |
 
 
-## `<SRCImage>`
+## `<RSCImage>`
 
 ### Props
 

@@ -7,7 +7,7 @@ import {
   buildRegularSource,
   buildWebpSource,
   priorityProp,
-} from '../SRCImage/utils.js';
+} from '../RSCImage/utils.js';
 import { useInView } from './useInView.js';
 import {
   absolutePositioning,

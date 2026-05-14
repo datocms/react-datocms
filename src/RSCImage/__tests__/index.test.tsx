@@ -1,6 +1,6 @@
 import { mount } from 'enzyme';
 import * as React from 'react';
-import { SRCImage } from '../index.js';
+import { RSCImage } from '../index.js';
 
 const data = {
   alt: 'DatoCMS swag',
@@ -32,21 +32,21 @@ const minimalDataWithRelativeUrl = {
 describe('Image', () => {
   describe('full data', () => {
     it('renders correctly', () => {
-      const wrapper = mount(<SRCImage data={data} />);
+      const wrapper = mount(<RSCImage data={data} />);
       expect(wrapper).toMatchSnapshot();
     });
   });
 
   describe('minimal data', () => {
     it('renders correctly', () => {
-      const wrapper = mount(<SRCImage data={minimalData} />);
+      const wrapper = mount(<RSCImage data={minimalData} />);
       expect(wrapper).toMatchSnapshot();
     });
   });
 
   describe('minimalDataWithRelativeUrl', () => {
     it('renders correctly', () => {
-      const wrapper = mount(<SRCImage data={minimalDataWithRelativeUrl} />);
+      const wrapper = mount(<RSCImage data={minimalDataWithRelativeUrl} />);
       expect(wrapper).toMatchSnapshot();
     });
   });
@@ -54,7 +54,7 @@ describe('Image', () => {
   describe('passing className and/or style', () => {
     it('renders correctly', () => {
       const wrapper = mount(
-        <SRCImage
+        <RSCImage
           data={minimalData}
           pictureClassName="picture-class-name"
           pictureStyle={{ border: '1px solid green' }}
@@ -68,7 +68,7 @@ describe('Image', () => {
 
   describe('priority=true', () => {
     it('renders correctly', () => {
-      const wrapper = mount(<SRCImage data={minimalData} priority={true} />);
+      const wrapper = mount(<RSCImage data={minimalData} priority={true} />);
       expect(wrapper).toMatchSnapshot();
     });
   });
@@ -76,7 +76,7 @@ describe('Image', () => {
   describe('usePlaceholder=false', () => {
     it('renders correctly', () => {
       const wrapper = mount(
-        <SRCImage data={minimalData} usePlaceholder={false} />,
+        <RSCImage data={minimalData} usePlaceholder={false} />,
       );
       expect(wrapper).toMatchSnapshot();
     });
@@ -85,7 +85,7 @@ describe('Image', () => {
   describe('explicit sizes', () => {
     it('renders correctly', () => {
       const wrapper = mount(
-        <SRCImage data={minimalData} sizes="(max-width: 600px) 200px, 50vw" />,
+        <RSCImage data={minimalData} sizes="(max-width: 600px) 200px, 50vw" />,
       );
       expect(wrapper).toMatchSnapshot();
     });

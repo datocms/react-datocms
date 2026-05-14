@@ -1,7 +1,7 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
 exports[`Image explicit sizes renders correctly 1`] = `
-<SRCImage
+<RSCImage
   data={
     {
       "base64": "data:image/jpeg;base64,<IMAGE-DATA>",
@@ -37,11 +37,11 @@ exports[`Image explicit sizes renders correctly 1`] = `
       }
     />
   </picture>
-</SRCImage>
+</RSCImage>
 `;
 
 exports[`Image full data renders correctly 1`] = `
-<SRCImage
+<RSCImage
   data={
     {
       "alt": "DatoCMS swag",
@@ -82,11 +82,11 @@ exports[`Image full data renders correctly 1`] = `
       title="These are awesome, we know that."
     />
   </picture>
-</SRCImage>
+</RSCImage>
 `;
 
 exports[`Image minimal data renders correctly 1`] = `
-<SRCImage
+<RSCImage
   data={
     {
       "base64": "data:image/jpeg;base64,<IMAGE-DATA>",
@@ -120,11 +120,11 @@ exports[`Image minimal data renders correctly 1`] = `
       }
     />
   </picture>
-</SRCImage>
+</RSCImage>
 `;
 
 exports[`Image minimalDataWithRelativeUrl renders correctly 1`] = `
-<SRCImage
+<RSCImage
   data={
     {
       "base64": "data:image/jpeg;base64,<IMAGE-DATA>",
@@ -158,11 +158,11 @@ exports[`Image minimalDataWithRelativeUrl renders correctly 1`] = `
       }
     />
   </picture>
-</SRCImage>
+</RSCImage>
 `;
 
 exports[`Image passing className and/or style renders correctly 1`] = `
-<SRCImage
+<RSCImage
   data={
     {
       "base64": "data:image/jpeg;base64,<IMAGE-DATA>",
@@ -217,11 +217,11 @@ exports[`Image passing className and/or style renders correctly 1`] = `
       }
     />
   </picture>
-</SRCImage>
+</RSCImage>
 `;
 
 exports[`Image priority=true renders correctly 1`] = `
-<SRCImage
+<RSCImage
   data={
     {
       "base64": "data:image/jpeg;base64,<IMAGE-DATA>",
@@ -256,11 +256,11 @@ exports[`Image priority=true renders correctly 1`] = `
       }
     />
   </picture>
-</SRCImage>
+</RSCImage>
 `;
 
 exports[`Image usePlaceholder=false renders correctly 1`] = `
-<SRCImage
+<RSCImage
   data={
     {
       "base64": "data:image/jpeg;base64,<IMAGE-DATA>",
@@ -290,5 +290,5 @@ exports[`Image usePlaceholder=false renders correctly 1`] = `
       }
     />
   </picture>
-</SRCImage>
+</RSCImage>
 `;

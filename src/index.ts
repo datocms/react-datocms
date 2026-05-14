@@ -1,5 +1,5 @@
 export * from './Image/index.js';
-export * from './SRCImage/index.js';
+export * from './RSCImage/index.js';
 export * from './Seo/index.js';
 export * from './StructuredText/index.js';
 export * from './VideoPlayer/index.js';

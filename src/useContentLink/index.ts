@@ -1,11 +1,7 @@
 'use client';
 
 import { type Controller, createController } from '@datocms/content-link';
-import { useCallback, useEffect, useRef } from 'react';
-
-// Re-export types and utilities from @datocms/content-link for convenience
-export { decodeStega, revealStega, stripStega } from '@datocms/content-link';
-export type { Controller } from '@datocms/content-link';
+import { type RefObject, useCallback, useEffect, useRef } from 'react';
 
 export type UseContentLinkOptions = {
   /**
@@ -26,7 +22,7 @@ export type UseContentLinkOptions = {
   /** Callback when Web Previews plugin requests navigation */
   onNavigateTo?: (path: string) => void;
   /** Ref to limit scanning to this root instead of document */
-  root?: React.RefObject<HTMLElement>;
+  root?: RefObject<HTMLElement>;
   /**
    * Hue (0–359) of the overlay accent color.
    * @default 17 (orange)

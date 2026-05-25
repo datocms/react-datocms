@@ -56,42 +56,20 @@ npm run start
 
 <a href="https://www.datocms.com/"><img src="https://www.datocms.com/images/full_logo.svg" height="60" alt="DatoCMS - The Headless CMS for the Modern Web"></a>
 
-[DatoCMS](https://www.datocms.com/) is the REST & GraphQL Headless CMS for the modern web.
+[DatoCMS](https://www.datocms.com/) is Headless CMS for the modern web. Trusted by 25,000+ businesses, agencies, and individuals, it gives your team one place to manage content and ship it to any website, app, or device via API.
 
-Trusted by over 25,000 enterprise businesses, agencies, and individuals across the world, DatoCMS users create online content at scale from a central hub and distribute it via API. We ❤️ our [developers](https://www.datocms.com/team/best-cms-for-developers), [content editors](https://www.datocms.com/team/content-creators) and [marketers](https://www.datocms.com/team/cms-digital-marketing)!
+**New here?** Start with [Create free account](https://dashboard.datocms.com/signup) and the [Documentation](https://www.datocms.com/docs). Stuck? Ask the [Community](https://community.datocms.com/). Curious what's new? [Product Updates](https://www.datocms.com/product-updates).
 
-**Why DatoCMS?**
+**Building with AI:** [Agent Skills](https://www.datocms.com/docs/agent-skills) turn coding assistants (Claude Code, Cursor) into expert DatoCMS developers, with full read/write via the auto-installed CLI. No local terminal? Use the [MCP Server](https://www.datocms.com/docs/mcp-server) instead.
 
-- **API-First Architecture**: Built for both REST and GraphQL, enabling flexible content delivery
-- **Just Enough Features**: We believe in keeping things simple, and giving you [the right feature-set tools](https://www.datocms.com/features) to get the job done
-- **Developer Experience**: First-class TypeScript support with powerful developer tools
+**Talking to DatoCMS from code:**
+- [Content Delivery API](https://www.datocms.com/docs/content-delivery-api) (CDA) — the fast, read-only GraphQL API your website/app uses to **fetch** published content.
+- [Content Management API](https://www.datocms.com/docs/content-management-api) (CMA) — the REST API for **creating and updating** content, models, and project settings (think scripts, migrations, integrations).
+- [CLI](https://www.datocms.com/docs/scripting-migrations/installing-the-cli) — terminal tool for schema migrations and importing from Contentful/WordPress.
 
-**Getting Started:**
+**Framework guides:** end-to-end recipes for fetching content, rendering Structured Text, optimizing images/video, handling SEO, and setting up live preview with visual editing in [Next.js](https://www.datocms.com/docs/next-js), [Nuxt](https://www.datocms.com/docs/nuxt), [Svelte](https://www.datocms.com/docs/svelte), and [Astro](https://www.datocms.com/docs/astro).
 
-- ⚡️ [Create Free Account](https://dashboard.datocms.com/signup) - Get started with DatoCMS in minutes
-- 🔖 [Documentation](https://www.datocms.com/docs) - Comprehensive guides and API references
-- ⚙️ [Community Support](https://community.datocms.com/) - Get help from our team and community
-- 🆕 [Changelog](https://www.datocms.com/product-updates) - Latest features and improvements
+**Want a head start?** Browse our [starter projects](https://www.datocms.com/marketplace/starters) — ready-to-deploy example sites for popular frameworks.
 
-**Official Libraries:**
-
-- [**Content Delivery Client**](https://github.com/datocms/cda-client) - TypeScript GraphQL client for content fetching
-- [**REST API Clients**](https://github.com/datocms/js-rest-api-clients) - Node.js/Browser clients for content management
-- [**CLI Tools**](https://github.com/datocms/cli) - Command-line utilities for schema migrations (includes [Contentful](https://github.com/datocms/cli/tree/main/packages/cli-plugin-contentful) and [WordPress](https://github.com/datocms/cli/tree/main/packages/cli-plugin-wordpress) importers)
-
-**Official Framework Integrations**
-
-Helpers to manage SEO, images, video and Structured Text coming from your DatoCMS projects:
-
-- [**React Components**](https://github.com/datocms/react-datocms)
-- [**Vue Components**](https://github.com/datocms/vue-datocms)
-- [**Svelte Components**](https://github.com/datocms/datocms-svelte)
-- [**Astro Components**](https://github.com/datocms/astro-datocms)
-
-**Additional Resources:**
-
-- [**Plugin Examples**](https://github.com/datocms/plugins) - Example plugins we've made that extend the editor/admin dashboard
-- [**Starter Projects**](https://www.datocms.com/marketplace/starters) - Example website implementations for popular frameworks
-- [**All Public Repositories**](https://github.com/orgs/datocms/repositories?q=&type=public&language=&sort=stargazers)
 
 <!--datocms-autoinclude-footer end-->

@@ -202,8 +202,24 @@ export const Image = forwardRef<HTMLDivElement, ImagePropTypes>(
     const addImage = imageAddStrategy({ priority, inView, loaded });
     const showImage = imageShowStrategy({ priority, inView, loaded });
 
-    const webpSource = buildWebpSource(data, sizes);
-    const regularSource = buildRegularSource(data, sizes, srcSetCandidates);
+    // When no explicit `sizes` is given, default lazy images to `sizes="auto"`
+    // so the browser picks the optimal `srcset` candidate from the rendered
+    // width. This component injects the real <img> only once it scrolls into
+    // view, at which point its box is already laid out — so `auto` resolves
+    // correctly. Per the HTML spec, `auto` needs the <img> to be lazy AND carry
+    // a `sizes` starting with `auto`, and a <source>'s `auto` only engages when
+    // its sibling <img> does too — hence `resolvedSizes` + `loading="lazy"` on
+    // the injected <img> below (and the <noscript> fallback already is lazy).
+    // Skipped for `priority` (eager) images; `, 100vw` is the legacy fallback.
+    const resolvedSizes =
+      sizes ?? data.sizes ?? (priority ? undefined : 'auto, 100vw');
+
+    const webpSource = buildWebpSource(data, resolvedSizes);
+    const regularSource = buildRegularSource(
+      data,
+      resolvedSizes,
+      srcSetCandidates,
+    );
 
     const transition =
       fadeInDuration > 0 ? `opacity ${fadeInDuration}ms` : undefined;
@@ -298,6 +314,8 @@ export const Image = forwardRef<HTMLDivElement, ImagePropTypes>(
                 alt={data.alt ?? ''}
                 title={data.title ?? undefined}
                 onLoad={handleLoad}
+                sizes={resolvedSizes}
+                loading={priority ? undefined : 'lazy'}
                 {...priorityProp(priority ? 'high' : undefined)}
                 className={imgClassName}
                 style={{

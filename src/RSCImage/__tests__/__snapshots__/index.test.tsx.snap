@@ -21,6 +21,7 @@ exports[`Image explicit sizes renders correctly 1`] = `
       alt=""
       loading="lazy"
       referrerPolicy="no-referrer-when-downgrade"
+      sizes="(max-width: 600px) 200px, 50vw"
       src="https://www.datocms-assets.com/205/image.png?ar=16%3A9&fit=crop&w=750"
       style={
         {
@@ -65,6 +66,7 @@ exports[`Image full data renders correctly 1`] = `
       alt="DatoCMS swag"
       loading="lazy"
       referrerPolicy="no-referrer-when-downgrade"
+      sizes="(max-width: 750px) 100vw, 750px"
       src="https://www.datocms-assets.com/205/image.png?ar=16%3A9&fit=crop&w=750"
       style={
         {
@@ -98,12 +100,14 @@ exports[`Image minimal data renders correctly 1`] = `
 >
   <picture>
     <source
+      sizes="auto, 100vw"
       srcSet="https://www.datocms-assets.com/205/image.png?ar=16%3A9&fit=crop&w=750&dpr=0.25 187w,https://www.datocms-assets.com/205/image.png?ar=16%3A9&fit=crop&w=750&dpr=0.5 375w,https://www.datocms-assets.com/205/image.png?ar=16%3A9&fit=crop&w=750&dpr=0.75 562w,https://www.datocms-assets.com/205/image.png?ar=16%3A9&fit=crop&w=750 750w,https://www.datocms-assets.com/205/image.png?ar=16%3A9&fit=crop&w=750&dpr=1.5 1125w,https://www.datocms-assets.com/205/image.png?ar=16%3A9&fit=crop&w=750&dpr=2 1500w,https://www.datocms-assets.com/205/image.png?ar=16%3A9&fit=crop&w=750&dpr=3 2250w,https://www.datocms-assets.com/205/image.png?ar=16%3A9&fit=crop&w=750&dpr=4 3000w"
     />
     <img
       alt=""
       loading="lazy"
       referrerPolicy="no-referrer-when-downgrade"
+      sizes="auto, 100vw"
       src="https://www.datocms-assets.com/205/image.png?ar=16%3A9&fit=crop&w=750"
       style={
         {
@@ -136,12 +140,14 @@ exports[`Image minimalDataWithRelativeUrl renders correctly 1`] = `
 >
   <picture>
     <source
+      sizes="auto, 100vw"
       srcSet="/205/image.png?ar=16%3A9&fit=crop&w=750&dpr=0.25 187w,/205/image.png?ar=16%3A9&fit=crop&w=750&dpr=0.5 375w,/205/image.png?ar=16%3A9&fit=crop&w=750&dpr=0.75 562w,/205/image.png?ar=16%3A9&fit=crop&w=750 750w,/205/image.png?ar=16%3A9&fit=crop&w=750&dpr=1.5 1125w,/205/image.png?ar=16%3A9&fit=crop&w=750&dpr=2 1500w,/205/image.png?ar=16%3A9&fit=crop&w=750&dpr=3 2250w,/205/image.png?ar=16%3A9&fit=crop&w=750&dpr=4 3000w"
     />
     <img
       alt=""
       loading="lazy"
       referrerPolicy="no-referrer-when-downgrade"
+      sizes="auto, 100vw"
       src="/205/image.png?ar=16%3A9&fit=crop&w=750"
       style={
         {
@@ -193,6 +199,7 @@ exports[`Image passing className and/or style renders correctly 1`] = `
     }
   >
     <source
+      sizes="auto, 100vw"
       srcSet="https://www.datocms-assets.com/205/image.png?ar=16%3A9&fit=crop&w=750&dpr=0.25 187w,https://www.datocms-assets.com/205/image.png?ar=16%3A9&fit=crop&w=750&dpr=0.5 375w,https://www.datocms-assets.com/205/image.png?ar=16%3A9&fit=crop&w=750&dpr=0.75 562w,https://www.datocms-assets.com/205/image.png?ar=16%3A9&fit=crop&w=750 750w,https://www.datocms-assets.com/205/image.png?ar=16%3A9&fit=crop&w=750&dpr=1.5 1125w,https://www.datocms-assets.com/205/image.png?ar=16%3A9&fit=crop&w=750&dpr=2 1500w,https://www.datocms-assets.com/205/image.png?ar=16%3A9&fit=crop&w=750&dpr=3 2250w,https://www.datocms-assets.com/205/image.png?ar=16%3A9&fit=crop&w=750&dpr=4 3000w"
     />
     <img
@@ -200,6 +207,7 @@ exports[`Image passing className and/or style renders correctly 1`] = `
       className="class-name"
       loading="lazy"
       referrerPolicy="no-referrer-when-downgrade"
+      sizes="auto, 100vw"
       src="https://www.datocms-assets.com/205/image.png?ar=16%3A9&fit=crop&w=750"
       style={
         {
@@ -273,12 +281,14 @@ exports[`Image usePlaceholder=false renders correctly 1`] = `
 >
   <picture>
     <source
+      sizes="auto, 100vw"
       srcSet="https://www.datocms-assets.com/205/image.png?ar=16%3A9&fit=crop&w=750&dpr=0.25 187w,https://www.datocms-assets.com/205/image.png?ar=16%3A9&fit=crop&w=750&dpr=0.5 375w,https://www.datocms-assets.com/205/image.png?ar=16%3A9&fit=crop&w=750&dpr=0.75 562w,https://www.datocms-assets.com/205/image.png?ar=16%3A9&fit=crop&w=750 750w,https://www.datocms-assets.com/205/image.png?ar=16%3A9&fit=crop&w=750&dpr=1.5 1125w,https://www.datocms-assets.com/205/image.png?ar=16%3A9&fit=crop&w=750&dpr=2 1500w,https://www.datocms-assets.com/205/image.png?ar=16%3A9&fit=crop&w=750&dpr=3 2250w,https://www.datocms-assets.com/205/image.png?ar=16%3A9&fit=crop&w=750&dpr=4 3000w"
     />
     <img
       alt=""
       loading="lazy"
       referrerPolicy="no-referrer-when-downgrade"
+      sizes="auto, 100vw"
       src="https://www.datocms-assets.com/205/image.png?ar=16%3A9&fit=crop&w=750"
       style={
         {

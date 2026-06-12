@@ -57,8 +57,23 @@ export function RSCImage({
   srcSetCandidates = [0.25, 0.5, 0.75, 1, 1.5, 2, 3, 4],
   referrerPolicy = 'no-referrer-when-downgrade',
 }: RSCImagePropTypes) {
-  const webpSource = buildWebpSource(data, sizes);
-  const regularSource = buildRegularSource(data, sizes, srcSetCandidates);
+  // When no explicit `sizes` is given, default lazy images to `sizes="auto"`
+  // so the browser picks the optimal `srcset` candidate from the rendered
+  // width. Per the HTML spec, `auto` only engages when the `<img>` itself
+  // "allows auto-sizes" (loading="lazy" AND a `sizes` starting with `auto`),
+  // and a `<source>`'s `auto` only takes effect when its sibling `<img>` does
+  // too — so `resolvedSizes` is applied to both the sources and the `<img>`
+  // below. Skipped for `priority` (eager) images, where `auto` is invalid; the
+  // `, 100vw` fallback preserves prior behavior on unsupporting browsers.
+  const resolvedSizes =
+    sizes ?? data.sizes ?? (priority ? undefined : 'auto, 100vw');
+
+  const webpSource = buildWebpSource(data, resolvedSizes);
+  const regularSource = buildRegularSource(
+    data,
+    resolvedSizes,
+    srcSetCandidates,
+  );
 
   const placeholderStyle: React.CSSProperties | undefined =
     usePlaceholder && data.base64
@@ -99,6 +114,7 @@ export function RSCImage({
           src={data.src}
           alt={data.alt ?? ''}
           title={data.title ?? undefined}
+          sizes={resolvedSizes}
           {...loadingBehaviourProps}
           className={imgClassName}
           style={{

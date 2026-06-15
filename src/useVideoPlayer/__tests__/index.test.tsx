@@ -10,6 +10,7 @@ describe('useVideoPlayer', () => {
         height: 1920,
         blurUpThumb:
           'data:image/bmp;base64,Qk0eAAAAAAAAABoAAAAMAAAAAQABAAEAGAAAAP8A',
+        thumbnailUrl: 'https://www.datocms-assets.com/205/thumb.jpg',
       };
 
       it('unwraps data into props ready for MUX player', () => {
@@ -21,6 +22,33 @@ describe('useVideoPlayer', () => {
           },
           placeholder:
             'data:image/bmp;base64,Qk0eAAAAAAAAABoAAAAMAAAAAQABAAEAGAAAAP8A',
+          poster: 'https://www.datocms-assets.com/205/thumb.jpg',
+        });
+      });
+    });
+
+    describe('contains `thumbnailUrl`', () => {
+      const data = {
+        muxPlaybackId: 'ip028MAXF026dU900bKiyNDttjonw7A1dFY',
+        thumbnailUrl: 'https://www.datocms-assets.com/205/thumb.jpg',
+      };
+
+      it('uses it for `poster`', () => {
+        expect(useVideoPlayer({ data })).toStrictEqual({
+          playbackId: 'ip028MAXF026dU900bKiyNDttjonw7A1dFY',
+          poster: 'https://www.datocms-assets.com/205/thumb.jpg',
+        });
+      });
+    });
+
+    describe('lacks of `thumbnailUrl` value', () => {
+      const data = {
+        muxPlaybackId: 'ip028MAXF026dU900bKiyNDttjonw7A1dFY',
+      };
+
+      it('avoids adding a poster', () => {
+        expect(useVideoPlayer({ data })).toStrictEqual({
+          playbackId: 'ip028MAXF026dU900bKiyNDttjonw7A1dFY',
         });
       });
     });

@@ -63,6 +63,11 @@
       "require": "./dist/cjs/ContentLink/index.js",
       "import": "./dist/esm/ContentLink/index.js",
       "types": "./dist/types/ContentLink/index.d.ts"
+    },
+    "./stega": {
+      "require": "./dist/cjs/stega/index.js",
+      "import": "./dist/esm/stega/index.js",
+      "types": "./dist/types/stega/index.d.ts"
     }
   },
   "typesVersions": {
@@ -99,6 +104,9 @@
       ],
       "content-link": [
         "./dist/types/ContentLink/index.d.ts"
+      ],
+      "stega": [
+        "./dist/types/stega/index.d.ts"
       ]
     }
   },

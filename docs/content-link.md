@@ -619,14 +619,18 @@ With this setup:
 
 ## Low-level utilities
 
-The `react-datocms` package re-exports utility functions from `@datocms/content-link` for working with stega-encoded content:
+The `react-datocms/stega` subpath re-exports utility functions from `@datocms/content-link` for working with stega-encoded content. These are pure, server-safe functions, so they can be used in both React Server Components and client components:
+
+```typescript
+import { stripStega, decodeStega, revealStega } from 'react-datocms/stega';
+```
 
 ### `decodeStega`
 
 Decodes stega-encoded content to extract editing metadata:
 
 ```typescript
-import { decodeStega } from 'react-datocms';
+import { decodeStega } from 'react-datocms/stega';
 
 const text = "Hello, world!"; // Contains invisible stega data
 const decoded = decodeStega(text);
@@ -642,7 +646,7 @@ if (decoded) {
 Removes stega encoding from any data type (strings, objects, arrays, primitives):
 
 ```typescript
-import { stripStega } from 'react-datocms';
+import { stripStega } from 'react-datocms/stega';
 
 // Works with strings
 stripStega("Hello‎World") // "HelloWorld"
@@ -667,7 +671,7 @@ stripStega(["First‎", "Second‎", "Third‎"])
 Like `stripStega`, but instead of silently removing the invisible characters it replaces each occurrence with a human-readable `[STEGA:/editor/...]` tag — useful for debugging or logging what stega encoding is actually present in a value:
 
 ```typescript
-import { revealStega } from 'react-datocms';
+import { revealStega } from 'react-datocms/stega';
 
 revealStega("Hello‎world")
 // "Hello[STEGA:/editor/item_types/123/items/456]world"

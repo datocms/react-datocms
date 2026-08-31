@@ -129,7 +129,7 @@
   "devDependencies": {
     "@biomejs/biome": "^1.6.3",
     "@changesets/cli": "^3.0.1",
-    "@datocms/release-toolchain": "github:datocms/release-toolchain#v1.1.0",
+    "@datocms/release-toolchain": "github:datocms/release-toolchain#v1.2.0",
     "@mux/mux-player-react": "^3.11.4",
     "@types/enzyme": "^3.10.8",
     "@types/enzyme-to-json": "^1.5.4",
@@ -166,7 +166,8 @@
     "tsc:esm": "tsc --project ./tsconfig.esnext.json",
     "changeset": "changeset",
     "release": "release-toolchain",
-    "release:next": "release-toolchain --tag next"
+    "release:next": "release-toolchain --tag next",
+    "prepublishOnly": "release-toolchain --assert-release"
   },
   "peerDependencies": {
     "@mux/mux-player-react": ">=2.5.0",

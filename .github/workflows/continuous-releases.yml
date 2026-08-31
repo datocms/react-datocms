@@ -1,0 +1,46 @@
+# Every commit pushed to a branch of this repo gets an installable preview of
+# the package, without publishing anything to npm:
+#
+#     npm i https://pkg.pr.new/datocms/react-datocms@<commit-sha>
+#
+# The point is to cross a repo boundary while developing. A change here can be
+# tried inside a site or a demo that lives in another repository from a real
+# tarball, instead of `npm link` or pinning a git branch by hand and
+# remembering to unpin it later. It also means a fix can be handed to whoever
+# reported it before we cut a release.
+#
+# Pull requests opened from forks are deliberately not published: this runs on
+# pushes to branches of *this* repo, which only people with write access can
+# make, so an unreviewed fork cannot mint a URL under our namespace. If we ever
+# want fork previews too, pkg.pr.new documents an "approved pull requests only"
+# recipe that gates them behind a maintainer's review.
+name: Continuous releases
+
+on:
+  push:
+    # Every branch. Defining `branches` on its own also means tag pushes don't
+    # trigger this, which is what we want: a tag points at a commit that was
+    # already published when it landed on its branch.
+    branches: ["**"]
+
+permissions: {}
+
+jobs:
+  publish:
+    runs-on: ubuntu-latest
+
+    steps:
+      - uses: actions/checkout@v4
+      - name: Use Node.js
+        uses: actions/setup-node@v4
+        with:
+          # Pinned, and deliberately not the matrix `node.js.yml` runs: this
+          # job only has to build a tarball, not prove which Node versions the
+          # package supports.
+          node-version: 22
+          cache: "npm"
+      - run: npm ci
+      - run: npm run build
+      # No path argument: this is a single-package repo, so pkg-pr-new packs
+      # the working directory.
+      - run: npm exec -- pkg-pr-new publish --commentWithSha

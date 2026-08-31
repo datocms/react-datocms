@@ -129,7 +129,7 @@
   "devDependencies": {
     "@biomejs/biome": "^1.6.3",
     "@changesets/cli": "^3.0.1",
-    "@datocms/release-toolchain": "github:datocms/release-toolchain#v1.0.0",
+    "@datocms/release-toolchain": "github:datocms/release-toolchain#v1.1.0",
     "@mux/mux-player-react": "^3.11.4",
     "@types/enzyme": "^3.10.8",
     "@types/enzyme-to-json": "^1.5.4",

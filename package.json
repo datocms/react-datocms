@@ -113,7 +113,8 @@
   "sideEffects": false,
   "files": [
     "dist",
-    "src"
+    "src",
+    "CHANGELOG.md"
   ],
   "repository": {
     "type": "git",
@@ -127,6 +128,8 @@
   "homepage": "https://github.com/datocms/react-datocms",
   "devDependencies": {
     "@biomejs/biome": "^1.6.3",
+    "@changesets/cli": "^3.0.1",
+    "@datocms/release-toolchain": "github:datocms/release-toolchain#v1.0.0",
     "@mux/mux-player-react": "^3.11.4",
     "@types/enzyme": "^3.10.8",
     "@types/enzyme-to-json": "^1.5.4",
@@ -142,7 +145,6 @@
     "enzyme-to-json": "^3.6.2",
     "intersection-observer": "^0.12.0",
     "jest-environment-jsdom": "^29.7.0",
-    "np": "^10.0.7",
     "pkg-pr-new": "^0.0.88",
     "raf": "^3.4.1",
     "react": "^17.0.2",
@@ -161,7 +163,10 @@
     "toc": "doctoc --github docs",
     "tsc:types": "tsc",
     "tsc:cjs": "tsc --project ./tsconfig.commonjs.json",
-    "tsc:esm": "tsc --project ./tsconfig.esnext.json"
+    "tsc:esm": "tsc --project ./tsconfig.esnext.json",
+    "changeset": "changeset",
+    "release": "release-toolchain",
+    "release:next": "release-toolchain --tag next"
   },
   "peerDependencies": {
     "@mux/mux-player-react": ">=2.5.0",

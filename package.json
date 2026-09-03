@@ -181,8 +181,8 @@
   "dependencies": {
     "@datocms/content-link": "^0.3.20",
     "datocms-listen": "^1.0.2",
-    "datocms-structured-text-generic-html-renderer": "^5.0.0",
-    "datocms-structured-text-utils": "^5.1.6",
+    "datocms-structured-text-generic-html-renderer": "^6.0.0",
+    "datocms-structured-text-utils": "^6.0.1",
     "react-intersection-observer": "^9.4.3",
     "react-string-replace": "^1.1.0",
     "use-deep-compare-effect": "^1.6.1"

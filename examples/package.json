@@ -7,7 +7,7 @@
   },
   "type": "module",
   "dependencies": {
-    "@datocms/cma-client-browser": "^5.2.1",
+    "@datocms/cma-client-browser": "^6.1.0",
     "react": "^19.2.3",
     "react-datocms": "^7.2.4",
     "react-dom": "^19.2.3",

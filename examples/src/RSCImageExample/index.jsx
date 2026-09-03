@@ -1,4 +1,4 @@
-import { SRCImage } from 'react-datocms';
+import { RSCImage } from 'react-datocms';
 
 const data = {
   srcSet:
@@ -34,25 +34,25 @@ const dataWithAlpha = {
     'data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABgAAAASCAYAAABB7B6eAAAC4ElEQVR42n2UXXbTQAyFpbHTtCmhFNgsO2ANbBAeOCVpEzuJ4xGfNGM75YGe3Moez9yrv1H77fsP8T8VkwRUsjSWeQZaLGuqmlvAJruamlgqyEkkNxJ2BKa+222QSsveIJ8QIrEGzBpVe2TtgW9teGI28Nyb2RG5HHt5wANJ2YWcg20VbYu3YksEBXkNnnh+SmYf+LZBaEUEfmwggh7/DxDtsxiQExZyj1+WCEJgzMXbkp57CD9C/gl8rvaJVD3y7Y6Q2JYH0YjgFcd34E8F73bAmqfJBSKCu3F0IbTtAY+3yfIz1sm/gi/gGc+3Lo5NniIi6BDYm8kWwg24B+ucQdIDeTvNNVixSq6Jytw9hSEhskoejeQN2HoUpOiBZDeS7Uqh15bN5UZwBj04Qt7mTOlrihw1gihwR3pcpHViOqnDnnkfSNFIBETuxSIHPEYH+c8QMbmQ6RMCnSXpSg201iCPNzWwHu9/JY/EcoOAR9J6ZOoiFBqBEfojxG/48wb5Hr0dOaYOXpcp/xYirfd8IZe4A0QxQPoTm7Au4mkjrfkEuRfaD3SI7OiYFw3YCx7sSmsv6YkUlYtkU9+XC1ZEfke7mpU9ahfKtOaY93XP4R3HHHt82HOo9qbVG+VXxqQtvS1THWYLDgi+Qrxh7S7WNQQ4Jic2HqHrQM9ealX6Umt7Ts+tpfoWiiWKGAVh5Yx1sg40cFxjm6+reCteODJE35d5s7ipZaHNjc03ORQWPbcD/0/o4aUwNmaBC/A00aJ69a6JW1znUK4XLbpoTFKHXeG3yRac8ejorct3WlVW4UoRoNBygLj/v0BTHtK/5E5k5inYMyHGmu9VLMc80p70vkF4DeIbgWmiVgEteRctLVarX4Q8cXZG/Fy9b2KzKAKSC7FU4kmkCEx1aH3BR63WMR1fohUmNY388Rt8kk4vpjKnYxGa0nMz7KZciSz1De7wwua5/u5vvkh6c6n0/buUtb8z6leFffMsMwAAAABJRU5ErkJggg==',
 };
 
-export default function SRCImageExamples() {
+export default function RSCImageExamples() {
   return (
     <>
       <div
         className="example"
         data-title="Standard behaviour: scale the dimensions down for smaller viewports, but maintain the original dimensions for larger viewports"
       >
-        <SRCImage data={data} />
+        <RSCImage data={data} />
       </div>
 
       <div className="example" data-title="Image with transparency">
-        <SRCImage data={dataWithAlpha} />
+        <RSCImage data={dataWithAlpha} />
       </div>
 
       <div
         className="example"
         data-title="Always take full width (scale up for larger viewports)"
       >
-        <SRCImage data={data} style={{ maxWidth: 'none' }} />
+        <RSCImage data={data} style={{ maxWidth: 'none' }} />
       </div>
 
       <div
@@ -62,7 +62,7 @@ export default function SRCImageExamples() {
         <div
           style={{ position: 'relative', maxWidth: 500, aspectRatio: '1 / 1' }}
         >
-          <SRCImage
+          <RSCImage
             data={data}
             style={{
               zIndex: -1,

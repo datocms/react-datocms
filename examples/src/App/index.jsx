@@ -1,6 +1,6 @@
 import ImageExamples from '../ImageExamples';
 import QuerySubscriptionExample from '../QuerySubscriptionExample';
-import SRCImageExamples from '../SRCImageExample';
+import RSCImageExamples from '../RSCImageExample';
 import SiteSearchExamples from '../SiteSearchExamples';
 import VideoExamples from '../VideoExamples';
 import './style.css';
@@ -9,7 +9,7 @@ export default function App() {
   return (
     <>
       <nav>
-        <a href="#native-image">SRCImage</a>
+        <a href="#native-image">RSCImage</a>
         <a href="#image">Image</a>
         <a href="#subscriptions">Query Subscription</a>
         <a href="#site-search">Site Search</a>
@@ -17,8 +17,8 @@ export default function App() {
       </nav>
 
       <a id="native-image" />
-      <h1>SRCImage examples</h1>
-      <SRCImageExamples />
+      <h1>RSCImage examples</h1>
+      <RSCImageExamples />
 
       <a id="image" />
       <h1>Image examples</h1>

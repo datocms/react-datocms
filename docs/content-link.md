@@ -25,6 +25,7 @@ Visual Editing works by:
   - [1. Via prop (persistent)](#1-via-prop-persistent)
   - [2. Via keyboard shortcut (temporary)](#2-via-keyboard-shortcut-temporary)
 - [Flash-all highlighting](#flash-all-highlighting)
+- [Visual Editing toolbar](#visual-editing-toolbar)
 - [Props](#props)
 - [Advanced usage: the `useContentLink` hook](#advanced-usage-the-usecontentlink-hook)
   - [Hook API](#hook-api)
@@ -259,6 +260,59 @@ function DebugButton() {
 
 The `true` parameter scrolls to the nearest editable element, useful on long pages.
 
+## Visual Editing toolbar
+
+Pass `toggle` to show a small floating toolbar that tells editors whether click-to-edit is on, and lets them change it:
+
+```jsx
+<ContentLink
+  enableClickToEdit
+  toggle={{ exitDraftModeUrl: '/api/draft-mode/disable' }}
+/>
+```
+
+The toolbar has:
+
+- an on/off switch, with a hint about the Alt/Option shortcut (it also shows when the overlays are only temporarily on or off because Alt/Option is held)
+- **Show editable**, which highlights all editable elements (`flashAll`)
+- **Exit preview**, a link to `exitDraftModeUrl` (only when you pass it)
+- a collapse button
+
+Editors can drag it anywhere (double-click or the Home key puts it back in its corner, arrow keys move it from the keyboard). Their on/off choice, collapsed state and position are remembered in `localStorage`, so the choice wins over `enableClickToEdit`, which becomes the starting state for editors who haven't chosen yet. `hoverOnly` keeps working: on touch devices the toolbar starts with click-to-edit off.
+
+The toolbar is rendered in a Shadow DOM (your CSS can't affect it, and it can't affect your site) and uses the same color as the overlays (`hue`). It renders nothing inside iframes, where the [Web Previews plugin](https://www.datocms.com/marketplace/plugins/i/datocms-plugin-web-previews) has its own controls.
+
+Only render `<ContentLink />` when draft mode is on, so the toolbar is never shown to visitors.
+
+**Options (`VisualEditingToggleOptions`):**
+
+| Option             | Type                                                           | Default                            | Description                                                                                       |
+| ------------------ | -------------------------------------------------------------- | ---------------------------------- | ------------------------------------------------------------------------------------------------- |
+| `exitDraftModeUrl` | `string`                                                       | -                                  | URL of your "disable draft mode" route. Adds an **Exit preview** link                             |
+| `position`         | `'top-right' \| 'top-left' \| 'bottom-right' \| 'bottom-left'` | `'top-right'`                      | Corner the toolbar starts in                                                                      |
+| `storageKey`       | `string`                                                       | `'datocms-visual-editing-enabled'` | `localStorage` key. Collapsed state and position use `${storageKey}-collapsed` and `-position` |
+
+If you use the `useContentLink` hook instead of the component, render `<VisualEditingToggle />` yourself:
+
+```jsx
+import { useContentLink, VisualEditingToggle } from 'react-datocms';
+
+function VisualEditing() {
+  const { controller } = useContentLink();
+
+  return controller ? (
+    <VisualEditingToggle
+      controller={controller}
+      exitDraftModeUrl="/api/draft-mode/disable"
+    />
+  ) : null;
+}
+```
+
+On top of the options above, `<VisualEditingToggle />` takes `controller`, `defaultEnabled` (default `true`), `hoverOnly`, `scrollToNearestTarget` and `hue`.
+
+The toolbar requires React 17 or later.
+
 ## Props
 
 The `<ContentLink />` component accepts the following props:
@@ -271,6 +325,7 @@ The `<ContentLink />` component accepts the following props:
 | `stripStega`        | `boolean`                       | -       | Whether to strip stega encoding from text nodes after stamping                                                                                                  |
 | `root`              | `React.RefObject<HTMLElement>`  | -       | Ref to limit scanning to this root element instead of the entire document                                                                                       |
 | `hue`               | `number`                        | `17`    | Hue (0–359) of the overlay accent color. Default is the DatoCMS hue (`17`). Use this to match your brand or project colors                                      |
+| `toggle`            | `boolean \| VisualEditingToggleOptions` | -       | Show the [Visual Editing toolbar](#visual-editing-toolbar). Pass `true` or an object with options                                                               |
 
 ## Advanced usage: the `useContentLink` hook
 

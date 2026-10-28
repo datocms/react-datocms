@@ -1,5 +1,10 @@
 export type Position = { x: number; y: number };
 
+/** Inside an iframe (e.g. the Web Previews plugin), which has its own toggle. */
+export function isInIframe(): boolean {
+  return window.parent !== window;
+}
+
 // Storage can be missing (SSR) or throw (private mode, blocked site data): in both
 // cases the widget still works, it just doesn't remember anything.
 

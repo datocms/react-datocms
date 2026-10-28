@@ -6,6 +6,7 @@ import {
   VisualEditingToggle,
   type VisualEditingToggleProps,
 } from '../VisualEditingToggle/index.js';
+import * as utils from '../VisualEditingToggle/utils.js';
 
 const TOGGLE_EVENT = 'datocms:click-to-edit:toggle';
 
@@ -270,11 +271,8 @@ describe('VisualEditingToggle', () => {
   });
 
   it('renders nothing and leaves click-to-edit alone inside an iframe', () => {
-    const parent = Object.getOwnPropertyDescriptor(window, 'parent');
-    Object.defineProperty(window, 'parent', {
-      configurable: true,
-      value: {},
-    });
+    // Not by overriding window.parent: on Node 18, jsdom doesn't restore it properly
+    const inIframe = jest.spyOn(utils, 'isInIframe').mockReturnValue(true);
 
     try {
       const controller = fakeController();
@@ -285,9 +283,7 @@ describe('VisualEditingToggle', () => {
       expect(controller.disableClickToEdit).not.toHaveBeenCalled();
     } finally {
       unmount();
-      if (parent) {
-        Object.defineProperty(window, 'parent', parent);
-      }
+      inIframe.mockRestore();
     }
   });
 

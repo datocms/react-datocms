@@ -17,6 +17,7 @@ import { createPortal } from 'react-dom';
 import { buildStyles } from './styles.js';
 import {
   type Position,
+  isInIframe,
   overlayColor,
   readBoolean,
   readPosition,
@@ -195,7 +196,7 @@ export function VisualEditingToggle(
 
   // Host element + Shadow DOM, top-level window only.
   useEffect(() => {
-    if (window.parent !== window) {
+    if (isInIframe()) {
       return;
     }
     const host = document.createElement('div');
@@ -218,7 +219,7 @@ export function VisualEditingToggle(
   // Apply the editor's stored choice whenever there's a (new) controller.
   // biome-ignore lint/correctness/useExhaustiveDependencies: defaults only apply on (re)creation
   useEffect(() => {
-    if (window.parent !== window) {
+    if (isInIframe()) {
       return;
     }
     const canHover =

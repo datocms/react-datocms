@@ -1,11 +1,17 @@
 'use client';
 
-import { useEffect } from 'react';
+import React, { type ReactElement, useEffect } from 'react';
 import {
   type ClickToEditOptions,
   type UseContentLinkOptions,
   useContentLink,
 } from '../useContentLink/index.js';
+import {
+  VisualEditingToggle,
+  type VisualEditingToggleOptions,
+} from './VisualEditingToggle/index.js';
+
+export * from './VisualEditingToggle/index.js';
 
 export type ContentLinkProps = Omit<UseContentLinkOptions, 'enabled'> & {
   /** Current pathname to sync with Web Previews plugin */
@@ -33,6 +39,19 @@ export type ContentLinkProps = Omit<UseContentLinkOptions, 'enabled'> & {
    * @default 17 (orange)
    */
   hue?: number;
+  /**
+   * Show a floating toolbar to turn click-to-edit on/off (only render `<ContentLink />`
+   * in draft mode). Pass `true`, or options such as `exitDraftModeUrl`.
+   *
+   * With the toolbar, `enableClickToEdit` becomes the starting state: the editor's
+   * own choice is remembered (localStorage) and wins on later visits.
+   *
+   * @example
+   * ```tsx
+   * <ContentLink enableClickToEdit toggle={{ exitDraftModeUrl: '/api/draft-mode/disable' }} />
+   * ```
+   */
+  toggle?: boolean | VisualEditingToggleOptions;
 };
 
 /**
@@ -97,18 +116,19 @@ export type ContentLinkProps = Omit<UseContentLinkOptions, 'enabled'> & {
  * 4. **Click to edit**: Click on any content to open the DatoCMS editor at that field.
  *
  * @param props - Configuration props for ContentLink
- * @returns null - This component has no visual output
+ * @returns The Visual Editing toolbar when `toggle` is set, otherwise null
  */
-export function ContentLink(props: ContentLinkProps): null {
+export function ContentLink(props: ContentLinkProps): ReactElement | null {
   const {
     currentPath,
     enableClickToEdit: enableClickToEditOptions,
     stripStega,
     hue,
+    toggle,
     ...useContentLinkOptions
   } = props;
 
-  const { enableClickToEdit, setCurrentPath } = useContentLink({
+  const { controller, enableClickToEdit, setCurrentPath } = useContentLink({
     ...useContentLinkOptions,
     enabled: stripStega !== undefined ? { stripStega } : true,
     hue,
@@ -121,9 +141,9 @@ export function ContentLink(props: ContentLinkProps): null {
     }
   }, [currentPath, setCurrentPath]);
 
-  // Enable click-to-edit on mount if requested
+  // Enable click-to-edit on mount if requested (the toolbar does it itself)
   useEffect(() => {
-    if (!enableClickToEditOptions) {
+    if (!enableClickToEditOptions || toggle) {
       return;
     }
 
@@ -135,7 +155,25 @@ export function ContentLink(props: ContentLinkProps): null {
     enableClickToEdit(
       enableClickToEditOptions === true ? undefined : enableClickToEditOptions,
     );
-  }, [enableClickToEditOptions, enableClickToEdit]);
+  }, [enableClickToEditOptions, enableClickToEdit, toggle]);
 
-  return null;
+  if (!toggle || !controller) {
+    return null;
+  }
+
+  const clickToEditOptions =
+    typeof enableClickToEditOptions === 'object'
+      ? enableClickToEditOptions
+      : {};
+
+  return (
+    <VisualEditingToggle
+      {...(toggle === true ? {} : toggle)}
+      controller={controller}
+      defaultEnabled={Boolean(enableClickToEditOptions)}
+      hoverOnly={clickToEditOptions.hoverOnly}
+      scrollToNearestTarget={clickToEditOptions.scrollToNearestTarget}
+      hue={hue}
+    />
+  );
 }

@@ -1,7 +1,13 @@
 'use client';
 
 import { type Controller, createController } from '@datocms/content-link';
-import { type RefObject, useCallback, useEffect, useRef } from 'react';
+import {
+  type RefObject,
+  useCallback,
+  useEffect,
+  useRef,
+  useState,
+} from 'react';
 
 export type UseContentLinkOptions = {
   /**
@@ -103,6 +109,9 @@ export function useContentLink(
   const { enabled = true, onNavigateTo, root, hue } = options;
 
   const controllerRef = useRef<Controller | null>(null);
+  // Mirrors controllerRef so that components re-render once the controller exists
+  // (it's created in an effect, after the first render).
+  const [controller, setController] = useState<Controller | null>(null);
   // Store the callback in a ref to avoid recreating the controller when it changes
   const onNavigateToRef = useRef(onNavigateTo);
 
@@ -123,6 +132,7 @@ export function useContentLink(
         controllerRef.current.dispose();
         controllerRef.current = null;
       }
+      setController(null);
       return;
     }
 
@@ -137,6 +147,7 @@ export function useContentLink(
     });
 
     controllerRef.current = controller;
+    setController(controller);
 
     return () => {
       controller.dispose();
@@ -179,7 +190,7 @@ export function useContentLink(
   }, []);
 
   return {
-    controller: controllerRef.current,
+    controller,
     enableClickToEdit,
     disableClickToEdit,
     isClickToEditEnabled,

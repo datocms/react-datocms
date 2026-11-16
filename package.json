@@ -163,7 +163,7 @@
     "test:package": "npm run build && node scripts/test-package.mjs",
     "toc": "doctoc --github docs",
     "tsc:types": "tsc",
-    "tsc:cjs": "tsc --project ./tsconfig.commonjs.json && node -e \"require('fs').writeFileSync('dist/cjs/package.json', JSON.stringify({ type: 'commonjs' }))\"",
+    "tsc:cjs": "tsc --project ./tsconfig.commonjs.json && node scripts/mark-cjs-build.mjs",
     "tsc:esm": "tsc --project ./tsconfig.esnext.json",
     "changeset": "changeset",
     "release": "release-toolchain",

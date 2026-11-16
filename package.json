@@ -163,7 +163,7 @@
     "test:package": "npm run build && node scripts/test-package.mjs",
     "toc": "doctoc --github docs",
     "tsc:types": "tsc",
-    "tsc:cjs": "tsc --project ./tsconfig.commonjs.json && cp scripts/cjs-package.json dist/cjs/package.json",
+    "tsc:cjs": "tsc --project ./tsconfig.commonjs.json && node scripts/copy-cjs-package-json.mjs",
     "tsc:esm": "tsc --project ./tsconfig.esnext.json",
     "changeset": "changeset",
     "release": "release-toolchain",

@@ -158,7 +158,7 @@
     "build": "rimraf dist && npm run tsc:types && npm run tsc:cjs && npm run tsc:esm",
     "format": "npm run toc && biome check --apply src && biome format --write src examples/src",
     "watch": "rimraf dist && tsc --project ./tsconfig.commonjs.json --watch",
-    "prepare": "npm run test:unit && npm run build",
+    "prepare": "npm run build",
     "test": "npm run test:unit && npm run test:package",
     "test:unit": "jest --coverage",
     "test:package": "npm run build && node test/package.mjs",

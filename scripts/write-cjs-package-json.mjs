@@ -1,8 +1,8 @@
 // Marks dist/cjs as CommonJS, overriding the root "type": "module".
 
-import { copyFileSync } from 'node:fs';
+import { writeFileSync } from 'node:fs';
 
-copyFileSync(
-  new URL('./cjs-package.json', import.meta.url),
+writeFileSync(
   new URL('../dist/cjs/package.json', import.meta.url),
+  `${JSON.stringify({ type: 'commonjs' }, null, 2)}\n`,
 );

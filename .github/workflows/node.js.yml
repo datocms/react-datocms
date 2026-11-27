@@ -18,11 +18,11 @@ jobs:
           node-version: ${{ matrix.node-version }}
           cache: "npm"
       - run: npm ci
-      - run: npm test
+      - run: npm run test:unit
 
   package:
     # Loads every entry point of the packed tarball with `require` and `import`,
-    # which `npm test` (source only) can't catch.
+    # which the unit tests (source only) can't catch.
     runs-on: ubuntu-latest
 
     steps:

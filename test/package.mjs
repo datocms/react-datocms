@@ -3,7 +3,7 @@
 // Expects `dist/` to be built already: `npm run test:package` does both.
 
 import { execFileSync, spawnSync } from 'node:child_process';
-import { mkdirSync, mkdtempSync, readFileSync, rmSync, writeFileSync } from 'node:fs';
+import { mkdirSync, mkdtempSync, readFileSync, readdirSync, rmSync, writeFileSync } from 'node:fs';
 import { tmpdir } from 'node:os';
 import { join } from 'node:path';
 
@@ -42,7 +42,10 @@ const load = (cwd, specifier, mode) => {
 const workDir = mkdtempSync(join(tmpdir(), 'react-datocms-package-'));
 
 try {
-  const tarball = join(workDir, run('npm', ['pack', '--ignore-scripts', '--silent', '--pack-destination', workDir]));
+  // The tarball is found on disk, not read from `npm pack`'s output: npm 10 runs
+  // `prepare` despite `--ignore-scripts`, and prints its output before the name.
+  run('npm', ['pack', '--ignore-scripts', '--silent', '--pack-destination', workDir]);
+  const tarball = join(workDir, readdirSync(workDir).find((file) => file.endsWith('.tgz')));
 
   const consumerDir = join(workDir, 'consumer');
   mkdirSync(consumerDir);
